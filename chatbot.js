@@ -33,7 +33,7 @@
           a: "Right now:<ul>" +
             "<li><a href=\"fbem-smart-prep.html\">FBEM Smart Prep</a> (CMA Foundation Paper 4), ₹99" + PC + "</li>" +
             "<li><a href=\"excel-basics.html\">Excel - Basics for All</a>, ₹99" + PC + "</li>" +
-            "<li><a href=\"excel-pro.html\">Excel Pro Lab</a>, ₹199" + PC + "</li>" +
+            "<li><a href=\"excel-pro.html\">Excel Pro Lab</a>, ₹99" + PC + "</li>" +
             "<li><a href=\"excel-for-finance.html\">Excel for Finance - Basics to Advanced</a>, ₹299" + PC + "</li>" +
             "<li><a href=\"excel-data-analytics.html\">Excel for Data Analytics - Basics to Advanced</a>, ₹299" + PC + "</li></ul>" +
             "Every product has a free sample on its page." },
@@ -73,7 +73,7 @@
         { q: "What's in Excel for Data Analytics?",
           a: "18 modules and 121 hands-on exercises. Data cleaning, SUMIFS, lookups, statistics, FILTER, SORT, UNIQUE, PivotTables and dashboards, 5 analytics cases, an AI module and a certificate of completion.<br><br>₹299" + PC + ". <a href=\"excel-data-analytics.html\">Details</a> · <a href=\"samples/excel-data-analytics-sample.html\">Free sample</a>" },
         { q: "What's in Excel Pro Lab?",
-          a: "Advanced Excel for people who already know the basics. 13 modules, 66 exercises and 80 quiz questions on XLOOKUP, FILTER, LET, LAMBDA, dynamic arrays, PivotTables, Solver and a KPI dashboard, plus 6 capstone projects and an AI module.<br><br>₹199" + PC + ". <a href=\"excel-pro.html\">Details</a> · <a href=\"samples/excel-pro-sample.html\">Free sample</a>" },
+          a: "Advanced Excel for people who already know the basics. 13 modules, 66 exercises and 80 quiz questions on XLOOKUP, FILTER, LET, LAMBDA, dynamic arrays, PivotTables, Solver and a KPI dashboard, plus 6 capstone projects and an AI module.<br><br>₹99" + PC + ". <a href=\"excel-pro.html\">Details</a> · <a href=\"samples/excel-pro-sample.html\">Free sample</a>" },
         { q: "What's in FBEM Smart Prep?",
           a: "A revision toolkit for CMA Foundation Paper 4, Fundamentals of Business Economics and Management. Plain-language notes for all 5 chapters, 307 practice questions with instant explanations, 2 full timed mock tests (50 questions, 2 hours), 97 flashcards and a Mistake Book.<br><br>₹99" + PC + ". <a href=\"fbem-smart-prep.html\">Details</a> · <a href=\"samples/fbem-smart-prep-sample.html\">Free sample</a>" },
         { q: "Is there a free sample?",
@@ -100,7 +100,7 @@
       title: "Price and payment",
       faqs: [
         { q: "How much do they cost?",
-          a: "<ul><li>FBEM Smart Prep: ₹99</li><li>Excel - Basics for All: ₹99</li><li>Excel Pro Lab: ₹199</li><li>Excel for Finance: ₹299</li><li>Excel for Data Analytics: ₹299</li></ul>Each price is plus payment charges, added at checkout. You see the full amount before you pay." },
+          a: "<ul><li>FBEM Smart Prep: ₹99</li><li>Excel - Basics for All: ₹99</li><li>Excel Pro Lab: ₹99</li><li>Excel for Finance: ₹299</li><li>Excel for Data Analytics: ₹299</li></ul>Each price is plus payment charges, added at checkout. You see the full amount before you pay." },
         { q: "What are payment charges?",
           a: "They're the fees for processing your payment on Instamojo. They're added on top of the product price at checkout, and the full amount is shown before you pay. There are no other charges." },
         { q: "How do I buy?",
