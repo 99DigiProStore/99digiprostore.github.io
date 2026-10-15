@@ -75,7 +75,7 @@
         { q: "What's in Excel Pro Lab?",
           a: "Advanced Excel for people who already know the basics. 13 modules, 66 exercises and 80 quiz questions on XLOOKUP, FILTER, LET, LAMBDA, dynamic arrays, PivotTables, Solver and a KPI dashboard, plus 6 capstone projects and an AI module.<br><br>₹199" + PC + ". <a href=\"excel-pro.html\">Details</a> · <a href=\"samples/excel-pro-sample.html\">Free sample</a>" },
         { q: "What's in FBEM Smart Prep?",
-          a: "A practice kit for CMA Foundation Paper 4, Fundamentals of Business Economics and Management. Plain-language notes for all 5 chapters, 277 practice questions with instant explanations, 2 full timed mock tests (50 questions, 2 hours), 88 flashcards and a Mistake Book.<br><br>₹99" + PC + ". <a href=\"fbem-smart-prep.html\">Details</a> · <a href=\"samples/fbem-smart-prep-sample.html\">Free sample</a>" },
+          a: "A revision toolkit for CMA Foundation Paper 4, Fundamentals of Business Economics and Management. Plain-language notes for all 5 chapters, 307 practice questions with instant explanations, 2 full timed mock tests (50 questions, 2 hours), 97 flashcards and a Mistake Book.<br><br>₹99" + PC + ". <a href=\"fbem-smart-prep.html\">Details</a> · <a href=\"samples/fbem-smart-prep-sample.html\">Free sample</a>" },
         { q: "Is there a free sample?",
           a: "Yes, every product has one, with no sign-up:<ul>" +
             "<li><a href=\"samples/fbem-smart-prep-sample.html\">FBEM Smart Prep</a></li>" +
