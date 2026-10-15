@@ -100,7 +100,7 @@
       title: "Price and payment",
       faqs: [
         { q: "How much do they cost?",
-          a: "<ul><li>FBEM Smart Prep: ₹99</li><li>Excel - Basics for All: ₹99</li><li>Excel Pro Lab: ₹99</li><li>Excel for Finance: ₹299</li><li>Excel for Data Analytics: ₹299</li></ul>Each price is plus payment charges, added at checkout. You see the full amount before you pay." },
+          a: "<ul><li>FBEM Smart Prep: ₹99</li><li>Excel - Basics for All: ₹99</li><li>Excel Pro Lab: ₹99</li><li>Excel for Finance: ₹299</li><li>Excel for Data Analytics: ₹299</li></ul>Each price is plus payment charges, added at checkout. You see the full amount before you pay. Prices shown here are original rates, so check our " + STORE_LINK + " for current discounts." },
         { q: "What are payment charges?",
           a: "They're the fees for processing your payment on Instamojo. They're added on top of the product price at checkout, and the full amount is shown before you pay. There are no other charges." },
         { q: "How do I buy?",

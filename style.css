@@ -104,3 +104,6 @@ footer { border-top: 1px solid var(--rule); padding-block: 32px; font-size: 0.88
 .foot-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; align-items: center; }
 .foot-links { display: flex; flex-wrap: wrap; gap: 6px 16px; }
 .disclaimer { margin-top: 16px; font-size: 0.8rem; max-width: 80ch; }
+
+.topnote { background: var(--ink); color: var(--paper); text-align: center; font-size: 0.88rem; padding: 8px 20px; }
+.topnote a { color: var(--accent); font-weight: 600; }
