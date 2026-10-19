@@ -16,6 +16,7 @@
   var STORE = "https://99digiprostore.myinstamojo.com";
   var PC = " + payment charges";
   var MAIL = "<a href=\"mailto:" + EMAIL + "\">" + EMAIL + "</a>";
+  function sale(was, now) { return "<s>" + was + "</s> " + now + " (launch offer)" + PC; }
   var STORE_LINK = "<a href=\"" + STORE + "\" target=\"_blank\" rel=\"noopener\">Instamojo store</a>";
 
   /* ---------- 1. The content: topics and their FAQs ----------
@@ -31,11 +32,12 @@
           a: "It's a new initiative by a qualified CMA, run as a small sole proprietorship from India. Every product is planned, written and checked by the founder." },
         { q: "What do you sell?",
           a: "Right now:<ul>" +
-            "<li><a href=\"fbem-smart-prep.html\">FBEM Smart Prep</a> (CMA Foundation Paper 4), ₹99" + PC + "</li>" +
+            "<li><a href=\"fblc-smart-prep.html\">FBLC Smart Prep</a> (CMA Foundation Paper 1), " + sale("₹99", "₹9") + "</li>" +
+            "<li><a href=\"fbem-smart-prep.html\">FBEM Smart Prep</a> (CMA Foundation Paper 4), " + sale("₹99", "₹9") + "</li>" +
             "<li><a href=\"excel-basics.html\">Excel - Basics for All</a>, ₹99" + PC + "</li>" +
             "<li><a href=\"excel-pro.html\">Excel Pro Lab</a>, ₹99" + PC + "</li>" +
-            "<li><a href=\"excel-for-finance.html\">Excel for Finance - Basics to Advanced</a>, ₹299" + PC + "</li>" +
-            "<li><a href=\"excel-data-analytics.html\">Excel for Data Analytics - Basics to Advanced</a>, ₹299" + PC + "</li></ul>" +
+            "<li><a href=\"excel-for-finance.html\">Excel for Finance - Basics to Advanced</a>, " + sale("₹299", "₹99") + "</li>" +
+            "<li><a href=\"excel-data-analytics.html\">Excel for Data Analytics - Basics to Advanced</a>, " + sale("₹299", "₹99") + "</li></ul>" +
             "Every product has a free sample on its page." },
         { q: "How is this different from free material?",
           a: "Free notes, videos and PDFs are things you read. Our products make you practise: a short lesson, then you try it yourself and your answer is checked straight away, so you know exactly what to fix." },
@@ -64,20 +66,24 @@
             "<li>Accounts, finance, CA, CMA or CS students: <a href=\"excel-for-finance.html\">Excel for Finance</a></li>" +
             "<li>MIS, analyst or operations work: <a href=\"excel-data-analytics.html\">Excel for Data Analytics</a></li>" +
             "<li>Already know the basics: <a href=\"excel-pro.html\">Excel Pro Lab</a></li>" +
+            "<li>CMA Foundation Paper 1: <a href=\"fblc-smart-prep.html\">FBLC Smart Prep</a></li>" +
             "<li>CMA Foundation Paper 4: <a href=\"fbem-smart-prep.html\">FBEM Smart Prep</a></li></ul>" +
             "Not sure? Try the free samples first." },
         { q: "What's in Excel - Basics for All?",
           a: "Excel from zero with everyday examples like a family budget and a marks sheet. 10 modules, 44 hands-on exercises with instant checking, 13 short quizzes, 4 final projects and a certificate of completion. It works on a phone keyboard too.<br><br>₹99" + PC + ". <a href=\"excel-basics.html\">Details</a> · <a href=\"samples/excel-basics-sample.html\">Free sample</a>" },
         { q: "What's in Excel for Finance?",
-          a: "15 modules and 117 hands-on exercises on Indian finance data, from your first formula to a DCF valuation. PivotTables, Goal Seek, Data Tables, Solver, 10 finance case studies, 8 final challenges, an AI module and a certificate of completion.<br><br>₹299" + PC + ". <a href=\"excel-for-finance.html\">Details</a> · <a href=\"samples/excel-for-finance-sample.html\">Free sample</a>" },
+          a: "15 modules and 117 hands-on exercises on Indian finance data, from your first formula to a DCF valuation. PivotTables, Goal Seek, Data Tables, Solver, 10 finance case studies, 8 final challenges, an AI module and a certificate of completion.<br><br>" + sale("₹299", "₹99") + ". <a href=\"excel-for-finance.html\">Details</a> · <a href=\"samples/excel-for-finance-sample.html\">Free sample</a>" },
         { q: "What's in Excel for Data Analytics?",
-          a: "18 modules and 121 hands-on exercises. Data cleaning, SUMIFS, lookups, statistics, FILTER, SORT, UNIQUE, PivotTables and dashboards, 5 analytics cases, an AI module and a certificate of completion.<br><br>₹299" + PC + ". <a href=\"excel-data-analytics.html\">Details</a> · <a href=\"samples/excel-data-analytics-sample.html\">Free sample</a>" },
+          a: "18 modules and 121 hands-on exercises. Data cleaning, SUMIFS, lookups, statistics, FILTER, SORT, UNIQUE, PivotTables and dashboards, 5 analytics cases, an AI module and a certificate of completion.<br><br>" + sale("₹299", "₹99") + ". <a href=\"excel-data-analytics.html\">Details</a> · <a href=\"samples/excel-data-analytics-sample.html\">Free sample</a>" },
         { q: "What's in Excel Pro Lab?",
           a: "Advanced Excel for people who already know the basics. 13 modules, 66 exercises and 80 quiz questions on XLOOKUP, FILTER, LET, LAMBDA, dynamic arrays, PivotTables, Solver and a KPI dashboard, plus 6 capstone projects and an AI module.<br><br>₹99" + PC + ". <a href=\"excel-pro.html\">Details</a> · <a href=\"samples/excel-pro-sample.html\">Free sample</a>" },
+        { q: "What's in FBLC Smart Prep?",
+          a: "A practice kit for CMA Foundation Paper 1, Fundamentals of Business Laws and Business Communication. Simple overviews and formats for all 5 modules, 345 practice MCQs with instant explanations, 2 full timed mocks (50 questions, 1 hour) with a calculator and rough sheet, 142 flashcards and a Mistake Book.<br><br>" + sale("₹99", "₹9") + ". <a href=\"fblc-smart-prep.html\">Details</a> · <a href=\"samples/fblc-smart-prep-sample.html\">Free sample</a>" },
         { q: "What's in FBEM Smart Prep?",
-          a: "A revision toolkit for CMA Foundation Paper 4, Fundamentals of Business Economics and Management. Plain-language notes for all 5 chapters, 307 practice questions with instant explanations, 2 full timed mock tests (50 questions, 2 hours), 97 flashcards and a Mistake Book.<br><br>₹99" + PC + ". <a href=\"fbem-smart-prep.html\">Details</a> · <a href=\"samples/fbem-smart-prep-sample.html\">Free sample</a>" },
+          a: "A revision toolkit for CMA Foundation Paper 4, Fundamentals of Business Economics and Management. Plain-language notes for all 5 chapters, 307 practice questions with instant explanations, 2 full timed mock tests (50 questions, 2 hours), 97 flashcards and a Mistake Book.<br><br>" + sale("₹99", "₹9") + ". <a href=\"fbem-smart-prep.html\">Details</a> · <a href=\"samples/fbem-smart-prep-sample.html\">Free sample</a>" },
         { q: "Is there a free sample?",
           a: "Yes, every product has one, with no sign-up:<ul>" +
+            "<li><a href=\"samples/fblc-smart-prep-sample.html\">FBLC Smart Prep</a></li>" +
             "<li><a href=\"samples/fbem-smart-prep-sample.html\">FBEM Smart Prep</a></li>" +
             "<li><a href=\"samples/excel-basics-sample.html\">Excel - Basics for All</a></li>" +
             "<li><a href=\"samples/excel-pro-sample.html\">Excel Pro Lab</a></li>" +
@@ -93,14 +99,14 @@
         { q: "Is there an AI module?",
           a: "Yes, in the Excel labs. It shows you how to use AI tools to write Excel formulas and how to catch their mistakes. No AI is built into the file and you don't need an AI account." },
         { q: "Do you have CMA Inter or Final?",
-          a: "Not yet. For CMA students we have FBEM Smart Prep for Foundation Paper 4 right now. More study kits are on the way. Email " + MAIL + " to tell us what you need." }
+          a: "Not yet. For CMA students we have FBLC Smart Prep for Foundation Paper 1 and FBEM Smart Prep for Paper 4 right now. More study kits are on the way. Email " + MAIL + " to tell us what you need." }
       ]
     },
     {
       title: "Price and payment",
       faqs: [
         { q: "How much do they cost?",
-          a: "<ul><li>FBEM Smart Prep: ₹99</li><li>Excel - Basics for All: ₹99</li><li>Excel Pro Lab: ₹99</li><li>Excel for Finance: ₹299</li><li>Excel for Data Analytics: ₹299</li></ul>Each price is plus payment charges, added at checkout. You see the full amount before you pay. Prices shown here are original rates, so check our " + STORE_LINK + " for current discounts." },
+          a: "Launch offer prices:<ul><li>FBLC Smart Prep: <s>₹99</s> ₹9</li><li>FBEM Smart Prep: <s>₹99</s> ₹9</li><li>Excel for Finance: <s>₹299</s> ₹99</li><li>Excel for Data Analytics: <s>₹299</s> ₹99</li><li>Excel - Basics for All: ₹99</li><li>Excel Pro Lab: ₹99</li></ul>Each price is plus payment charges, added at checkout. You see the full amount before you pay." },
         { q: "What are payment charges?",
           a: "They're the fees for processing your payment on Instamojo. They're added on top of the product price at checkout, and the full amount is shown before you pay. There are no other charges." },
         { q: "How do I buy?",
@@ -108,7 +114,7 @@
         { q: "How can I pay?",
           a: "By UPI, card or net banking on our " + STORE_LINK + ". Payment is handled securely by Instamojo." },
         { q: "Are there any discounts?",
-          a: "Prices are listed on each product page. If an offer is running, you'll see it on our " + STORE_LINK + "." },
+          a: "Yes, a launch offer is on now: FBLC and FBEM Smart Prep at ₹9 (regular ₹99), and Excel for Finance and Excel for Data Analytics at ₹99 (regular ₹299). Excel - Basics for All and Excel Pro Lab stay at ₹99. All plus payment charges." },
         { q: "Do I need an account to buy?",
           a: "No. You don't sign up anywhere. Instamojo asks for your name, email and phone number at checkout so it can send your file." }
       ]
@@ -123,7 +129,7 @@
         { q: "Does it work offline?",
           a: "Yes. After you download it, it works without internet." },
         { q: "Which devices work?",
-          a: "<b>Excel labs:</b> a laptop or desktop (Chrome, Edge, Firefox or Safari) or an Android phone in Chrome.<br><b>FBEM Smart Prep:</b> your phone or laptop in Chrome, Edge or Firefox." },
+          a: "<b>Excel labs:</b> a laptop or desktop (Chrome, Edge, Firefox or Safari) or an Android phone in Chrome.<br><b>FBLC and FBEM Smart Prep:</b> your phone or laptop in Chrome, Edge or Firefox." },
         { q: "Can I use it on an iPhone?",
           a: "iPhones preview downloaded .html files without saving progress, so please use a laptop for the Excel labs." },
         { q: "Is my progress saved?",

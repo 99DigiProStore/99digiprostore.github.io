@@ -1,0 +1,1181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>FBLC Smart Prep Free Sample</title>
+<style>
+/* Uses only fonts already on the device, so the file works offline and contacts no outside server. */
+/* Layout: an exam-hall study app. OMR answer-sheet motif: salmon print rules, ballpoint-blue fills. One column, tab bar, cards only where an object needs setting off. */
+:root{
+  --bg:#F5F6F9; --card:#FFFFFF; --fg:#1A2133; --muted:#5A6377; --line:#DDE2EB; --soft:#EEF1F7;
+  --ink:#2340A8; --ink-soft:#E3E9FB; --omr:#D2584B; --omr-soft:#FBE7E3;
+  --good:#16804F; --good-soft:#DFF3E8; --bad:#BC3A31; --bad-soft:#FBE3E1; --warn:#9A6400; --warn-soft:#FBF0D9;
+  --f-display:"Segoe UI Variable Display","Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --f-body:"Segoe UI",system-ui,-apple-system,Roboto,"Noto Sans","Helvetica Neue",Arial,sans-serif;
+  --f-mono:ui-monospace,"Cascadia Mono",Consolas,"Roboto Mono",Menlo,monospace;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0F131C; --card:#171C28; --fg:#E5E8F0; --muted:#9AA3B6; --line:#2A3142; --soft:#1D2333;
+  --ink:#8EA6FF; --ink-soft:#22305C; --omr:#F08C7F; --omr-soft:#3A2220;
+  --good:#5CCB92; --good-soft:#173527; --bad:#F2867D; --bad-soft:#3C1E1C; --warn:#E8B85C; --warn-soft:#3A2E14; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F131C; --card:#171C28; --fg:#E5E8F0; --muted:#9AA3B6; --line:#2A3142; --soft:#1D2333;
+  --ink:#8EA6FF; --ink-soft:#22305C; --omr:#F08C7F; --omr-soft:#3A2220;
+  --good:#5CCB92; --good-soft:#173527; --bad:#F2867D; --bad-soft:#3C1E1C; --warn:#E8B85C; --warn-soft:#3A2E14; color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+h1,h2,h3{font-family:var(--f-display);line-height:1.15;text-wrap:balance;margin:0}
+h1{font-size:clamp(1.6rem,4.5vw,2.2rem);font-weight:800;letter-spacing:-.01em}
+h2{font-size:1.35rem;font-weight:700}
+h3{font-size:1.08rem;font-weight:700}
+p{margin:0}
+a{color:var(--ink)}
+.wrap{max-width:880px;margin:0 auto;padding-inline:16px}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.muted{color:var(--muted)}
+.small{font-size:.86rem}
+.label{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--omr);font-weight:700}
+.stack{display:flex;flex-direction:column;gap:12px}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.grow{flex:1 1 auto;min-width:0}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--card);border-bottom:2px solid var(--omr)}
+.top .wrap{display:flex;align-items:center;gap:12px;padding-block:10px}
+.brand{display:flex;flex-direction:column;line-height:1.1;min-width:0}
+.brand b{font-family:var(--f-display);font-weight:800;font-size:1.1rem}
+.brand span{font-size:.74rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--soft);border-radius:999px;padding:4px 10px 4px 4px;font-size:.88rem}
+.avatar{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:var(--card);font-weight:700;font-size:.85rem;flex:none}
+.tabs{background:var(--card);border-bottom:1px solid var(--line)}
+.tabs .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.tabs .wrap::-webkit-scrollbar{display:none}
+.tab{background:none;border:0;padding:10px 12px;border-bottom:3px solid transparent;color:var(--muted);font-weight:700;white-space:nowrap}
+.tab[aria-current="page"]{color:var(--ink);border-bottom-color:var(--ink)}
+main{padding-block:20px 40px}
+
+/* surfaces */
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.sheet{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;border-top:4px solid var(--omr)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:8px;border:1px solid var(--line);background:var(--card);padding:9px 14px;font-weight:700;text-decoration:none;color:var(--fg)}
+.btn:hover{border-color:var(--ink)}
+.btn.primary{background:var(--ink);border-color:var(--ink);color:var(--card)}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn.ghost{background:transparent;border-color:transparent;color:var(--ink);padding-inline:6px}
+.btn.danger{color:var(--bad);border-color:var(--bad)}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+.btn.block{width:100%}
+
+/* pills */
+.pill{display:inline-flex;align-items:center;gap:4px;font-size:.74rem;font-weight:700;border-radius:999px;padding:2px 9px;background:var(--soft);color:var(--muted);white-space:nowrap}
+.pill.fav{background:var(--omr-soft);color:var(--omr)}
+.pill.good{background:var(--good-soft);color:var(--good)}
+.pill.bad{background:var(--bad-soft);color:var(--bad)}
+.pill.warn{background:var(--warn-soft);color:var(--warn)}
+.pill.ink{background:var(--ink-soft);color:var(--ink)}
+
+/* progress */
+.bar{height:8px;border-radius:99px;background:var(--soft);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ink);border-radius:99px}
+.bar.g i{background:var(--good)}
+.ring{--p:0;width:96px;height:96px;border-radius:50%;background:conic-gradient(var(--ink) calc(var(--p)*1%),var(--soft) 0);display:grid;place-items:center;flex:none}
+.ring b{width:74px;height:74px;border-radius:50%;background:var(--card);display:grid;place-items:center;font-family:var(--f-mono);font-size:1.15rem}
+
+/* modules list */
+.mod{display:flex;gap:14px;align-items:flex-start}
+.modno{font-family:var(--f-display);font-weight:800;font-size:1.6rem;color:var(--omr);width:36px;flex:none;line-height:1}
+.locked{opacity:.62}
+.lock{font-size:.8rem;font-weight:700;color:var(--muted);display:inline-flex;gap:6px;align-items:center}
+
+/* notes */
+.notes{max-width:68ch}
+.notes h2{margin-top:28px;padding-top:14px;border-top:2px dashed var(--line);scroll-margin-top:120px}
+.notes h2:first-child{margin-top:0;border-top:0;padding-top:0}
+.notes h3{margin-top:20px;color:var(--ink)}
+.notes p,.notes ul,.notes ol,.notes .tbl,.notes .call{margin-top:10px}
+.notes ul,.notes ol{padding-left:1.3em}
+.notes li+li{margin-top:4px}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:8px}
+.tbl table{border-collapse:collapse;width:100%;font-size:.92rem}
+.tbl th,.tbl td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl th{background:var(--soft);font-weight:700}
+.tbl tr:last-child td{border-bottom:0}
+.call{border-left:4px solid var(--ink);background:var(--ink-soft);padding:10px 12px;border-radius:0 8px 8px 0}
+.call b.k{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;display:block;margin-bottom:2px}
+.call.trap{border-color:var(--bad);background:var(--bad-soft)}
+.call.trap b.k{color:var(--bad)}
+.call.formula{border-color:var(--omr);background:var(--omr-soft);font-family:var(--f-mono);font-size:.9rem}
+.call.formula b.k{color:var(--omr)}
+.call.tip b.k{color:var(--ink)}
+.toc{display:flex;flex-wrap:wrap;gap:6px}
+.toc button{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:4px 10px;font-size:.85rem}
+
+/* question */
+.qhead{display:flex;flex-wrap:wrap;gap:6px;align-items:center;justify-content:space-between}
+.qtext{font-size:1.08rem;font-weight:700;margin-top:10px}
+.opts{display:flex;flex-direction:column;gap:8px;margin-top:14px}
+.opt{display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.opt:hover:not([disabled]){border-color:var(--ink)}
+.opt[disabled]{cursor:default}
+.bub{width:28px;height:28px;border-radius:50%;border:2px solid var(--omr);color:var(--omr);display:grid;place-items:center;font-family:var(--f-mono);font-weight:700;font-size:.85rem;flex:none}
+.opt.sel .bub{background:var(--ink);border-color:var(--ink);color:var(--card)}
+.opt.sel{border-color:var(--ink);background:var(--ink-soft)}
+.opt.right{border-color:var(--good);background:var(--good-soft)}
+.opt.right .bub{background:var(--good);border-color:var(--good);color:var(--card)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt.wrong .bub{background:var(--bad);border-color:var(--bad);color:var(--card)}
+.explain{margin-top:14px;border-radius:8px;padding:12px;background:var(--soft);border:1px solid var(--line)}
+.explain.ok{border-color:var(--good)}
+.explain.no{border-color:var(--bad)}
+
+/* exam */
+.exambar{position:sticky;top:calc(env(safe-area-inset-top,0px) + 0px);z-index:15;background:var(--card);border-bottom:1px solid var(--line)}
+.exambar .wrap{display:flex;gap:10px;align-items:center;padding-block:8px}
+.timer{font-family:var(--f-mono);font-weight:700;font-size:1.1rem;padding:4px 10px;border-radius:6px;background:var(--soft)}
+.timer.low{background:var(--bad-soft);color:var(--bad)}
+.palette{display:grid;grid-template-columns:repeat(auto-fill,minmax(38px,1fr));gap:6px}
+.pal{height:38px;border-radius:50%;border:2px solid var(--omr);background:var(--card);font-family:var(--f-mono);font-size:.8rem;font-weight:700;color:var(--omr)}
+.pal.ans{background:var(--ink);border-color:var(--ink);color:var(--card)}
+.pal.mark{border-color:var(--warn);box-shadow:inset 0 0 0 3px var(--warn-soft)}
+.pal.cur{outline:3px solid var(--fg);outline-offset:1px}
+.pal.right{background:var(--good);border-color:var(--good);color:var(--card)}
+.pal.wrong{background:var(--bad);border-color:var(--bad);color:var(--card)}
+.pal.skip{background:var(--soft);border-color:var(--line);color:var(--muted)}
+.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:.8rem;color:var(--muted)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:4px;vertical-align:-1px;border:2px solid var(--omr)}
+
+/* flashcard */
+.flash{min-height:200px;display:grid;place-items:center;text-align:center;cursor:pointer;padding:24px;border:1px solid var(--line);border-radius:var(--r);background:var(--card);border-top:4px solid var(--ink)}
+.flash .term{font-family:var(--f-display);font-size:1.5rem;font-weight:700}
+.flash .def{font-size:1.05rem}
+
+/* login */
+.login{min-height:100%;display:flex;align-items:flex-start;justify-content:center;padding-block:28px}
+.login .box{width:100%;max-width:520px}
+.users{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
+.user{display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 8px;border:1px solid var(--line);border-radius:var(--r);background:var(--card);text-align:center}
+.user:hover{border-color:var(--ink)}
+.user .avatar{width:44px;height:44px;font-size:1.1rem}
+input[type=text],input[type=password],textarea,select{width:100%;padding:10px 12px;border-radius:8px;border:1px solid var(--line);background:var(--card)}
+textarea{font-family:var(--f-mono);font-size:.78rem;min-height:90px}
+label.f{display:flex;flex-direction:column;gap:4px;font-weight:700;font-size:.9rem}
+.pin{letter-spacing:.5em;font-family:var(--f-mono);text-align:center;font-size:1.2rem}
+.err{color:var(--bad);font-size:.88rem;font-weight:700}
+
+/* banners, footer */
+.banner{border:1px solid var(--warn);background:var(--warn-soft);color:var(--fg);border-radius:8px;padding:10px 12px;font-size:.9rem}
+.upsell{border:2px dashed var(--omr);border-radius:var(--r);padding:16px;background:var(--omr-soft)}
+footer{border-top:1px solid var(--line);padding-block:18px 28px;font-size:.8rem;color:var(--muted)}
+footer .wrap{display:flex;flex-direction:column;gap:6px}
+.stat{display:flex;flex-direction:column;gap:2px;min-width:0}
+.stats{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:560px){.stats .stat{padding:10px}.stats .stat b{font-size:1.05rem}}
+.stat b{font-family:var(--f-mono);font-size:1.4rem}
+.toast{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:8px 14px;border-radius:8px;font-size:.9rem;z-index:50}
+.confirm{border:2px solid var(--bad);background:var(--bad-soft);border-radius:8px;padding:12px}
+@media (max-width:560px){.hide-sm{display:none}.qtext{font-size:1rem}}
+@media (prefers-reduced-motion:no-preference){.opt,.btn,.pal{transition:border-color .15s,background .15s}}
+
+/* ---- FBLC additions ---- */
+.subtabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;border-bottom:1px solid var(--line)}
+.subtabs::-webkit-scrollbar{display:none}
+.subtab{background:none;border:0;border-bottom:3px solid transparent;padding:8px 10px;font-weight:700;color:var(--muted);white-space:nowrap;font-size:.92rem}
+.subtab[aria-current="true"]{color:var(--omr);border-bottom-color:var(--omr)}
+pre.fmt{font-family:var(--f-mono);font-size:.8rem;line-height:1.45;background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--omr);border-radius:0 8px 8px 0;padding:12px;overflow-x:auto;white-space:pre;margin-top:10px}
+.tool{border:1px solid var(--line);border-radius:var(--r);padding:16px;background:var(--card);border-top:4px solid var(--ink)}
+.tool .row label.f{flex:1 1 150px}
+.out{background:var(--ink-soft);border-radius:8px;padding:12px;font-size:.95rem}
+.out b{font-family:var(--f-mono)}
+.steps{margin:6px 0 0;padding-left:1.2em}
+.steps li+li{margin-top:4px}
+input[type=date],input[type=number]{width:100%;padding:9px 10px;border-radius:8px;border:1px solid var(--line);background:var(--card)}
+/* match sprint */
+.match{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mcell{display:flex;flex-direction:column;gap:8px}
+.mbtn{text-align:left;border:1px solid var(--line);background:var(--card);border-radius:8px;padding:10px;font-size:.9rem;min-height:56px}
+.mbtn.on{border-color:var(--ink);background:var(--ink-soft)}
+.mbtn.done{border-color:var(--good);background:var(--good-soft);color:var(--good);cursor:default}
+.mbtn.no{border-color:var(--bad);background:var(--bad-soft)}
+@media (max-width:560px){.mbtn{font-size:.82rem;padding:8px}}
+/* performance */
+.hbar{display:grid;grid-template-columns:minmax(90px,38%) 1fr 48px;gap:8px;align-items:center;font-size:.88rem}
+.hbar .bar{height:10px}
+.days{display:grid;grid-template-columns:repeat(14,1fr);gap:4px;max-width:420px}
+.days i{aspect-ratio:1;border-radius:3px;background:var(--soft);display:block}
+.days i.on{background:var(--good)}
+.spark{display:flex;align-items:flex-end;gap:6px;height:90px;border-bottom:1px solid var(--line);padding-top:6px}
+.spark span{flex:1;max-width:36px;background:var(--ink);border-radius:4px 4px 0 0;position:relative;min-height:2px}
+.spark span em{position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-style:normal;font-family:var(--f-mono);font-size:.7rem;color:var(--muted)}
+/* exam tools */
+.toolbar{display:flex;gap:6px;flex-wrap:wrap}
+.panel{position:fixed;z-index:40;background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.18);display:none;flex-direction:column}
+.panel.open{display:flex}
+.panel .ph{display:flex;align-items:center;gap:8px;padding:8px 10px;border-bottom:1px solid var(--line);font-weight:700;cursor:move;user-select:none;touch-action:none}
+.panel .ph .x{margin-left:auto;border:0;background:none;font-size:1.2rem;line-height:1;padding:2px 6px}
+#calc{width:272px;right:16px;bottom:16px}
+#calc .scr{margin:10px;padding:8px 10px;border-radius:8px;background:var(--soft);text-align:right;font-family:var(--f-mono)}
+#calc .scr small{display:block;min-height:1.1em;color:var(--muted);font-size:.75rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#calc .scr b{display:block;font-size:1.5rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#calc .keys{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;padding:0 10px 10px}
+#calc .keys button{border:1px solid var(--line);background:var(--card);border-radius:8px;padding:9px 0;font-family:var(--f-mono);font-weight:700;font-size:.92rem}
+#calc .keys button.op{background:var(--soft)}
+#calc .keys button.eq{background:var(--ink);color:var(--card);border-color:var(--ink)}
+#calc .keys button.m{font-size:.75rem;color:var(--ink)}
+#rough{width:min(520px,calc(100vw - 32px));left:16px;bottom:16px;height:min(460px,70vh)}
+#rough .rb{display:flex;gap:6px;padding:6px 10px;flex-wrap:wrap;border-bottom:1px solid var(--line)}
+#rough .rb button{border:1px solid var(--line);background:var(--card);border-radius:6px;padding:4px 8px;font-size:.8rem;font-weight:700}
+#rough .rb button.on{background:var(--ink);color:var(--card);border-color:var(--ink)}
+#rough canvas{flex:1;width:100%;touch-action:none;background:repeating-linear-gradient(var(--card) 0 27px,var(--soft) 27px 28px);cursor:crosshair;display:block}
+#rough textarea{flex:1;border:0;border-radius:0 0 12px 12px;font-family:var(--f-mono);font-size:.9rem;min-height:0;resize:none;background:repeating-linear-gradient(var(--card) 0 27px,var(--soft) 27px 28px);line-height:28px;padding:0 10px}
+@media (max-width:420px){.tabs .wrap{gap:0}.tab{padding:10px 8px;font-size:.92rem}}
+@media (max-width:560px){#calc{left:8px;right:8px;width:auto;bottom:8px}#rough{left:8px;right:8px;width:auto;bottom:8px;height:48vh}}
+.instr{counter-reset:i}
+.instr li{margin-top:6px}
+.omr{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px 14px;font-family:var(--f-mono);font-size:.82rem}
+.omr .r{display:flex;align-items:center;gap:6px}
+.omr .r span.n{width:22px;text-align:right;color:var(--muted)}
+.omr .r i{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--omr);display:grid;place-items:center;font-style:normal;font-size:.68rem;color:var(--omr)}
+.omr .r i.f{background:var(--ink);border-color:var(--ink);color:var(--card)}
+.omr .r i.ok{background:var(--good);border-color:var(--good);color:var(--card)}
+.omr .r i.bad{background:var(--bad);border-color:var(--bad);color:var(--card)}
+.kbd{font-family:var(--f-mono);font-size:.78rem;border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:0 5px;background:var(--soft)}
+</style>
+
+</head>
+<body>
+<div id="app"></div>
+<div id="tools"></div>
+<script>const DATA={"edition":"sample","version":"v1.0 (October 2026)","modules":[{"n":1,"title":"Introduction to Law","weight":10,"split":5,"locked":false,"chapters":[{"id":"1.1","title":"Sources of Law"},{"id":"1.2","title":"Legislative Process in India"},{"id":"1.3","title":"Court System, Tribunals and ADR"},{"id":"1.4","title":"Primary and Subordinate Legislation"}]},{"n":2,"title":"Indian Contract Act, 1872","weight":30,"split":15,"locked":true,"chapters":[{"id":"2.1","title":"Essentials, Types, Offer and Acceptance"},{"id":"2.2","title":"Void and Voidable Agreements"},{"id":"2.3","title":"Consideration and Legality of Object"},{"id":"2.4","title":"Capacity and Free Consent"},{"id":"2.5","title":"Quasi and Contingent Contracts"},{"id":"2.6","title":"Performance of Contracts"},{"id":"2.7","title":"Indemnity, Guarantee, Pledge and Agency"},{"id":"2.8","title":"E-Contracts and E-Signature"},{"id":"2.9","title":"Discharge of Contracts"},{"id":"2.10","title":"Breach and Remedies"}]},{"n":3,"title":"Sale of Goods Act, 1930","weight":20,"split":10,"locked":true,"chapters":[{"id":"3.1","title":"Definitions"},{"id":"3.2","title":"Transfer of Ownership"},{"id":"3.3","title":"Essentials of a Contract of Sale"},{"id":"3.4","title":"Conditions and Warranties"},{"id":"3.5","title":"Performance of the Contract of Sale"},{"id":"3.6","title":"Rights of an Unpaid Seller"}]},{"n":4,"title":"Negotiable Instruments Act, 1881","weight":20,"split":10,"locked":true,"chapters":[{"id":"4.1","title":"Characteristics of Negotiable Instruments"},{"id":"4.2","title":"Promissory Note, Bill and Cheque"},{"id":"4.3","title":"Note vs Bill vs Cheque"},{"id":"4.4","title":"Crossing of Cheques"},{"id":"4.5","title":"Dishonour of Cheques (Sec 138)"}]},{"n":5,"title":"Business Communication","weight":20,"split":10,"locked":true,"chapters":[{"id":"5.1","title":"Introduction"},{"id":"5.2","title":"Features of Effective Communication"},{"id":"5.3","title":"Process of Communication"},{"id":"5.4","title":"Types of Communication"},{"id":"5.5","title":"Internet Based Communication"},{"id":"5.6","title":"Social Media Do's and Don'ts"},{"id":"5.7","title":"Writing for Business Audiences"},{"id":"5.8","title":"Intercultural Communication"},{"id":"5.9","title":"Barriers to Communication"},{"id":"5.10","title":"Legal Aspects"},{"id":"5.11","title":"Graphics and References"}]}],"notes":{"1":[{"id":"1.1","title":"Sources of Law","html":"<h3>What law is<\/h3>\n<p>Law is a body of rules that a society agrees to live by and that the State enforces. A rule becomes \"law\" when breaking it leads to a consequence (a sanction) imposed by an authority. Three ideas sit inside every law: a <b>command<\/b> (do or don't), a <b>duty<\/b> (the person bound by it) and a <b>sanction<\/b> (the result of breaking it).<\/p>\n<h3>The four main sources of law in India<\/h3>\n<div class=\"tbl\"><table><thead><tr><th>Source<\/th><th>What it means<\/th><th>Example<\/th><\/tr><\/thead><tbody><tr><td><b>Constitution of India<\/b><\/td><td>The supreme law. Every other law must fit within it.<\/td><td>Fundamental Rights in Part III<\/td><\/tr><tr><td><b>Statutes (legislation)<\/b><\/td><td>Acts passed by Parliament or a State Legislature, plus older Acts still in force.<\/td><td>Indian Contract Act, 1872<\/td><\/tr><tr><td><b>Judicial precedents (case law)<\/b><\/td><td>Decisions of higher courts that later courts must follow.<\/td><td>Article 141: Supreme Court law binds all courts<\/td><\/tr><tr><td><b>Customs and personal laws<\/b><\/td><td>Long-followed practices, many of them now written into Acts.<\/td><td>Hindu Marriage Act, 1955<\/td><\/tr><\/tbody><\/table><\/div>\n<p>Ordinances, rules, regulations, bye-laws and notifications also have the force of law. <b>Article 13(3)(a)<\/b> gives \"law\" a wide meaning that takes in all of these, and also customs and usages that have the force of law in India.<\/p>\n<h3>Statutes and the Seventh Schedule<\/h3>\n<p>Parliament and State Legislatures make laws only on the subjects given to them in the <b>Seventh Schedule<\/b> of the Constitution:<\/p>\n<ul><li><b>List I, Union List:<\/b> only Parliament can legislate (defence, banking, currency).<\/li><li><b>List II, State List:<\/b> only the State Legislature can legislate (police, public health).<\/li><li><b>List III, Concurrent List:<\/b> both can legislate (contracts, marriage, education).<\/li><\/ul>\n<p>Laws made before 1950 continue to apply unless they are repealed or conflict with the Constitution. The Indian Contract Act, 1872, the Negotiable Instruments Act, 1881 and the Sale of Goods Act, 1930 are all pre-Constitution laws that are still in force.<\/p>\n<h3>Judicial precedent<\/h3>\n<p>Courts do not make Acts, but when they interpret a law their decision becomes a guide for future cases. The rule that courts follow earlier decisions is called <b>stare decisis<\/b> (\"stand by what has been decided\").<\/p>\n<ul><li><b>Article 141:<\/b> the law declared by the Supreme Court is binding on all courts in India.<\/li><li>A High Court's decision binds the courts below it in that State. In another State it is only <b>persuasive<\/b> (it may be followed, but need not be).<\/li><li>Supreme Court decisions are reported in law reports such as AIR (All India Reporter) and SCC (Supreme Court Cases).<\/li><\/ul>\n<div class=\"call tip\"><b class=\"k\">EXAM TIP<\/b>\"Binding\" means must follow. \"Persuasive\" means may follow. A High Court ruling is binding inside its own State and only persuasive outside it.<\/div>\n<h3>Customs and personal laws<\/h3>\n<p>A custom is a practice followed for so long that people treat it as binding. For a custom to be valid it must be <b>ancient, certain, reasonable, continuous and not against law or public morality<\/b>. An uncertain custom is not valid. Personal laws (Hindu law, Muslim law, Christian law) grew from religion and custom. Many are now codified, for example the Hindu Marriage Act, 1955, the Indian Christian Marriage Act, 1872 and the Kazis Act, 1880.<\/p>\n<div class=\"call trap\"><b class=\"k\">COMMON TRAP<\/b>Custom is the oldest source of Hindu law, but it is not the \"primary written source\". The Shruti (the Vedas) and the Smritis (such as Manu, Yajnavalkya and Narada) are the classical written sources.<\/div>\n<h3>A short legal history of India<\/h3>\n<div class=\"tbl\"><table><thead><tr><th>Period<\/th><th>Key features<\/th><\/tr><\/thead><tbody><tr><td><b>Ancient<\/b><\/td><td>Law based on <b>dharma<\/b> (duty and righteousness). Texts: Vedas, Smritis, Arthashastra. Courts ranked from the family council up to the King.<\/td><\/tr><tr><td><b>Medieval (from the 12th century)<\/b><\/td><td>Delhi Sultanate and then the Mughals. Chief judge: <b>Qazi-ul-Quzat<\/b>, helped by the Mufti (explained the law) and the Mir Adl (brought parties and enforced decrees).<\/td><\/tr><tr><td><b>British<\/b><\/td><td>Charter of 1600 to the East India Company; Mayor's Court 1726; Warren Hastings' Judicial Plan 1772 (the Adalat system); Indian High Courts Act 1861 (High Courts at Calcutta, Bombay and Madras); Federal Court 1937 under the Government of India Act, 1935. Codified laws such as the Indian Penal Code 1860 and the Contract Act 1872.<\/td><\/tr><tr><td><b>Indian (from 1950)<\/b><\/td><td>Privy Council appeals ended by the Abolition of Privy Council Jurisdiction Act, 1949. Constitution adopted on 26 November 1949 and in force from 26 January 1950.<\/td><\/tr><\/tbody><\/table><\/div>\n<p><b>Ancient Indian courts, lowest to highest:<\/b> Kula (family council) → Shreni (trade or craft guild) → Gana (village assembly) → Adhikrita (court appointed by the King) → Sasita (King's court with judges) → Nripa (the King himself). A higher court's decision overruled a lower one.<\/p>\n<div class=\"call tip\"><b class=\"k\">EXAM TIP<\/b>Remember the order with \"<b>K<\/b>ind <b>S<\/b>ellers <b>G<\/b>ive <b>A<\/b>ll <b>S<\/b>weet <b>N<\/b>uts\": Kula, Shreni, Gana, Adhikrita, Sasita, Nripa.<\/div>\n<h3>Dates worth knowing<\/h3>\n<ul><li>Drafting Committee of the Constitution formed on <b>29 August 1947<\/b>, chaired by <b>Dr B. R. Ambedkar<\/b>.<\/li><li>Constitution adopted by the Constituent Assembly on <b>26 November 1949<\/b> (now observed as Constitution Day, also called Law Day).<\/li><li>Constitution came into force on <b>26 January 1950<\/b>. The Supreme Court came into being the same day under <b>Article 124<\/b> and held its inaugural sitting on 28 January 1950.<\/li><li>The Supreme Court began with <b>8 judges<\/b> (the Chief Justice and 7 others). Its sanctioned strength today is <b>34<\/b> (the Chief Justice of India and 33 other judges).<\/li><\/ul>"},{"id":"1.2","title":"Legislative Process in India","html":"<h3>India's structure<\/h3>\n<p>India has a federal structure (a Union government and State governments) with a strong centre. This is why it is called <b>quasi-federal<\/b>, or a federation with a unitary bias. The Supreme Court upheld federalism as a basic feature in S. R. Bommai v. Union of India (1994).<\/p>\n<h3>Who makes laws<\/h3>\n<div class=\"tbl\"><table><thead><tr><th>Body<\/th><th>Article<\/th><th>Made up of<\/th><\/tr><\/thead><tbody><tr><td><b>Parliament<\/b><\/td><td>Article 79<\/td><td>The President + Rajya Sabha (Council of States) + Lok Sabha (House of the People)<\/td><\/tr><tr><td><b>State Legislature<\/b><\/td><td>Article 168<\/td><td>The Governor + one House (Legislative Assembly), or two Houses (Legislative Council and Legislative Assembly) in some States<\/td><\/tr><\/tbody><\/table><\/div>\n<p><b>Article 245<\/b> gives the power to make laws: Parliament for the whole or any part of India, and a State Legislature for the whole or any part of that State. <b>Article 246<\/b> read with the Seventh Schedule divides the subjects.<\/p>\n<p><b>Article 254 (inconsistency):<\/b> if a State law on a Concurrent List subject conflicts with a law of Parliament, the law of Parliament prevails. The exception: a State law that was reserved for the President and received his assent prevails in that State.<\/p>\n<h3>How a Bill becomes an Act<\/h3>\n<ol><li>A <b>Bill<\/b> (a draft law) is introduced in either House (<b>Article 107<\/b>). A Bill moved by a Minister is a <b>Government Bill<\/b>; one moved by any other member is a <b>Private Member's Bill<\/b>.<\/li><li>It goes through readings and debate, and often a committee, in both Houses.<\/li><li>When both Houses have passed it, it goes to the <b>President for assent<\/b>. After assent it becomes an Act.<\/li><\/ol>\n<p><b>Money Bills<\/b> (taxes, borrowing, government spending) can be introduced <b>only in the Lok Sabha<\/b>, never in the Rajya Sabha (<b>Article 109<\/b>).<\/p>\n<div class=\"call trap\"><b class=\"k\">COMMON TRAP<\/b>\"Private Bill\" in this syllabus means a Bill moved by a member who is not a Minister. It does not mean a Bill by a private citizen or a company.<\/div>\n<h3>Ordinances: law in an emergency<\/h3>\n<p>When Parliament is not in session and immediate action is needed:<\/p>\n<ul><li>the <b>President<\/b> can promulgate an ordinance under <b>Article 123<\/b>;<\/li><li>a <b>Governor<\/b> can do the same for a State under <b>Article 213<\/b>.<\/li><\/ul>\n<p>An ordinance has the same force as an Act. It must be laid before the legislature when it reassembles and lapses <b>six weeks<\/b> after reassembly unless approved earlier. Because the gap between two sessions cannot exceed six months, an ordinance can survive for at most about six months and six weeks.<\/p>\n<div class=\"call trap\"><b class=\"k\">COMMON TRAP<\/b>Ministers cannot issue ordinances. Only the President (for the Union) and a Governor (for a State) can.<\/div>\n<h3>Local government<\/h3>\n<ul><li><b>Article 243<\/b> and <b>Part IX<\/b> deal with Panchayats (rural local bodies).<\/li><li><b>Part IXA<\/b> deals with Municipalities (urban local bodies).<\/li><\/ul>\n<p>They frame rules and bye-laws for their areas under powers delegated to them.<\/p>\n<h3>Amending the Constitution<\/h3>\n<p><b>Article 368<\/b> gives Parliament the power to amend the Constitution by adding, changing or repealing provisions. In <b>Kesavananda Bharati v. State of Kerala (1973)<\/b> the Supreme Court held that Parliament cannot change the <b>basic structure<\/b> of the Constitution, which includes core Fundamental Rights.<\/p>\n<h3>Quick article table<\/h3>\n<div class=\"tbl\"><table><thead><tr><th>Article<\/th><th>Topic<\/th><\/tr><\/thead><tbody><tr><td>13(3)(a)<\/td><td>Meaning of \"law\" (includes ordinances, rules, bye-laws, customs)<\/td><\/tr><tr><td>32<\/td><td>Right to approach the Supreme Court for Fundamental Rights (writs)<\/td><\/tr><tr><td>79<\/td><td>Composition of Parliament<\/td><\/tr><tr><td>107<\/td><td>Introduction and passing of Bills<\/td><\/tr><tr><td>109<\/td><td>Special procedure for Money Bills<\/td><\/tr><tr><td>123<\/td><td>Ordinances by the President<\/td><\/tr><tr><td>124<\/td><td>Establishment of the Supreme Court<\/td><\/tr><tr><td>141<\/td><td>Supreme Court law binds all courts<\/td><\/tr><tr><td>168<\/td><td>Composition of State Legislatures<\/td><\/tr><tr><td>213<\/td><td>Ordinances by a Governor<\/td><\/tr><tr><td>226<\/td><td>Writ power of High Courts<\/td><\/tr><tr><td>245<\/td><td>Power to make laws<\/td><\/tr><tr><td>246<\/td><td>Subject-wise division (with the Seventh Schedule)<\/td><\/tr><tr><td>254<\/td><td>Inconsistency between Union and State laws<\/td><\/tr><tr><td>368<\/td><td>Amendment of the Constitution<\/td><\/tr><\/tbody><\/table><\/div>"},{"id":"1.3","title":"Court System, Tribunals and ADR","html":"<p>India has a <b>single, integrated judiciary<\/b> shaped like a pyramid: the Supreme Court at the top, High Courts in the States, and subordinate courts in the districts. The judiciary acts as a <b>watchdog of democracy and guardian of the Constitution<\/b>.<\/p>\n<h3>Supreme Court (Articles 124 to 147)<\/h3>\n<div class=\"tbl\"><table><thead><tr><th>Jurisdiction<\/th><th>Article<\/th><th>Meaning<\/th><\/tr><\/thead><tbody><tr><td><b>Original<\/b><\/td><td>131<\/td><td>Disputes between the Union and States, or between States<\/td><\/tr><tr><td><b>Writ<\/b><\/td><td>32<\/td><td>Any person can approach it when a Fundamental Right (Part III) is violated<\/td><\/tr><tr><td><b>Appellate<\/b><\/td><td>132 to 136<\/td><td>Highest court of appeal from High Courts<\/td><\/tr><tr><td><b>Advisory<\/b><\/td><td>143<\/td><td>Advises the President on questions of public importance<\/td><\/tr><tr><td><b>Court of record<\/b><\/td><td>129<\/td><td>Its records are evidence, and it can punish for contempt of itself<\/td><\/tr><tr><td><b>Review<\/b><\/td><td>137<\/td><td>Can review its own judgments<\/td><\/tr><\/tbody><\/table><\/div>\n<h3>High Courts<\/h3>\n<ul><li><b>Writ jurisdiction under Article 226<\/b> covers Fundamental Rights <b>and<\/b> other legal rights, so it is wider than Article 32.<\/li><li><b>Article 227:<\/b> superintendence over all courts and tribunals in its territory.<\/li><li><b>Article 228:<\/b> can withdraw to itself a case that involves a substantial question of constitutional law.<\/li><li><b>Article 215:<\/b> a court of record with power to punish for contempt.<\/li><li>Hears appeals from subordinate courts in civil and criminal matters. India has <b>25 High Courts<\/b>.<\/li><\/ul>\n<div class=\"call tip\"><b class=\"k\">EXAM TIP<\/b>Fundamental Right violated? You may go to the Supreme Court (Art. 32) or the High Court (Art. 226). Only a legal right (not fundamental)? The High Court under Art. 226.<\/div>\n<h3>Subordinate courts<\/h3>\n<p><b>Civil side:<\/b> the <b>District Court<\/b> (presided over by the District Judge) is the highest civil court in a district. District Judges are appointed by the <b>Governor in consultation with the High Court (Article 233)<\/b>. Below it are Sub-Judge and Munsif courts, and Small Causes courts in cities.<\/p>\n<p><b>Criminal side (as described in the study material under Section 6 of the CrPC, 1973):<\/b><\/p>\n<ul><li><b>Court of Session:<\/b> tries serious offences. A death sentence it passes must be confirmed by the High Court.<\/li><li><b>Chief Judicial Magistrate and Judicial Magistrates (First and Second Class):<\/b> can pass any sentence allowed by law except death, life imprisonment or imprisonment for more than seven years (the limit described for the CJM).<\/li><li><b>Metropolitan Magistrates<\/b> in cities with a population above ten lakh.<\/li><li><b>Executive Magistrates:<\/b> appointed by the State Government for law and order. Their work is administrative, not judicial.<\/li><\/ul>\n<div class=\"call trap\"><b class=\"k\">COMMON TRAP<\/b>Law update. From 1 July 2024 the Bharatiya Nagarik Suraksha Sanhita, 2023 replaced the CrPC, 1973, and it no longer has a separate class of Metropolitan Magistrates. The study material still describes the CrPC structure, so answer exam questions from the study material and keep this update in mind.<\/div>\n<h3>Tribunals<\/h3>\n<p>Tribunals are quasi-judicial bodies set up by law to handle technical or specialised disputes and to reduce the load on courts. They have <b>judicial members<\/b> and <b>technical (expert) members<\/b>. The Tribunals Reforms Ordinance, 2021 (later an Act) abolished nine appellate tribunals and moved their work to High Courts and other bodies.<\/p>\n<div class=\"tbl\"><table><thead><tr><th>Tribunal<\/th><th>Law<\/th><th>Appeal goes to<\/th><\/tr><\/thead><tbody><tr><td>Industrial Tribunal<\/td><td>Industrial Disputes Act, 1947<\/td><td>High Court<\/td><\/tr><tr><td>Income Tax Appellate Tribunal<\/td><td>Income-tax Act, 1961<\/td><td>High Court<\/td><\/tr><tr><td>CESTAT<\/td><td>Customs Act, 1962<\/td><td>High Court (Supreme Court in some matters)<\/td><\/tr><tr><td>Central Administrative Tribunal<\/td><td>Administrative Tribunals Act, 1985<\/td><td>High Court<\/td><\/tr><tr><td>Securities Appellate Tribunal<\/td><td>SEBI Act, 1992<\/td><td>Supreme Court<\/td><\/tr><tr><td>NCLAT<\/td><td>Companies Act, 2013<\/td><td>Supreme Court<\/td><\/tr><tr><td>National Consumer Disputes Redressal Commission<\/td><td>Consumer Protection Act, 2019<\/td><td>Supreme Court<\/td><\/tr><tr><td>Appellate Tribunal for Electricity<\/td><td>Electricity Act, 2003<\/td><td>Supreme Court<\/td><\/tr><tr><td>Armed Forces Tribunal<\/td><td>Armed Forces Tribunal Act, 2007<\/td><td>Supreme Court<\/td><\/tr><tr><td>National Green Tribunal<\/td><td>National Green Tribunal Act, 2010<\/td><td>Supreme Court<\/td><\/tr><\/tbody><\/table><\/div>\n<h3>Alternative Dispute Resolution (ADR)<\/h3>\n<p>ADR settles disputes outside the regular court trial, usually with a neutral third person. It is faster and cheaper than litigation.<\/p>\n<div class=\"tbl\"><table><thead><tr><th>Mode<\/th><th>Who decides<\/th><th>Binding?<\/th><\/tr><\/thead><tbody><tr><td><b>Arbitration<\/b><\/td><td>An arbitral tribunal gives an <b>award<\/b><\/td><td>Yes, with very limited court interference<\/td><\/tr><tr><td><b>Conciliation<\/b><\/td><td>A conciliator suggests terms; the parties decide<\/td><td>Only when both sign the settlement agreement<\/td><\/tr><tr><td><b>Mediation<\/b><\/td><td>A mediator helps the parties talk; the parties decide<\/td><td>Only if they reach and sign a settlement<\/td><\/tr><tr><td><b>Lok Adalat<\/b><\/td><td>A panel helps the parties settle<\/td><td>Award is deemed a <b>civil court decree<\/b>, final, and <b>no appeal<\/b> lies<\/td><\/tr><\/tbody><\/table><\/div>\n<ul><li><b>Section 89 of the CPC, 1908:<\/b> a court can refer a case to arbitration, conciliation, mediation or Lok Adalat if it sees a chance of settlement.<\/li><li>Main ADR laws: <b>Arbitration and Conciliation Act, 1996<\/b> and <b>Legal Services Authorities Act, 1987<\/b> (Lok Adalats). The Mediation Act, 2023 now gives a separate framework for mediation.<\/li><li>Laws that push parties towards mediation or conciliation: <b>Industrial Disputes Act, 1947<\/b> (conciliation officers settle industrial disputes), <b>Companies Act, 2013<\/b> (Section 442, mediation panel), <b>MSMED Act, 2006<\/b> (Section 18), <b>Commercial Courts Act, 2015<\/b> (pre-institution mediation, added in 2018), <b>Consumer Protection Act, 2019<\/b> (a full chapter on mediation) and <b>RERA, 2016<\/b>.<\/li><\/ul>\n<h3>Regulatory bodies<\/h3>\n<div class=\"tbl\"><table><thead><tr><th>Regulator<\/th><th>Law<\/th><th>Main role<\/th><\/tr><\/thead><tbody><tr><td><b>SEBI<\/b><\/td><td>SEBI Act, 1992<\/td><td>Protects investors and regulates the securities market. Protective, regulatory and development functions.<\/td><\/tr><tr><td><b>RBI<\/b><\/td><td>RBI Act, 1934 (set up on 1 April 1935)<\/td><td>Central bank. Monetary policy, bank licensing, currency issue, banker to the Government, foreign exchange under FEMA, 1999.<\/td><\/tr><tr><td><b>IRDAI<\/b><\/td><td>IRDA Act, 1999<\/td><td>Protects policyholders and regulates insurers.<\/td><\/tr><tr><td><b>PFRDA<\/b><\/td><td>PFRDA Act, 2013<\/td><td>Regulates pension funds and manages the National Pension System (NPS).<\/td><\/tr><tr><td><b>AMFI<\/b><\/td><td>Set up in 1995<\/td><td>Industry association of SEBI-registered mutual funds. Sets ethical standards and publishes daily NAVs. It is a self-regulatory body; SEBI is the statutory regulator of mutual funds.<\/td><\/tr><tr><td><b>MCA<\/b><\/td><td>Companies Act, 2013<\/td><td>Ministry that administers company law. The Registrar of Companies registers companies.<\/td><\/tr><tr><td><b>NHB<\/b><\/td><td>NHB Act, 1987 (set up on 9 July 1988)<\/td><td>Promotes housing finance institutions. Since 2019 the RBI regulates housing finance companies, and NHB supervises and refinances them.<\/td><\/tr><\/tbody><\/table><\/div>"},{"id":"1.4","title":"Primary and Subordinate Legislation","html":"<h3>Primary legislation<\/h3>\n<p>Law made directly by a body that gets its power from the Constitution: <b>Parliament<\/b> and the <b>State Legislatures<\/b>. Ordinances by the President and Governors are also treated as primary law-making in an emergency. This is sometimes called <b>supreme legislation<\/b> because it comes straight from the sovereign power.<\/p>\n<h3>Subordinate (delegated) legislation<\/h3>\n<p>An Act often sets out the broad policy and allows the Government or another authority to fill in the details through <b>rules, regulations, bye-laws, notifications and orders<\/b>. This is subordinate or delegated legislation.<\/p>\n<p><b>Why it is needed:<\/b><\/p>\n<ul><li>Parliament has little time to go into technical details.<\/li><li>Rules need to change quickly, for example during the Covid-19 pandemic.<\/li><li>Local bodies understand local needs better.<\/li><\/ul>\n<p>The Supreme Court (Gwalior Rayon Mills case, 1974) said delegated legislation gives <b>flexibility, elasticity, speed and room for experimentation<\/b> in a modern welfare state.<\/p>\n<p><b>Its limit:<\/b> subordinate legislation must stay within the parent Act and the Constitution. A rule that goes beyond the Act, or that conflicts with the Constitution, is struck down as <b>ultra vires<\/b> (beyond powers). Its opposite is <b>intra vires<\/b> (within powers).<\/p>\n<div class=\"call trap\"><b class=\"k\">COMMON TRAP<\/b>The safest answer to \"Subordinate legislation cannot go beyond...\" is <b>the ambit of the Act or the Constitution<\/b>, because a rule fails if it breaks either.<\/div>\n<h3>Other examples of delegated power in the Constitution<\/h3>\n<ul><li><b>Article 312:<\/b> if the Rajya Sabha passes a resolution by at least two-thirds of the members present and voting, Parliament may create All India Services. The IAS and IPS are treated as created under this Article.<\/li><li><b>Parts IX and IXA<\/b> give Panchayats and Municipalities powers to make local rules, which makes them a large source of subordinate legislation.<\/li><\/ul>\n<h3>Branches of law (quick view)<\/h3>\n<div class=\"tbl\"><table><thead><tr><th>Branch<\/th><th>Deals with<\/th><\/tr><\/thead><tbody><tr><td>Constitutional law<\/td><td>Structure of the State and citizens' rights<\/td><\/tr><tr><td>Administrative law<\/td><td>Working and powers of government bodies<\/td><\/tr><tr><td>Civil law<\/td><td>Disputes between persons: property, contracts, family<\/td><\/tr><tr><td>Criminal law<\/td><td>Offences against society, with punishment<\/td><\/tr><tr><td>Mercantile (commercial) law<\/td><td>Trade and business: contracts, sale of goods, negotiable instruments<\/td><\/tr><\/tbody><\/table><\/div>"}]},"formats":{"1":"<h3>Key Articles at a glance<\/h3>\n<div class=\"tbl\"><table><thead><tr><th>Article<\/th><th>What it says<\/th><\/tr><\/thead><tbody><tr><td>13(3)(a)<\/td><td>\"Law\" includes ordinances, rules, bye-laws, notifications and customs having the force of law<\/td><\/tr><tr><td>79<\/td><td>Parliament = President + Lok Sabha + Rajya Sabha<\/td><\/tr><tr><td>107–109<\/td><td>Introduction and passing of Bills; Money Bills (Rajya Sabha can hold for only 14 days)<\/td><\/tr><tr><td>108<\/td><td>Joint sitting to resolve a deadlock on an ordinary Bill<\/td><\/tr><tr><td>123 / 213<\/td><td>Ordinance by the President / by a Governor<\/td><\/tr><tr><td>124<\/td><td>Establishment of the Supreme Court<\/td><\/tr><tr><td>141<\/td><td>Law declared by the Supreme Court binds all courts<\/td><\/tr><tr><td>168<\/td><td>State Legislature<\/td><\/tr><tr><td>214<\/td><td>High Courts for States<\/td><\/tr><tr><td>245 / 246<\/td><td>Extent of laws; subject-matter of laws (Seventh Schedule)<\/td><\/tr><tr><td>254<\/td><td>Union law prevails over State law on a Concurrent subject (unless the State law got President's assent)<\/td><\/tr><tr><td>312<\/td><td>All India Services<\/td><\/tr><tr><td>368<\/td><td>Amendment of the Constitution<\/td><\/tr><\/tbody><\/table><\/div>\n<h3>Hierarchy of courts<\/h3>\n<pre class=\"fmt\">            Supreme Court of India  (Art 124)\n                      |\n            High Courts  (Art 214)\n            /                    \\\n   District &amp; Sessions Judge    (Civil side: District Judge)\n          |                              |\n   Judicial Magistrate courts      Civil Judge (Senior / Junior Division)<\/pre>\n<h3>How a Bill becomes an Act<\/h3>\n<pre class=\"fmt\">Introduction (1st reading)\n   → General discussion (2nd reading) → Committee stage\n   → Passing (3rd reading) in House 1\n   → Same three stages in House 2\n   → Deadlock? Joint sitting (Art 108, not for Money Bills)\n   → President's assent → Act → Published in the Gazette<\/pre>\n<h3>Ordinance life<\/h3>\n<pre class=\"fmt\">Issued while a House is not in session\n   → Must be laid before Parliament when it reassembles\n   → Lapses 6 weeks after reassembly unless approved\n   (maximum life about 6 months + 6 weeks)<\/pre>"},"questions":[{"id":"q1_1-02","c":"1.1","f":1,"q":"Under Article 13(3)(a) of the Constitution, the term “law” includes","o":["Only Acts passed by Parliament","Only Acts passed by Parliament and State Legislatures","Ordinances, rules, bye-laws, notifications and customs having the force of law","Only judgments of the Supreme Court"],"a":2,"e":"Article 13(3)(a) gives “law” a wide meaning that covers ordinances, orders, bye-laws, rules, regulations, notifications, customs and usages having the force of law."},{"id":"q1_1-03","c":"1.1","f":1,"q":"The law declared by the Supreme Court is binding on all courts in India under","o":["Article 368","Article 226","Article 141","Article 32"],"a":2,"e":"Article 141 makes Supreme Court law binding on all courts within India. This is the basis of judicial precedent."},{"id":"q1_1-04","c":"1.1","f":0,"q":"The rule that courts should follow earlier decisions on the same point of law is called","o":["Stare decisis","Caveat emptor","Ultra vires","Res judicata"],"a":0,"e":"Stare decisis means “stand by what has been decided”. It is the doctrine behind binding precedent."},{"id":"q1_1-05","c":"1.1","f":0,"q":"A decision of the Bombay High Court, when cited before a court in Karnataka, is","o":["Persuasive only","Binding on the Supreme Court","Of no legal value at all","Binding on that court"],"a":0,"e":"A High Court decision binds the courts below it in its own State. Outside that State it is only persuasive."},{"id":"q1_1-06","c":"1.1","f":1,"q":"Which of these is NOT a requirement for a custom to be treated as valid law?","o":["It must be certain","It must be ancient","It must be reasonable","It must be recorded in a statute"],"a":3,"e":"A valid custom must be ancient, certain, reasonable, continuous and not opposed to law or morality. It does not have to be written in a statute."},{"id":"q1_1-09","c":"1.1","f":0,"q":"In the ancient Indian system of courts, which was the lowest level?","o":["Sasita (King's court with judges)","Gana (village assembly)","Nripa (the King)","Kula (family council)"],"a":3,"e":"The order from lowest to highest was Kula, Shreni, Gana, Adhikrita, Sasita and Nripa. Kula, the family council, was at the bottom."},{"id":"q1_1-10","c":"1.1","f":0,"q":"During the medieval (Mughal) period, the chief judicial officer was known as","o":["Qazi-ul-Quzat","Kotwal","Mufti","Mir Adl"],"a":0,"e":"The Qazi-ul-Quzat was the chief judge. The Mufti explained the law and the Mir Adl helped enforce decisions."},{"id":"q1_1-11","c":"1.1","f":1,"q":"The Constitution of India came into force on","o":["29 August 1947","15 August 1947","26 November 1949","26 January 1950"],"a":3,"e":"It was adopted on 26 November 1949 and came into force on 26 January 1950, the day the Supreme Court also came into being."},{"id":"q1_1-12","c":"1.1","f":0,"q":"The Drafting Committee of the Constitution was chaired by","o":["Sardar Vallabhbhai Patel","Dr B. R. Ambedkar","Jawaharlal Nehru","Dr Rajendra Prasad"],"a":1,"e":"Dr B. R. Ambedkar chaired the Drafting Committee set up on 29 August 1947. Dr Rajendra Prasad was President of the Constituent Assembly."},{"id":"q1_1-13","c":"1.1","f":0,"q":"The sanctioned strength of the Supreme Court of India today, including the Chief Justice, is","o":["34 judges","8 judges","25 judges","31 judges"],"a":0,"e":"The Court began with 8 judges in 1950. The present sanctioned strength is 34: the Chief Justice of India and 33 other judges."},{"id":"q1_2-01","c":"1.2","f":1,"q":"India is described as a quasi-federal State mainly because","o":["It has no division of powers between Union and States","States can make laws on every subject","It has only one level of government","It is a federation with a strong central government"],"a":3,"e":"India divides powers between the Union and States but keeps a strong centre, so it is called quasi-federal or a federation with a unitary bias.","pp":1},{"id":"q1_2-02","c":"1.2","f":1,"q":"Under Article 79, Parliament consists of","o":["The President, the Rajya Sabha and the Lok Sabha","The Prime Minister and the Lok Sabha","The President and the Council of Ministers","The Lok Sabha and the Rajya Sabha only"],"a":0,"e":"Article 79 says Parliament is made up of the President and the two Houses: the Council of States and the House of the People."},{"id":"q1_2-05","c":"1.2","f":0,"q":"An ordinance issued by the President ceases to operate if not approved","o":["One year after it is issued","Six months after it is issued","Immediately when Parliament reassembles","Six weeks after Parliament reassembles"],"a":3,"e":"An ordinance must be laid before Parliament and lapses six weeks after reassembly unless approved earlier."},{"id":"q1_2-06","c":"1.2","f":0,"q":"Which of the following can NOT promulgate an ordinance?","o":["None of these: all three can","The President of India","A Union Cabinet Minister","The Governor of a State"],"a":2,"e":"Only the President (Article 123) and a Governor (Article 213) can issue ordinances. A Minister cannot."},{"id":"q1_2-07","c":"1.2","f":0,"q":"A Bill introduced in Parliament by a member who is not a Minister is called a","o":["Government Bill","Private Member's Bill","Ordinance Bill","Money Bill"],"a":1,"e":"A Bill moved by a Minister is a Government Bill. A Bill moved by any other member is a Private Member's Bill."},{"id":"q1_2-08","c":"1.2","f":1,"q":"If a State law on a Concurrent List subject conflicts with a law of Parliament, generally","o":["The State law prevails","The later of the two laws prevails","Both laws become void","The law of Parliament prevails"],"a":3,"e":"Under Article 254 the Union law prevails, unless the State law was reserved for the President and received his assent."},{"id":"q1_2-10","c":"1.2","f":1,"q":"In Kesavananda Bharati v. State of Kerala (1973), the Supreme Court held that Parliament","o":["Cannot amend the basic structure of the Constitution","Can amend any part of the Constitution without limit","Cannot amend the Constitution at all","Can amend the Constitution only with the consent of all States"],"a":0,"e":"Parliament has wide power under Article 368, but it cannot destroy or change the basic structure."},{"id":"q1_2-11","c":"1.2","f":0,"q":"The composition of State Legislatures is provided in","o":["Article 245","Article 312","Article 168","Article 79"],"a":2,"e":"Article 168 provides for State Legislatures: the Governor and one or two Houses."},{"id":"q1_2-12","c":"1.2","f":0,"q":"Under Article 245, a State Legislature may make laws for","o":["The whole or any part of that State","Any part of India","The whole of India","Only for Union Territories"],"a":0,"e":"Parliament legislates for the whole or any part of India. A State Legislature legislates for the whole or any part of its own State."},{"id":"q1_3-01","c":"1.3","f":1,"q":"The structure of the Indian judiciary is best described as","o":["A loose group of independent courts","Two separate systems for Union and States","A single, integrated pyramid with the Supreme Court at the top","A system headed by the Ministry of Law"],"a":2,"e":"India has one integrated judiciary: Supreme Court, then High Courts, then subordinate courts."},{"id":"q1_3-02","c":"1.3","f":1,"q":"A person whose Fundamental Right is violated can move the Supreme Court directly under","o":["Article 226","Article 143","Article 131","Article 32"],"a":3,"e":"Article 32 gives the right to approach the Supreme Court for enforcing Fundamental Rights through writs."},{"id":"q1_3-03","c":"1.3","f":1,"q":"Why is the writ jurisdiction of a High Court under Article 226 wider than that of the Supreme Court under Article 32?","o":["It covers only criminal matters","It covers Fundamental Rights and also other legal rights","It allows the High Court to amend laws","It covers only Fundamental Rights"],"a":1,"e":"Article 226 can be used for Fundamental Rights and for any other legal right. Article 32 is limited to Fundamental Rights."},{"id":"q1_3-04","c":"1.3","f":0,"q":"A dispute between the Government of India and a State Government falls under the Supreme Court's","o":["Appellate jurisdiction (Article 136)","Advisory jurisdiction (Article 143)","Original jurisdiction (Article 131)","Review jurisdiction (Article 137)"],"a":2,"e":"Disputes between the Union and States, or between States, come under the original jurisdiction in Article 131."},{"id":"q1_3-05","c":"1.3","f":0,"q":"The President may seek the opinion of the Supreme Court on a question of public importance under","o":["Article 32","Article 141","Article 143","Article 124"],"a":2,"e":"Article 143 gives the Supreme Court its advisory jurisdiction."},{"id":"q1_3-06","c":"1.3","f":0,"q":"District Judges are appointed by","o":["The Union Law Minister","The Chief Minister of the State","The Governor in consultation with the High Court","The President in consultation with the Supreme Court"],"a":2,"e":"Under Article 233 the Governor appoints District Judges in consultation with the High Court of that State."},{"id":"q1_3-07","c":"1.3","f":0,"q":"A death sentence passed by a Court of Session","o":["Must be confirmed by a Chief Judicial Magistrate","Is final and can be carried out at once","Must be confirmed by the High Court","Must be confirmed by the Governor"],"a":2,"e":"A Sessions Court may pass a death sentence, but it can be carried out only after the High Court confirms it."},{"id":"q1_3-08","c":"1.3","f":0,"q":"Executive Magistrates are appointed by the State Government mainly to","o":["Decide tax disputes","Maintain law and order","Hear appeals from Sessions Courts","Try civil suits"],"a":1,"e":"Executive Magistrates do administrative work such as maintaining public order. They do not hold criminal trials like Judicial Magistrates."},{"id":"q1_3-10","c":"1.3","f":0,"q":"An appeal against an order of the National Company Law Appellate Tribunal (NCLAT) lies to the","o":["Securities Appellate Tribunal","Supreme Court","National Green Tribunal","High Court"],"a":1,"e":"Appeals from NCLAT go directly to the Supreme Court, as do appeals from SAT and the NCDRC."},{"id":"q1_3-11","c":"1.3","f":1,"q":"Which method of ADR results in an award that is deemed to be a decree of a civil court, with no appeal against it?","o":["Negotiation","Mediation","Conciliation","Lok Adalat"],"a":3,"e":"Under the Legal Services Authorities Act, 1987, a Lok Adalat award is deemed a civil court decree. It is final and no appeal lies."},{"id":"q1_3-12","c":"1.3","f":0,"q":"In which ADR method does a neutral third person give a binding decision called an award?","o":["Negotiation","Mediation","Conciliation","Arbitration"],"a":3,"e":"An arbitral tribunal decides the dispute and gives an award that binds the parties."},{"id":"q1_3-13","c":"1.3","f":0,"q":"A civil court may refer a pending case to arbitration, conciliation, mediation or Lok Adalat under","o":["Section 10 of the Indian Contract Act","Section 138 of the Negotiable Instruments Act","Article 141 of the Constitution","Section 89 of the Code of Civil Procedure, 1908"],"a":3,"e":"Section 89 CPC lets the court refer a case to ADR where it sees a chance of settlement."},{"id":"q1_3-14","c":"1.3","f":1,"q":"The Reserve Bank of India was established under the RBI Act of","o":["1934","1956","1999","1949"],"a":0,"e":"The RBI Act was passed in 1934 and the Bank began work on 1 April 1935."},{"id":"q1_3-16","c":"1.3","f":0,"q":"The National Pension System (NPS) is regulated by","o":["PFRDA","IRDAI","SEBI","NHB"],"a":0,"e":"The Pension Fund Regulatory and Development Authority, under the PFRDA Act, 2013, regulates pension funds and NPS."},{"id":"q1_3-17","c":"1.3","f":0,"q":"The Association of Mutual Funds in India (AMFI) is best described as","o":["The statutory regulator of mutual funds","An industry association of SEBI-registered mutual funds","A department of the Reserve Bank of India","A tribunal for investor disputes"],"a":1,"e":"AMFI is a self-regulatory industry body. SEBI is the statutory regulator of mutual funds."},{"id":"q1_4-02","c":"1.4","f":1,"q":"Subordinate legislation cannot go beyond","o":["The ambit of the parent Act or the Constitution","The opinion of the Executive","The Directive Principles only","The rules of other States"],"a":0,"e":"Rules and regulations must stay within the parent Act and must not break the Constitution. Otherwise they are struck down.","pp":1},{"id":"q1_4-03","c":"1.4","f":1,"q":"A rule made by a Government department that goes beyond the powers given by the parent Act is","o":["Intra vires and valid","Valid until the next election","Valid only in its own State","Ultra vires and void"],"a":3,"e":"Ultra vires means beyond powers. Such a rule is invalid."},{"id":"q1_4-04","c":"1.4","f":0,"q":"Which of the following is an example of subordinate (delegated) legislation?","o":["Rules framed by a Ministry under an Act","A Supreme Court judgment","The Indian Contract Act, 1872","An amendment to the Constitution"],"a":0,"e":"Rules, regulations, bye-laws and notifications made under an Act are subordinate legislation."},{"id":"q1_4-05","c":"1.4","f":0,"q":"The Supreme Court said delegated legislation gives flexibility, elasticity, speed and room for experimentation in","o":["Kesavananda Bharati case","The Gwalior Rayon Mills case","Balfour v. Balfour","Carlill v. Carbolic Smoke Ball Co."],"a":1,"e":"In the Gwalior Rayon Mills case (1974) the Court explained why delegated legislation is needed in a welfare State.","pp":1},{"id":"q1_4-07","c":"1.4","f":0,"q":"The law that deals with trade and business, such as contracts, sale of goods and negotiable instruments, is called","o":["Constitutional law","Administrative law","Criminal law","Mercantile law"],"a":3,"e":"Mercantile or commercial law covers business dealings. Criminal law covers offences and punishment."},{"id":"q1_4-08","c":"1.4","f":0,"q":"Which reason does NOT justify delegated legislation?","o":["Local bodies understand local needs better","Rules may need to change quickly in an emergency","Parliament wants to give up its law-making power permanently","Parliament lacks time for technical details"],"a":2,"e":"Delegation is for detail, speed and local knowledge. Parliament keeps its power and lays down the policy in the parent Act."}],"mocks":{},"cards":[["1.1","Sources of law in India","Constitution, statutes (legislation), judicial precedents, and customs and personal laws."],["1.1","Article 141","Law declared by the Supreme Court is binding on all courts in India."],["1.1","Stare decisis","“Stand by what has been decided”: courts follow earlier decisions on the same point."],["1.1","Binding vs persuasive","A High Court ruling binds lower courts in its State; elsewhere it is only persuasive."],["1.1","Valid custom","Ancient, certain, reasonable, continuous and not against law or morality."],["1.1","Seventh Schedule","List I Union, List II State, List III Concurrent subjects for law-making."],["1.1","Ancient courts (low to high)","Kula, Shreni, Gana, Adhikrita, Sasita, Nripa."],["1.1","Key dates","Adopted 26 Nov 1949; in force 26 Jan 1950; Drafting Committee 29 Aug 1947 (Dr B. R. Ambedkar)."],["1.2","Quasi-federal","A federation with a strong centre (unitary bias)."],["1.2","Article 79","Parliament = President + Rajya Sabha + Lok Sabha."],["1.2","Money Bill","Introduced only in the Lok Sabha (Article 109)."],["1.2","Ordinance","President (Art 123) or Governor (Art 213); lapses 6 weeks after the legislature reassembles."],["1.2","Article 254","On a Concurrent subject, Union law prevails over a conflicting State law (unless the State law has President's assent)."],["1.2","Basic structure","Kesavananda Bharati (1973): Parliament can't amend the basic structure under Art 368."],["1.3","Article 32 vs 226","Art 32: Supreme Court, Fundamental Rights only. Art 226: High Court, Fundamental and other legal rights."],["1.3","Original jurisdiction","Art 131: Union vs State, or State vs State disputes go straight to the Supreme Court."],["1.3","Advisory jurisdiction","Art 143: President may seek the Supreme Court's opinion."],["1.3","Tribunal","Quasi-judicial body with judicial and technical members for specialised disputes."],["1.3","Lok Adalat award","Deemed a civil court decree; final; no appeal (Legal Services Authorities Act, 1987)."],["1.3","Arbitration","A neutral arbitral tribunal gives a binding award."],["1.3","RBI","Set up under the RBI Act, 1934; began on 1 April 1935."],["1.3","SEBI","Statutory regulator of the securities market (SEBI Act, 1992)."],["1.4","Subordinate legislation","Rules, regulations, bye-laws made under an Act; must stay within the Act and the Constitution."],["1.4","Ultra vires","Beyond powers; such a rule is void. Opposite: intra vires."],["1.4","Gwalior Rayon (1974)","Delegated legislation gives flexibility, speed and room for experimentation."]],"counts":{"practice":40,"mock":100,"fullPractice":345,"fullCards":142,"fullQuestions":445}};</script>
+<script>
+(function(){
+"use strict";
+const D = DATA;
+const FULL = D.edition === "full";
+const P = "fblc1.";
+const APP = "FBLC Smart Prep";
+const SPLIT_50 = D.modules.map(m=>m.split);          // 5,15,10,10,10
+const SPLIT_20 = [2,6,4,4,4];
+const L = ["A","B","C","D"];
+const SHOP = "https://99digiprostore.myinstamojo.com";
+
+/* ---------- storage (safe) ---------- */
+const S = {
+  ok: true, mem: {},
+  get(k){ try{ const v = localStorage.getItem(P+k); if(v!==null) return v; }catch(e){ this.ok=false; } return (P+k) in this.mem ? this.mem[P+k] : null; },
+  set(k,v){ this.mem[P+k]=v; try{ localStorage.setItem(P+k,v); }catch(e){ this.ok=false; } },
+  del(k){ delete this.mem[P+k]; try{ localStorage.removeItem(P+k); }catch(e){} },
+  json(k,def){ try{ const v=this.get(k); return v?JSON.parse(v):def; }catch(e){ return def; } },
+  put(k,o){ this.set(k, JSON.stringify(o)); }
+};
+try{ localStorage.setItem(P+"t","1"); localStorage.removeItem(P+"t"); }catch(e){ S.ok=false; }
+const sess = {
+  get(){ try{ return sessionStorage.getItem(P+"sess"); }catch(e){ return sess._m||null; } },
+  set(v){ sess._m=v; try{ v?sessionStorage.setItem(P+"sess",v):sessionStorage.removeItem(P+"sess"); }catch(e){} }
+};
+
+/* ---------- helpers ---------- */
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const hash = s => { let x=2166136261; for(let i=0;i<s.length;i++){ x^=s.charCodeAt(i); x=Math.imul(x,16777619);} return (x>>>0).toString(36); };
+const ymd = d => d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+const today = () => ymd(new Date());
+const fmtTime = s => { s=Math.max(0,Math.round(s)); const h=Math.floor(s/3600), m=Math.floor(s%3600/60), x=s%60; return (h?h+":":"")+String(m).padStart(h?2:1,"0")+":"+String(x).padStart(2,"0"); };
+const pct = (a,b) => b ? Math.round(a*100/b) : 0;
+function shuffle(a, seed){ a=a.slice(); const r = seed==null ? Math.random : mulberry(seed); for(let i=a.length-1;i>0;i--){ const j=Math.floor(r()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+function mulberry(a){ return function(){ a|=0; a=a+0x6D2B79F5|0; let t=Math.imul(a^a>>>15,1|a); t=t+Math.imul(t^t>>>7,61|t)^t; return ((t^t>>>14)>>>0)/4294967296; }; }
+function toast(msg){ const t=document.createElement("div"); t.className="toast"; t.setAttribute("role","status"); t.textContent=msg; document.body.appendChild(t); setTimeout(()=>t.remove(),2200); }
+function copyText(text, el){
+  const fail=()=>{ if(el){el.focus();el.select();} toast("Select the text and copy it"); };
+  try{ navigator.clipboard.writeText(text).then(()=>toast("Copied"), fail); }catch(e){ fail(); }
+}
+const MON = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+const DMY = d => ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"][d.getDay()]+", "+d.getDate()+" "+MON[d.getMonth()]+" "+d.getFullYear();
+
+/* ---------- data indexes ---------- */
+const Q = {}; D.questions.forEach(q => Q[q.id]=q);
+const modOf = c => +String(c).split(".")[0];
+const MODS = D.modules;
+const unlocked = n => !MODS[n-1].locked;
+const chTitle = {}; MODS.forEach(m => m.chapters.forEach(c => chTitle[c.id]=c.title));
+const practiceIds = D.questions.filter(q => !q.mock).map(q => q.id);
+const byChapter = {}; practiceIds.forEach(id => { const c=Q[id].c; (byChapter[c]=byChapter[c]||[]).push(id); });
+const byModule = {}; practiceIds.forEach(id => { const m=modOf(Q[id].c); (byModule[m]=byModule[m]||[]).push(id); });
+const openPool = () => practiceIds.filter(id=>unlocked(modOf(Q[id].c)));
+
+/* ---------- users and progress ---------- */
+let users = S.json("users", []);
+let me = null, prog = null;
+const saveUsers = () => S.put("users", users);
+const blankProg = () => ({answers:{}, read:{}, mistakes:{}, mocks:[], cards:{}, days:[], live:null, match:{}});
+function loadProg(id){ const p = S.json("p."+id, null) || blankProg(); return Object.assign(blankProg(), p); }
+function save(){ if(me){ S.put("p."+me.id, prog); } }
+function touchDay(){ const t=today(); if(!prog.days.includes(t)){ prog.days.push(t); if(prog.days.length>400) prog.days=prog.days.slice(-400); } }
+function streak(){ const set=new Set(prog.days); let n=0; const d=new Date(); if(!set.has(today())) d.setDate(d.getDate()-1); while(set.has(ymd(d))){ n++; d.setDate(d.getDate()-1); } return n; }
+function record(id, correct){
+  const a = prog.answers[id] || {n:0,c:0,last:0};
+  a.n++; if(correct) a.c++; a.last = correct?1:0; prog.answers[id]=a;
+  if(!correct) prog.mistakes[id]=0;
+  else if(id in prog.mistakes){ prog.mistakes[id]++; if(prog.mistakes[id]>=2) delete prog.mistakes[id]; }
+  touchDay();
+}
+function statsFor(ids){ let seen=0, right=0, att=0, cor=0; ids.forEach(id=>{ const a=prog.answers[id]; if(a){ seen++; if(a.last) right++; att+=a.n; cor+=a.c; } }); return {seen, right, total:ids.length, acc:pct(cor,att), att}; }
+const mistakesIn = m => Object.keys(prog.mistakes).filter(id=>Q[id] && unlocked(modOf(Q[id].c)) && (m==null || modOf(Q[id].c)===m));
+
+/* ---------- app state ---------- */
+let view = "chapters", sub = {}, timerH = null;
+let theme = S.get("theme") || "system";
+function applyTheme(){ const r=document.documentElement; if(theme==="system") r.removeAttribute("data-theme"); else r.setAttribute("data-theme",theme); }
+applyTheme();
+function go(v, s){ view=v; sub=s||{}; render(); try{ window.scrollTo(0,0); }catch(e){} }
+function rerender(){ const y=window.scrollY; render(); window.scrollTo(0,y); }
+
+/* ---------- shell ---------- */
+const TABS = [["chapters","Chapters"],["mocks","Mock Exam"],["settings","Settings"],["readme","Readme"]];
+const tabOf = v => ({chapter:"chapters", session:"chapters", instr:"mocks", result:"mocks"}[v] || v);
+function shell(inner){
+  const ex = view==="exam";
+  return `
+<header class="top"><div class="wrap">
+  <div class="brand grow"><b>${APP}${FULL?"":" · Free sample"}</b><span>CMA Foundation · Paper 1 · Business Laws and Communication · by 99DigiProStore</span></div>
+  ${ex?"":`<button class="chip" data-act="switch" title="Switch student"><span class="avatar">${esc(me.name[0].toUpperCase())}</span><span class="hide-sm">${esc(me.name)}</span><span class="small muted">Switch</span></button>`}
+</div></header>
+${ex?"":`<nav class="tabs" aria-label="Main sections"><div class="wrap">${TABS.map(([k,t])=>`<button class="tab" data-act="tab" data-v="${k}" ${tabOf(view)===k?'aria-current="page"':""}>${t}</button>`).join("")}</div></nav>`}
+${S.ok?"":`<div class="wrap" style="padding-top:12px"><div class="banner">This browser is not saving progress, so it will be lost when you close the page. Open the file in Chrome, Edge or Firefox for saved progress.</div></div>`}
+<main><div class="wrap">${inner}</div></main>
+${footer()}`;
+}
+function footer(){
+  return `<footer><div class="wrap">
+  <span><b>Independent study aid.</b> ${APP} is made by 99DigiProStore. It is not affiliated with, endorsed by or connected to the Institute of Cost Accountants of India (ICMAI). All notes and questions are original and written for practice.</span>
+  <span>Always follow the latest syllabus, study material and exam notices from the Institute. Practice scores do not guarantee or predict exam results.</span>
+  <span>© 99DigiProStore · ${esc(D.version)} · Support: digiprostore99@gmail.com. For the buyer's personal use only. Please do not share or resell this file.</span>
+</div></footer>`;
+}
+function subtabs(items, cur, act, extra){
+  return `<div class="subtabs" role="tablist">${items.map(([k,t])=>`<button class="subtab" role="tab" data-act="${act}" data-t="${k}" ${extra||""} aria-current="${cur===k}">${t}</button>`).join("")}</div>`;
+}
+
+/* ---------- LOGIN ---------- */
+function loginView(){
+  const s = sub;
+  let body;
+  if(s.mode==="new"){
+    body = `<div class="sheet stack">
+      <h2>Create your profile</h2>
+      <p class="muted small">Your progress, Mistake Book and mock scores are saved under this profile on this device.</p>
+      <label class="f">Your name<input type="text" id="nName" maxlength="24" autocomplete="off" placeholder="e.g. Ananya"></label>
+      <label class="f">4-digit PIN (optional)<input type="password" id="nPin" class="pin" inputmode="numeric" maxlength="4" autocomplete="off" placeholder="••••"></label>
+      <label class="f">Confirm PIN<input type="password" id="nPin2" class="pin" inputmode="numeric" maxlength="4" autocomplete="off" placeholder="••••"></label>
+      <p class="err" id="nErr" role="alert"></p>
+      <div class="row"><button class="btn primary" data-act="createUser">Create profile</button>${users.length?`<button class="btn ghost" data-act="loginHome">Back</button>`:""}</div>
+    </div>`;
+  } else if(s.mode==="pin"){
+    const u = users.find(x=>x.id===s.uid);
+    body = `<div class="sheet stack" style="text-align:center;align-items:center">
+      <span class="avatar" style="width:56px;height:56px;font-size:1.4rem">${esc(u.name[0].toUpperCase())}</span>
+      <h2>Hi ${esc(u.name)}</h2>
+      <label class="f" style="width:100%;max-width:220px">Enter your PIN<input type="password" id="pin" class="pin" inputmode="numeric" maxlength="4" autocomplete="off"></label>
+      <p class="err" id="pErr" role="alert"></p>
+      <div class="row" style="justify-content:center"><button class="btn primary" data-act="checkPin">Open</button><button class="btn ghost" data-act="loginHome">Back</button></div>
+      <p class="small muted">Forgot the PIN? A PIN can't be recovered. Create a new profile and restore a backup code if you saved one.</p>
+    </div>`;
+  } else {
+    body = `<div class="sheet stack">
+      <h2>Who is studying?</h2>
+      ${users.length?`<div class="users">${users.map(u=>`<button class="user" data-act="pickUser" data-id="${u.id}"><span class="avatar">${esc(u.name[0].toUpperCase())}</span><b>${esc(u.name)}</b><span class="small muted">${u.pin?"PIN protected":"No PIN"}</span></button>`).join("")}</div>`:`<p class="muted">No profiles yet. Create one to start.</p>`}
+      <button class="btn ${users.length?"":"primary"}" data-act="newUser">+ New student</button>
+    </div>`;
+  }
+  return `<div class="wrap login"><div class="box stack">
+    <div class="stack" style="gap:6px">
+      <span class="label">CMA Foundation · Paper 1</span>
+      <h1>${APP}${FULL?"":" <span class='pill fav' style='vertical-align:middle'>Free sample</span>"}</h1>
+      <p class="muted">Fundamentals of Business Laws and Business Communication: chapter overviews, formats, ${FULL?D.counts.practice+" practice MCQs, 2 full mock exams with a calculator and rough sheet":"Module 1 notes, practice MCQs and a taster mock"}, flashcards and a Mistake Book in one offline file.</p>
+      <span class="small muted mono">${esc(D.version)}</span>
+    </div>
+    ${S.ok?"":`<div class="banner">This browser is not saving data, so profiles will disappear when the page closes. Open the file in Chrome, Edge or Firefox.</div>`}
+    ${body}
+    <div class="card small muted stack" style="gap:6px">
+      <span><b>About profiles.</b> Each student gets a separate profile, so brothers, sisters or friends sharing a phone or laptop keep their own progress. Everything stays on this device and nothing is sent anywhere. The PIN only stops profiles getting mixed up. It is not strong security.</span>
+      <span>Independent study aid by 99DigiProStore. Not affiliated with or endorsed by the Institute of Cost Accountants of India.</span>
+    </div>
+  </div></div>`;
+}
+const liveOk = () => !!(prog && prog.live && prog.live.qids.every(id=>Q[id]));
+function enterUser(u){ me=u; prog=loadProg(u.id); sess.set(u.id); touchDay(); save(); go(liveOk()?"exam":"chapters"); }
+
+/* ---------- CHAPTERS (main tab) ---------- */
+function nextStep(){
+  const st = statsFor(openPool());
+  const unread=[]; MODS.forEach(m=>{ if(!m.locked) m.chapters.forEach(c=>{ if(!prog.read[c.id]) unread.push(c); }); });
+  const weak=[]; MODS.forEach(m=>{ if(!m.locked) m.chapters.forEach(c=>{ const s=statsFor(byChapter[c.id]||[]); if(s.att>=5 && s.acc<60) weak.push([c,s.acc]); }); });
+  weak.sort((a,b)=>a[1]-b[1]);
+  const mist = mistakesIn().length;
+  const op = c => `data-act="openChapter" data-m="${modOf(c.id)}" data-t="overview" data-c="${c.id}"`;
+  if(unread.length && st.seen<10){ const c=unread[0]; return {t:`Read ${c.id} ${c.title}`, d:"Start with the overview, then answer that topic's MCQs.", a:op(c), b:"Open overview"}; }
+  if(weak.length){ const c=weak[0][0]; return {t:`Strengthen ${c.id} ${c.title}`, d:`Your accuracy here is ${weak[0][1]}%. Re-read the overview and practise again.`, a:`data-act="startChapter" data-c="${c.id}"`, b:"Practise this topic"}; }
+  if(mist>=5) return {t:`Fix your ${mist} mistakes`, d:"A question leaves the Mistake Book after you get it right twice in a row.", a:`data-act="startMistakes"`, b:"Practise mistakes"};
+  if(unread.length){ const c=unread[0]; return {t:`Read ${c.id} ${c.title}`, d:"Keep moving through the syllabus.", a:op(c), b:"Open overview"}; }
+  if(FULL) return {t:"Take a full mock exam", d:"50 questions in 1 hour, like the real paper. Review every answer afterwards.", a:`data-act="tab" data-v="mocks"`, b:"Go to Mock Exam"};
+  return {t:"Try the taster mock", d:"10 Module 1 questions against the clock.", a:`data-act="tab" data-v="mocks"`, b:"Go to Mock Exam"};
+}
+function chaptersView(){
+  const t = sub.t || "dash";
+  const tabs = subtabs([["dash","Dashboard"],["mist","Mistake Book"],["perf","Performance"]], t, "chapTab");
+  let body;
+  if(t==="mist") body = mistakeBody(null);
+  else if(t==="perf") body = perfOverall();
+  else body = dashBody();
+  return shell(`<div class="stack" style="gap:16px">${tabs}${body}</div>`);
+}
+function dashBody(){
+  const pool = openPool(), st = statsFor(pool), cover = pct(st.seen, pool.length), nx = nextStep();
+  const best = prog.mocks.reduce((b,m)=>Math.max(b,m.score),0);
+  return `
+  <div class="row" style="gap:16px;align-items:center">
+    <div class="ring" style="--p:${cover}" aria-label="${cover}% of practice questions attempted"><b>${cover}%</b></div>
+    <div class="grow stack" style="gap:4px"><span class="label">Welcome back</span><h1>Hi ${esc(me.name)}</h1>
+      <p class="muted small">You have tried ${st.seen} of ${pool.length} practice MCQs${FULL?"":" in the free module"}.</p></div>
+  </div>
+  <div class="grid3 stats">
+    <div class="card stat"><span class="small muted">Accuracy</span><b>${st.att?st.acc+"%":"–"}</b></div>
+    <div class="card stat"><span class="small muted">Study streak</span><b>${streak()} day${streak()===1?"":"s"}</b></div>
+    <div class="card stat"><span class="small muted">Mocks taken</span><b>${prog.mocks.length}</b>${prog.mocks.length?`<span class="small muted">best ${best}/100</span>`:""}</div>
+  </div>
+  <div class="sheet stack"><span class="label">Your next step</span><h2>${esc(nx.t)}</h2><p class="muted">${esc(nx.d)}</p><div><button class="btn primary" ${nx.a}>${nx.b}</button></div></div>
+  <div class="grid3">
+    <button class="card stack" style="text-align:left" data-act="startQuick"><span class="label">5 minutes</span><h3>Quick 10</h3><span class="small muted">Ten mixed MCQs, new ones first.</span></button>
+    <button class="card stack" style="text-align:left" data-act="startFav"><span class="label">${pool.filter(id=>Q[id].f).length} questions</span><h3>Core concepts</h3><span class="small muted">The central ideas of each topic.</span></button>
+    <button class="card stack" style="text-align:left" data-act="chapTab" data-t="mist"><span class="label">${mistakesIn().length} saved</span><h3>Mistake Book</h3><span class="small muted">Every wrong answer, until you fix it.</span></button>
+  </div>
+  <h2>Chapters</h2>
+  ${MODS.map(m=>{ const s=statsFor(byModule[m.n]||[]); const rd=m.chapters.filter(c=>prog.read[c.id]).length;
+    return `<button class="card mod ${m.locked?"locked":""}" style="text-align:left;width:100%" data-act="openChapter" data-m="${m.n}">
+      <span class="modno">${m.n}</span>
+      <div class="grow stack" style="gap:6px">
+        <div class="row" style="justify-content:space-between"><h3>${esc(m.title)}</h3><span class="pill">${m.weight}% weight · ${m.split} of 50 Qs</span></div>
+        ${m.locked?`<span class="lock">🔒 In the full kit</span>`:`
+        <div class="bar ${s.acc>=60?"g":""}"><i style="width:${pct(s.seen,s.total)}%"></i></div>
+        <span class="small muted">${s.seen}/${s.total} MCQs tried · ${s.att?s.acc+"% accuracy":"not started"} · ${rd}/${m.chapters.length} topics read</span>`}
+      </div></button>`; }).join("")}
+  ${FULL?"":upsell()}`;
+}
+function upsell(){
+  return `<div class="upsell stack">
+    <h2>Unlock all five modules</h2>
+    <p>The free sample opens Module 1 (Introduction to Law). The full ${APP} kit adds:</p>
+    <ul style="margin:0;padding-left:1.2em">
+      <li>Overviews and formats for the Contract Act, Sale of Goods Act, NI Act and Business Communication</li>
+      <li>${D.counts.fullPractice} practice MCQs with explanations, plus Mistake Book and performance tracking</li>
+      <li>2 full mock exams (50 questions, 1 hour) with a calculator and rough sheet, plus shuffle and mini mocks</li>
+      <li>${D.counts.fullCards} flashcards, Match Sprint and a bill maturity and Section 138 date calculator</li>
+    </ul>
+    <p>Get it from the 99DigiProStore shop:</p>
+    <div class="row"><input type="text" id="shopUrl" readonly value="99digiprostore.myinstamojo.com" style="max-width:320px"><button class="btn primary" data-act="copyShop">Copy link</button></div>
+    <p class="small muted">Your Module 1 progress stays in your profile if you open the full kit in the same browser.</p>
+  </div>`;
+}
+
+/* ---------- one chapter (module) with sub-tabs ---------- */
+const CH_TABS = [["overview","Overview"],["formats","Formats & key sections"],["mcq","MCQs"],["cards","Flashcards"],["match","Match Sprint"],["mist","Mistake Book"],["perf","Performance"]];
+function chapterView(){
+  const m = MODS[sub.m-1];
+  const head = `<button class="btn ghost" style="align-self:flex-start" data-act="tab" data-v="chapters">← All chapters</button>
+    <div class="stack" style="gap:4px"><span class="label">Module ${m.n} · ${m.weight}% weight · about ${m.split} of 50 questions</span><h1>${esc(m.title)}</h1></div>`;
+  if(m.locked) return shell(`<div class="stack" style="gap:14px">${head}${upsell()}</div>`);
+  const t = sub.t || "overview";
+  const tabs = subtabs(CH_TABS, t, "chTab", `data-m="${m.n}"`);
+  const body = ({overview:overviewBody, formats:formatsBody, mcq:mcqBody, cards:cardsBody, match:matchBody, mist:()=>mistakeBody(m.n), perf:perfModule}[t]||overviewBody)(m);
+  return shell(`<div class="stack" style="gap:14px">${head}${tabs}${body}</div>`);
+}
+function overviewBody(m){
+  const secs = D.notes[m.n];
+  return `<div class="toc">${secs.map(s=>`<button data-act="jump" data-c="${s.id}">${prog.read[s.id]?"✓ ":""}${s.id} ${esc(s.title)}</button>`).join("")}</div>
+    <article class="notes">${secs.map(s=>{ const n=(byChapter[s.id]||[]).length; return `
+      <h2 id="sec-${s.id.replace(".","-")}">${s.id} ${esc(s.title)}</h2>
+      ${s.html}
+      <div class="row" style="margin-top:14px">
+        <button class="btn ${prog.read[s.id]?"":"primary"}" data-act="markRead" data-c="${s.id}">${prog.read[s.id]?"✓ Read":"Mark as read"}</button>
+        ${n?`<button class="btn" data-act="startChapter" data-c="${s.id}">Practise ${s.id} (${n} MCQs)</button>`:""}
+      </div>`; }).join("")}
+    </article>`;
+}
+function formatsBody(m){
+  const tools = m.n===4 ? maturityTool()+chequeTool() : "";
+  return `<p class="muted small">Quick-reference tables, specimen formats and key sections for this module. The specimens use made-up names and figures.</p>
+    ${tools}<article class="notes">${D.formats[m.n]||"<p>No formats for this module.</p>"}</article>`;
+}
+function maturityTool(){
+  const v = sub.mat || {};
+  return `<div class="tool stack"><span class="label">Try it · Sections 22 to 25</span><h3>Bill maturity calculator</h3>
+    <p class="small muted">Enter the date of the bill (or the date of acceptance or sight, as the bill says) and its term. It works out the due date with 3 days of grace.</p>
+    <div class="row">
+      <label class="f">Bill date<input type="date" id="matD" value="${esc(v.d||"")}"></label>
+      <label class="f">Term<select id="matT"><option value="m" ${v.t==="m"?"selected":""}>months after date</option><option value="d" ${v.t==="d"?"selected":""}>days after date</option><option value="dem" ${v.t==="dem"?"selected":""}>on demand / at sight</option></select></label>
+      <label class="f">Number<input type="number" id="matN" min="0" max="999" value="${esc(v.n==null?3:v.n)}"></label>
+    </div>
+    <div><button class="btn primary" data-act="calcMat">Work out due date</button></div>
+    ${v.out?`<div class="out">${v.out}</div>`:""}
+  </div>`;
+}
+function addMonthsClamp(d, n){ const y=d.getFullYear(), m=d.getMonth()+n, day=d.getDate(); const last=new Date(y, m+1, 0).getDate(); return new Date(y, m, Math.min(day,last)); }
+function addDays(d, n){ const x=new Date(d.getFullYear(), d.getMonth(), d.getDate()); x.setDate(x.getDate()+n); return x; }
+function parseD(s){ const m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(s||""); return m?new Date(+m[1],+m[2]-1,+m[3]):null; }
+function calcMaturity(){
+  const ds=$("#matD").value, t=$("#matT").value, n=Math.max(0,Math.min(999,parseInt($("#matN").value||"0",10)||0));
+  const d=parseD(ds); sub.mat={d:ds,t,n};
+  if(!d){ sub.mat.out="Please pick the bill date."; return; }
+  if(t==="dem"){ sub.mat.out=`A bill payable on demand or at sight is due when it is presented. <b>No days of grace</b> are allowed (Sec 21, 22).`; return; }
+  const steps=[];
+  let base;
+  if(t==="m"){ base=addMonthsClamp(d,n); const plain=new Date(d.getFullYear(), d.getMonth()+n, d.getDate()); steps.push(`${n} month${n===1?"":"s"} after ${DMY(d)} = <b>${DMY(base)}</b>`+(plain.getDate()!==d.getDate()?` (that month has no ${d.getDate()}th, so the last day of the month is used, Sec 23)`:"")); }
+  else { base=addDays(d,n); steps.push(`${n} day${n===1?"":"s"} after ${DMY(d)}, leaving out the day of the date (Sec 24) = <b>${DMY(base)}</b>`); }
+  let due=addDays(base,3); steps.push(`Add 3 days of grace (Sec 22) = <b>${DMY(due)}</b>`);
+  if(due.getDay()===0){ due=addDays(due,-1); steps.push(`That is a Sunday, a public holiday, so it is due on the preceding business day (Sec 25) = <b>${DMY(due)}</b>`); }
+  sub.mat.out = `<b>Due date: ${DMY(due)}</b><ol class="steps small">${steps.map(s=>`<li>${s}</li>`).join("")}</ol><p class="small muted">If the due date is any other public holiday, the bill is due on the business day before it.</p>`;
+}
+function chequeTool(){
+  const v = sub.chq || {};
+  return `<div class="tool stack"><span class="label">Try it · Sections 138 and 142</span><h3>Cheque bounce timeline</h3>
+    <p class="small muted">Enter the dates you know. The tool shows each time limit. It is a learning aid, not legal advice.</p>
+    <div class="row">
+      <label class="f">Date on the cheque<input type="date" id="chqD" value="${esc(v.d||"")}"></label>
+      <label class="f">Bank's return memo received<input type="date" id="chqM" value="${esc(v.m||"")}"></label>
+      <label class="f">Drawer received the notice<input type="date" id="chqN" value="${esc(v.n||"")}"></label>
+    </div>
+    <div><button class="btn primary" data-act="calcChq">Show timeline</button></div>
+    ${v.out?`<div class="out">${v.out}</div>`:""}
+  </div>`;
+}
+function calcCheque(){
+  const d=parseD($("#chqD").value), m=parseD($("#chqM").value), n=parseD($("#chqN").value);
+  sub.chq={d:$("#chqD").value, m:$("#chqM").value, n:$("#chqN").value};
+  const rows=[];
+  if(d) rows.push(`Present the cheque to the bank within its 3-month validity: by about <b>${DMY(addDays(addMonthsClamp(d,3),-1))}</b>.`);
+  if(m) rows.push(`Send the written demand notice within 30 days of the memo: by <b>${DMY(addDays(m,30))}</b>.`);
+  if(n){ const pay=addDays(n,15), coa=addDays(n,16);
+    rows.push(`The drawer has 15 days from receiving the notice to pay: up to <b>${DMY(pay)}</b>.`);
+    rows.push(`If unpaid, the cause of action arises on <b>${DMY(coa)}</b>.`);
+    rows.push(`File the complaint before the Judicial Magistrate within one month of that: by about <b>${DMY(addDays(addMonthsClamp(coa,1),-1))}</b> (Sec 142). The court may accept a late complaint for sufficient cause.`); }
+  sub.chq.out = rows.length ? `<ol class="steps small">${rows.map(r=>`<li>${r}</li>`).join("")}</ol><p class="small muted">Penalty if convicted: up to 2 years, or a fine up to twice the cheque amount, or both. The court may also order interim compensation of up to 20% (Sec 143A).</p>` : "Please enter at least one date.";
+}
+function mcqBody(m){
+  const ids = byModule[m.n]||[], s=statsFor(ids), fav=ids.filter(id=>Q[id].f).length;
+  return `<div class="grid3">
+      <button class="sheet stack" style="text-align:left" data-act="startModule" data-m="${m.n}"><span class="label">${ids.length} MCQs</span><h3>Whole module</h3><span class="small muted">New questions first, then the ones you got wrong.</span></button>
+      <button class="sheet stack" style="text-align:left" data-act="startModFav" data-m="${m.n}"><span class="label">${fav} MCQs</span><h3>Core concepts</h3><span class="small muted">The central ideas of this module.</span></button>
+      <button class="sheet stack" style="text-align:left" data-act="startModMist" data-m="${m.n}"><span class="label">${mistakesIn(m.n).length} saved</span><h3>My mistakes here</h3><span class="small muted">Wrong answers from this module only.</span></button>
+    </div>
+    <div class="card stack"><div class="row" style="justify-content:space-between"><h3>By topic</h3><span class="small muted">${s.seen}/${s.total} tried${s.att?" · "+s.acc+"% accuracy":""}</span></div>
+    ${m.chapters.map(c=>{ const ids=byChapter[c.id]||[]; const s=statsFor(ids); return `
+      <div class="row"><div class="grow stack" style="gap:3px"><span><b>${c.id}</b> ${esc(c.title)}</span>
+        <div class="bar ${s.acc>=60?"g":""}" style="max-width:280px"><i style="width:${pct(s.seen,s.total)}%"></i></div>
+        <span class="small muted">${s.seen}/${s.total} tried${s.att?" · "+s.acc+"% accuracy":""}</span></div>
+        <button class="btn" data-act="startChapter" data-c="${c.id}" ${ids.length?"":"disabled"}>Practise</button></div>`; }).join("")}
+    </div>
+    <p class="small muted">Every answer shows an explanation straight away. Wrong answers go to the Mistake Book.</p>`;
+}
+function cardsBody(m){
+  const cards = D.cards.filter(c=>modOf(c[0])===m.n);
+  const f = sub.flash;
+  const known = cards.filter(c=>prog.cards[c[1]]).length;
+  if(!f) return `<div class="sheet stack"><div class="row" style="justify-content:space-between"><h2>Flashcards</h2><span class="pill ink">${known}/${cards.length} known</span></div>
+    <p class="muted small">Key sections, cases and terms. Tap a card to flip it, then say whether you knew it.</p>
+    <div class="row"><button class="btn primary" data-act="startFlash" data-m="${m.n}" data-v="all">All ${cards.length} cards</button><button class="btn" data-act="startFlash" data-m="${m.n}" data-v="due" ${known===cards.length?"disabled":""}>Only ones I don't know (${cards.length-known})</button></div></div>`;
+  const c = f.list[f.i];
+  if(!c) return `<div class="sheet stack"><h2>Deck finished</h2><p class="muted">${f.got} of ${f.list.length} marked as known.</p><div class="row"><button class="btn primary" data-act="chTab" data-m="${m.n}" data-t="cards">Back to flashcards</button><button class="btn" data-act="chTab" data-m="${m.n}" data-t="match">Play Match Sprint</button></div></div>`;
+  return `<div class="row" style="justify-content:space-between"><span class="mono small muted">Card ${f.i+1} of ${f.list.length} · ${c[0]} ${esc(chTitle[c[0]]||"")}</span><button class="btn ghost" data-act="chTab" data-m="${m.n}" data-t="cards">End</button></div>
+    <div class="flash" data-act="flip" role="button" tabindex="0" aria-label="Flip card">${f.flip?`<p class="def">${esc(c[2])}</p>`:`<div class="stack" style="gap:8px"><span class="term">${esc(c[1])}</span><span class="small muted">Tap to see the answer</span></div>`}</div>
+    ${f.flip?`<div class="row"><button class="btn primary" data-act="cardKnow" data-v="1">I knew it</button><button class="btn" data-act="cardKnow" data-v="0">Review again</button></div>`:`<div class="row"><button class="btn primary" data-act="flip">Show answer</button></div>`}`;
+}
+function matchBody(m){
+  const g = sub.game;
+  const rec = prog.match[m.n];
+  if(!g) return `<div class="sheet stack"><span class="label">Game</span><h2>Match Sprint</h2>
+    <p class="muted">Match 5 terms with their meanings as fast as you can. Tap a term, then tap its meaning. Wrong taps add a 5-second penalty.</p>
+    ${rec?`<p class="small">Best time: <b class="mono">${fmtTime(rec.best)}</b> · Games played: ${rec.plays}</p>`:`<p class="small muted">No games yet.</p>`}
+    <div><button class="btn primary" data-act="startMatch" data-m="${m.n}">Start a round</button></div></div>`;
+  if(g.end){
+    return `<div class="sheet stack"><h2>Round complete</h2><p>Time <b class="mono">${fmtTime(g.end)}</b> including ${g.miss} wrong tap${g.miss===1?"":"s"} (+${g.miss*5}s).${g.best?" <span class='pill good'>New best</span>":""}</p>
+      <div class="stack small">${g.items.map(c=>`<div>• <b>${esc(c[1])}</b>: ${esc(c[2])}</div>`).join("")}</div>
+      <div class="row"><button class="btn primary" data-act="startMatch" data-m="${m.n}">Play again</button><button class="btn" data-act="chTab" data-m="${m.n}" data-t="cards">Flashcards</button></div></div>`;
+  }
+  return `<div class="row" style="justify-content:space-between"><span class="label">Match Sprint · ${g.done.length}/5 matched</span><span class="timer" id="mtimer">${fmtTime((Date.now()-g.start)/1000+g.miss*5)}</span></div>
+    <div class="match">
+      <div class="mcell">${g.items.map((c,i)=>`<button class="mbtn ${g.done.includes(i)?"done":""} ${g.sel===i?"on":""}" data-act="mTerm" data-i="${i}" ${g.done.includes(i)?"disabled":""}><b>${esc(c[1])}</b></button>`).join("")}</div>
+      <div class="mcell">${g.order.map(i=>`<button class="mbtn ${g.done.includes(i)?"done":""} ${g.bad===i?"no":""}" data-act="mDef" data-i="${i}" ${g.done.includes(i)?"disabled":""}>${esc(g.items[i][2])}</button>`).join("")}</div>
+    </div>
+    <div><button class="btn ghost" data-act="chTab" data-m="${m.n}" data-t="match">Quit round</button></div>`;
+}
+function mistakeBody(mn){
+  const ids = mistakesIn(mn);
+  const title = mn ? "Mistake Book for this module" : "Mistake Book";
+  return `<div class="sheet stack">
+    <div class="row" style="justify-content:space-between"><h2>${title}</h2><span class="pill ${ids.length?"bad":"good"}">${ids.length} question${ids.length===1?"":"s"}</span></div>
+    <p class="muted small">Every question you get wrong lands here, from practice or mocks. Get it right twice in a row and it leaves the book.</p>
+    ${ids.length?`<div><button class="btn primary" data-act="${mn?"startModMist":"startMistakes"}" data-m="${mn||""}">Practise these mistakes</button></div>
+    <div class="stack" style="gap:8px">${ids.map(id=>{ const q=Q[id]; return `<details class="card"><summary class="small"><span class="pill ink">${q.c}</span> ${esc(q.q)}</summary>
+      <p class="small" style="margin-top:8px"><b>Answer: ${L[q.a]}. ${esc(q.o[q.a])}</b></p><p class="small muted">${esc(q.e)}</p></details>`; }).join("")}</div>`
+    :`<p>Nothing here yet. Keep practising.</p>`}
+  </div>`;
+}
+function hbars(rows){ return `<div class="stack" style="gap:8px">${rows.map(([label,val,sub2])=>`<div class="hbar"><span>${label}</span><div class="bar ${val>=60?"g":""}"><i style="width:${val}%"></i></div><span class="mono small">${sub2}</span></div>`).join("")}</div>`; }
+function perfModule(m){
+  const ids = byModule[m.n]||[], s=statsFor(ids);
+  const mk = prog.mocks.filter(x=>x.bym && x.bym[m.n]).slice(-8);
+  const cards = D.cards.filter(c=>modOf(c[0])===m.n), known=cards.filter(c=>prog.cards[c[1]]).length;
+  const topics = m.chapters.map(c=>{ const t=statsFor(byChapter[c.id]||[]); return [c, t]; });
+  const weak = topics.filter(([c,t])=>t.att>=3).sort((a,b)=>a[1].acc-b[1].acc).slice(0,3);
+  return `<div class="grid3 stats">
+      <div class="card stat"><span class="small muted">Tried</span><b>${s.seen}/${s.total}</b></div>
+      <div class="card stat"><span class="small muted">Accuracy</span><b>${s.att?s.acc+"%":"–"}</b></div>
+      <div class="card stat"><span class="small muted">Cards known</span><b>${known}/${cards.length}</b></div>
+    </div>
+    <div class="card stack"><h3>Accuracy by topic</h3>${hbars(topics.map(([c,t])=>[`${c.id} ${esc(c.title)}`, t.att?t.acc:0, t.att?t.acc+"%":"–"]))}
+      <p class="small muted">Bars turn green at 60% accuracy. Topics marked read: ${m.chapters.filter(c=>prog.read[c.id]).length}/${m.chapters.length}.</p></div>
+    ${weak.length?`<div class="card stack"><h3>Work on these first</h3>${weak.map(([c,t])=>`<div class="row"><span class="grow">${c.id} ${esc(c.title)} · ${t.acc}%</span><button class="btn" data-act="startChapter" data-c="${c.id}">Practise</button></div>`).join("")}</div>`:""}
+    <div class="card stack"><h3>This module in your mocks</h3>${mk.length?hbars(mk.map(x=>{ const [c,n]=x.bym[m.n]; return [esc(x.t)+" · "+new Date(x.at).toLocaleDateString("en-IN"), pct(c,n), c+"/"+n]; })):`<p class="small muted">Take a mock exam to see how you score on this module under time pressure.</p>`}</div>
+    <div class="card small muted">Match Sprint best: ${prog.match[m.n]?fmtTime(prog.match[m.n].best):"not played yet"} · Mistakes waiting: ${mistakesIn(m.n).length}</div>`;
+}
+function perfOverall(){
+  const pool=openPool(), s=statsFor(pool);
+  const days=[]; const set=new Set(prog.days); for(let i=27;i>=0;i--){ const d=new Date(); d.setDate(d.getDate()-i); days.push(set.has(ymd(d))); }
+  const mk = prog.mocks.slice(-10);
+  return `<div class="grid3 stats">
+      <div class="card stat"><span class="small muted">MCQs tried</span><b>${s.seen}/${s.total}</b></div>
+      <div class="card stat"><span class="small muted">Accuracy</span><b>${s.att?s.acc+"%":"–"}</b></div>
+      <div class="card stat"><span class="small muted">Streak</span><b>${streak()}d</b></div>
+    </div>
+    <div class="card stack"><h3>Accuracy by module</h3>${hbars(MODS.filter(m=>!m.locked).map(m=>{ const t=statsFor(byModule[m.n]||[]); return [`${m.n}. ${esc(m.title)}`, t.att?t.acc:0, t.att?t.acc+"%":"–"]; }))}</div>
+    <div class="card stack"><h3>Mock scores</h3>${mk.length?`<div class="spark">${mk.map(x=>`<span style="height:${Math.max(2,x.score)}%" title="${esc(x.t)}: ${x.score}"><em>${x.score}</em></span>`).join("")}</div><p class="small muted">Your last ${mk.length} mock${mk.length===1?"":"s"}, oldest first, out of 100.</p>`:`<p class="small muted">No mocks yet.</p>`}</div>
+    <div class="card stack"><h3>Study days (last 4 weeks)</h3><div class="days">${days.map(x=>`<i class="${x?"on":""}"></i>`).join("")}</div><p class="small muted">A green square is a day you studied in this profile.</p></div>`;
+}
+
+/* ---------- PRACTICE SESSION ---------- */
+function orderForPractice(ids){
+  const unseen=[], wrong=[], right=[];
+  shuffle(ids).forEach(id=>{ const a=prog.answers[id]; if(!a) unseen.push(id); else if(!a.last) wrong.push(id); else right.push(id); });
+  return unseen.concat(wrong, right);
+}
+function startSession(ids, title, back){
+  if(!ids.length){ toast("No questions here yet"); return; }
+  go("session", {ids, i:0, title, back, picked:null, log:[]});
+}
+function sessionView(){
+  const s = sub;
+  if(s.i >= s.ids.length || s.done) return sessionSummary();
+  const q = Q[s.ids[s.i]];
+  const answered = s.picked!==null, ok = answered && s.picked===q.a;
+  return shell(`<div class="stack" style="gap:14px">
+    <div class="row" style="justify-content:space-between"><div class="stack" style="gap:2px"><span class="label">${esc(s.title)}</span><span class="small muted mono">Question ${s.i+1} of ${s.ids.length}</span></div>
+      <button class="btn ghost" data-act="endSession">End session</button></div>
+    <div class="bar"><i style="width:${pct(s.i,s.ids.length)}%"></i></div>
+    <div class="sheet">
+      <div class="qhead"><span class="pill ink">${q.c} ${esc(chTitle[q.c])}</span>${q.f?`<span class="pill fav" title="A central idea of this topic.">Core concept</span>`:""}</div>
+      <p class="qtext">${esc(q.q)}</p>
+      <div class="opts" role="group" aria-label="Options">${q.o.map((o,k)=>{ let cls=""; if(answered){ if(k===q.a) cls="right"; else if(k===s.picked) cls="wrong"; }
+        return `<button class="opt ${cls}" data-act="pick" data-k="${k}" ${answered?"disabled":""}><span class="bub">${L[k]}</span><span>${esc(o)}</span></button>`; }).join("")}</div>
+      ${answered?`<div class="explain ${ok?"ok":"no"}"><b>${ok?"Correct.":"Not quite. The answer is "+L[q.a]+"."}</b> ${esc(q.e)}</div>`:""}
+    </div>
+    ${answered?`<div class="row"><button class="btn primary" data-act="nextQ" id="nextBtn">${s.i+1<s.ids.length?"Next question →":"See summary"}</button><button class="btn ghost" data-act="openChapter" data-m="${modOf(q.c)}" data-t="overview" data-c="${q.c}">Read ${q.c} overview</button></div>`:`<p class="small muted">Tap an option. You will see the answer and explanation straight away.</p>`}
+  </div>`);
+}
+function sessionSummary(){
+  const s=sub, r=s.log.filter(x=>x[1]).length, n=s.log.length;
+  const back = s.back ? `data-act="openChapter" data-m="${s.back}" data-t="mcq"` : `data-act="tab" data-v="chapters"`;
+  return shell(`<div class="stack" style="gap:14px">
+    <span class="label">${esc(s.title)}</span>
+    <h1>${n?`You got ${r} of ${n} right`:"Session ended"}</h1>
+    ${n?`<div class="bar g"><i style="width:${pct(r,n)}%"></i></div><p class="muted">${pct(r,n)>=80?"Strong work. Move to the next topic or take a mini mock.":pct(r,n)>=50?"Good progress. Re-read the overview for the questions you missed.":"Read the overview for this topic again, then retry. Your wrong answers are saved in the Mistake Book."}</p>`:""}
+    ${n?`<div class="stack" style="gap:8px">${s.log.map(([id,ok])=>`<div class="card row"><span class="pill ${ok?"good":"bad"}">${ok?"Right":"Wrong"}</span><span class="grow small">${esc(Q[id].q)}</span></div>`).join("")}</div>`:""}
+    <div class="row"><button class="btn primary" ${back}>Back</button>${mistakesIn().length?`<button class="btn" data-act="startMistakes">Practise mistakes</button>`:""}</div>
+  </div>`);
+}
+
+/* ---------- MOCK EXAM ---------- */
+function mockKinds(){
+  if(FULL) return [
+    {k:"m1", t:"Mock Exam 1", d:"50 questions · 1 hour · fixed paper", n:50, min:60},
+    {k:"m2", t:"Mock Exam 2", d:"50 questions · 1 hour · fixed paper", n:50, min:60},
+    {k:"shuffle", t:"Shuffle Mock", d:"50 questions · 1 hour · a new paper every time, in exam weightage", n:50, min:60},
+    {k:"mini", t:"Mini Mock", d:"20 questions · 24 minutes · quick check across all modules", n:20, min:24}
+  ];
+  return [{k:"taster", t:"Taster Mock (Module 1)", d:"10 questions · 12 minutes · Module 1 only", n:10, min:12}];
+}
+function buildMock(k){
+  if(k==="m1"||k==="m2") return D.mocks[k].slice();
+  const pool = openPool();
+  if(k==="taster") return shuffle(pool).slice(0,10);
+  const split = k==="mini" ? SPLIT_20 : SPLIT_50;
+  let out=[];
+  split.forEach((cnt,i)=>{ const ids=(byModule[i+1]||[]).slice(); out=out.concat(shuffle(orderForPractice(ids).slice(0,Math.max(cnt*3,cnt))).slice(0,cnt)); });
+  return shuffle(out);
+}
+function mocksView(){
+  const kinds = mockKinds(), hist = prog.mocks.slice().reverse();
+  return shell(`<div class="stack" style="gap:16px">
+    <div class="stack" style="gap:4px"><span class="label">Mock Exam</span><h1>Practise under exam conditions</h1>
+    <p class="muted">Each mock follows the Paper 1 pattern: 50 MCQs of 2 marks each, 100 marks, 1 hour, in the weightage of the five modules. You get a timer, an answer sheet palette, mark-for-review, a calculator and a rough sheet.</p></div>
+    ${prog.live?(liveOk()?`<div class="banner row"><span class="grow">You have a mock in progress: ${esc(prog.live.t)}.</span><button class="btn primary" data-act="resume">Resume</button></div>`:`<div class="banner">You have a mock in progress in the full kit. Open the full kit to finish it.</div>`):""}
+    <div class="grid2">${kinds.map(m=>{ const h=prog.mocks.filter(x=>x.k===m.k); const best=h.reduce((b,x)=>Math.max(b,x.score),-1);
+      return `<div class="sheet stack"><h3>${m.t}</h3><span class="small muted">${m.d}</span>
+      ${h.length?`<span class="small">Attempts: ${h.length} · Best: <b class="mono">${best}/100</b></span>`:`<span class="small muted">Not attempted yet</span>`}
+      <button class="btn primary" data-act="instr" data-k="${m.k}" ${prog.live?"disabled":""}>Start</button></div>`; }).join("")}
+    ${FULL?"":`<div class="sheet stack locked"><h3>Mock Exams 1 and 2</h3><span class="small muted">50 questions · 1 hour</span><span class="lock">🔒 Full kit</span></div>
+      <div class="sheet stack locked"><h3>Shuffle and Mini Mocks</h3><span class="small muted">A fresh paper every time</span><span class="lock">🔒 Full kit</span></div>`}
+    </div>
+    <div class="card stack"><h3>Weightage used in every mock</h3>
+      <div class="tbl"><table><thead><tr><th>Module</th><th>Weight</th><th>Questions in 50</th></tr></thead><tbody>${MODS.map(m=>`<tr><td>${m.n}. ${esc(m.title)}</td><td>${m.weight}%</td><td class="mono">${m.split}</td></tr>`).join("")}</tbody></table></div></div>
+    ${hist.length?`<h2>Your attempts</h2><div class="stack" style="gap:8px">${hist.map((h,i)=>`<div class="card row"><span class="grow"><b>${esc(h.t)}</b><br><span class="small muted">${new Date(h.at).toLocaleString("en-IN")} · ${fmtTime(h.used)} used</span></span><span class="mono" style="font-size:1.2rem"><b>${h.score}</b>/100</span><button class="btn" data-act="review" data-i="${prog.mocks.length-1-i}">Review</button></div>`).join("")}</div>`:""}
+    ${FULL?"":upsell()}
+    <p class="small muted">The mock papers are original questions written for this kit. They do not repeat any past exam paper. Mock scores show how well you know this kit's questions and do not predict your exam result.</p>
+  </div>`);
+}
+function instrView(){
+  const m = mockKinds().find(x=>x.k===sub.k);
+  return shell(`<div class="stack" style="gap:16px">
+    <button class="btn ghost" style="align-self:flex-start" data-act="tab" data-v="mocks">← Mock Exam</button>
+    <div class="stack" style="gap:4px"><span class="label">Instructions</span><h1>${esc(m.t)}</h1><p class="muted">${esc(m.d)}</p></div>
+    <div class="sheet stack">
+      <h3>Read before you start</h3>
+      <ol class="instr small" style="margin:0;padding-left:1.2em">
+        <li>This paper has <b>${m.n} multiple choice questions</b>. Each carries <b>2 marks</b>${m.n===50?", for a total of 100 marks":""}. Your score is shown out of 100.</li>
+        <li>Time allowed: <b>${m.min} minutes</b>. The timer starts when you press Start and keeps running even if you close the page. When time is up, the paper is submitted automatically.</li>
+        <li><b>Answer all questions.</b> Each question has four options and only one is correct. This mock has no negative marking. Check your admit card and the Institute's notice for the rules of your exam.</li>
+        <li>Tap an option to fill its bubble. You can change or clear an answer at any time before you submit.</li>
+        <li>Use <b>Mark for review</b> for doubtful questions. The palette shows answered, unanswered and marked questions.</li>
+        <li>Open the <b>Calculator</b> and the <b>Rough sheet</b> from the bar at the top. You can draw or type your working there. It is kept with this attempt.</li>
+        <li>In the real exam you shade an OMR sheet with a pen. Practise deciding quickly and shading once.</li>
+        <li>After you submit, you get your score, a module-wise analysis and a full review with explanations.</li>
+      </ol>
+      <label class="row small" style="gap:8px"><input type="checkbox" id="agree"> I have read the instructions.</label>
+      <p class="err" id="agErr" role="alert"></p>
+      <div class="row"><button class="btn primary" data-act="startMock" data-k="${m.k}">Start the ${m.min}-minute timer</button><button class="btn" data-act="tab" data-v="mocks">Not now</button></div>
+    </div>
+  </div>`);
+}
+function startMock(k){
+  const m = mockKinds().find(x=>x.k===k);
+  prog.live = {k, t:m.t, qids:buildMock(k), ans:{}, mark:{}, start:Date.now(), dur:m.min*60, i:0, notes:"", sketch:""};
+  save(); Tools.reset(); go("exam");
+}
+function examView(){
+  const X = prog.live, i = X.i, q = Q[X.qids[i]];
+  const left = X.dur - (Date.now()-X.start)/1000;
+  const answeredN = Object.keys(X.ans).length, sel = X.ans[q.id];
+  return shell(`
+  <div class="stack" style="gap:14px">
+    <div class="sheet" style="padding:10px 14px"><div class="row">
+      <span class="grow"><b>${esc(X.t)}</b><br><span class="small muted">${answeredN}/${X.qids.length} answered</span></span>
+      <span class="timer ${left<300?"low":""}" id="timer" aria-live="off">${fmtTime(left)}</span>
+      <button class="btn primary" data-act="askSubmit">Submit</button>
+    </div>
+    <div class="toolbar" style="margin-top:8px"><button class="btn" data-act="toolCalc">🧮 Calculator</button><button class="btn" data-act="toolRough">✏️ Rough sheet</button></div></div>
+    ${sub.confirm?`<div class="confirm stack"><b>Submit this mock?</b><span>${X.qids.length-answeredN} unanswered${Object.keys(X.mark).length?" · "+Object.keys(X.mark).length+" marked for review":""}. You can't change answers after submitting.</span><div class="row"><button class="btn primary" data-act="submitMock">Yes, submit</button><button class="btn" data-act="cancelSubmit">Keep working</button></div></div>`:""}
+    <div class="sheet">
+      <div class="qhead"><span class="mono small muted">Question ${i+1} of ${X.qids.length} · 2 marks</span>${X.mark[q.id]?`<span class="pill warn">Marked for review</span>`:""}</div>
+      <p class="qtext">${esc(q.q)}</p>
+      <div class="opts">${q.o.map((o,k)=>`<button class="opt ${sel===k?"sel":""}" data-act="examPick" data-k="${k}" aria-pressed="${sel===k}"><span class="bub">${L[k]}</span><span>${esc(o)}</span></button>`).join("")}</div>
+      <div class="row" style="margin-top:14px">
+        <button class="btn" data-act="examNav" data-d="-1" ${i===0?"disabled":""}>← Previous</button>
+        <button class="btn" data-act="toggleMark">${X.mark[q.id]?"Unmark":"Mark for review"}</button>
+        ${sel!==undefined?`<button class="btn ghost" data-act="clearAns">Clear answer</button>`:""}
+        <span class="grow"></span>
+        <button class="btn primary" data-act="examNav" data-d="1" ${i===X.qids.length-1?"disabled":""}>Save &amp; next →</button>
+      </div>
+    </div>
+    <div class="card stack">
+      <div class="legend"><span><i style="background:var(--ink);border-color:var(--ink)"></i>Answered</span><span><i></i>Not answered</span><span><i style="border-color:var(--warn);background:var(--warn-soft)"></i>Marked</span></div>
+      <div class="palette">${X.qids.map((id,k)=>`<button class="pal ${X.ans[id]!==undefined?"ans":""} ${X.mark[id]?"mark":""} ${k===i?"cur":""}" data-act="examJump" data-i="${k}" aria-label="Question ${k+1}">${k+1}</button>`).join("")}</div>
+    </div>
+  </div>`);
+}
+function tick(){
+  if(view==="session"||view==="chapter"){ const g=sub.game, el=$("#mtimer"); if(g && !g.end && el) el.textContent=fmtTime((Date.now()-g.start)/1000+g.miss*5); }
+  if(view!=="exam"||!prog||!prog.live) return;
+  const left = prog.live.dur - (Date.now()-prog.live.start)/1000;
+  const t = $("#timer"); if(t){ t.textContent = fmtTime(left); t.classList.toggle("low", left<300); }
+  if(left<=0){ toast("Time is up. Your mock has been submitted."); submitMock(); }
+}
+function submitMock(){
+  const X = prog.live; if(!X) return;
+  Tools.saveNow();
+  const used = Math.min(X.dur, Math.round((Date.now()-X.start)/1000));
+  let right=0; const bym={};
+  X.qids.forEach(id=>{ const q=Q[id], m=modOf(q.c); bym[m]=bym[m]||[0,0,0]; bym[m][1]++; const a=X.ans[id];
+    if(a===undefined){ bym[m][2]++; prog.mistakes[id]=0; }
+    else { const ok=a===q.a; if(ok){right++; bym[m][0]++;} record(id, ok); } });
+  const score = Math.round(right*100/X.qids.length);
+  prog.mocks.push({k:X.k, t:X.t, at:Date.now(), used, score, right, n:X.qids.length, qids:X.qids, ans:X.ans, bym, notes:(X.notes||"").slice(0,4000)});
+  if(prog.mocks.length>60) prog.mocks=prog.mocks.slice(-60);
+  prog.live=null; touchDay(); save(); Tools.close();
+  go("result", {i:prog.mocks.length-1, filter:"all"});
+}
+function resultView(){
+  const r = prog.mocks[sub.i]; if(!r || !r.qids.every(id=>Q[id])){ toast("This attempt was made in the full kit. Open the full kit to review it."); view="mocks"; return mocksView(); }
+  const wrong = r.qids.filter(id=>r.ans[id]!==undefined && r.ans[id]!==Q[id].a).length;
+  const skip = r.qids.filter(id=>r.ans[id]===undefined).length;
+  const f = sub.filter||"all";
+  const list = r.qids.map((id,k)=>[id,k]).filter(([id])=>{ const a=r.ans[id]; if(f==="wrong") return a!==undefined&&a!==Q[id].a; if(f==="skip") return a===undefined; return true; });
+  const mods = Object.keys(r.bym).sort((a,b)=>a-b);
+  const weakest = mods.slice().sort((a,b)=>pct(r.bym[a][0],r.bym[a][1])-pct(r.bym[b][0],r.bym[b][1]))[0];
+  return shell(`<div class="stack" style="gap:16px">
+    <button class="btn ghost" style="align-self:flex-start" data-act="tab" data-v="mocks">← Mock Exam</button>
+    <div class="row" style="gap:16px">
+      <div class="ring" style="--p:${r.score}"><b>${r.score}</b></div>
+      <div class="grow stack" style="gap:4px"><span class="label">${esc(r.t)} · result</span><h1>${r.score} / 100</h1>
+        <span class="pill ${r.score>=50?"good":r.score>=40?"warn":"bad"}" style="align-self:flex-start">${r.score>=50?"At or above 50%":r.score>=40?"Between 40% and 50%":"Below 40%"}</span>
+        <span class="small muted">${r.right} right · ${wrong} wrong · ${skip} not answered · ${fmtTime(r.used)} used · about ${r.n?Math.round(r.used/r.n):0}s per question</span></div>
+    </div>
+    <div class="card stack"><h3>Module-wise analysis</h3>
+      <div class="tbl"><table><thead><tr><th>Module</th><th>Right</th><th>Marks</th><th>Accuracy</th></tr></thead><tbody>
+      ${mods.map(m=>{ const [c,n]=r.bym[m]; return `<tr><td>${m}. ${esc(MODS[m-1].title)}</td><td class="mono">${c}/${n}</td><td class="mono">${c*2}/${n*2}</td><td><div class="bar ${pct(c,n)>=60?"g":""}" style="min-width:80px"><i style="width:${pct(c,n)}%"></i></div></td></tr>`; }).join("")}
+      </tbody></table></div>
+      ${weakest&&mods.length>1?`<div class="row"><span class="grow small">Weakest in this attempt: <b>${weakest}. ${esc(MODS[weakest-1].title)}</b></span><button class="btn" data-act="openChapter" data-m="${weakest}" data-t="mcq">Practise it</button></div>`:""}
+      <p class="small muted">Wrong and unanswered questions have been added to your Mistake Book. This score is for practice only and does not predict your exam result.</p>
+    </div>
+    <div class="card stack"><h3>Your answer sheet</h3>
+      <div class="omr">${r.qids.map((id,k)=>{ const a=r.ans[id], q=Q[id]; return `<div class="r"><span class="n">${k+1}</span>${L.map((l,j)=>`<i class="${j===q.a?(a===j?"ok":"f"):(a===j?"bad":"")}">${l}</i>`).join("")}</div>`; }).join("")}</div>
+      <p class="small muted">Green: your correct answer. Red: your wrong answer. Blue: the right answer you missed.</p></div>
+    ${r.notes?`<details class="card"><summary><b>Your rough sheet notes</b></summary><pre class="fmt">${esc(r.notes)}</pre></details>`:""}
+    <div class="row"><h2 class="grow">Answer review</h2>
+      <select id="revFilter" style="width:auto"><option value="all" ${f==="all"?"selected":""}>All questions</option><option value="wrong" ${f==="wrong"?"selected":""}>Wrong only (${wrong})</option><option value="skip" ${f==="skip"?"selected":""}>Not answered (${skip})</option></select></div>
+    ${list.length?list.map(([id,k])=>{ const q=Q[id], a=r.ans[id];
+      return `<div class="sheet"><div class="qhead"><span class="mono small muted">Q${k+1} · ${q.c} ${esc(chTitle[q.c])}</span><span class="pill ${a===undefined?"":a===q.a?"good":"bad"}">${a===undefined?"Not answered":a===q.a?"Right":"Wrong"}</span></div>
+      <p class="qtext">${esc(q.q)}</p>
+      <div class="opts">${q.o.map((o,j)=>`<div class="opt ${j===q.a?"right":j===a?"wrong":""}"><span class="bub">${L[j]}</span><span>${esc(o)}</span></div>`).join("")}</div>
+      <div class="explain">${esc(q.e)}</div></div>`; }).join(""):`<p class="muted">Nothing to show for this filter.</p>`}
+  </div>`);
+}
+
+/* ---------- exam tools: calculator and rough sheet (live outside #app so they survive re-renders) ---------- */
+const Tools = (function(){
+  const root = document.getElementById("tools");
+  root.innerHTML = `
+  <div class="panel" id="calc" role="dialog" aria-label="Calculator">
+    <div class="ph" data-drag="calc">🧮 Calculator<span class="small muted" id="cMem"></span><button class="x" data-tk="close-calc" aria-label="Close calculator">×</button></div>
+    <div class="scr"><small id="cExp"></small><b id="cOut">0</b></div>
+    <div class="keys">
+      ${["MC","MR","M+","M−","C","7","8","9","÷","⌫","4","5","6","×","%","1","2","3","−","√","±","0",".","+","="].map(k=>`<button data-ck="${k}" class="${/^M/.test(k)?"m":/[÷×−+%√]/.test(k)?"op":k==="="?"eq":""}">${k}</button>`).join("")}
+    </div>
+  </div>
+  <div class="panel" id="rough" role="dialog" aria-label="Rough sheet">
+    <div class="ph" data-drag="rough">✏️ Rough sheet<button class="x" data-tk="close-rough" aria-label="Close rough sheet">×</button></div>
+    <div class="rb"><button data-tk="pen" class="on">Pen</button><button data-tk="eraser">Eraser</button><button data-tk="clear">Clear page</button><span style="flex:1"></span><button data-tk="draw" class="on">Draw</button><button data-tk="type">Type</button></div>
+    <canvas id="rcv"></canvas><textarea id="rtx" placeholder="Type your working here" style="display:none"></textarea>
+  </div>`;
+  const calc = root.querySelector("#calc"), rough = root.querySelector("#rough");
+  const cv = root.querySelector("#rcv"), tx = root.querySelector("#rtx");
+  let ctx = cv.getContext("2d"), mode = "pen", drawing = false, last = null, saveT = null;
+  /* calculator */
+  let cur = "0", acc = null, op = null, fresh = true, mem = 0, expr = "";
+  const fmt = v => { if(!isFinite(v)) return "Error"; const r = Math.round(v*1e10)/1e10; let s = String(r); if(s.length>14) s = r.toPrecision(10).replace(/\.?0+(e|$)/,"$1"); return s; };
+  const apply = (a,b,o) => o==="+"?a+b:o==="−"?a-b:o==="×"?a*b:o==="÷"?(b===0?NaN:a/b):b;
+  function show(){ root.querySelector("#cOut").textContent = cur; root.querySelector("#cExp").textContent = expr; root.querySelector("#cMem").textContent = mem? " · M="+fmt(mem) : ""; }
+  function key(k){
+    const v = parseFloat(cur);
+    if(/^[0-9]$/.test(k)){ cur = (fresh||cur==="0"||cur==="Error") ? k : (cur.length<15? cur+k : cur); fresh=false; }
+    else if(k==="."){ if(fresh||cur==="Error"){ cur="0."; fresh=false; } else if(!cur.includes(".")) cur+="."; }
+    else if(k==="C"){ cur="0"; acc=null; op=null; fresh=true; expr=""; }
+    else if(k==="⌫"){ if(!fresh && cur.length>1) cur=cur.slice(0,-1); else { cur="0"; fresh=true; } }
+    else if(k==="±"){ if(cur!=="0" && cur!=="Error") cur = cur[0]==="-" ? cur.slice(1) : "-"+cur; }
+    else if(k==="√"){ cur = fmt(Math.sqrt(v)); fresh=true; }
+    else if(k==="%"){
+      if(acc!==null && op==="×"){ expr=fmt(acc)+" × "+fmt(v)+"% ="; cur=fmt(acc*v/100); acc=null; op=null; }
+      else if(acc!==null && op==="÷"){ expr=fmt(acc)+" ÷ "+fmt(v)+"% ="; cur=fmt(acc/(v/100)); acc=null; op=null; }
+      else cur = fmt(acc!==null && (op==="+"||op==="−") ? acc*v/100 : v/100);
+      fresh=true; }
+    else if("+−×÷".includes(k)){ if(op && !fresh){ acc = apply(acc, v, op); cur = fmt(acc); } else if(acc===null || !op) acc = v; op = k; fresh = true; expr = fmt(acc)+" "+k; }
+    else if(k==="="){ if(op){ const r = apply(acc, v, op); expr = fmt(acc)+" "+op+" "+fmt(v)+" ="; cur = fmt(r); acc=null; op=null; fresh=true; } }
+    else if(k==="MC") mem=0;
+    else if(k==="MR"){ cur=fmt(mem); fresh=true; }
+    else if(k==="M+"){ mem+=v||0; fresh=true; }
+    else if(k==="M−"){ mem-=v||0; fresh=true; }
+    if(cur==="NaN") cur="Error";
+    show();
+  }
+  calc.addEventListener("click", e=>{ const b=e.target.closest("[data-ck]"); if(b) key(b.dataset.ck); });
+  document.addEventListener("keydown", e=>{
+    if(!calc.classList.contains("open") || /input|textarea|select/i.test((e.target.tagName||""))) return;
+    const map = {"+":"+","-":"−","*":"×","/":"÷","Enter":"=","=":"=","Backspace":"⌫","Escape":"C",".":".","%":"%"};
+    if(/^[0-9]$/.test(e.key)){ key(e.key); e.preventDefault(); } else if(map[e.key]){ key(map[e.key]); e.preventDefault(); }
+  });
+  /* rough sheet */
+  function fit(){
+    const r = cv.getBoundingClientRect(); if(!r.width) return;
+    const dpr = window.devicePixelRatio||1, w=Math.round(r.width*dpr), h=Math.round(r.height*dpr);
+    if(cv.width===w && cv.height===h) return;
+    cv.width=w; cv.height=h; ctx=cv.getContext("2d"); ctx.setTransform(dpr,0,0,dpr,0,0); restore();
+  }
+  function restore(){ const src = prog && prog.live && prog.live.sketch; if(!src) return; const img=new Image(); img.onload=()=>{ const r=cv.getBoundingClientRect(); ctx.drawImage(img,0,0,r.width,r.height); }; img.src=src; }
+  function persist(){ clearTimeout(saveT); saveT=setTimeout(saveNow, 400); }
+  function saveNow(){ if(!prog||!prog.live) return; try{ if(cv.width) prog.live.sketch = cv.toDataURL("image/png"); }catch(e){} prog.live.notes = tx.value; save(); }
+  const pos = e => { const r=cv.getBoundingClientRect(); return [e.clientX-r.left, e.clientY-r.top]; };
+  cv.addEventListener("pointerdown", e=>{ drawing=true; last=pos(e); try{ cv.setPointerCapture(e.pointerId); }catch(x){} e.preventDefault(); });
+  cv.addEventListener("pointermove", e=>{ if(!drawing) return; const p=pos(e);
+    ctx.globalCompositeOperation = mode==="eraser" ? "destination-out" : "source-over";
+    ctx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue("--ink").trim()||"#2340A8";
+    ctx.lineWidth = mode==="eraser" ? 18 : 2.2; ctx.lineCap="round"; ctx.lineJoin="round";
+    ctx.beginPath(); ctx.moveTo(last[0],last[1]); ctx.lineTo(p[0],p[1]); ctx.stroke(); last=p; e.preventDefault(); });
+  const end = ()=>{ if(drawing){ drawing=false; persist(); } };
+  cv.addEventListener("pointerup", end); cv.addEventListener("pointercancel", end); cv.addEventListener("pointerleave", end);
+  tx.addEventListener("input", persist);
+  rough.addEventListener("click", e=>{ const b=e.target.closest("[data-tk]"); if(!b) return; const k=b.dataset.tk;
+    if(k==="pen"||k==="eraser"){ mode=k; rough.querySelectorAll('[data-tk="pen"],[data-tk="eraser"]').forEach(x=>x.classList.toggle("on", x.dataset.tk===k)); }
+    if(k==="clear"){ if(tx.style.display!=="none") tx.value=""; else { const r=cv.getBoundingClientRect(); ctx.clearRect(0,0,r.width,r.height); } persist(); }
+    if(k==="draw"||k==="type"){ const t=k==="type"; tx.style.display=t?"block":"none"; cv.style.display=t?"none":"block"; rough.querySelectorAll('[data-tk="draw"],[data-tk="type"]').forEach(x=>x.classList.toggle("on", x.dataset.tk===k)); rough.querySelectorAll('[data-tk="pen"],[data-tk="eraser"]').forEach(x=>x.disabled=t); if(t) tx.focus(); else fit(); }
+  });
+  root.addEventListener("click", e=>{ const b=e.target.closest("[data-tk]"); if(!b) return; if(b.dataset.tk==="close-calc") calc.classList.remove("open"); if(b.dataset.tk==="close-rough"){ saveNow(); rough.classList.remove("open"); } });
+  /* drag panels by their header (desktop and touch) */
+  root.querySelectorAll("[data-drag]").forEach(h=>{
+    const p = h.parentElement; let sx, sy, ox, oy, on=false;
+    h.addEventListener("pointerdown", e=>{ if(e.target.closest("button")) return; on=true; const r=p.getBoundingClientRect(); sx=e.clientX; sy=e.clientY; ox=r.left; oy=r.top; try{ h.setPointerCapture(e.pointerId); }catch(x){} });
+    h.addEventListener("pointermove", e=>{ if(!on) return; const r=p.getBoundingClientRect(); const x=Math.min(window.innerWidth-r.width, Math.max(0, ox+e.clientX-sx)), y=Math.min(window.innerHeight-40, Math.max(0, oy+e.clientY-sy)); Object.assign(p.style,{left:x+"px",top:y+"px",right:"auto",bottom:"auto"}); });
+    h.addEventListener("pointerup", ()=>{ on=false; });
+  });
+  window.addEventListener("resize", ()=>{ if(rough.classList.contains("open")) fit(); });
+  return {
+    toggleCalc(){ calc.classList.toggle("open"); show(); },
+    toggleRough(){ const o=!rough.classList.contains("open"); rough.classList.toggle("open", o); if(o){ tx.value = (prog.live&&prog.live.notes)||""; fit(); } else saveNow(); },
+    reset(){ cur="0"; acc=null; op=null; fresh=true; mem=0; expr=""; show(); tx.value=""; const r=cv.getBoundingClientRect(); if(r.width) ctx.clearRect(0,0,r.width,r.height); cv.width=0; },
+    close(){ calc.classList.remove("open"); rough.classList.remove("open"); },
+    saveNow
+  };
+})();
+
+/* ---------- SETTINGS ---------- */
+function settingsView(){
+  const code = sub.exportCode || "";
+  return shell(`<div class="stack" style="gap:16px">
+    <div class="stack" style="gap:4px"><span class="label">Settings</span><h1>Profile and app settings</h1><p class="muted">Signed in as <b>${esc(me.name)}</b>${me.pin?" · PIN on":" · no PIN"}.</p></div>
+    <div class="sheet stack">
+      <h2>Edit profile</h2>
+      <label class="f">Name<input type="text" id="rName" maxlength="24" value="${esc(me.name)}"></label>
+      <p class="err" id="rErr" role="alert"></p>
+      <div class="row"><button class="btn primary" data-act="rename">Save name</button></div>
+    </div>
+    <div class="sheet stack">
+      <h2>${me.pin?"Change or remove PIN":"Add a PIN"}</h2>
+      ${me.pin?`<label class="f">Current PIN<input type="password" id="oldPin" class="pin" inputmode="numeric" maxlength="4"></label>`:""}
+      <label class="f">New 4-digit PIN ${me.pin?"(leave empty to remove the PIN)":""}<input type="password" id="newPin" class="pin" inputmode="numeric" maxlength="4"></label>
+      <label class="f">Confirm new PIN<input type="password" id="newPin2" class="pin" inputmode="numeric" maxlength="4"></label>
+      <p class="err" id="pinErr" role="alert"></p>
+      <div class="row"><button class="btn primary" data-act="savePin">${me.pin?"Update PIN":"Save PIN"}</button></div>
+    </div>
+    <div class="sheet stack">
+      <h2>Display</h2>
+      <div class="row">${["system","light","dark"].map(t=>`<button class="btn ${theme===t?"primary":""}" data-act="theme" data-v="${t}">${t[0].toUpperCase()+t.slice(1)}</button>`).join("")}</div>
+    </div>
+    <div class="sheet stack">
+      <h2>Back up and restore</h2>
+      <p class="small">Progress lives only in this browser. Create a backup code and keep it in your notes or email. Paste it here later, on any device, to restore.</p>
+      <div class="row"><button class="btn" data-act="exportCode">Create backup code</button></div>
+      ${code?`<textarea id="codeOut" readonly>${esc(code)}</textarea><div class="row"><button class="btn primary" data-act="copyCode">Copy code</button></div>`:""}
+      <label class="f">Restore from a backup code<textarea id="codeIn" placeholder="Paste a backup code here"></textarea></label>
+      <p class="err" id="codeErr" role="alert"></p>
+      <div class="row"><button class="btn" data-act="askImport">Restore into this profile</button></div>
+      ${sub.confirmImport?`<div class="confirm stack"><b>Replace ${esc(me.name)}'s progress with the backup?</b><span class="small">Current progress in this profile will be overwritten.</span><div class="row"><button class="btn danger" data-act="doImport">Yes, restore</button><button class="btn" data-act="cancelConfirm">Cancel</button></div></div>`:""}
+    </div>
+    <div class="sheet stack">
+      <h2>Reset or delete</h2>
+      <div class="row"><button class="btn" data-act="switch">Switch student</button><button class="btn danger" data-act="askReset">Reset my progress</button><button class="btn danger" data-act="askDelete">Delete this profile</button></div>
+      ${sub.confirmReset?`<div class="confirm stack"><b>Clear all of ${esc(me.name)}'s answers, mocks, Mistake Book and flashcard marks?</b><span class="small">The profile stays. This can't be undone unless you have a backup code.</span><div class="row"><button class="btn danger" data-act="doReset">Yes, reset</button><button class="btn" data-act="cancelConfirm">Cancel</button></div></div>`:""}
+      ${sub.confirmDelete?`<div class="confirm stack"><b>Delete ${esc(me.name)}'s profile and all progress?</b><span class="small">This can't be undone.</span>${me.pin?`<label class="f">Enter PIN to confirm<input type="password" id="delPin" class="pin" inputmode="numeric" maxlength="4"></label>`:""}<p class="err" id="delErr"></p><div class="row"><button class="btn danger" data-act="doDelete">Delete profile</button><button class="btn" data-act="cancelConfirm">Cancel</button></div></div>`:""}
+    </div>
+  </div>`);
+}
+
+/* ---------- README ---------- */
+function readmeView(){
+  const c = D.counts;
+  return shell(`<div class="stack" style="gap:16px">
+    <div class="stack" style="gap:4px"><span class="label">Readme</span><h1>${APP}</h1><p class="muted">CMA Foundation · Paper 1: Fundamentals of Business Laws and Business Communication · ${FULL?"Full kit":"Free sample"} · ${esc(D.version)}</p></div>
+    <div class="grid3">
+      <div class="card stat"><span class="small muted">Practice MCQs</span><b>${FULL?c.practice:c.practice+" of "+c.fullPractice}</b></div>
+      <div class="card stat"><span class="small muted">Mock questions</span><b>${FULL?c.mock+" + shuffle":"Taster only"}</b></div>
+      <div class="card stat"><span class="small muted">Flashcards</span><b>${D.cards.length}${FULL?"":" of "+c.fullCards}</b></div>
+    </div>
+    <div class="sheet stack"><h2>How to use</h2>
+      <ol class="small" style="margin:0;padding-left:1.2em">
+        <li><b>Create your profile</b> with your name. A PIN is optional. Each person sharing the device gets their own profile.</li>
+        <li><b>Chapters → a module → Overview:</b> read one topic (10 to 15 minutes) and tap <i>Mark as read</i>.</li>
+        <li><b>Formats &amp; key sections:</b> revise the quick tables and specimen formats. Module 4 has a bill maturity calculator and a cheque bounce timeline to try.</li>
+        <li><b>MCQs:</b> answer that topic's questions and read every explanation.</li>
+        <li><b>Flashcards and Match Sprint:</b> lock in sections, cases and terms.</li>
+        <li><b>Mistake Book:</b> clear your wrong answers. A question leaves after two correct answers in a row.</li>
+        <li><b>Performance:</b> see accuracy by topic and module, mock trends and study days.</li>
+        <li><b>Mock Exam:</b> take a timed 50-question paper with the calculator and rough sheet, then study the review.</li>
+      </ol></div>
+    <div class="sheet stack"><h2>Exam pattern used in this kit</h2>
+      <p class="small">Paper 1 carries 100 marks. Our mocks use <b>50 MCQs × 2 marks in 1 hour</b>, which matches the June 2026 Paper 1 question paper. Module weightage: Introduction to Law 10%, Indian Contract Act 30%, Sale of Goods Act 20%, Negotiable Instruments Act 20%, Business Communication 20%. Exam rules, timings and marking can change, so always confirm them in the Institute's latest notice and your admit card.</p></div>
+    <div class="sheet stack"><h2>Precautions</h2>
+      <ul class="small" style="margin:0;padding-left:1.2em">
+        <li><b>Your progress is saved only in this browser on this device.</b> Clearing browsing data, using a private or incognito window, or opening the file in a different browser starts fresh. Create a backup code in Settings from time to time.</li>
+        <li>On a phone, save the file to your Files or Downloads and open it in Chrome. Opening it inside a chat or email preview may not save progress.</li>
+        <li>Keep the same file name and folder after you start, and keep only one copy open at a time, especially during a mock.</li>
+        <li>The mock timer keeps running if you close the page. Resume from the Mock Exam tab.</li>
+        <li><b>Law updates:</b> from 1 July 2024 the IPC, CrPC and Indian Evidence Act were replaced by the Bharatiya Nyaya Sanhita, Bharatiya Nagarik Suraksha Sanhita and Bharatiya Sakshya Adhiniyam, 2023. The study material may still use the older names. For the exam, follow the study material and the Institute's notices. Where the two differ, our notes point it out.</li>
+        <li>This kit helps you revise. It does not replace the Institute's study material, which remains the main source for the exam.</li>
+        <li>The PIN only keeps profiles apart on a shared device. Don't use a PIN you use for banking.</li>
+      </ul></div>
+    <div class="sheet stack"><h2>How the content was made</h2>
+      <p class="small">Every note, question, option, explanation and specimen in this kit was written fresh by 99DigiProStore, following the published Paper 1 syllabus and weightage. We do not copy the Institute's study material, MCQ bank or past papers, and the mock papers contain no past-exam questions. Bare section numbers and statutory terms are used only to describe the law. The <span class="pill fav">Core concept</span> tag is our study suggestion, not a claim about what will appear in any exam.</p></div>
+    <div class="sheet stack"><h2>Disclaimer</h2>
+      <p class="small">${APP} is an independent study aid. It is not affiliated with, endorsed by, sponsored by or connected to the Institute of Cost Accountants of India (ICMAI). "CMA Foundation" is used only to describe the exam this kit helps with. We have tried to keep the content accurate, but mistakes are possible and the law, syllabus and exam pattern can change. Using this kit does not guarantee that you will pass, and mock scores do not predict your result. The calculators are learning aids and not legal advice.</p>
+      <p class="small">Found an error? Email digiprostore99@gmail.com with your order ID and a screenshot, and we will fix it.</p></div>
+    <div class="sheet stack"><h2>Privacy</h2>
+      <p class="small">This kit collects no personal data. It has no sign-up with us, no tracking, no ads and no analytics, and it does not connect to the internet. Names, PINs and progress stay in this browser on this device, and only you can see or delete them. A first name or nickname is enough for a profile. If a student is under 18, a parent or guardian should buy the kit and help set it up.</p></div>
+    <div class="sheet stack"><h2>Terms of use</h2>
+      <ul class="small" style="margin:0;padding-left:1.2em">
+        <li>This is a study aid for practice, provided "as is". We do our best to keep it accurate but can't promise it is free of errors or complete for your exam.</li>
+        <li>Your result depends on your own preparation. We make no promise of marks, ranks or passing.</li>
+        <li>Our total liability for any claim about this kit is limited to the price you paid for it.</li>
+        <li><b>All sales are final and non-refundable.</b> If the file does not open or work as described, email digiprostore99@gmail.com with your order ID and a screenshot, and we will fix it or send a working replacement.</li>
+        <li>Minor updates for the same exam term are free and emailed to past buyers. A new edition for a new syllabus or term may be sold separately.</li>
+        <li>These terms are governed by the laws of India.</li>
+      </ul></div>
+    <div class="sheet stack"><h2>Copyright and licence</h2>
+      <p class="small">© 99DigiProStore. All rights reserved. This file is licensed to the buyer for personal study. You may use it on your own devices and share profiles with family members on the same device. Please don't upload, share, sell or copy this file or its contents. Breaking this licence may lead to action under the Copyright Act, 1957.</p></div>
+    <div class="card small muted">Version ${esc(D.version)} · Support: digiprostore99@gmail.com · Shop: 99digiprostore.myinstamojo.com</div>
+  </div>`);
+}
+
+/* ---------- render ---------- */
+function render(){
+  clearInterval(timerH); timerH=null;
+  let html;
+  if(!me) html = loginView();
+  else if(view==="exam" && liveOk()){ html = examView(); }
+  else if(view==="exam"){ view="mocks"; html = mocksView(); }
+  else html = ({chapters:chaptersView, chapter:chapterView, session:sessionView, mocks:mocksView, instr:instrView, result:resultView, settings:settingsView, readme:readmeView}[view]||chaptersView)();
+  document.getElementById("app").innerHTML = html;
+  if(view==="exam" || (view==="chapter" && sub.game && !sub.game.end)) timerH=setInterval(tick,1000);
+  if(view!=="exam") Tools.close();
+  if(!me){ const f=$("#nName")||$("#pin"); if(f) f.focus(); }
+  if(view==="chapter" && sub.c){ const el=document.getElementById("sec-"+sub.c.replace(".","-")); if(el) setTimeout(()=>el.scrollIntoView(),0); sub.c=null; }
+}
+
+/* ---------- events ---------- */
+document.getElementById("app").addEventListener("click", e=>{
+  const b = e.target.closest("[data-act]"); if(!b || b.disabled) return;
+  const a = b.dataset.act;
+  const H = {
+    newUser(){ go("login",{mode:"new"}); },
+    loginHome(){ go("login",{}); },
+    pickUser(){ const u=users.find(x=>x.id===b.dataset.id); if(!u) return; if(u.pin) go("login",{mode:"pin",uid:u.id}); else enterUser(u); },
+    checkPin(){ const u=users.find(x=>x.id===sub.uid); const v=$("#pin").value.trim(); if(hash(u.id+"|"+v)===u.pin) enterUser(u); else { $("#pErr").textContent="That PIN is not right. Try again."; $("#pin").value=""; $("#pin").focus(); } },
+    createUser(){
+      const name=$("#nName").value.trim(), p1=$("#nPin").value.trim(), p2=$("#nPin2").value.trim(), err=$("#nErr");
+      if(!name){ err.textContent="Please enter your name."; return; }
+      if(users.some(u=>u.name.toLowerCase()===name.toLowerCase())){ err.textContent="A profile with this name already exists. Add your surname or initial."; return; }
+      if(p1 && !/^\d{4}$/.test(p1)){ err.textContent="The PIN must be exactly 4 digits."; return; }
+      if(p1!==p2){ err.textContent="The two PINs do not match."; return; }
+      const id="u"+Date.now().toString(36)+Math.floor(Math.random()*1e4).toString(36);
+      const u={id,name,pin:p1?hash(id+"|"+p1):null,created:Date.now()};
+      users.push(u); saveUsers(); S.put("p."+id, blankProg()); enterUser(u);
+    },
+    switch(){ if(me){ if(prog.live) Tools.saveNow(); save(); } me=null; prog=null; sess.set(null); go("login",{}); },
+    tab(){ go(b.dataset.v); },
+    chapTab(){ go("chapters",{t:b.dataset.t}); },
+    openChapter(){ go("chapter",{m:+b.dataset.m, t:b.dataset.t||"overview", c:b.dataset.c||null}); },
+    chTab(){ go("chapter",{m:+b.dataset.m, t:b.dataset.t}); },
+    jump(){ const el=document.getElementById("sec-"+b.dataset.c.replace(".","-")); if(el) el.scrollIntoView({behavior:"smooth"}); },
+    markRead(){ const c=b.dataset.c; if(prog.read[c]) delete prog.read[c]; else { prog.read[c]=1; touchDay(); } save(); rerender(); },
+    calcMat(){ calcMaturity(); rerender(); },
+    calcChq(){ calcCheque(); rerender(); },
+    startChapter(){ const c=b.dataset.c; startSession(orderForPractice(byChapter[c]||[]), c+" "+chTitle[c], modOf(c)); },
+    startModule(){ const m=+b.dataset.m; startSession(orderForPractice(byModule[m]||[]).slice(0,25), "Module "+m+" · mixed", m); },
+    startModFav(){ const m=+b.dataset.m; startSession(orderForPractice((byModule[m]||[]).filter(id=>Q[id].f)).slice(0,20), "Module "+m+" · core concepts", m); },
+    startModMist(){ const m=+b.dataset.m; const ids=mistakesIn(m); if(!ids.length){ toast("No mistakes saved for this module"); return; } startSession(shuffle(ids).slice(0,20), "Module "+m+" · Mistake Book", m); },
+    startQuick(){ startSession(shuffle(orderForPractice(openPool()).slice(0,40)).slice(0,10), "Quick 10", null); },
+    startFav(){ startSession(orderForPractice(openPool().filter(id=>Q[id].f)).slice(0,15), "Core concepts", null); },
+    startMistakes(){ const ids=mistakesIn(); if(!ids.length){ toast("Your Mistake Book is empty"); return; } startSession(shuffle(ids).slice(0,20), "Mistake Book", null); },
+    pick(){ if(sub.picked!==null) return; const k=+b.dataset.k, id=sub.ids[sub.i]; sub.picked=k; const ok=k===Q[id].a; record(id,ok); sub.log.push([id,ok]); save(); rerender(); const n=$("#nextBtn"); if(n) n.focus({preventScroll:true}); },
+    nextQ(){ sub.i++; sub.picked=null; render(); window.scrollTo(0,0); },
+    endSession(){ sub.done=true; render(); },
+    startFlash(){ const m=+b.dataset.m; let list=D.cards.filter(c=>modOf(c[0])===m); if(b.dataset.v==="due") list=list.filter(c=>!prog.cards[c[1]]); if(!list.length){ toast("You know every card in this set"); return; } go("chapter",{m, t:"cards", flash:{list:shuffle(list),i:0,flip:false,got:0}}); },
+    flip(){ sub.flash.flip=!sub.flash.flip; render(); },
+    cardKnow(){ const f=sub.flash, c=f.list[f.i]; if(b.dataset.v==="1"){ prog.cards[c[1]]=1; f.got++; } else delete prog.cards[c[1]]; touchDay(); save(); f.i++; f.flip=false; render(); },
+    startMatch(){ const m=+b.dataset.m; const pool=D.cards.filter(c=>modOf(c[0])===m); const items=shuffle(pool).slice(0,5); go("chapter",{m, t:"match", game:{items, order:shuffle(items.map((_,i)=>i)), done:[], sel:null, bad:null, miss:0, start:Date.now()}}); },
+    mTerm(){ sub.game.sel=+b.dataset.i; sub.game.bad=null; rerender(); },
+    mDef(){ const g=sub.game, i=+b.dataset.i; if(g.sel===null){ toast("Tap a term first"); return; }
+      if(i===g.sel){ g.done.push(i); g.sel=null; g.bad=null;
+        if(g.done.length===g.items.length){ g.end=Math.round((Date.now()-g.start)/1000)+g.miss*5; const m=sub.m; const r=prog.match[m]||{best:0,plays:0}; r.plays++; if(!r.best||g.end<r.best){ r.best=g.end; g.best=true; } prog.match[m]=r; touchDay(); save(); clearInterval(timerH); }
+      } else { g.miss++; g.bad=i; }
+      rerender(); },
+    instr(){ go("instr",{k:b.dataset.k}); },
+    startMock(){ if(!$("#agree").checked){ $("#agErr").textContent="Please tick the box to confirm you have read the instructions."; return; } startMock(b.dataset.k); },
+    resume(){ go("exam"); },
+    toolCalc(){ Tools.toggleCalc(); },
+    toolRough(){ Tools.toggleRough(); },
+    examPick(){ const id=prog.live.qids[prog.live.i]; prog.live.ans[id]=+b.dataset.k; save(); rerender(); },
+    clearAns(){ delete prog.live.ans[prog.live.qids[prog.live.i]]; save(); rerender(); },
+    toggleMark(){ const id=prog.live.qids[prog.live.i]; if(prog.live.mark[id]) delete prog.live.mark[id]; else prog.live.mark[id]=1; save(); rerender(); },
+    examNav(){ prog.live.i=Math.min(prog.live.qids.length-1,Math.max(0,prog.live.i+ +b.dataset.d)); save(); render(); window.scrollTo(0,0); },
+    examJump(){ prog.live.i=+b.dataset.i; save(); render(); window.scrollTo(0,0); },
+    askSubmit(){ sub.confirm=true; render(); window.scrollTo(0,0); },
+    cancelSubmit(){ sub.confirm=false; render(); },
+    submitMock(){ submitMock(); },
+    review(){ go("result",{i:+b.dataset.i, filter:"all"}); },
+    theme(){ theme=b.dataset.v; S.set("theme",theme); applyTheme(); render(); },
+    rename(){ const v=$("#rName").value.trim(), err=$("#rErr"); if(!v){ err.textContent="Please enter a name."; return; }
+      if(users.some(u=>u.id!==me.id && u.name.toLowerCase()===v.toLowerCase())){ err.textContent="Another profile already uses this name."; return; }
+      const u=users.find(x=>x.id===me.id); u.name=v; me=u; saveUsers(); toast("Name saved"); render(); },
+    savePin(){ const err=$("#pinErr"); const u=users.find(x=>x.id===me.id);
+      if(u.pin){ const o=($("#oldPin").value||"").trim(); if(hash(u.id+"|"+o)!==u.pin){ err.textContent="Your current PIN is not right."; return; } }
+      const v=$("#newPin").value.trim(), v2=$("#newPin2").value.trim();
+      if(v && !/^\d{4}$/.test(v)){ err.textContent="The PIN must be exactly 4 digits."; return; }
+      if(v!==v2){ err.textContent="The two new PINs do not match."; return; }
+      if(!v && !u.pin){ err.textContent="Enter a 4-digit PIN to add one."; return; }
+      u.pin=v?hash(u.id+"|"+v):null; me=u; saveUsers(); toast(v?"PIN saved":"PIN removed"); render(); },
+    exportCode(){ try{ sub.exportCode=btoa(unescape(encodeURIComponent(JSON.stringify({app:"fblc1",v:1,name:me.name,p:Object.assign({},prog,{live:null})})))); }catch(err){ sub.exportCode=""; toast("Could not create a code"); } render(); },
+    copyCode(){ copyText(sub.exportCode, $("#codeOut")); },
+    copyShop(){ copyText(SHOP, $("#shopUrl")); },
+    askImport(){ const t=$("#codeIn").value.trim(); try{ const o=JSON.parse(decodeURIComponent(escape(atob(t)))); if(o.app!=="fblc1"||!o.p) throw 0; sub.pending=o; sub.confirmImport=true; render(); }catch(err){ $("#codeErr").textContent="That code does not look right. Copy the whole code and try again."; } },
+    doImport(){ prog=Object.assign(blankProg(), sub.pending.p); prog.live=null; save(); toast("Progress restored"); go("chapters"); },
+    cancelConfirm(){ sub.confirmImport=false; sub.confirmDelete=false; sub.confirmReset=false; render(); },
+    askReset(){ sub.confirmReset=true; sub.confirmDelete=false; render(); },
+    doReset(){ prog=blankProg(); touchDay(); save(); toast("Progress cleared"); go("chapters"); },
+    askDelete(){ sub.confirmDelete=true; sub.confirmReset=false; render(); },
+    doDelete(){ if(me.pin){ const v=($("#delPin")||{}).value||""; if(hash(me.id+"|"+v.trim())!==me.pin){ $("#delErr").textContent="That PIN is not right."; return; } }
+      users=users.filter(u=>u.id!==me.id); saveUsers(); S.del("p."+me.id); me=null; prog=null; sess.set(null); toast("Profile deleted"); go("login",{}); }
+  };
+  if(H[a]){ e.preventDefault(); H[a](); }
+});
+document.addEventListener("change", e=>{
+  if(e.target.id==="revFilter"){ sub.filter=e.target.value; render(); }
+});
+document.addEventListener("keydown", e=>{
+  if(e.key==="Enter"){
+    const id=e.target.id;
+    if(id==="pin"){ e.preventDefault(); $('[data-act="checkPin"]').click(); }
+    else if(["nName","nPin","nPin2"].includes(id)){ e.preventDefault(); $('[data-act="createUser"]').click(); }
+    else if(id==="rName"){ e.preventDefault(); $('[data-act="rename"]').click(); }
+    else if(e.target.classList && e.target.classList.contains("flash")){ e.preventDefault(); e.target.click(); }
+  }
+  if(e.key===" " && e.target.classList && e.target.classList.contains("flash")){ e.preventDefault(); e.target.click(); }
+});
+document.addEventListener("visibilitychange", ()=>{ if(document.visibilityState==="visible") tick(); else if(prog && prog.live) Tools.saveNow(); });
+
+/* ---------- boot ---------- */
+const sid = sess.get();
+const su = sid && users.find(u=>u.id===sid);
+if(su){ me=su; prog=loadProg(su.id); if(liveOk()) view="exam"; }
+render();
+})();
+
+</script>
+<noscript><p style="padding:16px">Please allow JavaScript to use FBLC Smart Prep. Open this file in Chrome, Edge or Firefox.</p></noscript>
+</body>
+</html>
