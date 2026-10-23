@@ -1,0 +1,1239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>FBMS Smart Prep Free Sample</title>
+<style>
+/* Uses only fonts already on the device, so the file works offline and contacts no outside server. */
+/* Layout: an exam-hall study app. OMR answer-sheet motif: salmon print rules, ballpoint-blue fills. One column, tab bar, cards only where an object needs setting off. */
+:root{
+  --bg:#F5F6F9; --card:#FFFFFF; --fg:#1A2133; --muted:#5A6377; --line:#DDE2EB; --soft:#EEF1F7;
+  --ink:#2340A8; --ink-soft:#E3E9FB; --omr:#D2584B; --omr-soft:#FBE7E3;
+  --good:#16804F; --good-soft:#DFF3E8; --bad:#BC3A31; --bad-soft:#FBE3E1; --warn:#9A6400; --warn-soft:#FBF0D9;
+  --f-display:"Segoe UI Variable Display","Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --f-body:"Segoe UI",system-ui,-apple-system,Roboto,"Noto Sans","Helvetica Neue",Arial,sans-serif;
+  --f-mono:ui-monospace,"Cascadia Mono",Consolas,"Roboto Mono",Menlo,monospace;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0F131C; --card:#171C28; --fg:#E5E8F0; --muted:#9AA3B6; --line:#2A3142; --soft:#1D2333;
+  --ink:#8EA6FF; --ink-soft:#22305C; --omr:#F08C7F; --omr-soft:#3A2220;
+  --good:#5CCB92; --good-soft:#173527; --bad:#F2867D; --bad-soft:#3C1E1C; --warn:#E8B85C; --warn-soft:#3A2E14; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F131C; --card:#171C28; --fg:#E5E8F0; --muted:#9AA3B6; --line:#2A3142; --soft:#1D2333;
+  --ink:#8EA6FF; --ink-soft:#22305C; --omr:#F08C7F; --omr-soft:#3A2220;
+  --good:#5CCB92; --good-soft:#173527; --bad:#F2867D; --bad-soft:#3C1E1C; --warn:#E8B85C; --warn-soft:#3A2E14; color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+h1,h2,h3{font-family:var(--f-display);line-height:1.15;text-wrap:balance;margin:0}
+h1{font-size:clamp(1.6rem,4.5vw,2.2rem);font-weight:800;letter-spacing:-.01em}
+h2{font-size:1.35rem;font-weight:700}
+h3{font-size:1.08rem;font-weight:700}
+p{margin:0}
+a{color:var(--ink)}
+.wrap{max-width:880px;margin:0 auto;padding-inline:16px}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.muted{color:var(--muted)}
+.small{font-size:.86rem}
+.label{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--omr);font-weight:700}
+.stack{display:flex;flex-direction:column;gap:12px}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.grow{flex:1 1 auto;min-width:0}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--card);border-bottom:2px solid var(--omr)}
+.top .wrap{display:flex;align-items:center;gap:12px;padding-block:10px}
+.brand{display:flex;flex-direction:column;line-height:1.1;min-width:0}
+.brand b{font-family:var(--f-display);font-weight:800;font-size:1.1rem}
+.brand span{font-size:.74rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--soft);border-radius:999px;padding:4px 10px 4px 4px;font-size:.88rem}
+.avatar{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:var(--card);font-weight:700;font-size:.85rem;flex:none}
+.tabs{background:var(--card);border-bottom:1px solid var(--line)}
+.tabs .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.tabs .wrap::-webkit-scrollbar{display:none}
+.tab{background:none;border:0;padding:10px 12px;border-bottom:3px solid transparent;color:var(--muted);font-weight:700;white-space:nowrap}
+.tab[aria-current="page"]{color:var(--ink);border-bottom-color:var(--ink)}
+main{padding-block:20px 40px}
+
+/* surfaces */
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.sheet{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;border-top:4px solid var(--omr)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:8px;border:1px solid var(--line);background:var(--card);padding:9px 14px;font-weight:700;text-decoration:none;color:var(--fg)}
+.btn:hover{border-color:var(--ink)}
+.btn.primary{background:var(--ink);border-color:var(--ink);color:var(--card)}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn.ghost{background:transparent;border-color:transparent;color:var(--ink);padding-inline:6px}
+.btn.danger{color:var(--bad);border-color:var(--bad)}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+.btn.block{width:100%}
+
+/* pills */
+.pill{display:inline-flex;align-items:center;gap:4px;font-size:.74rem;font-weight:700;border-radius:999px;padding:2px 9px;background:var(--soft);color:var(--muted);white-space:nowrap}
+.pill.fav{background:var(--omr-soft);color:var(--omr)}
+.pill.good{background:var(--good-soft);color:var(--good)}
+.pill.bad{background:var(--bad-soft);color:var(--bad)}
+.pill.warn{background:var(--warn-soft);color:var(--warn)}
+.pill.ink{background:var(--ink-soft);color:var(--ink)}
+
+/* progress */
+.bar{height:8px;border-radius:99px;background:var(--soft);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ink);border-radius:99px}
+.bar.g i{background:var(--good)}
+.ring{--p:0;width:96px;height:96px;border-radius:50%;background:conic-gradient(var(--ink) calc(var(--p)*1%),var(--soft) 0);display:grid;place-items:center;flex:none}
+.ring b{width:74px;height:74px;border-radius:50%;background:var(--card);display:grid;place-items:center;font-family:var(--f-mono);font-size:1.15rem}
+
+/* modules list */
+.mod{display:flex;gap:14px;align-items:flex-start}
+.modno{font-family:var(--f-display);font-weight:800;font-size:1.6rem;color:var(--omr);width:36px;flex:none;line-height:1}
+.locked{opacity:.62}
+.lock{font-size:.8rem;font-weight:700;color:var(--muted);display:inline-flex;gap:6px;align-items:center}
+
+/* notes */
+.notes{max-width:68ch}
+.notes h2{margin-top:28px;padding-top:14px;border-top:2px dashed var(--line);scroll-margin-top:120px}
+.notes h2:first-child{margin-top:0;border-top:0;padding-top:0}
+.notes h3{margin-top:20px;color:var(--ink)}
+.notes p,.notes ul,.notes ol,.notes .tbl,.notes .call{margin-top:10px}
+.notes ul,.notes ol{padding-left:1.3em}
+.notes li+li{margin-top:4px}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:8px}
+.tbl table{border-collapse:collapse;width:100%;font-size:.92rem}
+.tbl th,.tbl td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl th{background:var(--soft);font-weight:700}
+.tbl tr:last-child td{border-bottom:0}
+.call{border-left:4px solid var(--ink);background:var(--ink-soft);padding:10px 12px;border-radius:0 8px 8px 0}
+.call b.k{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;display:block;margin-bottom:2px}
+.call.trap{border-color:var(--bad);background:var(--bad-soft)}
+.call.trap b.k{color:var(--bad)}
+.call.formula{border-color:var(--omr);background:var(--omr-soft);font-family:var(--f-mono);font-size:.9rem}
+.call.formula b.k{color:var(--omr)}
+.call.tip b.k{color:var(--ink)}
+.toc{display:flex;flex-wrap:wrap;gap:6px}
+.toc button{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:4px 10px;font-size:.85rem}
+
+/* question */
+.qhead{display:flex;flex-wrap:wrap;gap:6px;align-items:center;justify-content:space-between}
+.qtext{font-size:1.08rem;font-weight:700;margin-top:10px}
+.opts{display:flex;flex-direction:column;gap:8px;margin-top:14px}
+.opt{display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.opt:hover:not([disabled]){border-color:var(--ink)}
+.opt[disabled]{cursor:default}
+.bub{width:28px;height:28px;border-radius:50%;border:2px solid var(--omr);color:var(--omr);display:grid;place-items:center;font-family:var(--f-mono);font-weight:700;font-size:.85rem;flex:none}
+.opt.sel .bub{background:var(--ink);border-color:var(--ink);color:var(--card)}
+.opt.sel{border-color:var(--ink);background:var(--ink-soft)}
+.opt.right{border-color:var(--good);background:var(--good-soft)}
+.opt.right .bub{background:var(--good);border-color:var(--good);color:var(--card)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt.wrong .bub{background:var(--bad);border-color:var(--bad);color:var(--card)}
+.explain{margin-top:14px;border-radius:8px;padding:12px;background:var(--soft);border:1px solid var(--line)}
+.explain.ok{border-color:var(--good)}
+.explain.no{border-color:var(--bad)}
+
+/* exam */
+.exambar{position:sticky;top:calc(env(safe-area-inset-top,0px) + 0px);z-index:15;background:var(--card);border-bottom:1px solid var(--line)}
+.exambar .wrap{display:flex;gap:10px;align-items:center;padding-block:8px}
+.timer{font-family:var(--f-mono);font-weight:700;font-size:1.1rem;padding:4px 10px;border-radius:6px;background:var(--soft)}
+.timer.low{background:var(--bad-soft);color:var(--bad)}
+.palette{display:grid;grid-template-columns:repeat(auto-fill,minmax(38px,1fr));gap:6px}
+.pal{height:38px;border-radius:50%;border:2px solid var(--omr);background:var(--card);font-family:var(--f-mono);font-size:.8rem;font-weight:700;color:var(--omr)}
+.pal.ans{background:var(--ink);border-color:var(--ink);color:var(--card)}
+.pal.mark{border-color:var(--warn);box-shadow:inset 0 0 0 3px var(--warn-soft)}
+.pal.cur{outline:3px solid var(--fg);outline-offset:1px}
+.pal.right{background:var(--good);border-color:var(--good);color:var(--card)}
+.pal.wrong{background:var(--bad);border-color:var(--bad);color:var(--card)}
+.pal.skip{background:var(--soft);border-color:var(--line);color:var(--muted)}
+.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:.8rem;color:var(--muted)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:4px;vertical-align:-1px;border:2px solid var(--omr)}
+
+/* flashcard */
+.flash{min-height:200px;display:grid;place-items:center;text-align:center;cursor:pointer;padding:24px;border:1px solid var(--line);border-radius:var(--r);background:var(--card);border-top:4px solid var(--ink)}
+.flash .term{font-family:var(--f-display);font-size:1.5rem;font-weight:700}
+.flash .def{font-size:1.05rem}
+
+/* login */
+.login{min-height:100%;display:flex;align-items:flex-start;justify-content:center;padding-block:28px}
+.login .box{width:100%;max-width:520px}
+.users{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
+.user{display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 8px;border:1px solid var(--line);border-radius:var(--r);background:var(--card);text-align:center}
+.user:hover{border-color:var(--ink)}
+.user .avatar{width:44px;height:44px;font-size:1.1rem}
+input[type=text],input[type=password],textarea,select{width:100%;padding:10px 12px;border-radius:8px;border:1px solid var(--line);background:var(--card)}
+textarea{font-family:var(--f-mono);font-size:.78rem;min-height:90px}
+label.f{display:flex;flex-direction:column;gap:4px;font-weight:700;font-size:.9rem}
+.pin{letter-spacing:.5em;font-family:var(--f-mono);text-align:center;font-size:1.2rem}
+.err{color:var(--bad);font-size:.88rem;font-weight:700}
+
+/* banners, footer */
+.banner{border:1px solid var(--warn);background:var(--warn-soft);color:var(--fg);border-radius:8px;padding:10px 12px;font-size:.9rem}
+.upsell{border:2px dashed var(--omr);border-radius:var(--r);padding:16px;background:var(--omr-soft)}
+footer{border-top:1px solid var(--line);padding-block:18px 28px;font-size:.8rem;color:var(--muted)}
+footer .wrap{display:flex;flex-direction:column;gap:6px}
+.stat{display:flex;flex-direction:column;gap:2px;min-width:0}
+.stats{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:560px){.stats .stat{padding:10px}.stats .stat b{font-size:1.05rem}}
+.stat b{font-family:var(--f-mono);font-size:1.4rem}
+.toast{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:8px 14px;border-radius:8px;font-size:.9rem;z-index:50}
+.confirm{border:2px solid var(--bad);background:var(--bad-soft);border-radius:8px;padding:12px}
+@media (max-width:560px){.hide-sm{display:none}.qtext{font-size:1rem}}
+@media (prefers-reduced-motion:no-preference){.opt,.btn,.pal{transition:border-color .15s,background .15s}}
+
+/* ---- Smart Prep additions ---- */
+.subtabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;border-bottom:1px solid var(--line)}
+.subtabs::-webkit-scrollbar{display:none}
+.subtab{background:none;border:0;border-bottom:3px solid transparent;padding:8px 10px;font-weight:700;color:var(--muted);white-space:nowrap;font-size:.92rem}
+.subtab[aria-current="true"]{color:var(--omr);border-bottom-color:var(--omr)}
+pre.fmt{font-family:var(--f-mono);font-size:.8rem;line-height:1.45;background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--omr);border-radius:0 8px 8px 0;padding:12px;overflow-x:auto;white-space:pre;margin-top:10px}
+.tool{border:1px solid var(--line);border-radius:var(--r);padding:16px;background:var(--card);border-top:4px solid var(--ink)}
+.tool .row label.f{flex:1 1 150px}
+.out{background:var(--ink-soft);border-radius:8px;padding:12px;font-size:.95rem}
+.out b{font-family:var(--f-mono)}
+.qtext,.explain,.pre{white-space:pre-line}
+.out .tbl{margin-top:8px}
+tr.tot td{border-top:2px solid var(--line)}
+.toc button[disabled]{opacity:.55;cursor:not-allowed}
+.steps{margin:6px 0 0;padding-left:1.2em}
+.steps li+li{margin-top:4px}
+input[type=date],input[type=number]{width:100%;padding:9px 10px;border-radius:8px;border:1px solid var(--line);background:var(--card)}
+/* match sprint */
+.match{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mcell{display:flex;flex-direction:column;gap:8px}
+.mbtn{text-align:left;border:1px solid var(--line);background:var(--card);border-radius:8px;padding:10px;font-size:.9rem;min-height:56px}
+.mbtn.on{border-color:var(--ink);background:var(--ink-soft)}
+.mbtn.done{border-color:var(--good);background:var(--good-soft);color:var(--good);cursor:default}
+.mbtn.no{border-color:var(--bad);background:var(--bad-soft)}
+@media (max-width:560px){.mbtn{font-size:.82rem;padding:8px}}
+/* performance */
+.hbar{display:grid;grid-template-columns:minmax(90px,38%) 1fr 48px;gap:8px;align-items:center;font-size:.88rem}
+.hbar .bar{height:10px}
+.days{display:grid;grid-template-columns:repeat(14,1fr);gap:4px;max-width:420px}
+.days i{aspect-ratio:1;border-radius:3px;background:var(--soft);display:block}
+.days i.on{background:var(--good)}
+.spark{display:flex;align-items:flex-end;gap:6px;height:90px;border-bottom:1px solid var(--line);padding-top:6px}
+.spark span{flex:1;max-width:36px;background:var(--ink);border-radius:4px 4px 0 0;position:relative;min-height:2px}
+.spark span em{position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-style:normal;font-family:var(--f-mono);font-size:.7rem;color:var(--muted)}
+/* exam tools */
+.toolbar{display:flex;gap:6px;flex-wrap:wrap}
+.panel{position:fixed;z-index:40;background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.18);display:none;flex-direction:column}
+.panel.open{display:flex}
+.panel .ph{display:flex;align-items:center;gap:8px;padding:8px 10px;border-bottom:1px solid var(--line);font-weight:700;cursor:move;user-select:none;touch-action:none}
+.panel .ph .x{margin-left:auto;border:0;background:none;font-size:1.2rem;line-height:1;padding:2px 6px}
+#calc{width:272px;right:16px;bottom:16px}
+#calc .scr{margin:10px;padding:8px 10px;border-radius:8px;background:var(--soft);text-align:right;font-family:var(--f-mono)}
+#calc .scr small{display:block;min-height:1.1em;color:var(--muted);font-size:.75rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#calc .scr b{display:block;font-size:1.5rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#calc .keys{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;padding:0 10px 10px}
+#calc .keys button{border:1px solid var(--line);background:var(--card);border-radius:8px;padding:9px 0;font-family:var(--f-mono);font-weight:700;font-size:.92rem}
+#calc .keys button.op{background:var(--soft)}
+#calc .keys button.eq{background:var(--ink);color:var(--card);border-color:var(--ink)}
+#calc .keys button.m{font-size:.75rem;color:var(--ink)}
+#rough{width:min(520px,calc(100vw - 32px));left:16px;bottom:16px;height:min(460px,70vh)}
+#rough .rb{display:flex;gap:6px;padding:6px 10px;flex-wrap:wrap;border-bottom:1px solid var(--line)}
+#rough .rb button{border:1px solid var(--line);background:var(--card);border-radius:6px;padding:4px 8px;font-size:.8rem;font-weight:700}
+#rough .rb button.on{background:var(--ink);color:var(--card);border-color:var(--ink)}
+#rough canvas{flex:1;width:100%;touch-action:none;background:repeating-linear-gradient(var(--card) 0 27px,var(--soft) 27px 28px);cursor:crosshair;display:block}
+#rough textarea{flex:1;border:0;border-radius:0 0 12px 12px;font-family:var(--f-mono);font-size:.9rem;min-height:0;resize:none;background:repeating-linear-gradient(var(--card) 0 27px,var(--soft) 27px 28px);line-height:28px;padding:0 10px}
+@media (max-width:420px){.tabs .wrap{gap:0}.tab{padding:10px 8px;font-size:.92rem}}
+@media (max-width:560px){#calc{left:8px;right:8px;width:auto;bottom:8px}#calc .keys button{padding:6px 0}#calc .scr{margin:8px 10px;padding:4px 10px}#rough{left:8px;right:8px;width:auto;bottom:8px;height:48vh}}
+.instr{counter-reset:i}
+.instr li{margin-top:6px}
+.omr{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px 14px;font-family:var(--f-mono);font-size:.82rem}
+.omr .r{display:flex;align-items:center;gap:6px}
+.omr .r span.n{width:22px;text-align:right;color:var(--muted)}
+.omr .r i{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--omr);display:grid;place-items:center;font-style:normal;font-size:.68rem;color:var(--omr)}
+.omr .r i.f{background:var(--ink);border-color:var(--ink);color:var(--card)}
+.omr .r i.ok{background:var(--good);border-color:var(--good);color:var(--card)}
+.omr .r i.bad{background:var(--bad);border-color:var(--bad);color:var(--card)}
+.kbd{font-family:var(--f-mono);font-size:.78rem;border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:0 5px;background:var(--soft)}
+/* maths: stacked fractions, root bar, small sup/sub that keep line height steady */
+.fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;font-size:.92em;line-height:1.15;margin:0 .15em}
+.fr>span:first-child{border-bottom:1.5px solid currentColor;padding:0 .2em}
+.fr>span:last-child{padding:0 .2em}
+.ov{border-top:1.5px solid currentColor;padding-top:1px}
+sup,sub{font-size:.72em;line-height:0}
+.opt .fr{font-size:.88em}
+</style>
+
+</head>
+<body>
+<div id="app"></div>
+<div id="tools"></div>
+<script>const DATA={"edition":"sample","version":"v1.0 (October 2026)","modules":[{"n":1,"title":"Arithmetic","weight":15,"split":8,"split20":3,"locked":false,"chapters":[{"id":"1.1","title":"Ratios, Variations and Proportions"},{"id":"1.2","title":"Time Value of Money: Interest and Annuity"},{"id":"1.3","title":"Arithmetic and Geometric Progression"},{"id":"1.4","title":"Time and Distance"}]},{"n":2,"title":"Algebra","weight":20,"split":9,"split20":4,"locked":true,"chapters":[{"id":"2.1","title":"Set Theory and Venn Diagrams"},{"id":"2.2","title":"Indices and Logarithms"},{"id":"2.3","title":"Permutations and Combinations"},{"id":"2.4","title":"Quadratic Equations"}]},{"n":3,"title":"Calculus: Application in Business","weight":5,"split":3,"split20":1,"locked":true,"chapters":[{"id":"3.1","title":"Functions, Limits and Differentiation"},{"id":"3.2","title":"Revenue and Cost Functions"},{"id":"3.3","title":"Optimisation: Maxima and Minima"}]},{"n":4,"title":"Statistical Representation of Data","weight":5,"split":3,"split20":1,"locked":true,"chapters":[{"id":"4.1","title":"Diagrammatic Representation"},{"id":"4.2","title":"Frequency Distribution"},{"id":"4.3","title":"Graphs: Histogram, Polygon, Ogive, Pie"}]},{"n":5,"title":"Central Tendency and Dispersion","weight":15,"split":8,"split20":3,"locked":true,"chapters":[{"id":"5.1","title":"Mean, Median, Mode, Mean Deviation"},{"id":"5.2","title":"Range, Quartiles and Quartile Deviation"},{"id":"5.3","title":"Standard Deviation"},{"id":"5.4","title":"Coefficient of Variation"},{"id":"5.5","title":"Skewness: Karl Pearson and Bowley"}]},{"n":6,"title":"Correlation and Regression","weight":15,"split":7,"split20":3,"locked":true,"chapters":[{"id":"6.1","title":"Scatter Diagram"},{"id":"6.2","title":"Karl Pearson's and Rank Correlation"},{"id":"6.3","title":"Regression Analysis"}]},{"n":7,"title":"Probability","weight":15,"split":7,"split20":3,"locked":true,"chapters":[{"id":"7.1","title":"Concepts and Terminologies"},{"id":"7.2","title":"Theorems of Probability"}]},{"n":8,"title":"Index Numbers and Time Series","weight":10,"split":5,"split20":2,"locked":true,"chapters":[{"id":"8.1","title":"Index Numbers"},{"id":"8.2","title":"Time Series and Moving Averages"}]}],"notes":{"1":[{"id":"1.1","title":"Ratios, Variations and Proportions","html":"<p>A <b>ratio<\/b> compares two quantities of the same kind in the same units. In a : b, <i>a<\/i> is the <b>antecedent<\/b> and <i>b<\/i> the <b>consequent<\/b>. A ratio has no unit.<\/p>\n<div class=\"call trap\"><b class=\"k\">COMMON TRAP<\/b>Convert to the same unit first. ₹3 : 75 paise = 300 : 75 = 4 : 1, not 3 : 75.<\/div>\n<h3>Kinds of ratio<\/h3>\n<div class=\"tbl\"><table><thead><tr><th>Name<\/th><th>Of a : b<\/th><th>Example with 2 : 5<\/th><\/tr><\/thead><tbody><tr><td>Inverse (reciprocal)<\/td><td>b : a<\/td><td>5 : 2<\/td><\/tr><tr><td>Duplicate<\/td><td>a<sup>2<\/sup> : b<sup>2<\/sup><\/td><td>4 : 25<\/td><\/tr><tr><td>Triplicate<\/td><td>a<sup>3<\/sup> : b<sup>3<\/sup><\/td><td>8 : 125<\/td><\/tr><tr><td>Sub-duplicate<\/td><td>√a : √b<\/td><td>√2 : √5<\/td><\/tr><tr><td>Sub-triplicate<\/td><td>∛a : ∛b<\/td><td>∛2 : ∛5<\/td><\/tr><tr><td>Compound of a:b and c:d<\/td><td>ac : bd<\/td><td>2:5 and 3:4 give 6 : 20 = 3 : 10<\/td><\/tr><\/tbody><\/table><\/div>\n<ul><li><b>Greater inequality<\/b>: a &gt; b (7 : 4). <b>Lesser inequality<\/b>: a &lt; b (4 : 7). <b>Equality<\/b>: a = b.<\/li><li><b>Continued ratio<\/b>: join a : b and b : c into a : b : c by making the common term equal. Example: a:b = 2:3 and b:c = 4:5 → 8 : 12 : 15.<\/li><li>To <b>increase<\/b> a quantity in a ratio, multiply by the bigger term ÷ smaller term. To <b>decrease<\/b>, multiply by smaller ÷ bigger.<\/li><\/ul>\n<h3>Proportion<\/h3>\n<p>Four quantities are in proportion when a : b = c : d, that is, <b>ad = bc<\/b> (product of extremes = product of means).<\/p>\n<ul><li><b>Fourth proportional<\/b> to a, b, c: d = bc ÷ a. To 3, 8, 12 it is 8 × 12 ÷ 3 = 32.<\/li><li><b>Continued proportion<\/b> a : b = b : c means b<sup>2<\/sup> = ac.<\/li><li><b>Mean proportional<\/b> of a and c: b = √(ac). Between 4 and 25 it is 10.<\/li><li><b>Third proportional<\/b> to a and b: c = b<sup>2<\/sup> ÷ a. To 4 and 6 it is 36 ÷ 4 = 9.<\/li><\/ul>\n<div class=\"call formula\"><b class=\"k\">FORMULA<\/b>a : b = c : d ⇔ ad = bc;  mean proportional = √(ac);  third proportional = b<sup>2<\/sup> ÷ a<\/div>\n<h3>Rules that follow from a : b = c : d<\/h3>\n<div class=\"tbl\"><table><thead><tr><th>Rule<\/th><th>Result<\/th><\/tr><\/thead><tbody><tr><td>Invertendo<\/td><td>b : a = d : c<\/td><\/tr><tr><td>Alternendo<\/td><td>a : c = b : d<\/td><\/tr><tr><td>Componendo<\/td><td>(a + b) : b = (c + d) : d<\/td><\/tr><tr><td>Dividendo<\/td><td>(a − b) : b = (c − d) : d<\/td><\/tr><tr><td>Componendo and dividendo<\/td><td>(a + b) : (a − b) = (c + d) : (c − d)<\/td><\/tr><\/tbody><\/table><\/div>\n<div class=\"call tip\"><b class=\"k\">EXAM TIP<\/b>For \"if x : y = 3 : 5 find (2x + y) : (2x − y)\", put x = 3k, y = 5k. You get 11k : k = 11 : 1. This beats any rule.<\/div>\n<h3>Variation<\/h3>\n<ul><li><b>Direct<\/b>: x ∝ y means x = ky. Double y and x doubles.<\/li><li><b>Inverse<\/b>: x ∝ 1/y means xy = k. Double y and x halves.<\/li><li><b>Joint<\/b>: x ∝ yz means x = kyz.<\/li><\/ul>\n<p>Worked example: x varies inversely as y, and x = 12 when y = 5. Then k = 60, so when y = 4, x = 15.<\/p>\n<div class=\"call trap\"><b class=\"k\">COMMON TRAP<\/b>In inverse variation the product stays constant, not the ratio.<\/div>"},{"id":"1.2","title":"Time Value of Money and Annuity: Simple and Compound Interest","html":"<p>A rupee today is worth more than a rupee next year, because today's rupee can earn interest. This is the <b>time value of money<\/b>.<\/p>\n<h3>Simple interest (SI)<\/h3>\n<p>Interest is always on the original principal.<\/p>\n<div class=\"call formula\"><b class=\"k\">FORMULA<\/b>SI = P × R × T ÷ 100;  Amount A = P + SI = P(1 + RT/100)<\/div>\n<p>Worked example: ₹12,000 at 7% for 3 years. SI = 12,000 × 7 × 3 ÷ 100 = ₹2,520. A = ₹14,520.<\/p>\n<ul><li>A sum doubles at SI when SI = P, so R × T = 100.<\/li><li>A sum becomes <i>k<\/i> times when R × T = 100(k − 1).<\/li><\/ul>\n<h3>Compound interest (CI)<\/h3>\n<p>Interest is added to the principal each period and then earns interest itself.<\/p>\n<div class=\"call formula\"><b class=\"k\">FORMULA<\/b>A = P(1 + i)<sup>n<\/sup> where i = rate per period, n = number of periods;  CI = A − P<\/div>\n<div class=\"tbl\"><table><thead><tr><th>Compounding<\/th><th>Rate per period<\/th><th>Periods in t years<\/th><\/tr><\/thead><tbody><tr><td>Annual<\/td><td>r<\/td><td>t<\/td><\/tr><tr><td>Half-yearly<\/td><td>r/2<\/td><td>2t<\/td><\/tr><tr><td>Quarterly<\/td><td>r/4<\/td><td>4t<\/td><\/tr><tr><td>Monthly<\/td><td>r/12<\/td><td>12t<\/td><\/tr><\/tbody><\/table><\/div>\n<p>Worked example: ₹20,000 at 12% for 1 year compounded quarterly. i = 3%, n = 4. A = 20,000 × (1.03)<sup>4<\/sup> = 20,000 × 1.12551 = ₹22,510.18.<\/p>\n<ul><li><b>CI − SI for 2 years<\/b> = P(r/100)<sup>2<\/sup>. For 3 years = P(r/100)<sup>2<\/sup> × (3 + r/100).<\/li><li><b>Effective rate<\/b> E = (1 + r/m)<sup>m<\/sup> − 1. 10% compounded half-yearly is 10.25% effective.<\/li><li>At CI, if a sum becomes <i>k<\/i> times in <i>n<\/i> years, it becomes k<sup>2<\/sup> times in 2n years.<\/li><li><b>Depreciation<\/b> on reducing balance: V = P(1 − r/100)<sup>n<\/sup>.<\/li><li><b>Present value<\/b> of A due after n years: P = A ÷ (1 + i)<sup>n<\/sup>.<\/li><\/ul>\n<div class=\"call trap\"><b class=\"k\">COMMON TRAP<\/b>In CI problems with half-yearly compounding, halve the rate and double the periods. Forgetting one of the two is the most common mistake.<\/div>\n<h3>Annuities<\/h3>\n<p>An <b>annuity<\/b> is a series of equal payments at equal intervals: rent, EMI, SIP, pension.<\/p>\n<ul><li><b>Ordinary annuity (immediate)<\/b>: payments at the end of each period.<\/li><li><b>Annuity due<\/b>: payments at the beginning of each period.<\/li><li><b>Perpetuity<\/b>: payments go on forever.<\/li><li><b>Sinking fund<\/b>: equal sums put aside regularly to build up a known amount, such as for replacing a machine.<\/li><\/ul>\n<div class=\"call formula\"><b class=\"k\">FORMULA<\/b>Amount of ordinary annuity A = R[(1 + i)<sup>n<\/sup> − 1] ÷ i;  Present value V = R[1 − (1 + i)<sup>−n<\/sup>] ÷ i<\/div>\n<div class=\"call formula\"><b class=\"k\">FORMULA<\/b>Annuity due: multiply the ordinary annuity result by (1 + i);  Perpetuity PV = R ÷ i<\/div>\n<p>Worked example: ₹2,000 at the end of each year for 3 years at 10%. A = 2,000 × (1.331 − 1) ÷ 0.1 = ₹6,620. If paid at the start of each year (annuity due), A = 6,620 × 1.1 = ₹7,282.<\/p>\n<div class=\"call tip\"><b class=\"k\">EXAM TIP<\/b>A loan EMI is an annuity whose present value equals the loan: EMI = Loan × i ÷ [1 − (1 + i)<sup>−n<\/sup>].<\/div>"},{"id":"1.3","title":"Arithmetic Progression and Geometric Progression","html":"<h3>Arithmetic progression (AP)<\/h3>\n<p>Each term differs from the previous one by a constant <b>common difference d<\/b>: a, a + d, a + 2d, ...<\/p>\n<div class=\"call formula\"><b class=\"k\">FORMULA<\/b>nth term t<sub>n<\/sub> = a + (n − 1)d;  Sum S<sub>n<\/sub> = n/2 × [2a + (n − 1)d] = n/2 × (first + last)<\/div>\n<ul><li>Number of terms: n = (last − first) ÷ d + 1.<\/li><li>Three terms in AP: take a − d, a, a + d. Middle term = average of the other two, so 2b = a + c.<\/li><li>Arithmetic mean of a and b = (a + b) ÷ 2.<\/li><li>Sum of first n natural numbers = n(n + 1)/2; of their squares n(n + 1)(2n + 1)/6; of their cubes [n(n + 1)/2]<sup>2<\/sup>.<\/li><li>Sum of first n odd numbers = n<sup>2<\/sup>.<\/li><\/ul>\n<p>Worked example: the 15th term of 4, 9, 14, ... is 4 + 14 × 5 = 74, and the sum of these 15 terms is 15/2 × (4 + 74) = 585.<\/p>\n<h3>Geometric progression (GP)<\/h3>\n<p>Each term is the previous one multiplied by a constant <b>common ratio r<\/b>: a, ar, ar<sup>2<\/sup>, ...<\/p>\n<div class=\"call formula\"><b class=\"k\">FORMULA<\/b>t<sub>n<\/sub> = ar<sup>n − 1<\/sup>;  S<sub>n<\/sub> = a(r<sup>n<\/sup> − 1)/(r − 1) for r &gt; 1, or a(1 − r<sup>n<\/sup>)/(1 − r) for r &lt; 1<\/div>\n<div class=\"call formula\"><b class=\"k\">FORMULA<\/b>Sum to infinity (only when −1 &lt; r &lt; 1): S∞ = a ÷ (1 − r)<\/div>\n<ul><li>Three terms in GP: a/r, a, ar. Middle term squared = product of the other two: b<sup>2<\/sup> = ac.<\/li><li>Geometric mean of a and b = √(ab). Harmonic mean = 2ab ÷ (a + b).<\/li><li>For positive unequal numbers: <b>AM &gt; GM &gt; HM<\/b>, and GM<sup>2<\/sup> = AM × HM.<\/li><\/ul>\n<p>Worked example: in the GP 5, 10, 20, ..., the 8th term is 5 × 2<sup>7<\/sup> = 640 and S<sub>8<\/sub> = 5 × (2<sup>8<\/sup> − 1) = 1,275.<\/p>\n<div class=\"call trap\"><b class=\"k\">COMMON TRAP<\/b>Compound interest amounts form a GP (ratio 1 + i). Simple interest amounts form an AP (difference = yearly interest).<\/div>"},{"id":"1.4","title":"Time and Distance","html":"<div class=\"call formula\"><b class=\"k\">FORMULA<\/b>Speed = Distance ÷ Time;  km/hr to m/s multiply by 5/18;  m/s to km/hr multiply by 18/5<\/div>\n<ul><li><b>Average speed<\/b> = total distance ÷ total time. For two equal distances at speeds x and y it is <b>2xy ÷ (x + y)<\/b>, not (x + y) ÷ 2.<\/li><li>For a fixed distance, time is inversely proportional to speed. Speeds 3 : 4 give times 4 : 3.<\/li><li><b>Relative speed<\/b>: same direction, subtract the speeds; opposite directions, add them.<\/li><li><b>Trains<\/b>: to pass a pole or a person, the train covers its own length. To pass a platform or a bridge, it covers its length plus the platform's length. Two trains passing each other cover the sum of their lengths.<\/li><li><b>Boats and streams<\/b>: downstream speed = boat + stream, upstream = boat − stream. Boat speed = (down + up) ÷ 2, stream = (down − up) ÷ 2.<\/li><\/ul>\n<p>Worked example: a train 150 m long at 60 km/hr passes a 250 m bridge. Distance 400 m, speed 60 × 5/18 = 50/3 m/s, time = 400 ÷ (50/3) = 24 seconds.<\/p>\n<div class=\"call tip\"><b class=\"k\">EXAM TIP<\/b>When a person is late at one speed and early at another, the time difference (late + early) equals d/slow − d/fast. Convert minutes to hours first.<\/div>"}]},"formats":{"1":"<h3>Formula sheet: ratio, proportion and variation<\/h3>\n<div class=\"tbl\"><table><thead><tr><th>What you need<\/th><th>Formula<\/th><\/tr><\/thead><tbody><tr><td>Divide S in ratio a : b<\/td><td>First = S × a/(a + b), second = S × b/(a + b)<\/td><\/tr><tr><td>Compound ratio<\/td><td>(a × c × e) : (b × d × f)<\/td><\/tr><tr><td>Duplicate / triplicate<\/td><td>a<sup>2<\/sup> : b<sup>2<\/sup> and a<sup>3<\/sup> : b<sup>3<\/sup><\/td><\/tr><tr><td>Proportion test<\/td><td>a : b = c : d when ad = bc<\/td><\/tr><tr><td>Fourth proportional to a, b, c<\/td><td>bc ÷ a<\/td><\/tr><tr><td>Third proportional to a, b<\/td><td>b<sup>2<\/sup> ÷ a<\/td><\/tr><tr><td>Mean proportional of a, c<\/td><td>√(ac)<\/td><\/tr><tr><td>Direct variation<\/td><td>x = ky<\/td><\/tr><tr><td>Inverse variation<\/td><td>xy = k<\/td><\/tr><tr><td>Joint variation<\/td><td>x = kyz<\/td><\/tr><\/tbody><\/table><\/div>\n<h3>Formula sheet: interest and annuities<\/h3>\n<div class=\"tbl\"><table><thead><tr><th>What you need<\/th><th>Formula<\/th><\/tr><\/thead><tbody><tr><td>Simple interest<\/td><td>SI = PRT ÷ 100<\/td><\/tr><tr><td>Compound amount<\/td><td>A = P(1 + i)<sup>n<\/sup><\/td><\/tr><tr><td>Rate and periods<\/td><td>i = r ÷ m and n = m × t (m = times a year)<\/td><\/tr><tr><td>CI − SI, 2 years<\/td><td>P(r/100)<sup>2<\/sup><\/td><\/tr><tr><td>Effective rate<\/td><td>(1 + r/m)<sup>m<\/sup> − 1<\/td><\/tr><tr><td>Present value<\/td><td>A ÷ (1 + i)<sup>n<\/sup><\/td><\/tr><tr><td>Depreciation (reducing)<\/td><td>P(1 − r/100)<sup>n<\/sup><\/td><\/tr><tr><td>Annuity amount<\/td><td>R[(1 + i)<sup>n<\/sup> − 1] ÷ i<\/td><\/tr><tr><td>Annuity present value<\/td><td>R[1 − (1 + i)<sup>−n<\/sup>] ÷ i<\/td><\/tr><tr><td>Annuity due<\/td><td>Ordinary result × (1 + i)<\/td><\/tr><tr><td>Perpetuity<\/td><td>R ÷ i<\/td><\/tr><\/tbody><\/table><\/div>\n<h3>Formula sheet: AP, GP and speed<\/h3>\n<div class=\"tbl\"><table><thead><tr><th>What you need<\/th><th>Formula<\/th><\/tr><\/thead><tbody><tr><td>AP nth term<\/td><td>a + (n − 1)d<\/td><\/tr><tr><td>AP sum<\/td><td>n/2 × [2a + (n − 1)d]<\/td><\/tr><tr><td>Number of AP terms<\/td><td>(last − first) ÷ d + 1<\/td><\/tr><tr><td>GP nth term<\/td><td>ar<sup>n − 1<\/sup><\/td><\/tr><tr><td>GP sum<\/td><td>a(r<sup>n<\/sup> − 1) ÷ (r − 1)<\/td><\/tr><tr><td>GP sum to infinity<\/td><td>a ÷ (1 − r), when −1 &lt; r &lt; 1<\/td><\/tr><tr><td>AM, GM, HM of a, b<\/td><td>(a + b)/2, √(ab), 2ab/(a + b)<\/td><\/tr><tr><td>Average speed, equal distances<\/td><td>2xy ÷ (x + y)<\/td><\/tr><tr><td>km/hr → m/s<\/td><td>× 5/18<\/td><\/tr><\/tbody><\/table><\/div>\n<h3>Answer format: compound interest sum<\/h3>\n<pre class=\"fmt\">Step 1  Rate per period    i = 12% ÷ 4 = 3% = 0.03\nStep 2  Number of periods  n = 2 years × 4 = 8\nStep 3  Amount             A = P (1 + i)<sup>n<\/sup> = 50,000 × (1.03)<sup>8<\/sup>\n                             = 50,000 × 1.26677 = ₹63,338.50\nStep 4  Interest           CI = A − P = ₹13,338.50<\/pre>\n<h3>Answer format: annuity<\/h3>\n<pre class=\"fmt\">Given    R = ₹3,000 a year, i = 10% = 0.1, n = 4, paid at year end\nAmount   A = R [(1 + i)<sup>n<\/sup> − 1] ÷ i\n           = 3,000 × (1.4641 − 1) ÷ 0.1 = 3,000 × 4.641 = ₹13,923\nIf paid at the start of each year (annuity due): 13,923 × 1.1 = ₹15,315.30<\/pre>"},"questions":[{"id":"q1_1-01","c":"1.1","f":1,"q":"Two numbers are in the ratio 5:8 and their sum is 390. The larger number is","o":["150","255","240","195"],"a":2,"e":"Total parts = 5 + 8 = 13. One part = 390 ÷ 13 = 30.<br>Larger number = 8 × 30 = 240."},{"id":"q1_1-02","c":"1.1","f":1,"q":"The compounded ratio of 2:3, 9:4 and 5:6 is","o":["16:45","3:2","5:4","45:16"],"a":2,"e":"Multiply the antecedents and the consequents: (2 × 9 × 5) : (3 × 4 × 6) = 90 : 72 = 5 : 4."},{"id":"q1_1-03","c":"1.1","f":1,"q":"The duplicate ratio of 3:7 is","o":["√3:√7","27:343","9:49","6:14"],"a":2,"e":"Duplicate ratio of a:b is a<sup>2<\/sup>:b<sup>2<\/sup>. So 3<sup>2<\/sup> : 7<sup>2<\/sup> = 9 : 49.","pp":1},{"id":"q1_1-04","c":"1.1","f":0,"q":"The sub-triplicate ratio of 64:125 is","o":["4:5","2:√5","8:√125","16:25"],"a":0,"e":"Sub-triplicate ratio of a:b is ∛a : ∛b. ∛64 = 4 and ∛125 = 5, so the ratio is 4 : 5."},{"id":"q1_1-05","c":"1.1","f":1,"q":"The fourth proportional to 5, 12 and 15 is","o":["36","25","45","30"],"a":0,"e":"If 5 : 12 = 15 : x, then 5x = 12 × 15 = 180, so x = 36."},{"id":"q1_1-06","c":"1.1","f":1,"q":"The third proportional to 9 and 15 is","o":["27","21","30","25"],"a":3,"e":"9 : 15 = 15 : x gives 9x = 15 × 15 = 225, so x = 25."},{"id":"q1_1-07","c":"1.1","f":0,"q":"The mean proportional between 0.25 and 0.36 is","o":["0.3","0.09","0.305","0.6"],"a":0,"e":"Mean proportional = √(0.25 × 0.36) = √0.09 = 0.3."},{"id":"q1_1-10","c":"1.1","f":1,"q":"If a:b = c:d, then (a + b):(a − b) = (c + d):(c − d). This rule is called","o":["Componendo and dividendo","Dividendo","Invertendo","Alternendo"],"a":0,"e":"Adding (componendo) and subtracting (dividendo) together on both sides gives (a + b)/(a − b) = (c + d)/(c − d)."},{"id":"q1_1-11","c":"1.1","f":0,"q":"If a:b = c:d, then a:c = b:d. This step is called","o":["Dividendo","Componendo","Invertendo","Alternendo"],"a":3,"e":"Alternendo swaps the means: a/c = b/d. Invertendo would give b:a = d:c."},{"id":"q1_1-12","c":"1.1","f":1,"q":"If x varies directly as y, and x = 24 when y = 8, then x when y = 11 is","o":["27","33","36","30"],"a":1,"e":"x = ky. k = 24 ÷ 8 = 3. When y = 11, x = 3 × 11 = 33."},{"id":"q1_1-13","c":"1.1","f":1,"q":"If p varies inversely as q, and p = 15 when q = 4, then p when q = 6 is","o":["10","22.5","12","9"],"a":0,"e":"pq = k = 15 × 4 = 60. When q = 6, p = 60 ÷ 6 = 10."},{"id":"q1_1-14","c":"1.1","f":0,"q":"A varies jointly as B and C. A = 36 when B = 3 and C = 4. Find A when B = 5 and C = 6.","o":["90","108","60","72"],"a":0,"e":"A = kBC. k = 36 ÷ (3 × 4) = 3. A = 3 × 5 × 6 = 90."},{"id":"q1_1-15","c":"1.1","f":0,"q":"The ratio of the number of edges to the number of faces of a cube is","o":["1:2","3:2","2:1","4:3"],"a":2,"e":"A cube has 12 edges and 6 faces. 12 : 6 = 2 : 1."},{"id":"q1_1-18","c":"1.1","f":0,"q":"If 3, x and 27 are in continued proportion, then x is","o":["3","15","±9","81"],"a":2,"e":"In continued proportion, x<sup>2<\/sup> = 3 × 27 = 81, so x = ±9.","pp":1},{"id":"q1_1-19","c":"1.1","f":0,"q":"A sum of ₹7,200 is divided among P, Q and R in the ratio 2:3:7. R's share is","o":["₹4,200","₹2,400","₹3,600","₹1,800"],"a":0,"e":"Total parts = 2 + 3 + 7 = 12. One part = 7,200 ÷ 12 = 600. R gets 7 × 600 = ₹4,200."},{"id":"q1_1-20","c":"1.1","f":0,"q":"The salaries of A and B are in the ratio 5:6. If each gets a raise of ₹4,000, the ratio becomes 7:8. A's original salary is","o":["₹8,000","₹14,000","₹10,000","₹12,000"],"a":2,"e":"(5k + 4,000)/(6k + 4,000) = 7/8. So 40k + 32,000 = 42k + 28,000, giving 2k = 4,000 and k = 2,000. A = 5 × 2,000 = ₹10,000.<br>Check: 14,000 : 16,000 = 7 : 8."},{"id":"q1_1-21","c":"1.1","f":0,"q":"If 2 men or 3 boys can do a job in 18 days, then 4 men and 9 boys together will do it in","o":["3.6 days","6 days","3 days","4.5 days"],"a":0,"e":"2 men = 3 boys, so 1 man = 1.5 boys. 4 men + 9 boys = 6 + 9 = 15 boys.<br>Total work = 3 boys × 18 days = 54 boy-days. Time = 54 ÷ 15 = 3.6 days."},{"id":"q1_2-01","c":"1.2","f":1,"q":"Simple interest on ₹18,000 at 9% per annum for 4 years is","o":["₹7,290","₹7,408","₹1,620","₹6,480"],"a":3,"e":"SI = P × R × T ÷ 100 = 18,000 × 9 × 4 ÷ 100 = ₹6,480."},{"id":"q1_2-03","c":"1.2","f":0,"q":"A sum becomes 3 times itself in 12 years at simple interest. In how many years will it become 5 times itself?","o":["20 years","30 years","18 years","24 years"],"a":3,"e":"Tripling: SI = 2P in 12 years, so R = 2 × 100 ÷ 12 = 50/3 %.<br>Five times: SI = 4P, so T = 4 × 100 ÷ (50/3) = 24 years.","pp":1},{"id":"q1_2-04","c":"1.2","f":1,"q":"The amount on ₹25,000 at 8% per annum compound interest, compounded annually, for 2 years is","o":["₹4,160","₹29,160","₹29,000","₹29,246"],"a":1,"e":"A = P(1 + r/100)<sup>n<\/sup> = 25,000 × (1.08)<sup>2<\/sup> = 25,000 × 1.1664 = ₹29,160."},{"id":"q1_2-05","c":"1.2","f":1,"q":"Compound interest on ₹40,000 for 1½ years at 10% per annum, compounded half-yearly, is","o":["₹46,305","₹6,000","₹6,148","₹6,305"],"a":3,"e":"Half-yearly: rate per period = 5%, periods = 3.<br>A = 40,000 × (1.05)<sup>3<\/sup> = 40,000 × 1.157625 = ₹46,305.<br>CI = 46,305 − 40,000 = ₹6,305."},{"id":"q1_2-06","c":"1.2","f":1,"q":"The difference between compound interest and simple interest on ₹15,000 for 2 years at 6% per annum is","o":["₹108","₹45","₹54","₹90"],"a":2,"e":"For 2 years, CI − SI = P(r/100)<sup>2<\/sup> = 15,000 × (0.06)<sup>2<\/sup> = 15,000 × 0.0036 = ₹54."},{"id":"q1_2-07","c":"1.2","f":1,"q":"The effective annual rate equal to a nominal rate of 12% per annum compounded quarterly is about","o":["12%","12.55%","12.68%","12.36%"],"a":1,"e":"E = (1 + 0.12/4)<sup>4<\/sup> − 1 = (1.03)<sup>4<\/sup> − 1 = 1.125509 − 1 = 0.1255, or about 12.55%.<br>(12.36% is half-yearly compounding; 12.68% is monthly.)"},{"id":"q1_2-08","c":"1.2","f":0,"q":"A deposit at compound interest grows to 4 times itself in 6 years. After how many years will it be 16 times the deposit?","o":["24 years","9 years","18 years","12 years"],"a":3,"e":"16 = 4<sup>2<\/sup>, so it takes 2 × 6 = 12 years. At compound interest the growth multiplies: every 6 years the sum is multiplied by 4.","pp":1},{"id":"q1_2-09","c":"1.2","f":1,"q":"The present value of ₹11,449 due after 2 years at 7% per annum compound interest is","o":["₹10,700","₹9,800","₹10,400","₹10,000"],"a":3,"e":"PV = A ÷ (1 + r)<sup>n<\/sup> = 11,449 ÷ (1.07)<sup>2<\/sup> = 11,449 ÷ 1.1449 = ₹10,000."},{"id":"q1_2-11","c":"1.2","f":1,"q":"₹5,000 is deposited at the end of every year for 4 years at 8% per annum compound interest. The amount at the end of the 4th year is (use 1.08<sup>4<\/sup> = 1.36049)","o":["₹24,333","₹21,600","₹22,531","₹20,000"],"a":2,"e":"Ordinary annuity: A = R × [(1 + i)<sup>n<\/sup> − 1] ÷ i = 5,000 × (1.36049 − 1) ÷ 0.08 = 5,000 × 4.50611 = ₹22,531."},{"id":"q1_2-12","c":"1.2","f":1,"q":"When equal payments are made at the beginning of each period, the annuity is called","o":["Annuity due","Perpetuity","Ordinary annuity","Deferred annuity"],"a":0,"e":"Payments at the start of each period form an annuity due (annuity immediate is paid at the end). Its amount = ordinary annuity amount × (1 + i)."},{"id":"q1_2-13","c":"1.2","f":0,"q":"A fund created by setting aside equal amounts regularly to repay a known liability in future is called a","o":["Perpetuity","Annuity due","Present value fund","Sinking fund"],"a":3,"e":"A sinking fund collects regular instalments with interest so that the total equals a known future sum, such as replacing a machine or repaying a debenture."},{"id":"q1_2-14","c":"1.2","f":1,"q":"The present value of ₹10,000 received at the end of each year for 3 years at 10% per annum is (use 1.1<sup>−3<\/sup> = 0.751315)","o":["₹30,000","₹27,355","₹27,500","₹24,869"],"a":3,"e":"PV = R × [1 − (1 + i)^−n] ÷ i = 10,000 × (1 − 0.751315) ÷ 0.1 = 10,000 × 2.48685 = ₹24,869."},{"id":"q1_2-17","c":"1.2","f":0,"q":"Interest earned on interest is a feature of","o":["Nominal interest","Flat interest","Compound interest","Simple interest"],"a":2,"e":"In compound interest, interest is added to the principal at the end of each period and itself earns interest. Simple interest is always on the original principal."},{"id":"q1_3-01","c":"1.3","f":1,"q":"The 20th term of the AP 7, 11, 15, ... is","o":["140","87","83","79"],"a":2,"e":"t<sub>n<\/sub> = a + (n − 1)d = 7 + 19 × 4 = 83."},{"id":"q1_3-03","c":"1.3","f":1,"q":"The sum of the first 12 terms of the AP 3, 8, 13, ... is","o":["696","366","348","426"],"a":1,"e":"S<sub>n<\/sub> = n/2 × [2a + (n − 1)d] = 12/2 × [6 + 11 × 5] = 6 × 61 = 366."},{"id":"q1_3-04","c":"1.3","f":0,"q":"Which term of the AP 5, 11, 17, ... is 119?","o":["21st","19th","20th","18th"],"a":2,"e":"t<sub>n<\/sub> = 5 + (n − 1) × 6 = 119. So (n − 1) × 6 = 114, n − 1 = 19, n = 20."},{"id":"q1_3-07","c":"1.3","f":1,"q":"The 7th term of the GP 2, 6, 18, ... is","o":["729","486","1458","4374"],"a":2,"e":"t<sub>n<\/sub> = ar^(n−1) = 2 × 3<sup>6<\/sup> = 2 × 729 = 1458.","pp":1},{"id":"q1_3-08","c":"1.3","f":1,"q":"The sum of the first 6 terms of the GP 4, 8, 16, ... is","o":["508","252","124","256"],"a":1,"e":"S<sub>n<\/sub> = a(r<sup>n<\/sup> − 1)/(r − 1) = 4 × (2<sup>6<\/sup> − 1) ÷ 1 = 4 × 63 = 252."},{"id":"q1_3-10","c":"1.3","f":0,"q":"The geometric mean between 4 and 49 is","o":["196","14","7","26.5"],"a":1,"e":"GM = √(ab) = √(4 × 49) = √196 = 14."},{"id":"q1_3-11","c":"1.3","f":0,"q":"If the 3rd term of a GP is 20 and the 6th term is 160, the common ratio is","o":["4","3","8","2"],"a":3,"e":"ar<sup>5<\/sup> ÷ ar<sup>2<\/sup> = r<sup>3<\/sup> = 160 ÷ 20 = 8, so r = 2."},{"id":"q1_3-12","c":"1.3","f":0,"q":"Three numbers in AP have sum 33 and product 1155. The numbers are","o":["3, 11, 35","5, 11, 21","9, 11, 13","7, 11, 15"],"a":3,"e":"Take a − d, a, a + d. Sum 3a = 33, a = 11. Product 11(121 − d<sup>2<\/sup>) = 1155, so 121 − d<sup>2<\/sup> = 105, d<sup>2<\/sup> = 16, d = 4. Numbers: 7, 11, 15."},{"id":"q1_3-13","c":"1.3","f":0,"q":"If 2x + 1, 5x − 3 and 4x + 5 are in AP, then x is","o":["2","4","5","3"],"a":3,"e":"In an AP, 2 × middle term = first + third.<br>2(5x − 3) = (2x + 1) + (4x + 5), so 10x − 6 = 6x + 6, 4x = 12 and x = 3.<br>Check: terms 7, 12, 17 with d = 5."},{"id":"q1_3-14","c":"1.3","f":0,"q":"For two positive unequal numbers, the AM, GM and HM satisfy","o":["AM &gt; GM &gt; HM","GM &gt; AM &gt; HM","AM = GM = HM","AM &lt; GM &lt; HM"],"a":0,"e":"For unequal positive numbers AM &gt; GM &gt; HM, and GM<sup>2<\/sup> = AM × HM. They are equal only when the two numbers are equal."},{"id":"q1_3-15","c":"1.3","f":0,"q":"A person saves ₹500 in the first month and increases the saving by ₹100 every month. Total savings in 2 years are","o":["₹27,600","₹40,800","₹39,000","₹39,600"],"a":3,"e":"AP with a = 500, d = 100, n = 24.<br>S = 24/2 × [2 × 500 + 23 × 100] = 12 × 3,300 = ₹39,600."},{"id":"q1_3-16","c":"1.3","f":0,"q":"The sum of all odd numbers from 1 to 99 is","o":["2500","5000","2550","2450"],"a":0,"e":"There are 50 odd numbers from 1 to 99. Sum of first n odd numbers = n<sup>2<\/sup> = 50<sup>2<\/sup> = 2500."},{"id":"q1_4-01","c":"1.4","f":1,"q":"A speed of 72 km/hr is the same as","o":["20 m/s","25 m/s","72 m/s","18 m/s"],"a":0,"e":"To change km/hr to m/s, multiply by 5/18. 72 × 5 ÷ 18 = 20 m/s."},{"id":"q1_4-02","c":"1.4","f":1,"q":"A car goes from P to Q at 50 km/hr and returns at 75 km/hr. The average speed for the whole journey is","o":["60 km/hr","65 km/hr","62.5 km/hr","58 km/hr"],"a":0,"e":"Equal distances: average speed = 2xy ÷ (x + y) = 2 × 50 × 75 ÷ 125 = 60 km/hr. It is the harmonic mean, not the simple average 62.5.","pp":1},{"id":"q1_4-04","c":"1.4","f":1,"q":"A train 180 m long running at 54 km/hr crosses a platform 270 m long in","o":["30 seconds","12 seconds","20 seconds","18 seconds"],"a":0,"e":"Distance = train + platform = 180 + 270 = 450 m. Speed = 54 × 5/18 = 15 m/s. Time = 450 ÷ 15 = 30 seconds."},{"id":"q1_4-05","c":"1.4","f":0,"q":"Two trains 150 m and 210 m long run in opposite directions at 40 km/hr and 50 km/hr. They cross each other in","o":["36 seconds","14.4 seconds","129.6 seconds","16 seconds"],"a":1,"e":"Opposite directions: relative speed = 40 + 50 = 90 km/hr = 25 m/s. Distance = 150 + 210 = 360 m. Time = 360 ÷ 25 = 14.4 s."}],"mocks":{},"cards":[["1.1","Fourth proportional to a, b, c","bc ÷ a"],["1.1","Mean proportional of a and c","√(ac)"],["1.1","Third proportional to a and b","b<sup>2<\/sup> ÷ a"],["1.1","Duplicate ratio of a : b","a<sup>2<\/sup> : b<sup>2<\/sup>"],["1.1","Componendo and dividendo","If a/b = c/d then (a + b)/(a − b) = (c + d)/(c − d)"],["1.1","Inverse variation","x ∝ 1/y, so xy = constant"],["1.2","Simple interest","SI = PRT ÷ 100"],["1.2","Compound amount","A = P(1 + i)<sup>n<\/sup>, with i per period and n periods"],["1.2","CI − SI for 2 years","P(r/100)<sup>2<\/sup>"],["1.2","Effective rate","(1 + r/m)<sup>m<\/sup> − 1"],["1.2","Amount of an ordinary annuity","R[(1 + i)<sup>n<\/sup> − 1] ÷ i"],["1.2","Present value of an annuity","R[1 − (1 + i)<sup>−n<\/sup>] ÷ i"],["1.2","Annuity due","Ordinary annuity value × (1 + i)"],["1.2","Present value of a perpetuity","R ÷ i"],["1.3","AP nth term","a + (n − 1)d"],["1.3","AP sum of n terms","n/2 × [2a + (n − 1)d]"],["1.3","GP nth term","ar<sup>n − 1<\/sup>"],["1.3","GP sum to infinity","a ÷ (1 − r), only when −1 &lt; r &lt; 1"],["1.3","AM, GM, HM order","AM ≥ GM ≥ HM, and GM<sup>2<\/sup> = AM × HM"],["1.4","Average speed for equal distances","2xy ÷ (x + y)"],["1.4","km/hr to m/s","Multiply by 5/18"]],"counts":{"practice":46,"mock":100,"fullPractice":247,"fullCards":92,"fullQuestions":347}};</script>
+<script>
+(function(){
+"use strict";
+const D = DATA;
+const FULL = D.edition === "full";
+const P = "fbms3.";
+const APP = "FBMS Smart Prep";
+const SPLIT_50 = D.modules.map(m=>m.split);          // 15,8,12,15
+const SPLIT_20 = D.modules.map(m=>m.split20);        // 6,3,5,6
+const L = ["A","B","C","D"];
+const SHOP = "https://99digiprostore.myinstamojo.com";
+
+/* ---------- storage (safe) ---------- */
+const S = {
+  ok: true, mem: {},
+  get(k){ try{ const v = localStorage.getItem(P+k); if(v!==null) return v; }catch(e){ this.ok=false; } return (P+k) in this.mem ? this.mem[P+k] : null; },
+  set(k,v){ this.mem[P+k]=v; try{ localStorage.setItem(P+k,v); }catch(e){ this.ok=false; } },
+  del(k){ delete this.mem[P+k]; try{ localStorage.removeItem(P+k); }catch(e){} },
+  json(k,def){ try{ const v=this.get(k); return v?JSON.parse(v):def; }catch(e){ return def; } },
+  put(k,o){ this.set(k, JSON.stringify(o)); }
+};
+try{ localStorage.setItem(P+"t","1"); localStorage.removeItem(P+"t"); }catch(e){ S.ok=false; }
+const sess = {
+  get(){ try{ return sessionStorage.getItem(P+"sess"); }catch(e){ return sess._m||null; } },
+  set(v){ sess._m=v; try{ v?sessionStorage.setItem(P+"sess",v):sessionStorage.removeItem(P+"sess"); }catch(e){} }
+};
+
+/* ---------- helpers ---------- */
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const hash = s => { let x=2166136261; for(let i=0;i<s.length;i++){ x^=s.charCodeAt(i); x=Math.imul(x,16777619);} return (x>>>0).toString(36); };
+const ymd = d => d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+const today = () => ymd(new Date());
+const fmtTime = s => { s=Math.max(0,Math.round(s)); const h=Math.floor(s/3600), m=Math.floor(s%3600/60), x=s%60; return (h?h+":":"")+String(m).padStart(h?2:1,"0")+":"+String(x).padStart(2,"0"); };
+const pct = (a,b) => b ? Math.round(a*100/b) : 0;
+function shuffle(a, seed){ a=a.slice(); const r = seed==null ? Math.random : mulberry(seed); for(let i=a.length-1;i>0;i--){ const j=Math.floor(r()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+function mulberry(a){ return function(){ a|=0; a=a+0x6D2B79F5|0; let t=Math.imul(a^a>>>15,1|a); t=t+Math.imul(t^t>>>7,61|t)^t; return ((t^t>>>14)>>>0)/4294967296; }; }
+function toast(msg){ const t=document.createElement("div"); t.className="toast"; t.setAttribute("role","status"); t.textContent=msg; document.body.appendChild(t); setTimeout(()=>t.remove(),2200); }
+function copyText(text, el){
+  const fail=()=>{ if(el){el.focus();el.select();} toast("Select the text and copy it"); };
+  try{ navigator.clipboard.writeText(text).then(()=>toast("Copied"), fail); }catch(e){ fail(); }
+}
+const MON = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+const DMY = d => ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"][d.getDay()]+", "+d.getDate()+" "+MON[d.getMonth()]+" "+d.getFullYear();
+
+/* ---------- data indexes ---------- */
+const Q = {}; D.questions.forEach(q => Q[q.id]=q);
+const modOf = c => +String(c).split(".")[0];
+const MODS = D.modules;
+const unlocked = n => !MODS[n-1].locked;
+const chTitle = {}; MODS.forEach(m => m.chapters.forEach(c => chTitle[c.id]=c.title));
+const practiceIds = D.questions.filter(q => !q.mock).map(q => q.id);
+const byChapter = {}; practiceIds.forEach(id => { const c=Q[id].c; (byChapter[c]=byChapter[c]||[]).push(id); });
+const byModule = {}; practiceIds.forEach(id => { const m=modOf(Q[id].c); (byModule[m]=byModule[m]||[]).push(id); });
+const hasNotes = id => (D.notes[modOf(id)]||[]).some(s=>s.id===id);
+const openPool = () => practiceIds.filter(id=>unlocked(modOf(Q[id].c)));
+
+/* ---------- users and progress ---------- */
+let users = S.json("users", []);
+let me = null, prog = null;
+const saveUsers = () => S.put("users", users);
+const blankProg = () => ({answers:{}, read:{}, mistakes:{}, mocks:[], cards:{}, days:[], live:null, match:{}});
+function loadProg(id){ const p = S.json("p."+id, null) || blankProg(); return Object.assign(blankProg(), p); }
+function save(){ if(me){ S.put("p."+me.id, prog); } }
+function touchDay(){ const t=today(); if(!prog.days.includes(t)){ prog.days.push(t); if(prog.days.length>400) prog.days=prog.days.slice(-400); } }
+function streak(){ const set=new Set(prog.days); let n=0; const d=new Date(); if(!set.has(today())) d.setDate(d.getDate()-1); while(set.has(ymd(d))){ n++; d.setDate(d.getDate()-1); } return n; }
+function record(id, correct){
+  const a = prog.answers[id] || {n:0,c:0,last:0};
+  a.n++; if(correct) a.c++; a.last = correct?1:0; prog.answers[id]=a;
+  if(!correct) prog.mistakes[id]=0;
+  else if(id in prog.mistakes){ prog.mistakes[id]++; if(prog.mistakes[id]>=2) delete prog.mistakes[id]; }
+  touchDay();
+}
+function statsFor(ids){ let seen=0, right=0, att=0, cor=0; ids.forEach(id=>{ const a=prog.answers[id]; if(a){ seen++; if(a.last) right++; att+=a.n; cor+=a.c; } }); return {seen, right, total:ids.length, acc:pct(cor,att), att}; }
+const mistakesIn = m => Object.keys(prog.mistakes).filter(id=>Q[id] && unlocked(modOf(Q[id].c)) && (m==null || modOf(Q[id].c)===m));
+
+/* ---------- app state ---------- */
+let view = "chapters", sub = {}, timerH = null;
+let theme = S.get("theme") || "system";
+function applyTheme(){ const r=document.documentElement; if(theme==="system") r.removeAttribute("data-theme"); else r.setAttribute("data-theme",theme); }
+applyTheme();
+function go(v, s){ view=v; sub=s||{}; render(); try{ window.scrollTo(0,0); }catch(e){} }
+function rerender(){ const y=window.scrollY; render(); window.scrollTo(0,y); }
+
+/* ---------- shell ---------- */
+const TABS = [["chapters","Chapters"],["mocks","Mock Exam"],["settings","Settings"],["readme","Readme"]];
+const tabOf = v => ({chapter:"chapters", session:"chapters", instr:"mocks", result:"mocks"}[v] || v);
+function shell(inner){
+  const ex = view==="exam";
+  return `
+<header class="top"><div class="wrap">
+  <div class="brand grow"><b>${APP}${FULL?"":" · Free sample"}</b><span>CMA Foundation · Paper 3 · Business Maths and Statistics · by 99DigiProStore</span></div>
+  ${ex?"":`<button class="chip" data-act="switch" title="Switch student"><span class="avatar">${esc(me.name[0].toUpperCase())}</span><span class="hide-sm">${esc(me.name)}</span><span class="small muted">Switch</span></button>`}
+</div></header>
+${ex?"":`<nav class="tabs" aria-label="Main sections"><div class="wrap">${TABS.map(([k,t])=>`<button class="tab" data-act="tab" data-v="${k}" ${tabOf(view)===k?'aria-current="page"':""}>${t}</button>`).join("")}</div></nav>`}
+${S.ok?"":`<div class="wrap" style="padding-top:12px"><div class="banner">This browser is not saving progress, so it will be lost when you close the page. Open the file in Chrome, Edge or Firefox for saved progress.</div></div>`}
+<main><div class="wrap">${inner}</div></main>
+${footer()}`;
+}
+function footer(){
+  return `<footer><div class="wrap">
+  <span><b>Independent study aid.</b> ${APP} is made by 99DigiProStore. It is not affiliated with, endorsed by or connected to the Institute of Cost Accountants of India (ICMAI). All notes and questions are original and written for practice.</span>
+  <span>Always follow the latest syllabus, study material and exam notices from the Institute. Practice scores do not guarantee or predict exam results.</span>
+  <span>© 99DigiProStore · ${esc(D.version)} · Support: digiprostore99@gmail.com. For the buyer's personal use only. Please do not share or resell this file.</span>
+</div></footer>`;
+}
+function subtabs(items, cur, act, extra){
+  return `<div class="subtabs" role="tablist">${items.map(([k,t])=>`<button class="subtab" role="tab" data-act="${act}" data-t="${k}" ${extra||""} aria-current="${cur===k}">${t}</button>`).join("")}</div>`;
+}
+
+/* ---------- LOGIN ---------- */
+function loginView(){
+  const s = sub;
+  let body;
+  if(s.mode==="new"){
+    body = `<div class="sheet stack">
+      <h2>Create your profile</h2>
+      <p class="muted small">Your progress, Mistake Book and mock scores are saved under this profile on this device.</p>
+      <label class="f">Your name<input type="text" id="nName" maxlength="24" autocomplete="off" placeholder="e.g. Ananya"></label>
+      <label class="f">4-digit PIN (optional)<input type="password" id="nPin" class="pin" inputmode="numeric" maxlength="4" autocomplete="off" placeholder="••••"></label>
+      <label class="f">Confirm PIN<input type="password" id="nPin2" class="pin" inputmode="numeric" maxlength="4" autocomplete="off" placeholder="••••"></label>
+      <p class="err" id="nErr" role="alert"></p>
+      <div class="row"><button class="btn primary" data-act="createUser">Create profile</button>${users.length?`<button class="btn ghost" data-act="loginHome">Back</button>`:""}</div>
+    </div>`;
+  } else if(s.mode==="pin"){
+    const u = users.find(x=>x.id===s.uid);
+    body = `<div class="sheet stack" style="text-align:center;align-items:center">
+      <span class="avatar" style="width:56px;height:56px;font-size:1.4rem">${esc(u.name[0].toUpperCase())}</span>
+      <h2>Hi ${esc(u.name)}</h2>
+      <label class="f" style="width:100%;max-width:220px">Enter your PIN<input type="password" id="pin" class="pin" inputmode="numeric" maxlength="4" autocomplete="off"></label>
+      <p class="err" id="pErr" role="alert"></p>
+      <div class="row" style="justify-content:center"><button class="btn primary" data-act="checkPin">Open</button><button class="btn ghost" data-act="loginHome">Back</button></div>
+      <p class="small muted">Forgot the PIN? A PIN can't be recovered. Create a new profile and restore a backup code if you saved one.</p>
+    </div>`;
+  } else {
+    body = `<div class="sheet stack">
+      <h2>Who is studying?</h2>
+      ${users.length?`<div class="users">${users.map(u=>`<button class="user" data-act="pickUser" data-id="${u.id}"><span class="avatar">${esc(u.name[0].toUpperCase())}</span><b>${esc(u.name)}</b><span class="small muted">${u.pin?"PIN protected":"No PIN"}</span></button>`).join("")}</div>`:`<p class="muted">No profiles yet. Create one to start.</p>`}
+      <button class="btn ${users.length?"":"primary"}" data-act="newUser">+ New student</button>
+    </div>`;
+  }
+  return `<div class="wrap login"><div class="box stack">
+    <div class="stack" style="gap:6px">
+      <span class="label">CMA Foundation · Paper 3</span>
+      <h1>${APP}${FULL?"":" <span class='pill fav' style='vertical-align:middle'>Free sample</span>"}</h1>
+      <p class="muted">Fundamentals of Business Mathematics and Statistics: chapter overviews, formula sheets, ${FULL?D.counts.practice+" practice MCQs with full working, 2 full mock exams with a calculator and rough sheet":"Module 1 notes, practice MCQs with full working and a taster mock"}, formula cards and a Mistake Book in one offline file.</p>
+      <span class="small muted mono">${esc(D.version)}</span>
+    </div>
+    ${S.ok?"":`<div class="banner">This browser is not saving data, so profiles will disappear when the page closes. Open the file in Chrome, Edge or Firefox.</div>`}
+    ${body}
+    <div class="card small muted stack" style="gap:6px">
+      <span><b>About profiles.</b> Each student gets a separate profile, so brothers, sisters or friends sharing a phone or laptop keep their own progress. Everything stays on this device and nothing is sent anywhere. The PIN only stops profiles getting mixed up. It is not strong security.</span>
+      <span>Independent study aid by 99DigiProStore. Not affiliated with or endorsed by the Institute of Cost Accountants of India.</span>
+    </div>
+  </div></div>`;
+}
+const liveOk = () => !!(prog && prog.live && prog.live.qids.every(id=>Q[id]));
+function enterUser(u){ me=u; prog=loadProg(u.id); sess.set(u.id); touchDay(); save(); go(liveOk()?"exam":"chapters"); }
+
+/* ---------- CHAPTERS (main tab) ---------- */
+function nextStep(){
+  const st = statsFor(openPool());
+  const unread=[]; MODS.forEach(m=>{ if(!m.locked) m.chapters.forEach(c=>{ if(hasNotes(c.id) && !prog.read[c.id]) unread.push(c); }); });
+  const weak=[]; MODS.forEach(m=>{ if(!m.locked) m.chapters.filter(c=>hasNotes(c.id)).forEach(c=>{ const s=statsFor(byChapter[c.id]||[]); if(s.att>=5 && s.acc<60) weak.push([c,s.acc]); }); });
+  weak.sort((a,b)=>a[1]-b[1]);
+  const mist = mistakesIn().length;
+  const op = c => `data-act="openChapter" data-m="${modOf(c.id)}" data-t="overview" data-c="${c.id}"`;
+  if(unread.length && st.seen<10){ const c=unread[0]; return {t:`Read ${c.id} ${c.title}`, d:"Start with the overview, then answer that topic's MCQs.", a:op(c), b:"Open overview"}; }
+  if(weak.length){ const c=weak[0][0]; return {t:`Strengthen ${c.id} ${c.title}`, d:`Your accuracy here is ${weak[0][1]}%. Re-read the overview and practise again.`, a:`data-act="startChapter" data-c="${c.id}"`, b:"Practise this topic"}; }
+  if(mist>=5) return {t:`Fix your ${mist} mistakes`, d:"A question leaves the Mistake Book after you get it right twice in a row.", a:`data-act="startMistakes"`, b:"Practise mistakes"};
+  if(unread.length){ const c=unread[0]; return {t:`Read ${c.id} ${c.title}`, d:"Keep moving through the syllabus.", a:op(c), b:"Open overview"}; }
+  if(FULL) return {t:"Take a full mock exam", d:"50 questions in 1 hour, like the real paper. Review every answer afterwards.", a:`data-act="tab" data-v="mocks"`, b:"Go to Mock Exam"};
+  return {t:"Try the taster mock", d:"10 questions from the free topics against the clock.", a:`data-act="tab" data-v="mocks"`, b:"Go to Mock Exam"};
+}
+function chaptersView(){
+  const t = sub.t || "dash";
+  const tabs = subtabs([["dash","Dashboard"],["mist","Mistake Book"],["perf","Performance"]], t, "chapTab");
+  let body;
+  if(t==="mist") body = mistakeBody(null);
+  else if(t==="perf") body = perfOverall();
+  else body = dashBody();
+  return shell(`<div class="stack" style="gap:16px">${tabs}${body}</div>`);
+}
+function dashBody(){
+  const pool = openPool(), st = statsFor(pool), cover = pct(st.seen, pool.length), nx = nextStep();
+  const best = prog.mocks.reduce((b,m)=>Math.max(b,m.score),0);
+  return `
+  <div class="row" style="gap:16px;align-items:center">
+    <div class="ring" style="--p:${cover}" aria-label="${cover}% of practice questions attempted"><b>${cover}%</b></div>
+    <div class="grow stack" style="gap:4px"><span class="label">Welcome back</span><h1>Hi ${esc(me.name)}</h1>
+      <p class="muted small">You have tried ${st.seen} of ${pool.length} practice MCQs${FULL?"":" in the free module"}.</p></div>
+  </div>
+  <div class="grid3 stats">
+    <div class="card stat"><span class="small muted">Accuracy</span><b>${st.att?st.acc+"%":"–"}</b></div>
+    <div class="card stat"><span class="small muted">Study streak</span><b>${streak()} day${streak()===1?"":"s"}</b></div>
+    <div class="card stat"><span class="small muted">Mocks taken</span><b>${prog.mocks.length}</b>${prog.mocks.length?`<span class="small muted">best ${best}/100</span>`:""}</div>
+  </div>
+  <div class="sheet stack"><span class="label">Your next step</span><h2>${esc(nx.t)}</h2><p class="muted">${esc(nx.d)}</p><div><button class="btn primary" ${nx.a}>${nx.b}</button></div></div>
+  <div class="grid3">
+    <button class="card stack" style="text-align:left" data-act="startQuick"><span class="label">5 minutes</span><h3>Quick 10</h3><span class="small muted">Ten mixed MCQs, new ones first.</span></button>
+    <button class="card stack" style="text-align:left" data-act="startFav"><span class="label">${pool.filter(id=>Q[id].f).length} questions</span><h3>Core concepts</h3><span class="small muted">The central ideas of each topic.</span></button>
+    <button class="card stack" style="text-align:left" data-act="chapTab" data-t="mist"><span class="label">${mistakesIn().length} saved</span><h3>Mistake Book</h3><span class="small muted">Every wrong answer, until you fix it.</span></button>
+  </div>
+  <h2>Chapters</h2>
+  ${MODS.map(m=>{ const s=statsFor(byModule[m.n]||[]); const rd=m.chapters.filter(c=>prog.read[c.id]).length;
+    return `<button class="card mod ${m.locked?"locked":""}" style="text-align:left;width:100%" data-act="openChapter" data-m="${m.n}">
+      <span class="modno">${m.n}</span>
+      <div class="grow stack" style="gap:6px">
+        <div class="row" style="justify-content:space-between"><h3>${esc(m.title)}</h3><span class="pill">${m.weight}% weight · ${m.split} of 50 Qs</span></div>
+        ${m.locked?`<span class="lock">🔒 In the full kit</span>`:`
+        <div class="bar ${s.acc>=60?"g":""}"><i style="width:${pct(s.seen,s.total)}%"></i></div>
+        <span class="small muted">${s.seen}/${s.total} MCQs tried · ${s.att?s.acc+"% accuracy":"not started"} · ${rd}/${m.chapters.length} topics read</span>`}
+      </div></button>`; }).join("")}
+  ${FULL?"":upsell()}`;
+}
+function upsell(){
+  return `<div class="upsell stack">
+    <h2>Unlock all eight modules</h2>
+    <p>The free sample opens Module 1 (Arithmetic). The full ${APP} kit adds:</p>
+    <ul style="margin:0;padding-left:1.2em">
+      <li>All 28 topic overviews and formula sheets: algebra, calculus, statistics, correlation and regression, probability, index numbers and time series</li>
+      <li>${D.counts.fullPractice} practice MCQs with step-by-step workings, plus Mistake Book and performance tracking</li>
+      <li>2 full mock exams (50 questions, 1 hour) with a calculator and rough sheet, plus shuffle and mini mocks</li>
+      <li>${D.counts.fullCards} formula cards, Match Sprint, a statistics calculator and a correlation and regression calculator</li>
+    </ul>
+    <p>Get it from the 99DigiProStore shop:</p>
+    <div class="row"><input type="text" id="shopUrl" readonly value="99digiprostore.myinstamojo.com" style="max-width:320px"><button class="btn primary" data-act="copyShop">Copy link</button></div>
+    <p class="small muted">Your free-topic progress stays in your profile if you open the full kit in the same browser.</p>
+  </div>`;
+}
+
+/* ---------- one chapter (module) with sub-tabs ---------- */
+const CH_TABS = [["overview","Overview"],["formats","Formats & formulas"],["mcq","MCQs"],["cards","Flashcards"],["match","Match Sprint"],["mist","Mistake Book"],["perf","Performance"]];
+function chapterView(){
+  const m = MODS[sub.m-1];
+  const head = `<button class="btn ghost" style="align-self:flex-start" data-act="tab" data-v="chapters">← All chapters</button>
+    <div class="stack" style="gap:4px"><span class="label">Module ${m.n} · ${m.weight}% weight · about ${m.split} of 50 questions</span><h1>${esc(m.title)}</h1></div>`;
+  if(m.locked) return shell(`<div class="stack" style="gap:14px">${head}${upsell()}</div>`);
+  const t = sub.t || "overview";
+  const tabs = subtabs(CH_TABS, t, "chTab", `data-m="${m.n}"`);
+  const body = ({overview:overviewBody, formats:formatsBody, mcq:mcqBody, cards:cardsBody, match:matchBody, mist:()=>mistakeBody(m.n), perf:perfModule}[t]||overviewBody)(m);
+  return shell(`<div class="stack" style="gap:14px">${head}${tabs}${body}</div>`);
+}
+function overviewBody(m){
+  const secs = D.notes[m.n];
+  const lockedCh = m.chapters.filter(c=>!secs.some(s=>s.id===c.id));
+  return `<div class="toc">${secs.map(s=>`<button data-act="jump" data-c="${s.id}">${prog.read[s.id]?"✓ ":""}${s.id} ${esc(s.title)}</button>`).join("")}${lockedCh.map(c=>`<button disabled title="In the full kit">🔒 ${c.id} ${esc(c.title)}</button>`).join("")}</div>
+    <article class="notes">${secs.map(s=>{ const n=(byChapter[s.id]||[]).length; return `
+      <h2 id="sec-${s.id.replace(".","-")}">${s.id} ${esc(s.title)}</h2>
+      ${s.html}
+      <div class="row" style="margin-top:14px">
+        <button class="btn ${prog.read[s.id]?"":"primary"}" data-act="markRead" data-c="${s.id}">${prog.read[s.id]?"✓ Read":"Mark as read"}</button>
+        ${n?`<button class="btn" data-act="startChapter" data-c="${s.id}">Practise ${s.id} (${n} MCQs)</button>`:""}
+      </div>`; }).join("")}
+    </article>${lockedCh.length?upsell():""}`;
+}
+function formatsBody(m){
+  const tools = m.n===1 ? tmvTool() : m.n===5 ? statTool() : m.n===6 ? corrTool() : "";
+  return `<p class="muted small">Formula sheets and answer formats for this module. Worked figures are our own examples.</p>
+    ${tools}<article class="notes">${D.formats[m.n]||"<p>No formats for this module.</p>"}</article>`;
+}
+const inr = v => { const n=Math.round(v*100)/100; const neg=n<0; let [a,b]=Math.abs(n).toFixed(2).split("."); let last=a.slice(-3), rest=a.slice(0,-3); if(rest) last=","+last; rest=rest.replace(/\B(?=(\d{2})+(?!\d))/g,","); return (neg?"−":"")+"₹"+rest+last+(b!=="00"?"."+b:""); };
+const numIn = (id, def) => { const el=$("#"+id); const v=el?parseFloat(String(el.value).replace(/,/g,"")):NaN; return isFinite(v)?v:def; };
+const nf = (v,d) => { if(!isFinite(v)) return "–"; const x=Math.round(v*Math.pow(10,d==null?4:d))/Math.pow(10,d==null?4:d); return String(x).replace("-","−"); };
+const listIn = id => { const el=$("#"+id); return el ? String(el.value).split(/[\s,;]+/).map(x=>x.trim()).filter(Boolean).map(Number).filter(v=>isFinite(v)) : []; };
+function tmvTool(){
+  const v = sub.tmv || {p:50000, r:8, t:3, m:1, a:5000};
+  return `<div class="tool stack"><span class="label">Try it · Topic 1.2</span><h3>Interest and annuity calculator</h3>
+    <p class="small muted">Change the figures and see simple interest, compound interest, the effective rate and annuity values with the working.</p>
+    <div class="row">
+      <label class="f">Principal P (₹)<input type="number" id="tvP" min="0" value="${esc(v.p)}"></label>
+      <label class="f">Rate % a year<input type="number" id="tvR" min="0" max="100" step="0.01" value="${esc(v.r)}"></label>
+      <label class="f">Years<input type="number" id="tvT" min="0" max="50" step="0.5" value="${esc(v.t)}"></label>
+      <label class="f">Compounded<select id="tvM">${[[1,"Yearly"],[2,"Half-yearly"],[4,"Quarterly"],[12,"Monthly"]].map(([k,t])=>`<option value="${k}" ${+v.m===k?"selected":""}>${t}</option>`).join("")}</select></label>
+      <label class="f">Annuity payment R per period (₹)<input type="number" id="tvA" min="0" value="${esc(v.a)}"></label>
+    </div>
+    <div><button class="btn primary" data-act="calcTmv">Calculate</button></div>
+    ${v.out?`<div class="out">${v.out}</div>`:""}
+  </div>`;
+}
+function calcTmv(){
+  const p=Math.max(0,numIn("tvP",0)), r=Math.max(0,Math.min(100,numIn("tvR",0))), t=Math.max(0,Math.min(50,numIn("tvT",0))), m=+($("#tvM")||{}).value||1, a=Math.max(0,numIn("tvA",0));
+  sub.tmv={p,r,t,m,a};
+  if(!r || !t){ sub.tmv.out="Enter a rate and a number of years above zero."; return; }
+  const i=r/100/m, n=Math.round(t*m), si=p*r*t/100, A=p*Math.pow(1+i,n), eff=(Math.pow(1+i,m)-1)*100;
+  const fv=a*(Math.pow(1+i,n)-1)/i, pv=a*(1-Math.pow(1+i,-n))/i;
+  sub.tmv.out = `<div class="tbl"><table><tbody>
+    <tr><td>Rate per period i</td><td class="mono">${nf(r/m,4)}% = ${nf(i,6)}</td></tr>
+    <tr><td>Number of periods n</td><td class="mono">${n}</td></tr>
+    <tr><td>Simple interest = PRT ÷ 100</td><td class="mono">${inr(si)}</td></tr>
+    <tr><td>Compound amount = P(1 + i)<sup>n</sup></td><td class="mono">${inr(A)}</td></tr>
+    <tr><td>Compound interest = A − P</td><td class="mono">${inr(A-p)}</td></tr>
+    <tr><td>CI − SI</td><td class="mono">${inr(A-p-si)}</td></tr>
+    <tr><td>Effective annual rate = (1 + i)<sup>${m}</sup> − 1</td><td class="mono">${nf(eff,4)}%</td></tr>
+    ${a?`<tr><td>Annuity amount (paid at period end) = R[(1 + i)<sup>n</sup> − 1] ÷ i</td><td class="mono">${inr(fv)}</td></tr>
+    <tr><td>Annuity due amount (paid at period start) = above × (1 + i)</td><td class="mono">${inr(fv*(1+i))}</td></tr>
+    <tr><td>Present value of the annuity = R[1 − (1 + i)<sup>−n</sup>] ÷ i</td><td class="mono">${inr(pv)}</td></tr>
+    <tr><td>Present value of a perpetuity = R ÷ i</td><td class="mono">${inr(a/i)}</td></tr>`:""}
+  </tbody></table></div><p class="small muted">Exam answers may differ by a rupee or two when tables of (1 + i)<sup>n</sup> are rounded.</p>`;
+}
+function statsOf(d){
+  const x=d.slice().sort((a,b)=>a-b), n=x.length, mean=x.reduce((a,b)=>a+b,0)/n;
+  const at = pos => { if(pos<=1) return x[0]; if(pos>=n) return x[n-1]; const k=Math.floor(pos), f=pos-k; return x[k-1]+f*(x[k]-x[k-1]); };
+  const med=at((n+1)/2), q1=at((n+1)/4), q3=at(3*(n+1)/4);
+  const cnt={}; x.forEach(v=>cnt[v]=(cnt[v]||0)+1); const mx=Math.max(...Object.values(cnt)); const modes=mx>1?Object.keys(cnt).filter(k=>cnt[k]===mx).map(Number):[];
+  const varp=x.reduce((s,v)=>s+(v-mean)*(v-mean),0)/n, sd=Math.sqrt(varp), md=x.reduce((s,v)=>s+Math.abs(v-mean),0)/n, mdm=x.reduce((s,v)=>s+Math.abs(v-med),0)/n;
+  return {x,n,mean,med,q1,q3,modes,varp,sd,md,mdm,min:x[0],max:x[n-1]};
+}
+function statTool(){
+  const v = sub.st || {d:"12, 15, 11, 18, 20, 15, 22, 17, 15, 25"};
+  return `<div class="tool stack"><span class="label">Try it · Module 5</span><h3>Statistics calculator</h3>
+    <p class="small muted">Type or paste numbers separated by commas or spaces. Use it to check your own working, not instead of it.</p>
+    <label class="f">Data<textarea id="stD" style="font-size:.95rem;min-height:70px">${esc(v.d)}</textarea></label>
+    <div><button class="btn primary" data-act="calcStat">Calculate</button></div>
+    ${v.out?`<div class="out">${v.out}</div>`:""}
+  </div>`;
+}
+function calcStat(){
+  const raw=($("#stD")||{}).value||"", d=listIn("stD"); sub.st={d:raw};
+  if(d.length<2){ sub.st.out="Enter at least two numbers."; return; }
+  const k=statsOf(d), cv=k.mean?k.sd/Math.abs(k.mean)*100:NaN, bow=(k.q3-k.q1)?(k.q3+k.q1-2*k.med)/(k.q3-k.q1):NaN, kp=k.sd?3*(k.mean-k.med)/k.sd:NaN;
+  const rows=[["Ordered data",k.x.map(v=>nf(v)).join(", ")],["n",k.n],["Mean = Σx ÷ n",nf(k.mean)],["Median = (n + 1)/2 th item",nf(k.med)],["Mode",k.modes.length?k.modes.map(v=>nf(v)).join(", "):"No value repeats"],
+    ["Range = L − S",nf(k.max-k.min)],["Coefficient of range",nf((k.max-k.min)/(k.max+k.min))],["Q1 = (n + 1)/4 th item",nf(k.q1)],["Q3 = 3(n + 1)/4 th item",nf(k.q3)],["Quartile deviation = (Q3 − Q1) ÷ 2",nf((k.q3-k.q1)/2)],
+    ["Mean deviation about mean",nf(k.md)],["Mean deviation about median",nf(k.mdm)],["Variance (σ²)",nf(k.varp)],["Standard deviation σ",nf(k.sd)],["Coefficient of variation",nf(cv,2)+"%"],
+    ["Karl Pearson's skewness = 3(Mean − Median) ÷ σ",nf(kp)],["Bowley's skewness",nf(bow)]];
+  sub.st.out=`<div class="tbl"><table><tbody>${rows.map(r=>`<tr><td>${r[0]}</td><td class="mono">${esc(r[1])}</td></tr>`).join("")}</tbody></table></div><p class="small muted">σ here divides by n, as in this paper. Quartiles use the (n + 1)/4 rule with interpolation between items.</p>`;
+}
+function corrTool(){
+  const v = sub.cr || {x:"2, 4, 6, 8, 10", y:"5, 9, 8, 12, 16"};
+  return `<div class="tool stack"><span class="label">Try it · Module 6</span><h3>Correlation and regression calculator</h3>
+    <p class="small muted">Enter paired values of x and y in the same order.</p>
+    <div class="row"><label class="f grow">x values<input type="text" id="crX" value="${esc(v.x)}"></label><label class="f grow">y values<input type="text" id="crY" value="${esc(v.y)}"></label></div>
+    <div><button class="btn primary" data-act="calcCorr">Calculate</button></div>
+    ${v.out?`<div class="out">${v.out}</div>`:""}
+  </div>`;
+}
+function calcCorr(){
+  const xr=($("#crX")||{}).value||"", yr=($("#crY")||{}).value||"", x=listIn("crX"), y=listIn("crY"); sub.cr={x:xr,y:yr};
+  if(x.length<3 || x.length!==y.length){ sub.cr.out="Enter at least three pairs, with the same number of x and y values."; return; }
+  const n=x.length, mx=x.reduce((a,b)=>a+b,0)/n, my=y.reduce((a,b)=>a+b,0)/n;
+  let sxy=0,sxx=0,syy=0; for(let i=0;i<n;i++){ sxy+=(x[i]-mx)*(y[i]-my); sxx+=(x[i]-mx)**2; syy+=(y[i]-my)**2; }
+  if(!sxx||!syy){ sub.cr.out="All x values (or all y values) are equal, so r cannot be found."; return; }
+  const r=sxy/Math.sqrt(sxx*syy), byx=sxy/sxx, bxy=sxy/syy, sgn=v=>v<0?" − "+nf(-v):" + "+nf(v);
+  sub.cr.out=`<div class="tbl"><table><tbody>
+    <tr><td>x̄, ȳ</td><td class="mono">${nf(mx)}, ${nf(my)}</td></tr>
+    <tr><td>Σ(x − x̄)(y − ȳ), Σ(x − x̄)², Σ(y − ȳ)²</td><td class="mono">${nf(sxy)}, ${nf(sxx)}, ${nf(syy)}</td></tr>
+    <tr><td>Karl Pearson's r</td><td class="mono">${nf(r)}</td></tr>
+    <tr><td>Coefficient of determination r²</td><td class="mono">${nf(r*r)}</td></tr>
+    <tr><td>Probable error = 0.6745(1 − r²) ÷ √n</td><td class="mono">${nf(0.6745*(1-r*r)/Math.sqrt(n))}</td></tr>
+    <tr><td>b<sub>yx</sub>, b<sub>xy</sub></td><td class="mono">${nf(byx)}, ${nf(bxy)}</td></tr>
+    <tr><td>Regression line of y on x</td><td class="mono">y = ${nf(my-byx*mx)}${sgn(byx)}x</td></tr>
+    <tr><td>Regression line of x on y</td><td class="mono">x = ${nf(mx-bxy*my)}${sgn(bxy)}y</td></tr>
+  </tbody></table></div>`;
+}
+function mcqBody(m){
+  const ids = byModule[m.n]||[], s=statsFor(ids), fav=ids.filter(id=>Q[id].f).length;
+  return `<div class="grid3">
+      <button class="sheet stack" style="text-align:left" data-act="startModule" data-m="${m.n}"><span class="label">${ids.length} MCQs</span><h3>Whole module</h3><span class="small muted">New questions first, then the ones you got wrong.</span></button>
+      <button class="sheet stack" style="text-align:left" data-act="startModFav" data-m="${m.n}"><span class="label">${fav} MCQs</span><h3>Core concepts</h3><span class="small muted">The central ideas of this module.</span></button>
+      <button class="sheet stack" style="text-align:left" data-act="startModMist" data-m="${m.n}"><span class="label">${mistakesIn(m.n).length} saved</span><h3>My mistakes here</h3><span class="small muted">Wrong answers from this module only.</span></button>
+    </div>
+    <div class="card stack"><div class="row" style="justify-content:space-between"><h3>By topic</h3><span class="small muted">${s.seen}/${s.total} tried${s.att?" · "+s.acc+"% accuracy":""}</span></div>
+    ${m.chapters.map(c=>{ const ids=byChapter[c.id]||[]; const s=statsFor(ids); return `
+      <div class="row"><div class="grow stack" style="gap:3px"><span><b>${c.id}</b> ${esc(c.title)}</span>
+        <div class="bar ${s.acc>=60?"g":""}" style="max-width:280px"><i style="width:${pct(s.seen,s.total)}%"></i></div>
+        <span class="small muted">${s.seen}/${s.total} tried${s.att?" · "+s.acc+"% accuracy":""}</span></div>
+        ${ids.length?`<button class="btn" data-act="startChapter" data-c="${c.id}">Practise</button>`:(FULL?`<button class="btn" disabled>Practise</button>`:`<span class="lock">🔒 Full kit</span>`)}</div>`; }).join("")}
+    </div>
+    <p class="small muted">Every answer shows an explanation straight away. Wrong answers go to the Mistake Book.</p>`;
+}
+function cardsBody(m){
+  const cards = D.cards.filter(c=>modOf(c[0])===m.n);
+  const f = sub.flash;
+  const known = cards.filter(c=>prog.cards[c[1]]).length;
+  if(!f) return `<div class="sheet stack"><div class="row" style="justify-content:space-between"><h2>Flashcards</h2><span class="pill ink">${known}/${cards.length} known</span></div>
+    <p class="muted small">Key sections, cases and terms. Tap a card to flip it, then say whether you knew it.</p>
+    <div class="row"><button class="btn primary" data-act="startFlash" data-m="${m.n}" data-v="all">All ${cards.length} cards</button><button class="btn" data-act="startFlash" data-m="${m.n}" data-v="due" ${known===cards.length?"disabled":""}>Only ones I don't know (${cards.length-known})</button></div></div>`;
+  const c = f.list[f.i];
+  if(!c) return `<div class="sheet stack"><h2>Deck finished</h2><p class="muted">${f.got} of ${f.list.length} marked as known.</p><div class="row"><button class="btn primary" data-act="chTab" data-m="${m.n}" data-t="cards">Back to flashcards</button><button class="btn" data-act="chTab" data-m="${m.n}" data-t="match">Play Match Sprint</button></div></div>`;
+  return `<div class="row" style="justify-content:space-between"><span class="mono small muted">Card ${f.i+1} of ${f.list.length} · ${c[0]} ${esc(chTitle[c[0]]||"")}</span><button class="btn ghost" data-act="chTab" data-m="${m.n}" data-t="cards">End</button></div>
+    <div class="flash" data-act="flip" role="button" tabindex="0" aria-label="Flip card">${f.flip?`<p class="def">${c[2]}</p>`:`<div class="stack" style="gap:8px"><span class="term">${c[1]}</span><span class="small muted">Tap to see the answer</span></div>`}</div>
+    ${f.flip?`<div class="row"><button class="btn primary" data-act="cardKnow" data-v="1">I knew it</button><button class="btn" data-act="cardKnow" data-v="0">Review again</button></div>`:`<div class="row"><button class="btn primary" data-act="flip">Show answer</button></div>`}`;
+}
+function matchBody(m){
+  const g = sub.game;
+  const rec = prog.match[m.n];
+  if(!g) return `<div class="sheet stack"><span class="label">Game</span><h2>Match Sprint</h2>
+    <p class="muted">Match 5 terms with their meanings as fast as you can. Tap a term, then tap its meaning. Wrong taps add a 5-second penalty.</p>
+    ${rec?`<p class="small">Best time: <b class="mono">${fmtTime(rec.best)}</b> · Games played: ${rec.plays}</p>`:`<p class="small muted">No games yet.</p>`}
+    <div><button class="btn primary" data-act="startMatch" data-m="${m.n}">Start a round</button></div></div>`;
+  if(g.end){
+    return `<div class="sheet stack"><h2>Round complete</h2><p>Time <b class="mono">${fmtTime(g.end)}</b> including ${g.miss} wrong tap${g.miss===1?"":"s"} (+${g.miss*5}s).${g.best?" <span class='pill good'>New best</span>":""}</p>
+      <div class="stack small">${g.items.map(c=>`<div>• <b>${c[1]}</b>: ${c[2]}</div>`).join("")}</div>
+      <div class="row"><button class="btn primary" data-act="startMatch" data-m="${m.n}">Play again</button><button class="btn" data-act="chTab" data-m="${m.n}" data-t="cards">Flashcards</button></div></div>`;
+  }
+  return `<div class="row" style="justify-content:space-between"><span class="label">Match Sprint · ${g.done.length}/5 matched</span><span class="timer" id="mtimer">${fmtTime((Date.now()-g.start)/1000+g.miss*5)}</span></div>
+    <div class="match">
+      <div class="mcell">${g.items.map((c,i)=>`<button class="mbtn ${g.done.includes(i)?"done":""} ${g.sel===i?"on":""}" data-act="mTerm" data-i="${i}" ${g.done.includes(i)?"disabled":""}><b>${c[1]}</b></button>`).join("")}</div>
+      <div class="mcell">${g.order.map(i=>`<button class="mbtn ${g.done.includes(i)?"done":""} ${g.bad===i?"no":""}" data-act="mDef" data-i="${i}" ${g.done.includes(i)?"disabled":""}>${esc(g.items[i][2])}</button>`).join("")}</div>
+    </div>
+    <div><button class="btn ghost" data-act="chTab" data-m="${m.n}" data-t="match">Quit round</button></div>`;
+}
+function mistakeBody(mn){
+  const ids = mistakesIn(mn);
+  const title = mn ? "Mistake Book for this module" : "Mistake Book";
+  return `<div class="sheet stack">
+    <div class="row" style="justify-content:space-between"><h2>${title}</h2><span class="pill ${ids.length?"bad":"good"}">${ids.length} question${ids.length===1?"":"s"}</span></div>
+    <p class="muted small">Every question you get wrong lands here, from practice or mocks. Get it right twice in a row and it leaves the book.</p>
+    ${ids.length?`<div><button class="btn primary" data-act="${mn?"startModMist":"startMistakes"}" data-m="${mn||""}">Practise these mistakes</button></div>
+    <div class="stack" style="gap:8px">${ids.map(id=>{ const q=Q[id]; return `<details class="card"><summary class="small"><span class="pill ink">${q.c}</span> ${q.q}</summary>
+      <p class="small" style="margin-top:8px"><b>Answer: ${L[q.a]}. ${q.o[q.a]}</b></p><p class="small muted pre">${q.e}</p></details>`; }).join("")}</div>`
+    :`<p>Nothing here yet. Keep practising.</p>`}
+  </div>`;
+}
+function hbars(rows){ return `<div class="stack" style="gap:8px">${rows.map(([label,val,sub2])=>`<div class="hbar"><span>${label}</span><div class="bar ${val>=60?"g":""}"><i style="width:${val}%"></i></div><span class="mono small">${sub2}</span></div>`).join("")}</div>`; }
+function perfModule(m){
+  const ids = byModule[m.n]||[], s=statsFor(ids);
+  const mk = prog.mocks.filter(x=>x.bym && x.bym[m.n]).slice(-8);
+  const cards = D.cards.filter(c=>modOf(c[0])===m.n), known=cards.filter(c=>prog.cards[c[1]]).length;
+  const topics = m.chapters.map(c=>{ const t=statsFor(byChapter[c.id]||[]); return [c, t]; });
+  const weak = topics.filter(([c,t])=>t.att>=3).sort((a,b)=>a[1].acc-b[1].acc).slice(0,3);
+  return `<div class="grid3 stats">
+      <div class="card stat"><span class="small muted">Tried</span><b>${s.seen}/${s.total}</b></div>
+      <div class="card stat"><span class="small muted">Accuracy</span><b>${s.att?s.acc+"%":"–"}</b></div>
+      <div class="card stat"><span class="small muted">Cards known</span><b>${known}/${cards.length}</b></div>
+    </div>
+    <div class="card stack"><h3>Accuracy by topic</h3>${hbars(topics.map(([c,t])=>[`${c.id} ${esc(c.title)}`, t.att?t.acc:0, t.att?t.acc+"%":"–"]))}
+      <p class="small muted">Bars turn green at 60% accuracy. Topics marked read: ${m.chapters.filter(c=>prog.read[c.id]).length}/${m.chapters.length}.</p></div>
+    ${weak.length?`<div class="card stack"><h3>Work on these first</h3>${weak.map(([c,t])=>`<div class="row"><span class="grow">${c.id} ${esc(c.title)} · ${t.acc}%</span><button class="btn" data-act="startChapter" data-c="${c.id}">Practise</button></div>`).join("")}</div>`:""}
+    <div class="card stack"><h3>This module in your mocks</h3>${mk.length?hbars(mk.map(x=>{ const [c,n]=x.bym[m.n]; return [esc(x.t)+" · "+new Date(x.at).toLocaleDateString("en-IN"), pct(c,n), c+"/"+n]; })):`<p class="small muted">Take a mock exam to see how you score on this module under time pressure.</p>`}</div>
+    <div class="card small muted">Match Sprint best: ${prog.match[m.n]?fmtTime(prog.match[m.n].best):"not played yet"} · Mistakes waiting: ${mistakesIn(m.n).length}</div>`;
+}
+function perfOverall(){
+  const pool=openPool(), s=statsFor(pool);
+  const days=[]; const set=new Set(prog.days); for(let i=27;i>=0;i--){ const d=new Date(); d.setDate(d.getDate()-i); days.push(set.has(ymd(d))); }
+  const mk = prog.mocks.slice(-10);
+  return `<div class="grid3 stats">
+      <div class="card stat"><span class="small muted">MCQs tried</span><b>${s.seen}/${s.total}</b></div>
+      <div class="card stat"><span class="small muted">Accuracy</span><b>${s.att?s.acc+"%":"–"}</b></div>
+      <div class="card stat"><span class="small muted">Streak</span><b>${streak()}d</b></div>
+    </div>
+    <div class="card stack"><h3>Accuracy by module</h3>${hbars(MODS.filter(m=>!m.locked).map(m=>{ const t=statsFor(byModule[m.n]||[]); return [`${m.n}. ${esc(m.title)}`, t.att?t.acc:0, t.att?t.acc+"%":"–"]; }))}</div>
+    <div class="card stack"><h3>Mock scores</h3>${mk.length?`<div class="spark">${mk.map(x=>`<span style="height:${Math.max(2,x.score)}%" title="${esc(x.t)}: ${x.score}"><em>${x.score}</em></span>`).join("")}</div><p class="small muted">Your last ${mk.length} mock${mk.length===1?"":"s"}, oldest first, out of 100.</p>`:`<p class="small muted">No mocks yet.</p>`}</div>
+    <div class="card stack"><h3>Study days (last 4 weeks)</h3><div class="days">${days.map(x=>`<i class="${x?"on":""}"></i>`).join("")}</div><p class="small muted">A green square is a day you studied in this profile.</p></div>`;
+}
+
+/* ---------- PRACTICE SESSION ---------- */
+function orderForPractice(ids){
+  const unseen=[], wrong=[], right=[];
+  shuffle(ids).forEach(id=>{ const a=prog.answers[id]; if(!a) unseen.push(id); else if(!a.last) wrong.push(id); else right.push(id); });
+  return unseen.concat(wrong, right);
+}
+function startSession(ids, title, back){
+  if(!ids.length){ toast("No questions here yet"); return; }
+  Tools.reset();
+  go("session", {ids, i:0, title, back, picked:null, log:[]});
+}
+function sessionView(){
+  const s = sub;
+  if(s.i >= s.ids.length || s.done) return sessionSummary();
+  const q = Q[s.ids[s.i]];
+  const answered = s.picked!==null, ok = answered && s.picked===q.a;
+  return shell(`<div class="stack" style="gap:14px">
+    <div class="row" style="justify-content:space-between"><div class="stack" style="gap:2px"><span class="label">${esc(s.title)}</span><span class="small muted mono">Question ${s.i+1} of ${s.ids.length}</span></div>
+      <div class="row"><button class="btn" data-act="toolCalc" title="Calculator">🧮<span class="hide-sm"> Calculator</span></button><button class="btn" data-act="toolRough" title="Rough sheet">✏️<span class="hide-sm"> Rough sheet</span></button><button class="btn ghost" data-act="endSession">End session</button></div></div>
+    <div class="bar"><i style="width:${pct(s.i,s.ids.length)}%"></i></div>
+    <div class="sheet">
+      <div class="qhead"><span class="pill ink">${q.c} ${esc(chTitle[q.c])}</span>${q.f?`<span class="pill fav" title="A central idea of this topic.">Core concept</span>`:""}</div>
+      <p class="qtext">${q.q}</p>
+      <div class="opts" role="group" aria-label="Options">${q.o.map((o,k)=>{ let cls=""; if(answered){ if(k===q.a) cls="right"; else if(k===s.picked) cls="wrong"; }
+        return `<button class="opt ${cls}" data-act="pick" data-k="${k}" ${answered?"disabled":""}><span class="bub">${L[k]}</span><span>${o}</span></button>`; }).join("")}</div>
+      ${answered?`<div class="explain ${ok?"ok":"no"}"><b>${ok?"Correct.":"Not quite. The answer is "+L[q.a]+"."}</b> ${q.e}</div>`:""}
+    </div>
+    ${answered?`<div class="row"><button class="btn primary" data-act="nextQ" id="nextBtn">${s.i+1<s.ids.length?"Next question →":"See summary"}</button><button class="btn ghost" data-act="openChapter" data-m="${modOf(q.c)}" data-t="overview" data-c="${q.c}">Read ${q.c} overview</button></div>`:`<p class="small muted">Tap an option. You will see the answer and explanation straight away.</p>`}
+  </div>`);
+}
+function sessionSummary(){
+  const s=sub, r=s.log.filter(x=>x[1]).length, n=s.log.length;
+  const back = s.back ? `data-act="openChapter" data-m="${s.back}" data-t="mcq"` : `data-act="tab" data-v="chapters"`;
+  return shell(`<div class="stack" style="gap:14px">
+    <span class="label">${esc(s.title)}</span>
+    <h1>${n?`You got ${r} of ${n} right`:"Session ended"}</h1>
+    ${n?`<div class="bar g"><i style="width:${pct(r,n)}%"></i></div><p class="muted">${pct(r,n)>=80?"Strong work. Move to the next topic or take a mini mock.":pct(r,n)>=50?"Good progress. Re-read the overview for the questions you missed.":"Read the overview for this topic again, then retry. Your wrong answers are saved in the Mistake Book."}</p>`:""}
+    ${n?`<div class="stack" style="gap:8px">${s.log.map(([id,ok])=>`<div class="card row"><span class="pill ${ok?"good":"bad"}">${ok?"Right":"Wrong"}</span><span class="grow small">${Q[id].q}</span></div>`).join("")}</div>`:""}
+    <div class="row"><button class="btn primary" ${back}>Back</button>${mistakesIn().length?`<button class="btn" data-act="startMistakes">Practise mistakes</button>`:""}</div>
+  </div>`);
+}
+
+/* ---------- MOCK EXAM ---------- */
+function mockKinds(){
+  if(FULL) return [
+    {k:"m1", t:"Mock Exam 1", d:"50 questions · 1 hour · fixed paper", n:50, min:60},
+    {k:"m2", t:"Mock Exam 2", d:"50 questions · 1 hour · fixed paper", n:50, min:60},
+    {k:"shuffle", t:"Shuffle Mock", d:"50 questions · 1 hour · a new paper every time, in exam weightage", n:50, min:60},
+    {k:"mini", t:"Mini Mock", d:"20 questions · 24 minutes · quick check across all modules", n:20, min:24}
+  ];
+  return [{k:"taster", t:"Taster Mock (Module 1)", d:"10 questions · 12 minutes · Module 1 only", n:10, min:12}];
+}
+function buildMock(k){
+  if(k==="m1"||k==="m2") return D.mocks[k].slice();
+  const pool = openPool();
+  if(k==="taster") return shuffle(pool).slice(0,10);
+  const split = k==="mini" ? SPLIT_20 : SPLIT_50;
+  let out=[];
+  split.forEach((cnt,i)=>{ const ids=(byModule[i+1]||[]).slice(); out=out.concat(shuffle(orderForPractice(ids).slice(0,Math.max(cnt*3,cnt))).slice(0,cnt)); });
+  return shuffle(out.filter(id=>modOf(Q[id].c)<=3)).concat(shuffle(out.filter(id=>modOf(Q[id].c)>3)));   // Section I, then Section II
+}
+function mocksView(){
+  const kinds = mockKinds(), hist = prog.mocks.slice().reverse();
+  return shell(`<div class="stack" style="gap:16px">
+    <div class="stack" style="gap:4px"><span class="label">Mock Exam</span><h1>Practise under exam conditions</h1>
+    <p class="muted">Each mock follows the Paper 3 pattern: 50 MCQs of 2 marks each, 100 marks, 1 hour. Section I (Mathematics) has 20 questions and Section II (Statistics) has 30, in the weightage of the eight modules. You get a timer, an answer sheet palette, mark-for-review, a calculator and a rough sheet.</p></div>
+    ${prog.live?(liveOk()?`<div class="banner row"><span class="grow">You have a mock in progress: ${esc(prog.live.t)}.</span><button class="btn primary" data-act="resume">Resume</button></div>`:`<div class="banner">You have a mock in progress in the full kit. Open the full kit to finish it.</div>`):""}
+    <div class="grid2">${kinds.map(m=>{ const h=prog.mocks.filter(x=>x.k===m.k); const best=h.reduce((b,x)=>Math.max(b,x.score),-1);
+      return `<div class="sheet stack"><h3>${m.t}</h3><span class="small muted">${m.d}</span>
+      ${h.length?`<span class="small">Attempts: ${h.length} · Best: <b class="mono">${best}/100</b></span>`:`<span class="small muted">Not attempted yet</span>`}
+      <button class="btn primary" data-act="instr" data-k="${m.k}" ${prog.live?"disabled":""}>Start</button></div>`; }).join("")}
+    ${FULL?"":`<div class="sheet stack locked"><h3>Mock Exams 1 and 2</h3><span class="small muted">50 questions · 1 hour</span><span class="lock">🔒 Full kit</span></div>
+      <div class="sheet stack locked"><h3>Shuffle and Mini Mocks</h3><span class="small muted">A fresh paper every time</span><span class="lock">🔒 Full kit</span></div>`}
+    </div>
+    <div class="card stack"><h3>Weightage used in every mock</h3>
+      <div class="tbl"><table><thead><tr><th>Module</th><th>Weight</th><th>Questions in 50</th></tr></thead><tbody>${MODS.map(m=>`<tr><td>${m.n}. ${esc(m.title)}</td><td>${m.weight}%</td><td class="mono">${m.split}</td></tr>`).join("")}</tbody></table></div></div>
+    ${hist.length?`<h2>Your attempts</h2><div class="stack" style="gap:8px">${hist.map((h,i)=>`<div class="card row"><span class="grow"><b>${esc(h.t)}</b><br><span class="small muted">${new Date(h.at).toLocaleString("en-IN")} · ${fmtTime(h.used)} used</span></span><span class="mono" style="font-size:1.2rem"><b>${h.score}</b>/100</span><button class="btn" data-act="review" data-i="${prog.mocks.length-1-i}">Review</button></div>`).join("")}</div>`:""}
+    ${FULL?"":upsell()}
+    <p class="small muted">The mock papers are original questions written for this kit. They do not repeat any past exam paper. Mock scores show how well you know this kit's questions and do not predict your exam result.</p>
+  </div>`);
+}
+function instrView(){
+  const m = mockKinds().find(x=>x.k===sub.k);
+  return shell(`<div class="stack" style="gap:16px">
+    <button class="btn ghost" style="align-self:flex-start" data-act="tab" data-v="mocks">← Mock Exam</button>
+    <div class="stack" style="gap:4px"><span class="label">Instructions</span><h1>${esc(m.t)}</h1><p class="muted">${esc(m.d)}</p></div>
+    <div class="sheet stack">
+      <h3>Read before you start</h3>
+      <ol class="instr small" style="margin:0;padding-left:1.2em">
+        <li>This paper has <b>${m.n} multiple choice questions</b>. Each carries <b>2 marks</b>${m.n===50?", for a total of 100 marks":""}. Your score is shown out of 100.</li>
+        <li>Time allowed: <b>${m.min} minutes</b>. The timer starts when you press Start and keeps running even if you close the page. When time is up, the paper is submitted automatically.</li>
+        <li><b>Answer all questions.</b> Each question has four options and only one is correct. This mock has no negative marking. Check your admit card and the Institute's notice for the rules of your exam.</li>
+        <li>Tap an option to fill its bubble. You can change or clear an answer at any time before you submit.</li>
+        <li>Use <b>Mark for review</b> for doubtful questions. The palette shows answered, unanswered and marked questions.</li>
+        <li>Open the <b>Calculator</b> and the <b>Rough sheet</b> from the bar at the top. You can draw or type your working there. It is kept with this attempt.</li>
+        <li>In the real exam you shade an OMR sheet with a pen. Practise deciding quickly and shading once.</li>
+        <li>After you submit, you get your score, a module-wise analysis and a full review with explanations.</li>
+      </ol>
+      <label class="row small" style="gap:8px"><input type="checkbox" id="agree"> I have read the instructions.</label>
+      <p class="err" id="agErr" role="alert"></p>
+      <div class="row"><button class="btn primary" data-act="startMock" data-k="${m.k}">Start the ${m.min}-minute timer</button><button class="btn" data-act="tab" data-v="mocks">Not now</button></div>
+    </div>
+  </div>`);
+}
+function startMock(k){
+  const m = mockKinds().find(x=>x.k===k);
+  prog.live = {k, t:m.t, qids:buildMock(k), ans:{}, mark:{}, start:Date.now(), dur:m.min*60, i:0, notes:"", sketch:""};
+  save(); Tools.reset(); go("exam");
+}
+function examView(){
+  const X = prog.live, i = X.i, q = Q[X.qids[i]];
+  const left = X.dur - (Date.now()-X.start)/1000;
+  const answeredN = Object.keys(X.ans).length, sel = X.ans[q.id];
+  return shell(`
+  <div class="stack" style="gap:14px">
+    <div class="sheet" style="padding:10px 14px"><div class="row">
+      <span class="grow"><b>${esc(X.t)}</b><br><span class="small muted">${answeredN}/${X.qids.length} answered</span></span>
+      <span class="timer ${left<300?"low":""}" id="timer" aria-live="off">${fmtTime(left)}</span>
+      <button class="btn primary" data-act="askSubmit">Submit</button>
+    </div>
+    <div class="toolbar" style="margin-top:8px"><button class="btn" data-act="toolCalc">🧮 Calculator</button><button class="btn" data-act="toolRough">✏️ Rough sheet</button></div></div>
+    ${sub.confirm?`<div class="confirm stack"><b>Submit this mock?</b><span>${X.qids.length-answeredN} unanswered${Object.keys(X.mark).length?" · "+Object.keys(X.mark).length+" marked for review":""}. You can't change answers after submitting.</span><div class="row"><button class="btn primary" data-act="submitMock">Yes, submit</button><button class="btn" data-act="cancelSubmit">Keep working</button></div></div>`:""}
+    <div class="sheet">
+      <div class="qhead"><span class="mono small muted">Question ${i+1} of ${X.qids.length} · 2 marks</span>${X.mark[q.id]?`<span class="pill warn">Marked for review</span>`:""}</div>
+      <p class="qtext">${q.q}</p>
+      <div class="opts">${q.o.map((o,k)=>`<button class="opt ${sel===k?"sel":""}" data-act="examPick" data-k="${k}" aria-pressed="${sel===k}"><span class="bub">${L[k]}</span><span>${o}</span></button>`).join("")}</div>
+      <div class="row" style="margin-top:14px">
+        <button class="btn" data-act="examNav" data-d="-1" ${i===0?"disabled":""}>← Previous</button>
+        <button class="btn" data-act="toggleMark">${X.mark[q.id]?"Unmark":"Mark for review"}</button>
+        ${sel!==undefined?`<button class="btn ghost" data-act="clearAns">Clear answer</button>`:""}
+        <span class="grow"></span>
+        <button class="btn primary" data-act="examNav" data-d="1" ${i===X.qids.length-1?"disabled":""}>Save &amp; next →</button>
+      </div>
+    </div>
+    <div class="card stack">
+      <div class="legend"><span><i style="background:var(--ink);border-color:var(--ink)"></i>Answered</span><span><i></i>Not answered</span><span><i style="border-color:var(--warn);background:var(--warn-soft)"></i>Marked</span></div>
+      <div class="palette">${X.qids.map((id,k)=>`<button class="pal ${X.ans[id]!==undefined?"ans":""} ${X.mark[id]?"mark":""} ${k===i?"cur":""}" data-act="examJump" data-i="${k}" aria-label="Question ${k+1}">${k+1}</button>`).join("")}</div>
+    </div>
+  </div>`);
+}
+function tick(){
+  if(view==="session"||view==="chapter"){ const g=sub.game, el=$("#mtimer"); if(g && !g.end && el) el.textContent=fmtTime((Date.now()-g.start)/1000+g.miss*5); }
+  if(view!=="exam"||!prog||!prog.live) return;
+  const left = prog.live.dur - (Date.now()-prog.live.start)/1000;
+  const t = $("#timer"); if(t){ t.textContent = fmtTime(left); t.classList.toggle("low", left<300); }
+  if(left<=0){ toast("Time is up. Your mock has been submitted."); submitMock(); }
+}
+function submitMock(){
+  const X = prog.live; if(!X) return;
+  Tools.saveNow();
+  const used = Math.min(X.dur, Math.round((Date.now()-X.start)/1000));
+  let right=0; const bym={};
+  X.qids.forEach(id=>{ const q=Q[id], m=modOf(q.c); bym[m]=bym[m]||[0,0,0]; bym[m][1]++; const a=X.ans[id];
+    if(a===undefined){ bym[m][2]++; prog.mistakes[id]=0; }
+    else { const ok=a===q.a; if(ok){right++; bym[m][0]++;} record(id, ok); } });
+  const score = Math.round(right*100/X.qids.length);
+  prog.mocks.push({k:X.k, t:X.t, at:Date.now(), used, score, right, n:X.qids.length, qids:X.qids, ans:X.ans, bym, notes:(X.notes||"").slice(0,4000)});
+  if(prog.mocks.length>60) prog.mocks=prog.mocks.slice(-60);
+  prog.live=null; touchDay(); save(); Tools.close();
+  go("result", {i:prog.mocks.length-1, filter:"all"});
+}
+function resultView(){
+  const r = prog.mocks[sub.i]; if(!r || !r.qids.every(id=>Q[id])){ toast("This attempt was made in the full kit. Open the full kit to review it."); view="mocks"; return mocksView(); }
+  const wrong = r.qids.filter(id=>r.ans[id]!==undefined && r.ans[id]!==Q[id].a).length;
+  const skip = r.qids.filter(id=>r.ans[id]===undefined).length;
+  const f = sub.filter||"all";
+  const list = r.qids.map((id,k)=>[id,k]).filter(([id])=>{ const a=r.ans[id]; if(f==="wrong") return a!==undefined&&a!==Q[id].a; if(f==="skip") return a===undefined; return true; });
+  const mods = Object.keys(r.bym).sort((a,b)=>a-b);
+  const weakest = mods.slice().sort((a,b)=>pct(r.bym[a][0],r.bym[a][1])-pct(r.bym[b][0],r.bym[b][1]))[0];
+  return shell(`<div class="stack" style="gap:16px">
+    <button class="btn ghost" style="align-self:flex-start" data-act="tab" data-v="mocks">← Mock Exam</button>
+    <div class="row" style="gap:16px">
+      <div class="ring" style="--p:${r.score}"><b>${r.score}</b></div>
+      <div class="grow stack" style="gap:4px"><span class="label">${esc(r.t)} · result</span><h1>${r.score} / 100</h1>
+        <span class="pill ${r.score>=50?"good":r.score>=40?"warn":"bad"}" style="align-self:flex-start">${r.score>=50?"At or above 50%":r.score>=40?"Between 40% and 50%":"Below 40%"}</span>
+        <span class="small muted">${r.right} right · ${wrong} wrong · ${skip} not answered · ${fmtTime(r.used)} used · about ${r.n?Math.round(r.used/r.n):0}s per question</span>
+        ${r.n===50?(()=>{ const sec=(lo,hi)=>Object.keys(r.bym).filter(m=>m>=lo&&m<=hi).reduce((t,m)=>t+r.bym[m][0]*2,0); return `<span class="small"><b>Section I (Maths):</b> <span class="mono">${sec(1,3)}/40</span> · <b>Section II (Statistics):</b> <span class="mono">${sec(4,8)}/60</span></span>`; })():""}</div>
+    </div>
+    <div class="card stack"><h3>Module-wise analysis</h3>
+      <div class="tbl"><table><thead><tr><th>Module</th><th>Right</th><th>Marks</th><th>Accuracy</th></tr></thead><tbody>
+      ${mods.map(m=>{ const [c,n]=r.bym[m]; return `<tr><td>${m}. ${esc(MODS[m-1].title)}</td><td class="mono">${c}/${n}</td><td class="mono">${c*2}/${n*2}</td><td><div class="bar ${pct(c,n)>=60?"g":""}" style="min-width:80px"><i style="width:${pct(c,n)}%"></i></div></td></tr>`; }).join("")}
+      </tbody></table></div>
+      ${weakest&&mods.length>1?`<div class="row"><span class="grow small">Weakest in this attempt: <b>${weakest}. ${esc(MODS[weakest-1].title)}</b></span><button class="btn" data-act="openChapter" data-m="${weakest}" data-t="mcq">Practise it</button></div>`:""}
+      <p class="small muted">Wrong and unanswered questions have been added to your Mistake Book. This score is for practice only and does not predict your exam result.</p>
+    </div>
+    <div class="card stack"><h3>Your answer sheet</h3>
+      <div class="omr">${r.qids.map((id,k)=>{ const a=r.ans[id], q=Q[id]; return `<div class="r"><span class="n">${k+1}</span>${L.map((l,j)=>`<i class="${j===q.a?(a===j?"ok":"f"):(a===j?"bad":"")}">${l}</i>`).join("")}</div>`; }).join("")}</div>
+      <p class="small muted">Green: your correct answer. Red: your wrong answer. Blue: the right answer you missed.</p></div>
+    ${r.notes?`<details class="card"><summary><b>Your rough sheet notes</b></summary><pre class="fmt">${esc(r.notes)}</pre></details>`:""}
+    <div class="row"><h2 class="grow">Answer review</h2>
+      <select id="revFilter" style="width:auto"><option value="all" ${f==="all"?"selected":""}>All questions</option><option value="wrong" ${f==="wrong"?"selected":""}>Wrong only (${wrong})</option><option value="skip" ${f==="skip"?"selected":""}>Not answered (${skip})</option></select></div>
+    ${list.length?list.map(([id,k])=>{ const q=Q[id], a=r.ans[id];
+      return `<div class="sheet"><div class="qhead"><span class="mono small muted">Q${k+1} · ${q.c} ${esc(chTitle[q.c])}</span><span class="pill ${a===undefined?"":a===q.a?"good":"bad"}">${a===undefined?"Not answered":a===q.a?"Right":"Wrong"}</span></div>
+      <p class="qtext">${q.q}</p>
+      <div class="opts">${q.o.map((o,j)=>`<div class="opt ${j===q.a?"right":j===a?"wrong":""}"><span class="bub">${L[j]}</span><span>${o}</span></div>`).join("")}</div>
+      <div class="explain">${q.e}</div></div>`; }).join(""):`<p class="muted">Nothing to show for this filter.</p>`}
+  </div>`);
+}
+
+/* ---------- exam tools: calculator and rough sheet (live outside #app so they survive re-renders) ---------- */
+const Tools = (function(){
+  const root = document.getElementById("tools");
+  root.innerHTML = `
+  <div class="panel" id="calc" role="dialog" aria-label="Calculator">
+    <div class="ph" data-drag="calc">🧮 Calculator<span class="small muted" id="cMem"></span><button class="x" data-tk="close-calc" aria-label="Close calculator">×</button></div>
+    <div class="scr"><small id="cExp"></small><b id="cOut">0</b></div>
+    <div class="keys">
+      ${["MC","MR","M+","M−","C","7","8","9","÷","⌫","4","5","6","×","%","1","2","3","−","√","±","0",".","+","="].map(k=>`<button data-ck="${k}" class="${/^M/.test(k)?"m":/[÷×−+%√]/.test(k)?"op":k==="="?"eq":""}">${k}</button>`).join("")}
+    </div>
+  </div>
+  <div class="panel" id="rough" role="dialog" aria-label="Rough sheet">
+    <div class="ph" data-drag="rough">✏️ Rough sheet<button class="x" data-tk="close-rough" aria-label="Close rough sheet">×</button></div>
+    <div class="rb"><button data-tk="pen" class="on">Pen</button><button data-tk="eraser">Eraser</button><button data-tk="clear">Clear page</button><span style="flex:1"></span><button data-tk="draw" class="on">Draw</button><button data-tk="type">Type</button></div>
+    <canvas id="rcv"></canvas><textarea id="rtx" placeholder="Type your working here" style="display:none"></textarea>
+  </div>`;
+  const calc = root.querySelector("#calc"), rough = root.querySelector("#rough");
+  const cv = root.querySelector("#rcv"), tx = root.querySelector("#rtx");
+  let ctx = cv.getContext("2d"), mode = "pen", drawing = false, last = null, saveT = null;
+  /* calculator */
+  let cur = "0", acc = null, op = null, fresh = true, mem = 0, expr = "";
+  const fmt = v => { if(!isFinite(v)) return "Error"; const r = Math.round(v*1e10)/1e10; let s = String(r); if(s.length>14) s = r.toPrecision(10).replace(/\.?0+(e|$)/,"$1"); return s; };
+  const apply = (a,b,o) => o==="+"?a+b:o==="−"?a-b:o==="×"?a*b:o==="÷"?(b===0?NaN:a/b):b;
+  function show(){ root.querySelector("#cOut").textContent = cur; root.querySelector("#cExp").textContent = expr; root.querySelector("#cMem").textContent = mem? " · M="+fmt(mem) : ""; }
+  function key(k){
+    const v = parseFloat(cur);
+    if(/^[0-9]$/.test(k)){ cur = (fresh||cur==="0"||cur==="Error") ? k : (cur.length<15? cur+k : cur); fresh=false; }
+    else if(k==="."){ if(fresh||cur==="Error"){ cur="0."; fresh=false; } else if(!cur.includes(".")) cur+="."; }
+    else if(k==="C"){ cur="0"; acc=null; op=null; fresh=true; expr=""; }
+    else if(k==="⌫"){ if(!fresh && cur.length>1) cur=cur.slice(0,-1); else { cur="0"; fresh=true; } }
+    else if(k==="±"){ if(cur!=="0" && cur!=="Error") cur = cur[0]==="-" ? cur.slice(1) : "-"+cur; }
+    else if(k==="√"){ cur = fmt(Math.sqrt(v)); fresh=true; }
+    else if(k==="%"){
+      if(acc!==null && op==="×"){ expr=fmt(acc)+" × "+fmt(v)+"% ="; cur=fmt(acc*v/100); acc=null; op=null; }
+      else if(acc!==null && op==="÷"){ expr=fmt(acc)+" ÷ "+fmt(v)+"% ="; cur=fmt(acc/(v/100)); acc=null; op=null; }
+      else cur = fmt(acc!==null && (op==="+"||op==="−") ? acc*v/100 : v/100);
+      fresh=true; }
+    else if("+−×÷".includes(k)){ if(op && !fresh){ acc = apply(acc, v, op); cur = fmt(acc); } else if(acc===null || !op) acc = v; op = k; fresh = true; expr = fmt(acc)+" "+k; }
+    else if(k==="="){ if(op){ const r = apply(acc, v, op); expr = fmt(acc)+" "+op+" "+fmt(v)+" ="; cur = fmt(r); acc=null; op=null; fresh=true; } }
+    else if(k==="MC") mem=0;
+    else if(k==="MR"){ cur=fmt(mem); fresh=true; }
+    else if(k==="M+"){ mem+=v||0; fresh=true; }
+    else if(k==="M−"){ mem-=v||0; fresh=true; }
+    if(cur==="NaN") cur="Error";
+    show();
+  }
+  calc.addEventListener("click", e=>{ const b=e.target.closest("[data-ck]"); if(b) key(b.dataset.ck); });
+  document.addEventListener("keydown", e=>{
+    if(!calc.classList.contains("open") || /input|textarea|select/i.test((e.target.tagName||""))) return;
+    const map = {"+":"+","-":"−","*":"×","/":"÷","Enter":"=","=":"=","Backspace":"⌫","Escape":"C",".":".","%":"%"};
+    if(/^[0-9]$/.test(e.key)){ key(e.key); e.preventDefault(); } else if(map[e.key]){ key(map[e.key]); e.preventDefault(); }
+  });
+  /* rough sheet */
+  function fit(){
+    const r = cv.getBoundingClientRect(); if(!r.width) return;
+    const dpr = window.devicePixelRatio||1, w=Math.round(r.width*dpr), h=Math.round(r.height*dpr);
+    if(cv.width===w && cv.height===h) return;
+    cv.width=w; cv.height=h; ctx=cv.getContext("2d"); ctx.setTransform(dpr,0,0,dpr,0,0); restore();
+  }
+  function restore(){ const src = view==="exam" && prog && prog.live && prog.live.sketch; if(!src) return; const img=new Image(); img.onload=()=>{ const r=cv.getBoundingClientRect(); ctx.drawImage(img,0,0,r.width,r.height); }; img.src=src; }
+  function persist(){ clearTimeout(saveT); saveT=setTimeout(saveNow, 400); }
+  function saveNow(){ if(!prog||!prog.live||view!=="exam") return; try{ if(cv.width) prog.live.sketch = cv.toDataURL("image/png"); }catch(e){} prog.live.notes = tx.value; save(); }
+  const pos = e => { const r=cv.getBoundingClientRect(); return [e.clientX-r.left, e.clientY-r.top]; };
+  cv.addEventListener("pointerdown", e=>{ drawing=true; last=pos(e); try{ cv.setPointerCapture(e.pointerId); }catch(x){} e.preventDefault(); });
+  cv.addEventListener("pointermove", e=>{ if(!drawing) return; const p=pos(e);
+    ctx.globalCompositeOperation = mode==="eraser" ? "destination-out" : "source-over";
+    ctx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue("--ink").trim()||"#2340A8";
+    ctx.lineWidth = mode==="eraser" ? 18 : 2.2; ctx.lineCap="round"; ctx.lineJoin="round";
+    ctx.beginPath(); ctx.moveTo(last[0],last[1]); ctx.lineTo(p[0],p[1]); ctx.stroke(); last=p; e.preventDefault(); });
+  const end = ()=>{ if(drawing){ drawing=false; persist(); } };
+  cv.addEventListener("pointerup", end); cv.addEventListener("pointercancel", end); cv.addEventListener("pointerleave", end);
+  tx.addEventListener("input", persist);
+  rough.addEventListener("click", e=>{ const b=e.target.closest("[data-tk]"); if(!b) return; const k=b.dataset.tk;
+    if(k==="pen"||k==="eraser"){ mode=k; rough.querySelectorAll('[data-tk="pen"],[data-tk="eraser"]').forEach(x=>x.classList.toggle("on", x.dataset.tk===k)); }
+    if(k==="clear"){ if(tx.style.display!=="none") tx.value=""; else { const r=cv.getBoundingClientRect(); ctx.clearRect(0,0,r.width,r.height); } persist(); }
+    if(k==="draw"||k==="type"){ const t=k==="type"; tx.style.display=t?"block":"none"; cv.style.display=t?"none":"block"; rough.querySelectorAll('[data-tk="draw"],[data-tk="type"]').forEach(x=>x.classList.toggle("on", x.dataset.tk===k)); rough.querySelectorAll('[data-tk="pen"],[data-tk="eraser"]').forEach(x=>x.disabled=t); if(t) tx.focus(); else fit(); }
+  });
+  root.addEventListener("click", e=>{ const b=e.target.closest("[data-tk]"); if(!b) return; if(b.dataset.tk==="close-calc") calc.classList.remove("open"); if(b.dataset.tk==="close-rough"){ saveNow(); rough.classList.remove("open"); } });
+  /* drag panels by their header (desktop and touch) */
+  root.querySelectorAll("[data-drag]").forEach(h=>{
+    const p = h.parentElement; let sx, sy, ox, oy, on=false;
+    h.addEventListener("pointerdown", e=>{ if(e.target.closest("button")) return; on=true; const r=p.getBoundingClientRect(); sx=e.clientX; sy=e.clientY; ox=r.left; oy=r.top; try{ h.setPointerCapture(e.pointerId); }catch(x){} });
+    h.addEventListener("pointermove", e=>{ if(!on) return; const r=p.getBoundingClientRect(); const x=Math.min(window.innerWidth-r.width, Math.max(0, ox+e.clientX-sx)), y=Math.min(window.innerHeight-40, Math.max(0, oy+e.clientY-sy)); Object.assign(p.style,{left:x+"px",top:y+"px",right:"auto",bottom:"auto"}); });
+    h.addEventListener("pointerup", ()=>{ on=false; });
+  });
+  // on phones the panels sit across the bottom, so leave room to scroll the page clear of them
+  function pad(){ let h=0; if(window.innerWidth<=560) [calc,rough].forEach(x=>{ if(x.classList.contains("open")) h=Math.max(h,x.offsetHeight+16); }); document.body.style.paddingBottom = h? h+"px" : ""; }
+  window.addEventListener("resize", ()=>{ if(rough.classList.contains("open")) fit(); pad(); });
+  return {
+    toggleCalc(){ calc.classList.toggle("open"); show(); pad(); this.keepNext(); },
+    keepNext(){ if(calc.classList.contains("open") && window.innerWidth<=560){ const nx=document.querySelector('[data-act="examNav"][data-d="1"],[data-act="nextQ"]'); if(nx){ const gap=calc.getBoundingClientRect().top-8-nx.getBoundingClientRect().bottom; if(gap<0) window.scrollBy(0,-gap); } } },
+    toggleRough(){ const o=!rough.classList.contains("open"); rough.classList.toggle("open", o); if(o){ if(view==="exam") tx.value = (prog.live&&prog.live.notes)||""; fit(); } else saveNow(); pad(); },
+    reset(){ cur="0"; acc=null; op=null; fresh=true; mem=0; expr=""; show(); tx.value=""; const r=cv.getBoundingClientRect(); if(r.width) ctx.clearRect(0,0,r.width,r.height); cv.width=0; },
+    close(){ calc.classList.remove("open"); rough.classList.remove("open"); pad(); },
+    saveNow
+  };
+})();
+
+/* ---------- SETTINGS ---------- */
+function settingsView(){
+  const code = sub.exportCode || "";
+  return shell(`<div class="stack" style="gap:16px">
+    <div class="stack" style="gap:4px"><span class="label">Settings</span><h1>Profile and app settings</h1><p class="muted">Signed in as <b>${esc(me.name)}</b>${me.pin?" · PIN on":" · no PIN"}.</p></div>
+    <div class="sheet stack">
+      <h2>Edit profile</h2>
+      <label class="f">Name<input type="text" id="rName" maxlength="24" value="${esc(me.name)}"></label>
+      <p class="err" id="rErr" role="alert"></p>
+      <div class="row"><button class="btn primary" data-act="rename">Save name</button></div>
+    </div>
+    <div class="sheet stack">
+      <h2>${me.pin?"Change or remove PIN":"Add a PIN"}</h2>
+      ${me.pin?`<label class="f">Current PIN<input type="password" id="oldPin" class="pin" inputmode="numeric" maxlength="4"></label>`:""}
+      <label class="f">New 4-digit PIN ${me.pin?"(leave empty to remove the PIN)":""}<input type="password" id="newPin" class="pin" inputmode="numeric" maxlength="4"></label>
+      <label class="f">Confirm new PIN<input type="password" id="newPin2" class="pin" inputmode="numeric" maxlength="4"></label>
+      <p class="err" id="pinErr" role="alert"></p>
+      <div class="row"><button class="btn primary" data-act="savePin">${me.pin?"Update PIN":"Save PIN"}</button></div>
+    </div>
+    <div class="sheet stack">
+      <h2>Display</h2>
+      <div class="row">${["system","light","dark"].map(t=>`<button class="btn ${theme===t?"primary":""}" data-act="theme" data-v="${t}">${t[0].toUpperCase()+t.slice(1)}</button>`).join("")}</div>
+    </div>
+    <div class="sheet stack">
+      <h2>Back up and restore</h2>
+      <p class="small">Progress lives only in this browser. Create a backup code and keep it in your notes or email. Paste it here later, on any device, to restore.</p>
+      <div class="row"><button class="btn" data-act="exportCode">Create backup code</button></div>
+      ${code?`<textarea id="codeOut" readonly>${esc(code)}</textarea><div class="row"><button class="btn primary" data-act="copyCode">Copy code</button></div>`:""}
+      <label class="f">Restore from a backup code<textarea id="codeIn" placeholder="Paste a backup code here"></textarea></label>
+      <p class="err" id="codeErr" role="alert"></p>
+      <div class="row"><button class="btn" data-act="askImport">Restore into this profile</button></div>
+      ${sub.confirmImport?`<div class="confirm stack"><b>Replace ${esc(me.name)}'s progress with the backup?</b><span class="small">Current progress in this profile will be overwritten.</span><div class="row"><button class="btn danger" data-act="doImport">Yes, restore</button><button class="btn" data-act="cancelConfirm">Cancel</button></div></div>`:""}
+    </div>
+    <div class="sheet stack">
+      <h2>Reset or delete</h2>
+      <div class="row"><button class="btn" data-act="switch">Switch student</button><button class="btn danger" data-act="askReset">Reset my progress</button><button class="btn danger" data-act="askDelete">Delete this profile</button></div>
+      ${sub.confirmReset?`<div class="confirm stack"><b>Clear all of ${esc(me.name)}'s answers, mocks, Mistake Book and flashcard marks?</b><span class="small">The profile stays. This can't be undone unless you have a backup code.</span><div class="row"><button class="btn danger" data-act="doReset">Yes, reset</button><button class="btn" data-act="cancelConfirm">Cancel</button></div></div>`:""}
+      ${sub.confirmDelete?`<div class="confirm stack"><b>Delete ${esc(me.name)}'s profile and all progress?</b><span class="small">This can't be undone.</span>${me.pin?`<label class="f">Enter PIN to confirm<input type="password" id="delPin" class="pin" inputmode="numeric" maxlength="4"></label>`:""}<p class="err" id="delErr"></p><div class="row"><button class="btn danger" data-act="doDelete">Delete profile</button><button class="btn" data-act="cancelConfirm">Cancel</button></div></div>`:""}
+    </div>
+  </div>`);
+}
+
+/* ---------- README ---------- */
+function readmeView(){
+  const c = D.counts;
+  return shell(`<div class="stack" style="gap:16px">
+    <div class="stack" style="gap:4px"><span class="label">Readme</span><h1>${APP}</h1><p class="muted">CMA Foundation · Paper 3: Fundamentals of Business Mathematics and Statistics · ${FULL?"Full kit":"Free sample"} · ${esc(D.version)}</p></div>
+    <div class="grid3">
+      <div class="card stat"><span class="small muted">Practice MCQs</span><b>${FULL?c.practice:c.practice+" of "+c.fullPractice}</b></div>
+      <div class="card stat"><span class="small muted">Mock questions</span><b>${FULL?c.mock+" + shuffle":"Taster only"}</b></div>
+      <div class="card stat"><span class="small muted">Flashcards</span><b>${D.cards.length}${FULL?"":" of "+c.fullCards}</b></div>
+    </div>
+    <div class="sheet stack"><h2>How to use</h2>
+      <ol class="small" style="margin:0;padding-left:1.2em">
+        <li><b>Create your profile</b> with your name. A PIN is optional. Each person sharing the device gets their own profile.</li>
+        <li><b>Chapters → a module → Overview:</b> read one topic (10 to 15 minutes) and tap <i>Mark as read</i>.</li>
+        <li><b>Formulas &amp; formats:</b> revise the formula sheet and the answer layouts. Try the interest and annuity calculator (Module 1), the statistics calculator (Module 5) and the correlation and regression calculator (Module 6) to check your own working.</li>
+        <li><b>MCQs:</b> solve each question on paper or in the rough sheet first, then tap your answer. Every numerical question shows the full working. The calculator and rough sheet are available in practice too.</li>
+        <li><b>Flashcards and Match Sprint:</b> drill the formulas until you can recall them without looking.</li>
+        <li><b>Mistake Book:</b> clear your wrong answers. A question leaves after two correct answers in a row.</li>
+        <li><b>Performance:</b> see accuracy by topic and module, mock trends and study days.</li>
+        <li><b>Mock Exam:</b> take a timed 50-question paper with the calculator and rough sheet, then study the review.</li>
+      </ol></div>
+    <div class="sheet stack"><h2>Exam pattern used in this kit</h2>
+      <p class="small">Paper 3 carries 100 marks. Our mocks use <b>50 MCQs × 2 marks in 1 hour</b>: Section I, Fundamentals of Business Mathematics, 20 questions (40 marks), and Section II, Fundamentals of Business Statistics, 30 questions (60 marks). This matches the June 2026 Paper 3 question paper. Module weightage (Syllabus 2022): Arithmetic 15%, Algebra 20%, Calculus 5%, Statistical Representation 5%, Central Tendency and Dispersion 15%, Correlation and Regression 15%, Probability 15%, Index Numbers and Time Series 10%. The June 2026 paper did not state negative marking. Exam rules, timings and marking can change, so always confirm them in the Institute's latest notice and your admit card.</p></div>
+    <div class="sheet stack"><h2>Precautions</h2>
+      <ul class="small" style="margin:0;padding-left:1.2em">
+        <li><b>Your progress is saved only in this browser on this device.</b> Clearing browsing data, using a private or incognito window, or opening the file in a different browser starts fresh. Create a backup code in Settings from time to time.</li>
+        <li>On a phone, save the file to your Files or Downloads and open it in Chrome. Opening it inside a chat or email preview may not save progress.</li>
+        <li>Keep the same file name and folder after you start, and keep only one copy open at a time, especially during a mock.</li>
+        <li>The mock timer keeps running if you close the page. Resume from the Mock Exam tab.</li>
+        <li><b>Conventions:</b> this kit follows the study material's conventions, for example σ divides by n, quartiles of ungrouped data use the (n + 1)/4 rule, and answers are rounded to two decimals unless the options need more. If a question in your exam states a different method, follow the question.</li><li><b>Calculators:</b> the on-screen calculator is for practice. Check the Institute's rules on which calculator you may carry into the exam hall.</li>
+        <li>This kit helps you revise. It does not replace the Institute's study material, which remains the main source for the exam.</li>
+        <li>The PIN only keeps profiles apart on a shared device. Don't use a PIN you use for banking.</li>
+      </ul></div>
+    <div class="sheet stack"><h2>How the content was made</h2>
+      <p class="small">Every note, question, option, explanation and specimen in this kit was written fresh by 99DigiProStore, following the published Paper 3 syllabus and weightage. All figures and worked examples are our own, and every numerical answer was computed and checked by a script. We do not copy the Institute's study material, MCQ bank or past papers, and the mock papers leave out any question that resembles a past-exam question. Standard formulas and methods are common mathematical knowledge and are explained in our own words. The <span class="pill fav">Core concept</span> tag is our study suggestion, not a claim about what will appear in any exam.</p></div>
+    <div class="sheet stack"><h2>Disclaimer</h2>
+      <p class="small">${APP} is an independent study aid. It is not affiliated with, endorsed by, sponsored by or connected to the Institute of Cost Accountants of India (ICMAI). "CMA Foundation" is used only to describe the exam this kit helps with. We have tried to keep the content accurate, but mistakes are possible and the syllabus and exam pattern can change. Using this kit does not guarantee that you will pass, and mock scores do not predict your result. The calculators are learning aids; check your own working in the exam.</p>
+      <p class="small">Found an error? Email digiprostore99@gmail.com with your order ID and a screenshot, and we will fix it.</p></div>
+    <div class="sheet stack"><h2>Privacy</h2>
+      <p class="small">This kit collects no personal data. It has no sign-up with us, no tracking, no ads and no analytics, and it does not connect to the internet. Names, PINs and progress stay in this browser on this device, and only you can see or delete them. A first name or nickname is enough for a profile. If a student is under 18, a parent or guardian should buy the kit and help set it up.</p></div>
+    <div class="sheet stack"><h2>Terms of use</h2>
+      <ul class="small" style="margin:0;padding-left:1.2em">
+        <li>This is a study aid for practice, provided "as is". We do our best to keep it accurate but can't promise it is free of errors or complete for your exam.</li>
+        <li>Your result depends on your own preparation. We make no promise of marks, ranks or passing.</li>
+        <li>Our total liability for any claim about this kit is limited to the price you paid for it.</li>
+        <li><b>All sales are final and non-refundable.</b> If the file does not open or work as described, email digiprostore99@gmail.com with your order ID and a screenshot, and we will fix it or send a working replacement.</li>
+        <li>Minor updates for the same exam term are free and emailed to past buyers. A new edition for a new syllabus or term may be sold separately.</li>
+        <li>These terms are governed by the laws of India.</li>
+      </ul></div>
+    <div class="sheet stack"><h2>Copyright and licence</h2>
+      <p class="small">© 99DigiProStore. All rights reserved. This file is licensed to the buyer for personal study. You may use it on your own devices and share profiles with family members on the same device. Please don't upload, share, sell or copy this file or its contents. Breaking this licence may lead to action under the Copyright Act, 1957.</p></div>
+    <div class="card small muted">Version ${esc(D.version)} · Support: digiprostore99@gmail.com · Shop: 99digiprostore.myinstamojo.com</div>
+  </div>`);
+}
+
+/* ---------- render ---------- */
+function render(){
+  clearInterval(timerH); timerH=null;
+  let html;
+  if(!me) html = loginView();
+  else if(view==="exam" && liveOk()){ html = examView(); }
+  else if(view==="exam"){ view="mocks"; html = mocksView(); }
+  else html = ({chapters:chaptersView, chapter:chapterView, session:sessionView, mocks:mocksView, instr:instrView, result:resultView, settings:settingsView, readme:readmeView}[view]||chaptersView)();
+  document.getElementById("app").innerHTML = html;
+  if(view==="exam" || (view==="chapter" && sub.game && !sub.game.end)) timerH=setInterval(tick,1000);
+  if(view!=="exam" && view!=="session") Tools.close();
+  if(!me){ const f=$("#nName")||$("#pin"); if(f) f.focus(); }
+  if(view==="chapter" && sub.c){ const el=document.getElementById("sec-"+sub.c.replace(".","-")); if(el) setTimeout(()=>el.scrollIntoView(),0); sub.c=null; }
+}
+
+/* ---------- events ---------- */
+document.getElementById("app").addEventListener("click", e=>{
+  const b = e.target.closest("[data-act]"); if(!b || b.disabled) return;
+  const a = b.dataset.act;
+  const H = {
+    newUser(){ go("login",{mode:"new"}); },
+    loginHome(){ go("login",{}); },
+    pickUser(){ const u=users.find(x=>x.id===b.dataset.id); if(!u) return; if(u.pin) go("login",{mode:"pin",uid:u.id}); else enterUser(u); },
+    checkPin(){ const u=users.find(x=>x.id===sub.uid); const v=$("#pin").value.trim(); if(hash(u.id+"|"+v)===u.pin) enterUser(u); else { $("#pErr").textContent="That PIN is not right. Try again."; $("#pin").value=""; $("#pin").focus(); } },
+    createUser(){
+      const name=$("#nName").value.trim(), p1=$("#nPin").value.trim(), p2=$("#nPin2").value.trim(), err=$("#nErr");
+      if(!name){ err.textContent="Please enter your name."; return; }
+      if(users.some(u=>u.name.toLowerCase()===name.toLowerCase())){ err.textContent="A profile with this name already exists. Add your surname or initial."; return; }
+      if(p1 && !/^\d{4}$/.test(p1)){ err.textContent="The PIN must be exactly 4 digits."; return; }
+      if(p1!==p2){ err.textContent="The two PINs do not match."; return; }
+      const id="u"+Date.now().toString(36)+Math.floor(Math.random()*1e4).toString(36);
+      const u={id,name,pin:p1?hash(id+"|"+p1):null,created:Date.now()};
+      users.push(u); saveUsers(); S.put("p."+id, blankProg()); enterUser(u);
+    },
+    switch(){ if(me){ if(prog.live) Tools.saveNow(); save(); } me=null; prog=null; sess.set(null); go("login",{}); },
+    tab(){ go(b.dataset.v); },
+    chapTab(){ go("chapters",{t:b.dataset.t}); },
+    openChapter(){ go("chapter",{m:+b.dataset.m, t:b.dataset.t||"overview", c:b.dataset.c||null}); },
+    chTab(){ go("chapter",{m:+b.dataset.m, t:b.dataset.t}); },
+    jump(){ const el=document.getElementById("sec-"+b.dataset.c.replace(".","-")); if(el) el.scrollIntoView({behavior:"smooth"}); },
+    markRead(){ const c=b.dataset.c; if(prog.read[c]) delete prog.read[c]; else { prog.read[c]=1; touchDay(); } save(); rerender(); },
+    calcTmv(){ calcTmv(); rerender(); },
+    calcStat(){ calcStat(); rerender(); },
+    calcCorr(){ calcCorr(); rerender(); },
+    startChapter(){ const c=b.dataset.c; startSession(orderForPractice(byChapter[c]||[]), c+" "+chTitle[c], modOf(c)); },
+    startModule(){ const m=+b.dataset.m; startSession(orderForPractice(byModule[m]||[]).slice(0,25), "Module "+m+" · mixed", m); },
+    startModFav(){ const m=+b.dataset.m; startSession(orderForPractice((byModule[m]||[]).filter(id=>Q[id].f)).slice(0,20), "Module "+m+" · core concepts", m); },
+    startModMist(){ const m=+b.dataset.m; const ids=mistakesIn(m); if(!ids.length){ toast("No mistakes saved for this module"); return; } startSession(shuffle(ids).slice(0,20), "Module "+m+" · Mistake Book", m); },
+    startQuick(){ startSession(shuffle(orderForPractice(openPool()).slice(0,40)).slice(0,10), "Quick 10", null); },
+    startFav(){ startSession(orderForPractice(openPool().filter(id=>Q[id].f)).slice(0,15), "Core concepts", null); },
+    startMistakes(){ const ids=mistakesIn(); if(!ids.length){ toast("Your Mistake Book is empty"); return; } startSession(shuffle(ids).slice(0,20), "Mistake Book", null); },
+    pick(){ if(sub.picked!==null) return; const k=+b.dataset.k, id=sub.ids[sub.i]; sub.picked=k; const ok=k===Q[id].a; record(id,ok); sub.log.push([id,ok]); save(); rerender(); const n=$("#nextBtn"); if(n) n.focus({preventScroll:true}); },
+    nextQ(){ sub.i++; sub.picked=null; render(); window.scrollTo(0,0); Tools.keepNext(); },
+    endSession(){ sub.done=true; render(); },
+    startFlash(){ const m=+b.dataset.m; let list=D.cards.filter(c=>modOf(c[0])===m); if(b.dataset.v==="due") list=list.filter(c=>!prog.cards[c[1]]); if(!list.length){ toast("You know every card in this set"); return; } go("chapter",{m, t:"cards", flash:{list:shuffle(list),i:0,flip:false,got:0}}); },
+    flip(){ sub.flash.flip=!sub.flash.flip; render(); },
+    cardKnow(){ const f=sub.flash, c=f.list[f.i]; if(b.dataset.v==="1"){ prog.cards[c[1]]=1; f.got++; } else delete prog.cards[c[1]]; touchDay(); save(); f.i++; f.flip=false; render(); },
+    startMatch(){ const m=+b.dataset.m; const pool=D.cards.filter(c=>modOf(c[0])===m); const items=shuffle(pool).slice(0,5); go("chapter",{m, t:"match", game:{items, order:shuffle(items.map((_,i)=>i)), done:[], sel:null, bad:null, miss:0, start:Date.now()}}); },
+    mTerm(){ sub.game.sel=+b.dataset.i; sub.game.bad=null; rerender(); },
+    mDef(){ const g=sub.game, i=+b.dataset.i; if(g.sel===null){ toast("Tap a term first"); return; }
+      if(i===g.sel){ g.done.push(i); g.sel=null; g.bad=null;
+        if(g.done.length===g.items.length){ g.end=Math.round((Date.now()-g.start)/1000)+g.miss*5; const m=sub.m; const r=prog.match[m]||{best:0,plays:0}; r.plays++; if(!r.best||g.end<r.best){ r.best=g.end; g.best=true; } prog.match[m]=r; touchDay(); save(); clearInterval(timerH); }
+      } else { g.miss++; g.bad=i; }
+      rerender(); },
+    instr(){ go("instr",{k:b.dataset.k}); },
+    startMock(){ if(!$("#agree").checked){ $("#agErr").textContent="Please tick the box to confirm you have read the instructions."; return; } startMock(b.dataset.k); },
+    resume(){ go("exam"); },
+    toolCalc(){ Tools.toggleCalc(); },
+    toolRough(){ Tools.toggleRough(); },
+    examPick(){ const id=prog.live.qids[prog.live.i]; prog.live.ans[id]=+b.dataset.k; save(); rerender(); },
+    clearAns(){ delete prog.live.ans[prog.live.qids[prog.live.i]]; save(); rerender(); },
+    toggleMark(){ const id=prog.live.qids[prog.live.i]; if(prog.live.mark[id]) delete prog.live.mark[id]; else prog.live.mark[id]=1; save(); rerender(); },
+    examNav(){ prog.live.i=Math.min(prog.live.qids.length-1,Math.max(0,prog.live.i+ +b.dataset.d)); save(); render(); window.scrollTo(0,0); Tools.keepNext(); },
+    examJump(){ prog.live.i=+b.dataset.i; save(); render(); window.scrollTo(0,0); Tools.keepNext(); },
+    askSubmit(){ sub.confirm=true; render(); window.scrollTo(0,0); },
+    cancelSubmit(){ sub.confirm=false; render(); },
+    submitMock(){ submitMock(); },
+    review(){ go("result",{i:+b.dataset.i, filter:"all"}); },
+    theme(){ theme=b.dataset.v; S.set("theme",theme); applyTheme(); render(); },
+    rename(){ const v=$("#rName").value.trim(), err=$("#rErr"); if(!v){ err.textContent="Please enter a name."; return; }
+      if(users.some(u=>u.id!==me.id && u.name.toLowerCase()===v.toLowerCase())){ err.textContent="Another profile already uses this name."; return; }
+      const u=users.find(x=>x.id===me.id); u.name=v; me=u; saveUsers(); toast("Name saved"); render(); },
+    savePin(){ const err=$("#pinErr"); const u=users.find(x=>x.id===me.id);
+      if(u.pin){ const o=($("#oldPin").value||"").trim(); if(hash(u.id+"|"+o)!==u.pin){ err.textContent="Your current PIN is not right."; return; } }
+      const v=$("#newPin").value.trim(), v2=$("#newPin2").value.trim();
+      if(v && !/^\d{4}$/.test(v)){ err.textContent="The PIN must be exactly 4 digits."; return; }
+      if(v!==v2){ err.textContent="The two new PINs do not match."; return; }
+      if(!v && !u.pin){ err.textContent="Enter a 4-digit PIN to add one."; return; }
+      u.pin=v?hash(u.id+"|"+v):null; me=u; saveUsers(); toast(v?"PIN saved":"PIN removed"); render(); },
+    exportCode(){ try{ sub.exportCode=btoa(unescape(encodeURIComponent(JSON.stringify({app:"fbms3",v:1,name:me.name,p:Object.assign({},prog,{live:null})})))); }catch(err){ sub.exportCode=""; toast("Could not create a code"); } render(); },
+    copyCode(){ copyText(sub.exportCode, $("#codeOut")); },
+    copyShop(){ copyText(SHOP, $("#shopUrl")); },
+    askImport(){ const t=$("#codeIn").value.trim(); try{ const o=JSON.parse(decodeURIComponent(escape(atob(t)))); if(o.app!=="fbms3"||!o.p) throw 0; sub.pending=o; sub.confirmImport=true; render(); }catch(err){ $("#codeErr").textContent="That code does not look right. Copy the whole code and try again."; } },
+    doImport(){ prog=Object.assign(blankProg(), sub.pending.p); prog.live=null; save(); toast("Progress restored"); go("chapters"); },
+    cancelConfirm(){ sub.confirmImport=false; sub.confirmDelete=false; sub.confirmReset=false; render(); },
+    askReset(){ sub.confirmReset=true; sub.confirmDelete=false; render(); },
+    doReset(){ prog=blankProg(); touchDay(); save(); toast("Progress cleared"); go("chapters"); },
+    askDelete(){ sub.confirmDelete=true; sub.confirmReset=false; render(); },
+    doDelete(){ if(me.pin){ const v=($("#delPin")||{}).value||""; if(hash(me.id+"|"+v.trim())!==me.pin){ $("#delErr").textContent="That PIN is not right."; return; } }
+      users=users.filter(u=>u.id!==me.id); saveUsers(); S.del("p."+me.id); me=null; prog=null; sess.set(null); toast("Profile deleted"); go("login",{}); }
+  };
+  if(H[a]){ e.preventDefault(); H[a](); }
+});
+document.addEventListener("change", e=>{
+  if(e.target.id==="revFilter"){ sub.filter=e.target.value; render(); }
+});
+document.addEventListener("keydown", e=>{
+  if(e.key==="Enter"){
+    const id=e.target.id;
+    if(id==="pin"){ e.preventDefault(); $('[data-act="checkPin"]').click(); }
+    else if(["nName","nPin","nPin2"].includes(id)){ e.preventDefault(); $('[data-act="createUser"]').click(); }
+    else if(id==="rName"){ e.preventDefault(); $('[data-act="rename"]').click(); }
+    else if(e.target.classList && e.target.classList.contains("flash")){ e.preventDefault(); e.target.click(); }
+  }
+  if(e.key===" " && e.target.classList && e.target.classList.contains("flash")){ e.preventDefault(); e.target.click(); }
+});
+document.addEventListener("visibilitychange", ()=>{ if(document.visibilityState==="visible") tick(); else if(prog && prog.live) Tools.saveNow(); });
+
+/* ---------- boot ---------- */
+const sid = sess.get();
+const su = sid && users.find(u=>u.id===sid);
+if(su){ me=su; prog=loadProg(su.id); if(liveOk()) view="exam"; }
+render();
+})();
+
+</script>
+<noscript><p style="padding:16px">Please allow JavaScript to use FBMS Smart Prep. Open this file in Chrome, Edge or Firefox.</p></noscript>
+</body>
+</html>

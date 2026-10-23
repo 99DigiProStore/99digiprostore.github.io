@@ -1,0 +1,1221 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>FFCA Smart Prep Free Sample</title>
+<style>
+/* Uses only fonts already on the device, so the file works offline and contacts no outside server. */
+/* Layout: an exam-hall study app. OMR answer-sheet motif: salmon print rules, ballpoint-blue fills. One column, tab bar, cards only where an object needs setting off. */
+:root{
+  --bg:#F5F6F9; --card:#FFFFFF; --fg:#1A2133; --muted:#5A6377; --line:#DDE2EB; --soft:#EEF1F7;
+  --ink:#2340A8; --ink-soft:#E3E9FB; --omr:#D2584B; --omr-soft:#FBE7E3;
+  --good:#16804F; --good-soft:#DFF3E8; --bad:#BC3A31; --bad-soft:#FBE3E1; --warn:#9A6400; --warn-soft:#FBF0D9;
+  --f-display:"Segoe UI Variable Display","Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --f-body:"Segoe UI",system-ui,-apple-system,Roboto,"Noto Sans","Helvetica Neue",Arial,sans-serif;
+  --f-mono:ui-monospace,"Cascadia Mono",Consolas,"Roboto Mono",Menlo,monospace;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0F131C; --card:#171C28; --fg:#E5E8F0; --muted:#9AA3B6; --line:#2A3142; --soft:#1D2333;
+  --ink:#8EA6FF; --ink-soft:#22305C; --omr:#F08C7F; --omr-soft:#3A2220;
+  --good:#5CCB92; --good-soft:#173527; --bad:#F2867D; --bad-soft:#3C1E1C; --warn:#E8B85C; --warn-soft:#3A2E14; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F131C; --card:#171C28; --fg:#E5E8F0; --muted:#9AA3B6; --line:#2A3142; --soft:#1D2333;
+  --ink:#8EA6FF; --ink-soft:#22305C; --omr:#F08C7F; --omr-soft:#3A2220;
+  --good:#5CCB92; --good-soft:#173527; --bad:#F2867D; --bad-soft:#3C1E1C; --warn:#E8B85C; --warn-soft:#3A2E14; color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+h1,h2,h3{font-family:var(--f-display);line-height:1.15;text-wrap:balance;margin:0}
+h1{font-size:clamp(1.6rem,4.5vw,2.2rem);font-weight:800;letter-spacing:-.01em}
+h2{font-size:1.35rem;font-weight:700}
+h3{font-size:1.08rem;font-weight:700}
+p{margin:0}
+a{color:var(--ink)}
+.wrap{max-width:880px;margin:0 auto;padding-inline:16px}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.muted{color:var(--muted)}
+.small{font-size:.86rem}
+.label{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--omr);font-weight:700}
+.stack{display:flex;flex-direction:column;gap:12px}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.grow{flex:1 1 auto;min-width:0}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--card);border-bottom:2px solid var(--omr)}
+.top .wrap{display:flex;align-items:center;gap:12px;padding-block:10px}
+.brand{display:flex;flex-direction:column;line-height:1.1;min-width:0}
+.brand b{font-family:var(--f-display);font-weight:800;font-size:1.1rem}
+.brand span{font-size:.74rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--soft);border-radius:999px;padding:4px 10px 4px 4px;font-size:.88rem}
+.avatar{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:var(--card);font-weight:700;font-size:.85rem;flex:none}
+.tabs{background:var(--card);border-bottom:1px solid var(--line)}
+.tabs .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.tabs .wrap::-webkit-scrollbar{display:none}
+.tab{background:none;border:0;padding:10px 12px;border-bottom:3px solid transparent;color:var(--muted);font-weight:700;white-space:nowrap}
+.tab[aria-current="page"]{color:var(--ink);border-bottom-color:var(--ink)}
+main{padding-block:20px 40px}
+
+/* surfaces */
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.sheet{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;border-top:4px solid var(--omr)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:8px;border:1px solid var(--line);background:var(--card);padding:9px 14px;font-weight:700;text-decoration:none;color:var(--fg)}
+.btn:hover{border-color:var(--ink)}
+.btn.primary{background:var(--ink);border-color:var(--ink);color:var(--card)}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn.ghost{background:transparent;border-color:transparent;color:var(--ink);padding-inline:6px}
+.btn.danger{color:var(--bad);border-color:var(--bad)}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+.btn.block{width:100%}
+
+/* pills */
+.pill{display:inline-flex;align-items:center;gap:4px;font-size:.74rem;font-weight:700;border-radius:999px;padding:2px 9px;background:var(--soft);color:var(--muted);white-space:nowrap}
+.pill.fav{background:var(--omr-soft);color:var(--omr)}
+.pill.good{background:var(--good-soft);color:var(--good)}
+.pill.bad{background:var(--bad-soft);color:var(--bad)}
+.pill.warn{background:var(--warn-soft);color:var(--warn)}
+.pill.ink{background:var(--ink-soft);color:var(--ink)}
+
+/* progress */
+.bar{height:8px;border-radius:99px;background:var(--soft);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ink);border-radius:99px}
+.bar.g i{background:var(--good)}
+.ring{--p:0;width:96px;height:96px;border-radius:50%;background:conic-gradient(var(--ink) calc(var(--p)*1%),var(--soft) 0);display:grid;place-items:center;flex:none}
+.ring b{width:74px;height:74px;border-radius:50%;background:var(--card);display:grid;place-items:center;font-family:var(--f-mono);font-size:1.15rem}
+
+/* modules list */
+.mod{display:flex;gap:14px;align-items:flex-start}
+.modno{font-family:var(--f-display);font-weight:800;font-size:1.6rem;color:var(--omr);width:36px;flex:none;line-height:1}
+.locked{opacity:.62}
+.lock{font-size:.8rem;font-weight:700;color:var(--muted);display:inline-flex;gap:6px;align-items:center}
+
+/* notes */
+.notes{max-width:68ch}
+.notes h2{margin-top:28px;padding-top:14px;border-top:2px dashed var(--line);scroll-margin-top:120px}
+.notes h2:first-child{margin-top:0;border-top:0;padding-top:0}
+.notes h3{margin-top:20px;color:var(--ink)}
+.notes p,.notes ul,.notes ol,.notes .tbl,.notes .call{margin-top:10px}
+.notes ul,.notes ol{padding-left:1.3em}
+.notes li+li{margin-top:4px}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:8px}
+.tbl table{border-collapse:collapse;width:100%;font-size:.92rem}
+.tbl th,.tbl td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl th{background:var(--soft);font-weight:700}
+.tbl tr:last-child td{border-bottom:0}
+.call{border-left:4px solid var(--ink);background:var(--ink-soft);padding:10px 12px;border-radius:0 8px 8px 0}
+.call b.k{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;display:block;margin-bottom:2px}
+.call.trap{border-color:var(--bad);background:var(--bad-soft)}
+.call.trap b.k{color:var(--bad)}
+.call.formula{border-color:var(--omr);background:var(--omr-soft);font-family:var(--f-mono);font-size:.9rem}
+.call.formula b.k{color:var(--omr)}
+.call.tip b.k{color:var(--ink)}
+.toc{display:flex;flex-wrap:wrap;gap:6px}
+.toc button{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:4px 10px;font-size:.85rem}
+
+/* question */
+.qhead{display:flex;flex-wrap:wrap;gap:6px;align-items:center;justify-content:space-between}
+.qtext{font-size:1.08rem;font-weight:700;margin-top:10px}
+.opts{display:flex;flex-direction:column;gap:8px;margin-top:14px}
+.opt{display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.opt:hover:not([disabled]){border-color:var(--ink)}
+.opt[disabled]{cursor:default}
+.bub{width:28px;height:28px;border-radius:50%;border:2px solid var(--omr);color:var(--omr);display:grid;place-items:center;font-family:var(--f-mono);font-weight:700;font-size:.85rem;flex:none}
+.opt.sel .bub{background:var(--ink);border-color:var(--ink);color:var(--card)}
+.opt.sel{border-color:var(--ink);background:var(--ink-soft)}
+.opt.right{border-color:var(--good);background:var(--good-soft)}
+.opt.right .bub{background:var(--good);border-color:var(--good);color:var(--card)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt.wrong .bub{background:var(--bad);border-color:var(--bad);color:var(--card)}
+.explain{margin-top:14px;border-radius:8px;padding:12px;background:var(--soft);border:1px solid var(--line)}
+.explain.ok{border-color:var(--good)}
+.explain.no{border-color:var(--bad)}
+
+/* exam */
+.exambar{position:sticky;top:calc(env(safe-area-inset-top,0px) + 0px);z-index:15;background:var(--card);border-bottom:1px solid var(--line)}
+.exambar .wrap{display:flex;gap:10px;align-items:center;padding-block:8px}
+.timer{font-family:var(--f-mono);font-weight:700;font-size:1.1rem;padding:4px 10px;border-radius:6px;background:var(--soft)}
+.timer.low{background:var(--bad-soft);color:var(--bad)}
+.palette{display:grid;grid-template-columns:repeat(auto-fill,minmax(38px,1fr));gap:6px}
+.pal{height:38px;border-radius:50%;border:2px solid var(--omr);background:var(--card);font-family:var(--f-mono);font-size:.8rem;font-weight:700;color:var(--omr)}
+.pal.ans{background:var(--ink);border-color:var(--ink);color:var(--card)}
+.pal.mark{border-color:var(--warn);box-shadow:inset 0 0 0 3px var(--warn-soft)}
+.pal.cur{outline:3px solid var(--fg);outline-offset:1px}
+.pal.right{background:var(--good);border-color:var(--good);color:var(--card)}
+.pal.wrong{background:var(--bad);border-color:var(--bad);color:var(--card)}
+.pal.skip{background:var(--soft);border-color:var(--line);color:var(--muted)}
+.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:.8rem;color:var(--muted)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:4px;vertical-align:-1px;border:2px solid var(--omr)}
+
+/* flashcard */
+.flash{min-height:200px;display:grid;place-items:center;text-align:center;cursor:pointer;padding:24px;border:1px solid var(--line);border-radius:var(--r);background:var(--card);border-top:4px solid var(--ink)}
+.flash .term{font-family:var(--f-display);font-size:1.5rem;font-weight:700}
+.flash .def{font-size:1.05rem}
+
+/* login */
+.login{min-height:100%;display:flex;align-items:flex-start;justify-content:center;padding-block:28px}
+.login .box{width:100%;max-width:520px}
+.users{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
+.user{display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 8px;border:1px solid var(--line);border-radius:var(--r);background:var(--card);text-align:center}
+.user:hover{border-color:var(--ink)}
+.user .avatar{width:44px;height:44px;font-size:1.1rem}
+input[type=text],input[type=password],textarea,select{width:100%;padding:10px 12px;border-radius:8px;border:1px solid var(--line);background:var(--card)}
+textarea{font-family:var(--f-mono);font-size:.78rem;min-height:90px}
+label.f{display:flex;flex-direction:column;gap:4px;font-weight:700;font-size:.9rem}
+.pin{letter-spacing:.5em;font-family:var(--f-mono);text-align:center;font-size:1.2rem}
+.err{color:var(--bad);font-size:.88rem;font-weight:700}
+
+/* banners, footer */
+.banner{border:1px solid var(--warn);background:var(--warn-soft);color:var(--fg);border-radius:8px;padding:10px 12px;font-size:.9rem}
+.upsell{border:2px dashed var(--omr);border-radius:var(--r);padding:16px;background:var(--omr-soft)}
+footer{border-top:1px solid var(--line);padding-block:18px 28px;font-size:.8rem;color:var(--muted)}
+footer .wrap{display:flex;flex-direction:column;gap:6px}
+.stat{display:flex;flex-direction:column;gap:2px;min-width:0}
+.stats{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:560px){.stats .stat{padding:10px}.stats .stat b{font-size:1.05rem}}
+.stat b{font-family:var(--f-mono);font-size:1.4rem}
+.toast{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:8px 14px;border-radius:8px;font-size:.9rem;z-index:50}
+.confirm{border:2px solid var(--bad);background:var(--bad-soft);border-radius:8px;padding:12px}
+@media (max-width:560px){.hide-sm{display:none}.qtext{font-size:1rem}}
+@media (prefers-reduced-motion:no-preference){.opt,.btn,.pal{transition:border-color .15s,background .15s}}
+
+/* ---- Smart Prep additions ---- */
+.subtabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;border-bottom:1px solid var(--line)}
+.subtabs::-webkit-scrollbar{display:none}
+.subtab{background:none;border:0;border-bottom:3px solid transparent;padding:8px 10px;font-weight:700;color:var(--muted);white-space:nowrap;font-size:.92rem}
+.subtab[aria-current="true"]{color:var(--omr);border-bottom-color:var(--omr)}
+pre.fmt{font-family:var(--f-mono);font-size:.8rem;line-height:1.45;background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--omr);border-radius:0 8px 8px 0;padding:12px;overflow-x:auto;white-space:pre;margin-top:10px}
+.tool{border:1px solid var(--line);border-radius:var(--r);padding:16px;background:var(--card);border-top:4px solid var(--ink)}
+.tool .row label.f{flex:1 1 150px}
+.out{background:var(--ink-soft);border-radius:8px;padding:12px;font-size:.95rem}
+.out b{font-family:var(--f-mono)}
+.qtext,.explain,.pre{white-space:pre-line}
+.out .tbl{margin-top:8px}
+tr.tot td{border-top:2px solid var(--line)}
+.toc button[disabled]{opacity:.55;cursor:not-allowed}
+.steps{margin:6px 0 0;padding-left:1.2em}
+.steps li+li{margin-top:4px}
+input[type=date],input[type=number]{width:100%;padding:9px 10px;border-radius:8px;border:1px solid var(--line);background:var(--card)}
+/* match sprint */
+.match{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mcell{display:flex;flex-direction:column;gap:8px}
+.mbtn{text-align:left;border:1px solid var(--line);background:var(--card);border-radius:8px;padding:10px;font-size:.9rem;min-height:56px}
+.mbtn.on{border-color:var(--ink);background:var(--ink-soft)}
+.mbtn.done{border-color:var(--good);background:var(--good-soft);color:var(--good);cursor:default}
+.mbtn.no{border-color:var(--bad);background:var(--bad-soft)}
+@media (max-width:560px){.mbtn{font-size:.82rem;padding:8px}}
+/* performance */
+.hbar{display:grid;grid-template-columns:minmax(90px,38%) 1fr 48px;gap:8px;align-items:center;font-size:.88rem}
+.hbar .bar{height:10px}
+.days{display:grid;grid-template-columns:repeat(14,1fr);gap:4px;max-width:420px}
+.days i{aspect-ratio:1;border-radius:3px;background:var(--soft);display:block}
+.days i.on{background:var(--good)}
+.spark{display:flex;align-items:flex-end;gap:6px;height:90px;border-bottom:1px solid var(--line);padding-top:6px}
+.spark span{flex:1;max-width:36px;background:var(--ink);border-radius:4px 4px 0 0;position:relative;min-height:2px}
+.spark span em{position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-style:normal;font-family:var(--f-mono);font-size:.7rem;color:var(--muted)}
+/* exam tools */
+.toolbar{display:flex;gap:6px;flex-wrap:wrap}
+.panel{position:fixed;z-index:40;background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.18);display:none;flex-direction:column}
+.panel.open{display:flex}
+.panel .ph{display:flex;align-items:center;gap:8px;padding:8px 10px;border-bottom:1px solid var(--line);font-weight:700;cursor:move;user-select:none;touch-action:none}
+.panel .ph .x{margin-left:auto;border:0;background:none;font-size:1.2rem;line-height:1;padding:2px 6px}
+#calc{width:272px;right:16px;bottom:16px}
+#calc .scr{margin:10px;padding:8px 10px;border-radius:8px;background:var(--soft);text-align:right;font-family:var(--f-mono)}
+#calc .scr small{display:block;min-height:1.1em;color:var(--muted);font-size:.75rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#calc .scr b{display:block;font-size:1.5rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#calc .keys{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;padding:0 10px 10px}
+#calc .keys button{border:1px solid var(--line);background:var(--card);border-radius:8px;padding:9px 0;font-family:var(--f-mono);font-weight:700;font-size:.92rem}
+#calc .keys button.op{background:var(--soft)}
+#calc .keys button.eq{background:var(--ink);color:var(--card);border-color:var(--ink)}
+#calc .keys button.m{font-size:.75rem;color:var(--ink)}
+#rough{width:min(520px,calc(100vw - 32px));left:16px;bottom:16px;height:min(460px,70vh)}
+#rough .rb{display:flex;gap:6px;padding:6px 10px;flex-wrap:wrap;border-bottom:1px solid var(--line)}
+#rough .rb button{border:1px solid var(--line);background:var(--card);border-radius:6px;padding:4px 8px;font-size:.8rem;font-weight:700}
+#rough .rb button.on{background:var(--ink);color:var(--card);border-color:var(--ink)}
+#rough canvas{flex:1;width:100%;touch-action:none;background:repeating-linear-gradient(var(--card) 0 27px,var(--soft) 27px 28px);cursor:crosshair;display:block}
+#rough textarea{flex:1;border:0;border-radius:0 0 12px 12px;font-family:var(--f-mono);font-size:.9rem;min-height:0;resize:none;background:repeating-linear-gradient(var(--card) 0 27px,var(--soft) 27px 28px);line-height:28px;padding:0 10px}
+@media (max-width:420px){.tabs .wrap{gap:0}.tab{padding:10px 8px;font-size:.92rem}}
+@media (max-width:560px){#calc{left:8px;right:8px;width:auto;bottom:8px}#rough{left:8px;right:8px;width:auto;bottom:8px;height:48vh}}
+.instr{counter-reset:i}
+.instr li{margin-top:6px}
+.omr{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px 14px;font-family:var(--f-mono);font-size:.82rem}
+.omr .r{display:flex;align-items:center;gap:6px}
+.omr .r span.n{width:22px;text-align:right;color:var(--muted)}
+.omr .r i{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--omr);display:grid;place-items:center;font-style:normal;font-size:.68rem;color:var(--omr)}
+.omr .r i.f{background:var(--ink);border-color:var(--ink);color:var(--card)}
+.omr .r i.ok{background:var(--good);border-color:var(--good);color:var(--card)}
+.omr .r i.bad{background:var(--bad);border-color:var(--bad);color:var(--card)}
+.kbd{font-family:var(--f-mono);font-size:.78rem;border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:0 5px;background:var(--soft)}
+</style>
+
+</head>
+<body>
+<div id="app"></div>
+<div id="tools"></div>
+<script>const DATA={"edition":"sample","version":"v1.0 (October 2026)","modules":[{"n":1,"title":"Accounting Fundamentals","weight":30,"split":15,"split20":6,"locked":false,"chapters":[{"id":"1.1","title":"Frameworks of Accounting and Forms of Organisation"},{"id":"1.2","title":"Accounting Principles, Concepts and Conventions"},{"id":"1.3","title":"Capital and Revenue Transactions"},{"id":"1.4","title":"Accounting Cycle, Equation and Double Entry"},{"id":"1.5","title":"Journal, Subsidiary Books and Ledger"},{"id":"1.6","title":"Cash Book, Petty Cash and Bank Reconciliation"},{"id":"1.7","title":"Trial Balance"},{"id":"1.8","title":"Adjustment Entries and Rectification of Errors"},{"id":"1.9","title":"Depreciation (SLM and WDV)"},{"id":"1.10","title":"Bad Debts and Provision for Doubtful Debts"}]},{"n":2,"title":"Accounting for Special Transactions","weight":15,"split":8,"split20":3,"locked":true,"chapters":[{"id":"2.1","title":"Consignment"},{"id":"2.2","title":"Joint Venture"},{"id":"2.3","title":"Bills of Exchange"}]},{"n":3,"title":"Preparation of Final Accounts","weight":25,"split":12,"split20":5,"locked":true,"chapters":[{"id":"3.1","title":"Final Accounts of Sole Proprietors"},{"id":"3.2","title":"Not-for-Profit Organisations"}]},{"n":4,"title":"Fundamentals of Cost Accounting","weight":30,"split":15,"split20":6,"locked":true,"chapters":[{"id":"4.1","title":"Meaning, Significance and Relation with Financial Accounting"},{"id":"4.2","title":"Cost Accounting for Business Decisions"},{"id":"4.3","title":"Cost, Cost Centre, Cost Unit and Cost Drivers"},{"id":"4.4","title":"Classification of Costs (CAS 1)"},{"id":"4.5","title":"Cost Sheet"}]}],"notes":{"1":[{"id":"1.1","title":"Frameworks of Accounting and Forms of Organisation","html":"<h3>Accounting in one line<\/h3>\n<p>Accounting is the process of <b>identifying, measuring, recording, classifying, summarising, analysing and communicating<\/b> financial information so that users can take decisions. It is often called the <b>language of business<\/b>.<\/p>\n<div class=\"tbl\"><table><thead><tr><th>Term<\/th><th>What it covers<\/th><th>Width<\/th><\/tr><\/thead><tbody><tr><td><b>Book-keeping<\/b><\/td><td>Recording and classifying transactions day to day<\/td><td>Narrowest<\/td><\/tr><tr><td><b>Accounting<\/b><\/td><td>Book-keeping + summarising, analysing, interpreting, communicating<\/td><td>Wider<\/td><\/tr><tr><td><b>Accountancy<\/b><\/td><td>The whole body of theory and practice of accounting<\/td><td>Widest<\/td><\/tr><\/tbody><\/table><\/div>\n<div class=\"call tip\"><b class=\"k\">EXAM TIP<\/b>Book-keeping ⊂ Accounting ⊂ Accountancy. Book-keeping is the base; it is not concerned with interpreting results.<\/div>\n<h3>Objectives of accounting<\/h3>\n<ol><li>Give useful information to users for <b>decision-making<\/b> (owners, managers, lenders, investors, government).<\/li><li>Keep a <b>systematic record<\/b> of transactions.<\/li><li>Find the <b>result<\/b> of operations (profit or loss) for a period, through the Profit and Loss Account.<\/li><li>Show the <b>financial position<\/b> (assets and liabilities) on a date, through the Balance Sheet.<\/li><\/ol>\n<h3>Users of accounting information<\/h3>\n<ul><li><b>Internal:<\/b> owners, management, employees.<\/li><li><b>External:<\/b> investors, lenders and banks, creditors, customers, government and tax authorities, regulators, the public.<\/li><\/ul>\n<h3>The four frameworks<\/h3>\n<p>A framework is a common set of rules and guidelines for measuring, recognising, presenting and disclosing information in financial statements. Accounting in India rests on four pillars.<\/p>\n<div class=\"tbl\"><table><thead><tr><th>Framework<\/th><th>What it is<\/th><th>Examples<\/th><\/tr><\/thead><tbody><tr><td><b>Conceptual<\/b><\/td><td>Inter-related objectives and fundamental concepts of financial reporting; qualitative characteristics of statements. Guides preparers when no standard applies<\/td><td>Objectives of general-purpose reporting, qualitative characteristics<\/td><\/tr><tr><td><b>Legal<\/b><\/td><td>Statutes under which entities are formed and which govern their books<\/td><td>Companies Act, 2013 and Companies (Accounts) Rules, 2014; Indian Partnership Act, 1932; LLP Act, 2008; Banking Regulation Act, 1949; Insurance Act, 1938; Electricity Act, 2003<\/td><\/tr><tr><td><b>Institutional<\/b><\/td><td>Pronouncements of bodies entrusted to develop standards<\/td><td>Accounting Standards and Ind AS developed through ICAI; Cost Accounting Standards (CAS) issued by CASB of ICMAI<\/td><\/tr><tr><td><b>Regulatory<\/b><\/td><td>Rules of sector regulators that shape accounting and reporting<\/td><td>RBI (banking, NPA norms), SEBI (listed companies), IRDAI (insurance), PFRDA (pensions), TRAI, CERC<\/td><\/tr><\/tbody><\/table><\/div>\n<div class=\"call tip\"><b class=\"k\">EXAM TIP<\/b>Statute or Act = Legal. Standard-setting body = Institutional. Sector watchdog (RBI, SEBI, IRDAI, TRAI) = Regulatory. Objectives and qualitative characteristics = Conceptual.<\/div>\n<div class=\"call trap\"><b class=\"k\">COMMON TRAP<\/b>\"Awareness of RBI, SEBI, TRAI pronouncements\" points to the <b>Regulatory<\/b> framework, not the Institutional one.<\/div>\n<h3>Two sets of standards in India<\/h3>\n<ul><li><b>Accounting Standards (AS)<\/b> under the Companies (Accounting Standards) Rules, 2021.<\/li><li><b>Indian Accounting Standards (Ind AS)<\/b> under the Companies (Indian Accounting Standards) Rules, 2015.<\/li><li><b>Cost Accounting Standards:<\/b> 24 CAS issued by the Cost Accounting Standards Board (CASB) of ICMAI.<\/li><\/ul>\n<h3>Forms of organisation<\/h3>\n<p>The form of a business decides the books it keeps, the law that governs it and the statements it prepares.<\/p>\n<div class=\"tbl\"><table><thead><tr><th>Form<\/th><th>Main law<\/th><th>Usual financial statements<\/th><\/tr><\/thead><tbody><tr><td><b>Sole proprietorship<\/b><\/td><td>No specific accounting law (Income Tax Act may apply above limits)<\/td><td>Trading A/c, Profit and Loss A/c, Balance Sheet<\/td><\/tr><tr><td><b>Partnership<\/b><\/td><td>Indian Partnership Act, 1932<\/td><td>Trading A/c, P&amp;L A/c, <b>P&amp;L Appropriation A/c<\/b>, Balance Sheet<\/td><\/tr><tr><td><b>LLP<\/b><\/td><td>Limited Liability Partnership Act, 2008<\/td><td>Profit and Loss A/c, Balance Sheet of the LLP<\/td><\/tr><tr><td><b>Company<\/b><\/td><td>Companies Act, 2013<\/td><td>Statement of Profit and Loss, Balance Sheet, <b>Cash Flow Statement<\/b>, Statement of Changes in Equity, notes<\/td><\/tr><\/tbody><\/table><\/div>\n<div class=\"call trap\"><b class=\"k\">COMMON TRAP<\/b>A sole proprietorship is the <b>least regulated<\/b> form. A company is the most regulated.<\/div>"},{"id":"1.2","title":"Accounting Principles, Concepts and Conventions","html":"<p><b>GAAP<\/b> (Generally Accepted Accounting Principles) are the common rules, conventions, standards and procedures accepted by the profession. They bring <b>uniformity and comparability<\/b>.<\/p>\n<p>Accounting principles split into two groups:<\/p>\n<ul><li><b>Concepts:<\/b> basic assumptions and conditions on which accounting rests.<\/li><li><b>Conventions:<\/b> customs and traditions that guide the practical application of principles (also called doctrines).<\/li><\/ul>\n<h3>The nine concepts<\/h3>\n<div class=\"tbl\"><table><thead><tr><th>Concept<\/th><th>Core idea<\/th><th>Classic example<\/th><\/tr><\/thead><tbody><tr><td><b>Business entity<\/b><\/td><td>Business and owner are separate<\/td><td>Capital is a liability of the business to the owner; drawings are not a business expense<\/td><\/tr><tr><td><b>Going concern<\/b><\/td><td>The business will continue for the foreseeable future<\/td><td>Fixed assets shown at cost less depreciation, not at sale value; split of fixed and current assets<\/td><\/tr><tr><td><b>Accounting period (periodicity)<\/b><\/td><td>Life of the business is split into equal periods<\/td><td>Profit and Loss A/c for one year; Balance Sheet at year end<\/td><\/tr><tr><td><b>Money measurement<\/b><\/td><td>Only items expressed in money are recorded<\/td><td>Staff skill, a strike or a manager's resignation are not recorded<\/td><\/tr><tr><td><b>Accrual<\/b><\/td><td>Record income when earned and expense when incurred, not when cash moves<\/td><td>Outstanding salary and accrued interest are recorded<\/td><\/tr><tr><td><b>Dual aspect<\/b><\/td><td>Every transaction has two equal effects<\/td><td>Assets = Liabilities + Capital<\/td><\/tr><tr><td><b>Matching<\/b><\/td><td>Expenses of a period are matched with the revenues of that period<\/td><td>Adjustments for prepaid and outstanding items; cost of goods sold matched with sales<\/td><\/tr><tr><td><b>Realisation<\/b><\/td><td>Revenue is recognised when a legal right to receive it arises (usually on sale)<\/td><td>Receiving an order is not revenue; delivery and sale is<\/td><\/tr><tr><td><b>Cost (historical cost)<\/b><\/td><td>Assets are recorded at purchase price including transport and installation, not market value<\/td><td>Machine ₹5,00,000 + carriage ₹1,000 + installation ₹2,000 = ₹5,03,000 recorded<\/td><\/tr><\/tbody><\/table><\/div>\n<div class=\"call tip\"><b class=\"k\">EXAM TIP<\/b>\"Two aspects\" = Dual aspect. \"Period\" = Accounting period. \"Right to receive\" = Realisation. \"Expenses of the same period\" = Matching. \"Continue\" = Going concern.<\/div>\n<h3>The four conventions<\/h3>\n<div class=\"tbl\"><table><thead><tr><th>Convention<\/th><th>Core idea<\/th><th>Example<\/th><\/tr><\/thead><tbody><tr><td><b>Conservatism (prudence)<\/b><\/td><td>Anticipate no profit, provide for all possible losses<\/td><td>Provision for doubtful debts; closing stock at cost or net realisable value, whichever is lower<\/td><\/tr><tr><td><b>Consistency<\/b><\/td><td>Use the same methods year after year so results are comparable<\/td><td>Same depreciation method each year; a change is disclosed<\/td><\/tr><tr><td><b>Materiality<\/b><\/td><td>Only significant information needs separate attention<\/td><td>Rounding off to the nearest rupee; a ₹200 stapler charged as expense<\/td><\/tr><tr><td><b>Full disclosure<\/b><\/td><td>All material facts must be disclosed fully and fairly<\/td><td>Contingent liabilities disclosed in notes<\/td><\/tr><\/tbody><\/table><\/div>\n<div class=\"call trap\"><b class=\"k\">COMMON TRAP<\/b>Provision for bad and doubtful debts is <b>conservatism<\/b>, not matching. Rounding off paise is <b>materiality<\/b>.<\/div>\n<div class=\"call trap\"><b class=\"k\">COMMON TRAP<\/b>Showing share capital or owner's capital as a liability of the business follows the <b>business entity<\/b> concept.<\/div>"},{"id":"1.3","title":"Capital and Revenue Transactions","html":"<h3>Transaction or event?<\/h3>\n<p>A <b>transaction<\/b> is an event that can be measured in money and changes the financial position. Appointing a manager or launching a product is an <b>event<\/b>, not a transaction, until money is involved. All transactions are events, but not all events are transactions.<\/p>\n<h3>Capital vs revenue expenditure<\/h3>\n<div class=\"tbl\"><table><thead><tr><th>Point<\/th><th>Capital expenditure<\/th><th>Revenue expenditure<\/th><\/tr><\/thead><tbody><tr><td>Benefit<\/td><td>Over several years<\/td><td>Within the current year<\/td><\/tr><tr><td>Nature<\/td><td>Non-recurring<\/td><td>Recurring<\/td><\/tr><tr><td>Amount<\/td><td>Usually large<\/td><td>Usually small<\/td><\/tr><tr><td>Purpose<\/td><td>Acquire or improve a fixed asset, raise earning capacity or cut operating cost<\/td><td>Run day-to-day operations, maintain assets<\/td><\/tr><tr><td>Shown in<\/td><td>Balance Sheet (as an asset)<\/td><td>Trading or Profit and Loss A/c<\/td><\/tr><\/tbody><\/table><\/div>\n<p><b>Capital expenditure examples:<\/b> land, building, machinery, furniture; freight, carriage, installation and erection charges on a new asset; registration, stamp duty and legal fees on buying property; overhauling or repairs to put a second-hand asset into working condition; additions and extensions; wages paid to own workers for building or installing a fixed asset; customs or import duty on machinery; interest on a loan for a new plant <b>before<\/b> production starts; purchased goodwill, patents, trademarks; preliminary expenses.<\/p>\n<p><b>Revenue expenditure examples:<\/b> purchase of goods for resale; wages, salaries, rent, insurance, power; carriage on goods purchased; import duty on raw materials; ordinary repairs, servicing, painting, whitewashing; depreciation; compensation to retrenched workers; legal fees to defend a suit about title to an existing asset (it protects, not acquires, the asset).<\/p>\n<div class=\"call tip\"><b class=\"k\">EXAM TIP<\/b>Ask \"Does the business own something extra, or something better, at the end of the year because of this?\" If yes, it is capital.<\/div>\n<div class=\"call trap\"><b class=\"k\">COMMON TRAP<\/b>Import duty on <b>machinery<\/b> is capital; import duty on <b>raw materials<\/b> is revenue. Carriage on a <b>machine<\/b> is capital; carriage on <b>goods purchased<\/b> is revenue.<\/div>\n<h3>Revenue expenditure treated as capital<\/h3>\n<p>Normally revenue items become capital when spent on creating or installing an asset: <b>repairs<\/b> on a second-hand asset before use, <b>wages<\/b> of own workers building an asset, <b>raw materials and stores<\/b> used in constructing an asset, brokerage and legal expenses on buying property, and development expenditure on mines and plantations.<\/p>\n<h3>Deferred revenue expenditure<\/h3>\n<p>Revenue expenditure whose benefit is expected over a few years, for example heavy advertising to launch a new product. Traditionally a part was written off each year and the rest shown as an asset. <b>After AS 26<\/b>, expenditure on research, training, advertising and promotion is charged to the Profit and Loss A/c in the year it is incurred.<\/p>\n<div class=\"call trap\"><b class=\"k\">COMMON TRAP<\/b>In current practice (AS 26), heavy launch advertising is treated as <b>revenue expenditure<\/b> of the year, not carried forward.<\/div>\n<h3>Capital vs revenue receipts<\/h3>\n<div class=\"tbl\"><table><thead><tr><th>Point<\/th><th>Capital receipt<\/th><th>Revenue receipt<\/th><\/tr><\/thead><tbody><tr><td>Source<\/td><td>Outside normal operations<\/td><td>Normal day-to-day operations<\/td><\/tr><tr><td>Nature<\/td><td>Non-recurring<\/td><td>Recurring<\/td><\/tr><tr><td>Effect on profit<\/td><td>None; goes to Balance Sheet<\/td><td>Increases profit; goes to P&amp;L<\/td><\/tr><tr><td>Examples<\/td><td>Capital introduced, loans taken, sale of fixed assets, insurance claim for a destroyed fixed asset<\/td><td>Sales, fees, commission, interest, rent, dividend received, discount received, bad debts recovered<\/td><\/tr><\/tbody><\/table><\/div>\n<h3>Capital and revenue profits and losses<\/h3>\n<ul><li><b>Capital profit:<\/b> from non-recurring sources, e.g. selling a fixed asset above book value, premium on issue of shares. Usually taken to a Capital Reserve (share premium itself is credited to Securities Premium A/c).<\/li><li><b>Revenue profit:<\/b> from normal operations, e.g. profit on sale of goods.<\/li><li><b>Capital loss:<\/b> loss on sale of a fixed asset below book value, loss of an asset by fire or flood, discount on issue of shares.<\/li><li><b>Revenue loss:<\/b> from normal operations, e.g. bad debts, discount allowed.<\/li><\/ul>\n<div class=\"call formula\"><b class=\"k\">FORMULA<\/b>Profit or loss on sale of a fixed asset = Sale price − Book value (written down value) on the date of sale<\/div>"}]},"formats":{"1":"<h3>Journal (format)<\/h3>\n<pre class=\"fmt\">Date      Particulars                              L.F.   Debit ₹   Credit ₹\n2026\nApr 1     Cash A/c                        Dr.       12    50,000\n              To Capital A/c                         31              50,000\n          (Being business started with cash)\nApr 5     Purchases A/c                   Dr.       41    18,000\n              To Meena Traders                       52              18,000\n          (Being goods bought on credit)<\/pre>\n<h3>Rules at a glance<\/h3>\n<div class=\"tbl\"><table><thead><tr><th>Item<\/th><th>Rule<\/th><\/tr><\/thead><tbody><tr><td>Personal A/c<\/td><td>Debit the receiver, credit the giver<\/td><\/tr><tr><td>Real A/c<\/td><td>Debit what comes in, credit what goes out<\/td><\/tr><tr><td>Nominal A/c<\/td><td>Debit expenses and losses, credit incomes and gains<\/td><\/tr><tr><td>Error of principle / complete omission / compensating<\/td><td>Trial balance still agrees<\/td><\/tr><tr><td>One-sided error<\/td><td>Use Suspense A/c to rectify<\/td><\/tr><\/tbody><\/table><\/div>"},"questions":[{"id":"q1_1-02","c":"1.1","f":0,"q":"Book-keeping is mainly concerned with","o":["Interpreting financial statements","Taking managerial decisions","Recording and classifying transactions","Auditing the accounts"],"a":2,"e":"Book-keeping is the clerical side: recording transactions in the right books and classifying them. Interpretation belongs to accounting."},{"id":"q1_1-04","c":"1.1","f":1,"q":"Rules of a sector regulator such as SEBI or IRDAI that shape how a firm reports form part of which accounting framework?","o":["Regulatory framework","Legal framework","Institutional framework","Conceptual framework"],"a":0,"e":"Sector regulators (RBI, SEBI, IRDAI, PFRDA, TRAI) issue rules that affect accounting and reporting. That is the regulatory framework.","pp":1},{"id":"q1_1-05","c":"1.1","f":1,"q":"Accounting Standards developed through a professional standard-setting body are part of the","o":["Institutional framework","Regulatory framework","Conceptual framework","Legal framework"],"a":0,"e":"Pronouncements of bodies entrusted with setting standards (such as Accounting Standards and Cost Accounting Standards) form the institutional framework."},{"id":"q1_1-06","c":"1.1","f":0,"q":"The provisions of the Companies Act, 2013 on keeping books of account belong to the","o":["Conceptual framework","Institutional framework","Regulatory framework","Legal framework"],"a":3,"e":"Statutes under which entities are formed and run, such as the Companies Act, 2013, make up the legal framework."},{"id":"q1_1-07","c":"1.1","f":0,"q":"The framework that sets out the objectives of general-purpose financial reporting and the qualitative characteristics of financial statements is the","o":["Conceptual framework","Regulatory framework","Legal framework","Institutional framework"],"a":0,"e":"The conceptual framework is the base of inter-related objectives and concepts. It also guides preparers when no standard covers a transaction."},{"id":"q1_1-08","c":"1.1","f":0,"q":"How many Cost Accounting Standards has the Cost Accounting Standards Board (CASB) issued so far?","o":["40","18","29","24"],"a":3,"e":"CASB of the Institute of Cost Accountants of India has issued 24 Cost Accounting Standards, from CAS 1 to CAS 24."},{"id":"q1_1-09","c":"1.1","f":0,"q":"Which form of business organisation is the least regulated in India in matters of accounting?","o":["Limited liability partnership","Partnership firm","Company","Sole proprietorship"],"a":3,"e":"A sole proprietorship has no specific law prescribing its accounts. Companies are the most regulated."},{"id":"q1_1-10","c":"1.1","f":0,"q":"A Profit and Loss Appropriation Account is normally prepared by a","o":["Partnership firm","Public library","Not-for-profit club","Sole proprietor"],"a":0,"e":"A partnership uses the appropriation account to distribute profit: interest on capital, salary and commission to partners, and the share of profit."},{"id":"q1_1-12","c":"1.1","f":0,"q":"Which financial statement is required for a company but is not usually prepared by a sole proprietor?","o":["Trading Account","Cash Flow Statement","Profit and Loss Account","Balance Sheet"],"a":1,"e":"A company prepares a Cash Flow Statement under the Companies Act, 2013. A sole proprietor normally prepares only Trading A/c, P&L A/c and Balance Sheet."},{"id":"q1_2-01","c":"1.2","f":1,"q":"The owner's personal expenses are not mixed with business expenses because of the","o":["Going concern concept","Money measurement concept","Cost concept","Business entity concept"],"a":3,"e":"The business entity concept treats the business as separate from its owner, so personal spending is drawings, not a business expense."},{"id":"q1_2-02","c":"1.2","f":1,"q":"Capital contributed by the proprietor is shown as a liability of the business because of the","o":["Business entity concept","Matching concept","Conservatism convention","Dual aspect concept"],"a":0,"e":"Since the business and the owner are separate, the business owes the capital to the owner. That is the business entity concept."},{"id":"q1_2-03","c":"1.2","f":1,"q":"Fixed assets are shown at cost less depreciation rather than at their forced sale value because of the","o":["Realisation concept","Money measurement concept","Materiality convention","Going concern concept"],"a":3,"e":"Accounts assume the business will continue, so assets are valued for use, not for an immediate sale. That is the going concern concept."},{"id":"q1_2-04","c":"1.2","f":1,"q":"A business does not record the death of its best salesman in its books because of the","o":["Accrual concept","Money measurement concept","Business entity concept","Consistency convention"],"a":1,"e":"Only events that can be measured in money are recorded. A loss of talent cannot be reliably expressed in money.","pp":1},{"id":"q1_2-05","c":"1.2","f":1,"q":"The accounting equation Assets = Liabilities + Capital is based on the","o":["Accrual concept","Cost concept","Periodicity concept","Dual aspect concept"],"a":3,"e":"Every transaction has two equal aspects. The equation always balances because of this dual aspect."},{"id":"q1_2-06","c":"1.2","f":1,"q":"Salary for March paid in April is still recorded as an expense of March. This follows the","o":["Conservatism convention","Cash basis","Accrual concept","Realisation concept"],"a":2,"e":"Under accrual, an expense is recorded when it is incurred, not when it is paid."},{"id":"q1_2-07","c":"1.2","f":1,"q":"Charging the cost of goods sold in a year against the sales of the same year follows the","o":["Cost concept","Matching concept","Consistency convention","Dual aspect concept"],"a":1,"e":"The matching concept pairs the expenses of a period with the revenues they helped earn in that period."},{"id":"q1_2-08","c":"1.2","f":1,"q":"Revenue on a sale is recognised when a legal right to receive the price arises, not when an order is received. This is the","o":["Accrual concept","Matching concept","Going concern concept","Realisation concept"],"a":3,"e":"Realisation means revenue is earned when the right to receive it is created, usually when goods are sold and delivered."},{"id":"q1_2-09","c":"1.2","f":1,"q":"A machine bought for ₹3,60,000 is now worth ₹4,00,000 in the market but is still shown at its cost less depreciation. This follows the","o":["Full disclosure convention","Materiality convention","Realisation concept","Cost concept"],"a":3,"e":"Assets are recorded at their historical cost, not at market value. Market value changes are ignored under the cost concept."},{"id":"q1_2-10","c":"1.2","f":1,"q":"Making a provision for doubtful debts is an application of the","o":["Convention of conservatism","Matching concept only","Convention of consistency","Money measurement concept"],"a":0,"e":"Conservatism says: anticipate no profit, but provide for all possible losses. A provision for doubtful debts does exactly that."},{"id":"q1_2-12","c":"1.2","f":1,"q":"Using the same depreciation method year after year so that results can be compared follows the","o":["Convention of consistency","Convention of conservatism","Convention of materiality","Accrual concept"],"a":0,"e":"Consistency means the same methods are applied each year. Results stay comparable over time."},{"id":"q1_2-13","c":"1.2","f":0,"q":"Showing figures in the financial statements rounded to the nearest rupee is based on the","o":["Convention of consistency","Cost concept","Dual aspect concept","Convention of materiality"],"a":3,"e":"Paise do not affect any user's decision, so they can be dropped. Only material items need separate attention."},{"id":"q1_2-14","c":"1.2","f":0,"q":"Disclosing a pending legal claim against the business in a note to the accounts follows the","o":["Convention of conservatism","Realisation concept","Cost concept","Convention of full disclosure"],"a":3,"e":"Full disclosure requires all material facts, including contingent liabilities, to be shown fully and fairly."},{"id":"q1_2-15","c":"1.2","f":0,"q":"Preparing the Profit and Loss Account for a period of twelve months follows the","o":["Consistency convention","Accounting period concept","Matching concept","Going concern concept"],"a":1,"e":"The life of the business is split into equal periods, usually a year, so that results can be measured regularly."},{"id":"q1_2-18","c":"1.2","f":0,"q":"GAAP stands for","o":["Government Approved Accounting Policies","Generally Accepted Accounting Principles","General Accounting and Audit Procedures","Generally Applied Audit Practices"],"a":1,"e":"GAAP is the common set of rules, conventions, standards and procedures accepted by the accounting profession."},{"id":"q1_3-02","c":"1.3","f":1,"q":"Import duty paid on raw materials is","o":["Capital expenditure","Capital receipt","Deferred revenue expenditure","Revenue expenditure"],"a":3,"e":"Raw materials are consumed in normal operations, so duty on them is part of the cost of goods, a revenue item. Duty on machinery would be capital."},{"id":"q1_3-04","c":"1.3","f":1,"q":"₹45,000 spent on overhauling a second-hand truck before it is first used in the business is","o":["Deferred revenue expenditure","Revenue expenditure","Capital expenditure","Capital loss"],"a":2,"e":"Repairs needed to put a newly bought second-hand asset into working condition are part of its cost."},{"id":"q1_3-05","c":"1.3","f":1,"q":"Wages paid to the firm's own workers for building a new storeroom are","o":["A capital loss","Revenue expenditure","Capital expenditure","Deferred revenue expenditure"],"a":2,"e":"Wages are normally revenue, but wages spent on creating a fixed asset are added to the cost of that asset."},{"id":"q1_3-06","c":"1.3","f":0,"q":"₹1,200 spent on painting the office walls during the year is","o":["Capital receipt","Deferred revenue expenditure","Revenue expenditure","Capital expenditure"],"a":2,"e":"Routine painting maintains the building. It does not add a new asset or increase capacity."},{"id":"q1_3-07","c":"1.3","f":0,"q":"Legal fees paid to defend a suit about the ownership of the existing factory land are","o":["Deferred revenue expenditure","Capital expenditure","Revenue expenditure","Capital receipt"],"a":2,"e":"The fees protect an asset the firm already owns. Nothing new is acquired, so it is a revenue expense."},{"id":"q1_3-08","c":"1.3","f":0,"q":"Registration fees and stamp duty paid on buying a building are","o":["Revenue loss","Capital expenditure","Capital loss","Revenue expenditure"],"a":1,"e":"Expenses on acquiring a property are part of its cost."},{"id":"q1_3-09","c":"1.3","f":0,"q":"Interest on a term loan taken to build a factory, for the period before production starts, is","o":["Revenue expenditure","Capital expenditure","Capital receipt","Revenue loss"],"a":1,"e":"Interest during the construction period, before the asset is ready for use, is added to the cost of the asset."},{"id":"q1_3-10","c":"1.3","f":0,"q":"Compensation paid to workers who were retrenched is","o":["Deferred revenue expenditure","Revenue expenditure","Capital loss","Capital expenditure"],"a":1,"e":"It is a cost of running the business and gives no lasting asset, so it is revenue expenditure."},{"id":"q1_3-11","c":"1.3","f":1,"q":"Under current accounting practice (AS 26), heavy advertising spent to launch a new product is treated as","o":["A capital loss","Capital expenditure","Deferred revenue expenditure carried forward for 3 years","Revenue expenditure of the year"],"a":3,"e":"AS 26 requires spending on advertising, promotion, research and training to be charged as an expense in the year it is incurred."},{"id":"q1_3-12","c":"1.3","f":1,"q":"Which of the following is a capital receipt?","o":["Bad debts recovered","Commission received","Rent received from a tenant","Sale proceeds of an old machine"],"a":3,"e":"Selling a fixed asset is outside normal trading, so the proceeds are a capital receipt. The others are revenue receipts."},{"id":"q1_3-13","c":"1.3","f":1,"q":"An insurance claim received for a machine completely destroyed by fire is a","o":["Revenue expenditure","Revenue receipt","Capital expenditure","Capital receipt"],"a":3,"e":"The claim replaces a fixed asset, so it is a capital receipt."},{"id":"q1_3-14","c":"1.3","f":0,"q":"An amount received from a customer whose debt was written off as bad two years ago is a","o":["Revenue receipt","Capital profit","Liability","Capital receipt"],"a":0,"e":"Bad debts recovered relate to normal trading and are credited to the Profit and Loss Account."},{"id":"q1_3-15","c":"1.3","f":0,"q":"A loan of ₹2,00,000 taken from a bank is a","o":["Revenue receipt","Revenue income","Capital profit","Capital receipt"],"a":3,"e":"A loan creates a liability. It is a capital receipt and does not affect profit."},{"id":"q1_3-16","c":"1.3","f":0,"q":"Premium received on issue of shares is a","o":["Capital profit","Revenue receipt","Revenue profit","Revenue income"],"a":0,"e":"It arises from raising capital, not from trading, so it is a capital profit."},{"id":"q1_3-18","c":"1.3","f":0,"q":"Which of these is a revenue loss?","o":["Discount allowed to customers","Loss on sale of land","Loss of a building by earthquake","Discount on issue of shares"],"a":0,"e":"Discount allowed arises in normal trading. The others are capital losses."},{"id":"q1_3-19","c":"1.3","f":0,"q":"Capital expenditure is shown in the","o":["Trading Account","Profit and Loss Account","Cash Flow Statement only","Balance Sheet"],"a":3,"e":"Capital expenditure creates an asset, which appears on the asset side of the Balance Sheet. Only its depreciation goes to the P&L."},{"id":"q1_3-20","c":"1.3","f":0,"q":"A dealer in second-hand cars buys a car for resale. For the dealer this is","o":["Capital loss","Deferred revenue expenditure","Revenue expenditure","Capital expenditure"],"a":2,"e":"The cars are the dealer's stock-in-trade, so buying them is a purchase of goods, a revenue item. A car bought for the dealer's own use would be capital."},{"id":"q1_3-21","c":"1.3","f":0,"q":"Import duty paid on raw materials bought for production is","o":["Revenue expenditure","Deferred revenue expenditure","A capital loss","Capital expenditure"],"a":0,"e":"Raw materials are bought for resale or production in the normal course. Duty on them is part of the cost of goods (purchases), which is revenue expenditure."},{"id":"q1_3-22","c":"1.3","f":0,"q":"Compensation received from the government for compulsory acquisition of the firm's land is a","o":["Capital receipt","Revenue income of the year","Revenue receipt","Deferred revenue receipt"],"a":0,"e":"It replaces a fixed asset taken away and is not from normal operations, so it is a capital receipt."}],"mocks":{},"cards":[["1.1","Book-keeping vs Accounting vs Accountancy","Book-keeping (record, classify) ⊂ Accounting (also summarise, analyse, communicate) ⊂ Accountancy (whole body of theory and practice)."],["1.1","Four frameworks of accounting","Conceptual, Legal (Acts), Institutional (standard-setting bodies), Regulatory (RBI, SEBI, IRDAI, TRAI)."],["1.1","Language of business","Accounting, because it communicates results and position to users."],["1.1","Sole proprietor liability","Unlimited. Owner and business are one in law but separate in accounts (business entity concept)."],["1.1","LLP","Separate legal entity with limited liability of partners, under the LLP Act, 2008."],["1.2","Going concern","The business will continue for the foreseeable future, so assets are shown at cost less depreciation, not at break-up value."],["1.2","Accrual concept","Revenue and expenses are recorded when earned or incurred, not when cash moves."],["1.2","Matching concept","Expenses of a period are matched with the revenues of that period."],["1.2","Conservatism (prudence)","Provide for all expected losses; do not anticipate profits."],["1.2","Money measurement","Only events that can be measured in money are recorded."],["1.2","Materiality","Items too small to affect decisions need not be shown separately."],["1.3","Capital expenditure","Gives benefit over more than one year; creates or improves a fixed asset (e.g. installation of a new machine)."],["1.3","Revenue expenditure","Benefit used up within the year; maintains earning capacity (e.g. repairs, wages)."],["1.3","Deferred revenue expenditure","Revenue in nature but benefit spread over a few years (e.g. heavy advertisement for a new product)."],["1.3","Capital receipt","Not from normal business: loans, capital introduced, sale of fixed assets."]],"counts":{"practice":43,"mock":100,"fullPractice":350,"fullCards":115,"fullQuestions":450}};</script>
+<script>
+(function(){
+"use strict";
+const D = DATA;
+const FULL = D.edition === "full";
+const P = "ffca2.";
+const APP = "FFCA Smart Prep";
+const SPLIT_50 = D.modules.map(m=>m.split);          // 15,8,12,15
+const SPLIT_20 = D.modules.map(m=>m.split20);        // 6,3,5,6
+const L = ["A","B","C","D"];
+const SHOP = "https://99digiprostore.myinstamojo.com";
+
+/* ---------- storage (safe) ---------- */
+const S = {
+  ok: true, mem: {},
+  get(k){ try{ const v = localStorage.getItem(P+k); if(v!==null) return v; }catch(e){ this.ok=false; } return (P+k) in this.mem ? this.mem[P+k] : null; },
+  set(k,v){ this.mem[P+k]=v; try{ localStorage.setItem(P+k,v); }catch(e){ this.ok=false; } },
+  del(k){ delete this.mem[P+k]; try{ localStorage.removeItem(P+k); }catch(e){} },
+  json(k,def){ try{ const v=this.get(k); return v?JSON.parse(v):def; }catch(e){ return def; } },
+  put(k,o){ this.set(k, JSON.stringify(o)); }
+};
+try{ localStorage.setItem(P+"t","1"); localStorage.removeItem(P+"t"); }catch(e){ S.ok=false; }
+const sess = {
+  get(){ try{ return sessionStorage.getItem(P+"sess"); }catch(e){ return sess._m||null; } },
+  set(v){ sess._m=v; try{ v?sessionStorage.setItem(P+"sess",v):sessionStorage.removeItem(P+"sess"); }catch(e){} }
+};
+
+/* ---------- helpers ---------- */
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const hash = s => { let x=2166136261; for(let i=0;i<s.length;i++){ x^=s.charCodeAt(i); x=Math.imul(x,16777619);} return (x>>>0).toString(36); };
+const ymd = d => d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+const today = () => ymd(new Date());
+const fmtTime = s => { s=Math.max(0,Math.round(s)); const h=Math.floor(s/3600), m=Math.floor(s%3600/60), x=s%60; return (h?h+":":"")+String(m).padStart(h?2:1,"0")+":"+String(x).padStart(2,"0"); };
+const pct = (a,b) => b ? Math.round(a*100/b) : 0;
+function shuffle(a, seed){ a=a.slice(); const r = seed==null ? Math.random : mulberry(seed); for(let i=a.length-1;i>0;i--){ const j=Math.floor(r()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+function mulberry(a){ return function(){ a|=0; a=a+0x6D2B79F5|0; let t=Math.imul(a^a>>>15,1|a); t=t+Math.imul(t^t>>>7,61|t)^t; return ((t^t>>>14)>>>0)/4294967296; }; }
+function toast(msg){ const t=document.createElement("div"); t.className="toast"; t.setAttribute("role","status"); t.textContent=msg; document.body.appendChild(t); setTimeout(()=>t.remove(),2200); }
+function copyText(text, el){
+  const fail=()=>{ if(el){el.focus();el.select();} toast("Select the text and copy it"); };
+  try{ navigator.clipboard.writeText(text).then(()=>toast("Copied"), fail); }catch(e){ fail(); }
+}
+const MON = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+const DMY = d => ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"][d.getDay()]+", "+d.getDate()+" "+MON[d.getMonth()]+" "+d.getFullYear();
+
+/* ---------- data indexes ---------- */
+const Q = {}; D.questions.forEach(q => Q[q.id]=q);
+const modOf = c => +String(c).split(".")[0];
+const MODS = D.modules;
+const unlocked = n => !MODS[n-1].locked;
+const chTitle = {}; MODS.forEach(m => m.chapters.forEach(c => chTitle[c.id]=c.title));
+const practiceIds = D.questions.filter(q => !q.mock).map(q => q.id);
+const byChapter = {}; practiceIds.forEach(id => { const c=Q[id].c; (byChapter[c]=byChapter[c]||[]).push(id); });
+const byModule = {}; practiceIds.forEach(id => { const m=modOf(Q[id].c); (byModule[m]=byModule[m]||[]).push(id); });
+const hasNotes = id => (D.notes[modOf(id)]||[]).some(s=>s.id===id);
+const openPool = () => practiceIds.filter(id=>unlocked(modOf(Q[id].c)));
+
+/* ---------- users and progress ---------- */
+let users = S.json("users", []);
+let me = null, prog = null;
+const saveUsers = () => S.put("users", users);
+const blankProg = () => ({answers:{}, read:{}, mistakes:{}, mocks:[], cards:{}, days:[], live:null, match:{}});
+function loadProg(id){ const p = S.json("p."+id, null) || blankProg(); return Object.assign(blankProg(), p); }
+function save(){ if(me){ S.put("p."+me.id, prog); } }
+function touchDay(){ const t=today(); if(!prog.days.includes(t)){ prog.days.push(t); if(prog.days.length>400) prog.days=prog.days.slice(-400); } }
+function streak(){ const set=new Set(prog.days); let n=0; const d=new Date(); if(!set.has(today())) d.setDate(d.getDate()-1); while(set.has(ymd(d))){ n++; d.setDate(d.getDate()-1); } return n; }
+function record(id, correct){
+  const a = prog.answers[id] || {n:0,c:0,last:0};
+  a.n++; if(correct) a.c++; a.last = correct?1:0; prog.answers[id]=a;
+  if(!correct) prog.mistakes[id]=0;
+  else if(id in prog.mistakes){ prog.mistakes[id]++; if(prog.mistakes[id]>=2) delete prog.mistakes[id]; }
+  touchDay();
+}
+function statsFor(ids){ let seen=0, right=0, att=0, cor=0; ids.forEach(id=>{ const a=prog.answers[id]; if(a){ seen++; if(a.last) right++; att+=a.n; cor+=a.c; } }); return {seen, right, total:ids.length, acc:pct(cor,att), att}; }
+const mistakesIn = m => Object.keys(prog.mistakes).filter(id=>Q[id] && unlocked(modOf(Q[id].c)) && (m==null || modOf(Q[id].c)===m));
+
+/* ---------- app state ---------- */
+let view = "chapters", sub = {}, timerH = null;
+let theme = S.get("theme") || "system";
+function applyTheme(){ const r=document.documentElement; if(theme==="system") r.removeAttribute("data-theme"); else r.setAttribute("data-theme",theme); }
+applyTheme();
+function go(v, s){ view=v; sub=s||{}; render(); try{ window.scrollTo(0,0); }catch(e){} }
+function rerender(){ const y=window.scrollY; render(); window.scrollTo(0,y); }
+
+/* ---------- shell ---------- */
+const TABS = [["chapters","Chapters"],["mocks","Mock Exam"],["settings","Settings"],["readme","Readme"]];
+const tabOf = v => ({chapter:"chapters", session:"chapters", instr:"mocks", result:"mocks"}[v] || v);
+function shell(inner){
+  const ex = view==="exam";
+  return `
+<header class="top"><div class="wrap">
+  <div class="brand grow"><b>${APP}${FULL?"":" · Free sample"}</b><span>CMA Foundation · Paper 2 · Financial and Cost Accounting · by 99DigiProStore</span></div>
+  ${ex?"":`<button class="chip" data-act="switch" title="Switch student"><span class="avatar">${esc(me.name[0].toUpperCase())}</span><span class="hide-sm">${esc(me.name)}</span><span class="small muted">Switch</span></button>`}
+</div></header>
+${ex?"":`<nav class="tabs" aria-label="Main sections"><div class="wrap">${TABS.map(([k,t])=>`<button class="tab" data-act="tab" data-v="${k}" ${tabOf(view)===k?'aria-current="page"':""}>${t}</button>`).join("")}</div></nav>`}
+${S.ok?"":`<div class="wrap" style="padding-top:12px"><div class="banner">This browser is not saving progress, so it will be lost when you close the page. Open the file in Chrome, Edge or Firefox for saved progress.</div></div>`}
+<main><div class="wrap">${inner}</div></main>
+${footer()}`;
+}
+function footer(){
+  return `<footer><div class="wrap">
+  <span><b>Independent study aid.</b> ${APP} is made by 99DigiProStore. It is not affiliated with, endorsed by or connected to the Institute of Cost Accountants of India (ICMAI). All notes and questions are original and written for practice.</span>
+  <span>Always follow the latest syllabus, study material and exam notices from the Institute. Practice scores do not guarantee or predict exam results.</span>
+  <span>© 99DigiProStore · ${esc(D.version)} · Support: digiprostore99@gmail.com. For the buyer's personal use only. Please do not share or resell this file.</span>
+</div></footer>`;
+}
+function subtabs(items, cur, act, extra){
+  return `<div class="subtabs" role="tablist">${items.map(([k,t])=>`<button class="subtab" role="tab" data-act="${act}" data-t="${k}" ${extra||""} aria-current="${cur===k}">${t}</button>`).join("")}</div>`;
+}
+
+/* ---------- LOGIN ---------- */
+function loginView(){
+  const s = sub;
+  let body;
+  if(s.mode==="new"){
+    body = `<div class="sheet stack">
+      <h2>Create your profile</h2>
+      <p class="muted small">Your progress, Mistake Book and mock scores are saved under this profile on this device.</p>
+      <label class="f">Your name<input type="text" id="nName" maxlength="24" autocomplete="off" placeholder="e.g. Ananya"></label>
+      <label class="f">4-digit PIN (optional)<input type="password" id="nPin" class="pin" inputmode="numeric" maxlength="4" autocomplete="off" placeholder="••••"></label>
+      <label class="f">Confirm PIN<input type="password" id="nPin2" class="pin" inputmode="numeric" maxlength="4" autocomplete="off" placeholder="••••"></label>
+      <p class="err" id="nErr" role="alert"></p>
+      <div class="row"><button class="btn primary" data-act="createUser">Create profile</button>${users.length?`<button class="btn ghost" data-act="loginHome">Back</button>`:""}</div>
+    </div>`;
+  } else if(s.mode==="pin"){
+    const u = users.find(x=>x.id===s.uid);
+    body = `<div class="sheet stack" style="text-align:center;align-items:center">
+      <span class="avatar" style="width:56px;height:56px;font-size:1.4rem">${esc(u.name[0].toUpperCase())}</span>
+      <h2>Hi ${esc(u.name)}</h2>
+      <label class="f" style="width:100%;max-width:220px">Enter your PIN<input type="password" id="pin" class="pin" inputmode="numeric" maxlength="4" autocomplete="off"></label>
+      <p class="err" id="pErr" role="alert"></p>
+      <div class="row" style="justify-content:center"><button class="btn primary" data-act="checkPin">Open</button><button class="btn ghost" data-act="loginHome">Back</button></div>
+      <p class="small muted">Forgot the PIN? A PIN can't be recovered. Create a new profile and restore a backup code if you saved one.</p>
+    </div>`;
+  } else {
+    body = `<div class="sheet stack">
+      <h2>Who is studying?</h2>
+      ${users.length?`<div class="users">${users.map(u=>`<button class="user" data-act="pickUser" data-id="${u.id}"><span class="avatar">${esc(u.name[0].toUpperCase())}</span><b>${esc(u.name)}</b><span class="small muted">${u.pin?"PIN protected":"No PIN"}</span></button>`).join("")}</div>`:`<p class="muted">No profiles yet. Create one to start.</p>`}
+      <button class="btn ${users.length?"":"primary"}" data-act="newUser">+ New student</button>
+    </div>`;
+  }
+  return `<div class="wrap login"><div class="box stack">
+    <div class="stack" style="gap:6px">
+      <span class="label">CMA Foundation · Paper 2</span>
+      <h1>${APP}${FULL?"":" <span class='pill fav' style='vertical-align:middle'>Free sample</span>"}</h1>
+      <p class="muted">Fundamentals of Financial and Cost Accounting: chapter overviews, formats, ${FULL?D.counts.practice+" practice MCQs, 2 full mock exams with a calculator and rough sheet":"Module 1 notes, practice MCQs and a taster mock"}, flashcards and a Mistake Book in one offline file.</p>
+      <span class="small muted mono">${esc(D.version)}</span>
+    </div>
+    ${S.ok?"":`<div class="banner">This browser is not saving data, so profiles will disappear when the page closes. Open the file in Chrome, Edge or Firefox.</div>`}
+    ${body}
+    <div class="card small muted stack" style="gap:6px">
+      <span><b>About profiles.</b> Each student gets a separate profile, so brothers, sisters or friends sharing a phone or laptop keep their own progress. Everything stays on this device and nothing is sent anywhere. The PIN only stops profiles getting mixed up. It is not strong security.</span>
+      <span>Independent study aid by 99DigiProStore. Not affiliated with or endorsed by the Institute of Cost Accountants of India.</span>
+    </div>
+  </div></div>`;
+}
+const liveOk = () => !!(prog && prog.live && prog.live.qids.every(id=>Q[id]));
+function enterUser(u){ me=u; prog=loadProg(u.id); sess.set(u.id); touchDay(); save(); go(liveOk()?"exam":"chapters"); }
+
+/* ---------- CHAPTERS (main tab) ---------- */
+function nextStep(){
+  const st = statsFor(openPool());
+  const unread=[]; MODS.forEach(m=>{ if(!m.locked) m.chapters.forEach(c=>{ if(hasNotes(c.id) && !prog.read[c.id]) unread.push(c); }); });
+  const weak=[]; MODS.forEach(m=>{ if(!m.locked) m.chapters.filter(c=>hasNotes(c.id)).forEach(c=>{ const s=statsFor(byChapter[c.id]||[]); if(s.att>=5 && s.acc<60) weak.push([c,s.acc]); }); });
+  weak.sort((a,b)=>a[1]-b[1]);
+  const mist = mistakesIn().length;
+  const op = c => `data-act="openChapter" data-m="${modOf(c.id)}" data-t="overview" data-c="${c.id}"`;
+  if(unread.length && st.seen<10){ const c=unread[0]; return {t:`Read ${c.id} ${c.title}`, d:"Start with the overview, then answer that topic's MCQs.", a:op(c), b:"Open overview"}; }
+  if(weak.length){ const c=weak[0][0]; return {t:`Strengthen ${c.id} ${c.title}`, d:`Your accuracy here is ${weak[0][1]}%. Re-read the overview and practise again.`, a:`data-act="startChapter" data-c="${c.id}"`, b:"Practise this topic"}; }
+  if(mist>=5) return {t:`Fix your ${mist} mistakes`, d:"A question leaves the Mistake Book after you get it right twice in a row.", a:`data-act="startMistakes"`, b:"Practise mistakes"};
+  if(unread.length){ const c=unread[0]; return {t:`Read ${c.id} ${c.title}`, d:"Keep moving through the syllabus.", a:op(c), b:"Open overview"}; }
+  if(FULL) return {t:"Take a full mock exam", d:"50 questions in 1 hour, like the real paper. Review every answer afterwards.", a:`data-act="tab" data-v="mocks"`, b:"Go to Mock Exam"};
+  return {t:"Try the taster mock", d:"10 questions from the free topics against the clock.", a:`data-act="tab" data-v="mocks"`, b:"Go to Mock Exam"};
+}
+function chaptersView(){
+  const t = sub.t || "dash";
+  const tabs = subtabs([["dash","Dashboard"],["mist","Mistake Book"],["perf","Performance"]], t, "chapTab");
+  let body;
+  if(t==="mist") body = mistakeBody(null);
+  else if(t==="perf") body = perfOverall();
+  else body = dashBody();
+  return shell(`<div class="stack" style="gap:16px">${tabs}${body}</div>`);
+}
+function dashBody(){
+  const pool = openPool(), st = statsFor(pool), cover = pct(st.seen, pool.length), nx = nextStep();
+  const best = prog.mocks.reduce((b,m)=>Math.max(b,m.score),0);
+  return `
+  <div class="row" style="gap:16px;align-items:center">
+    <div class="ring" style="--p:${cover}" aria-label="${cover}% of practice questions attempted"><b>${cover}%</b></div>
+    <div class="grow stack" style="gap:4px"><span class="label">Welcome back</span><h1>Hi ${esc(me.name)}</h1>
+      <p class="muted small">You have tried ${st.seen} of ${pool.length} practice MCQs${FULL?"":" in the free module"}.</p></div>
+  </div>
+  <div class="grid3 stats">
+    <div class="card stat"><span class="small muted">Accuracy</span><b>${st.att?st.acc+"%":"–"}</b></div>
+    <div class="card stat"><span class="small muted">Study streak</span><b>${streak()} day${streak()===1?"":"s"}</b></div>
+    <div class="card stat"><span class="small muted">Mocks taken</span><b>${prog.mocks.length}</b>${prog.mocks.length?`<span class="small muted">best ${best}/100</span>`:""}</div>
+  </div>
+  <div class="sheet stack"><span class="label">Your next step</span><h2>${esc(nx.t)}</h2><p class="muted">${esc(nx.d)}</p><div><button class="btn primary" ${nx.a}>${nx.b}</button></div></div>
+  <div class="grid3">
+    <button class="card stack" style="text-align:left" data-act="startQuick"><span class="label">5 minutes</span><h3>Quick 10</h3><span class="small muted">Ten mixed MCQs, new ones first.</span></button>
+    <button class="card stack" style="text-align:left" data-act="startFav"><span class="label">${pool.filter(id=>Q[id].f).length} questions</span><h3>Core concepts</h3><span class="small muted">The central ideas of each topic.</span></button>
+    <button class="card stack" style="text-align:left" data-act="chapTab" data-t="mist"><span class="label">${mistakesIn().length} saved</span><h3>Mistake Book</h3><span class="small muted">Every wrong answer, until you fix it.</span></button>
+  </div>
+  <h2>Chapters</h2>
+  ${MODS.map(m=>{ const s=statsFor(byModule[m.n]||[]); const rd=m.chapters.filter(c=>prog.read[c.id]).length;
+    return `<button class="card mod ${m.locked?"locked":""}" style="text-align:left;width:100%" data-act="openChapter" data-m="${m.n}">
+      <span class="modno">${m.n}</span>
+      <div class="grow stack" style="gap:6px">
+        <div class="row" style="justify-content:space-between"><h3>${esc(m.title)}</h3><span class="pill">${m.weight}% weight · ${m.split} of 50 Qs</span></div>
+        ${m.locked?`<span class="lock">🔒 In the full kit</span>`:`
+        <div class="bar ${s.acc>=60?"g":""}"><i style="width:${pct(s.seen,s.total)}%"></i></div>
+        <span class="small muted">${s.seen}/${s.total} MCQs tried · ${s.att?s.acc+"% accuracy":"not started"} · ${rd}/${m.chapters.length} topics read</span>`}
+      </div></button>`; }).join("")}
+  ${FULL?"":upsell()}`;
+}
+function upsell(){
+  return `<div class="upsell stack">
+    <h2>Unlock all four modules</h2>
+    <p>The free sample opens topics 1.1 to 1.3 of Module 1 (Accounting Fundamentals). The full ${APP} kit adds:</p>
+    <ul style="margin:0;padding-left:1.2em">
+      <li>All 20 topic overviews and formats: journal to depreciation, consignment, joint venture, bills, final accounts, not-for-profit accounts and cost accounting</li>
+      <li>${D.counts.fullPractice} practice MCQs with step-by-step workings, plus Mistake Book and performance tracking</li>
+      <li>2 full mock exams (50 questions, 1 hour) with a calculator and rough sheet, plus shuffle and mini mocks</li>
+      <li>${D.counts.fullCards} flashcards, Match Sprint, a bill due date calculator and a cost sheet builder</li>
+    </ul>
+    <p>Get it from the 99DigiProStore shop:</p>
+    <div class="row"><input type="text" id="shopUrl" readonly value="99digiprostore.myinstamojo.com" style="max-width:320px"><button class="btn primary" data-act="copyShop">Copy link</button></div>
+    <p class="small muted">Your free-topic progress stays in your profile if you open the full kit in the same browser.</p>
+  </div>`;
+}
+
+/* ---------- one chapter (module) with sub-tabs ---------- */
+const CH_TABS = [["overview","Overview"],["formats","Formats & formulas"],["mcq","MCQs"],["cards","Flashcards"],["match","Match Sprint"],["mist","Mistake Book"],["perf","Performance"]];
+function chapterView(){
+  const m = MODS[sub.m-1];
+  const head = `<button class="btn ghost" style="align-self:flex-start" data-act="tab" data-v="chapters">← All chapters</button>
+    <div class="stack" style="gap:4px"><span class="label">Module ${m.n} · ${m.weight}% weight · about ${m.split} of 50 questions</span><h1>${esc(m.title)}</h1></div>`;
+  if(m.locked) return shell(`<div class="stack" style="gap:14px">${head}${upsell()}</div>`);
+  const t = sub.t || "overview";
+  const tabs = subtabs(CH_TABS, t, "chTab", `data-m="${m.n}"`);
+  const body = ({overview:overviewBody, formats:formatsBody, mcq:mcqBody, cards:cardsBody, match:matchBody, mist:()=>mistakeBody(m.n), perf:perfModule}[t]||overviewBody)(m);
+  return shell(`<div class="stack" style="gap:14px">${head}${tabs}${body}</div>`);
+}
+function overviewBody(m){
+  const secs = D.notes[m.n];
+  const lockedCh = m.chapters.filter(c=>!secs.some(s=>s.id===c.id));
+  return `<div class="toc">${secs.map(s=>`<button data-act="jump" data-c="${s.id}">${prog.read[s.id]?"✓ ":""}${s.id} ${esc(s.title)}</button>`).join("")}${lockedCh.map(c=>`<button disabled title="In the full kit">🔒 ${c.id} ${esc(c.title)}</button>`).join("")}</div>
+    <article class="notes">${secs.map(s=>{ const n=(byChapter[s.id]||[]).length; return `
+      <h2 id="sec-${s.id.replace(".","-")}">${s.id} ${esc(s.title)}</h2>
+      ${s.html}
+      <div class="row" style="margin-top:14px">
+        <button class="btn ${prog.read[s.id]?"":"primary"}" data-act="markRead" data-c="${s.id}">${prog.read[s.id]?"✓ Read":"Mark as read"}</button>
+        ${n?`<button class="btn" data-act="startChapter" data-c="${s.id}">Practise ${s.id} (${n} MCQs)</button>`:""}
+      </div>`; }).join("")}
+    </article>${lockedCh.length?upsell():""}`;
+}
+function formatsBody(m){
+  const tools = m.n===1 ? depTool() : m.n===2 ? maturityTool() : m.n===4 ? costTool() : "";
+  return `<p class="muted small">Quick-reference tables and specimen formats for this module. The specimens use made-up names and figures.</p>
+    ${tools}<article class="notes">${D.formats[m.n]||"<p>No formats for this module.</p>"}</article>`;
+}
+const inr = v => { const n=Math.round(v*100)/100; const neg=n<0; let [a,b]=Math.abs(n).toFixed(2).split("."); let last=a.slice(-3), rest=a.slice(0,-3); if(rest) last=","+last; rest=rest.replace(/\B(?=(\d{2})+(?!\d))/g,","); return (neg?"−":"")+"₹"+rest+last+(b!=="00"?"."+b:""); };
+const numIn = (id, def) => { const el=$("#"+id); const v=el?parseFloat(String(el.value).replace(/,/g,"")):NaN; return isFinite(v)?v:def; };
+function depTool(){
+  const v = sub.dep || {c:100000, r:10000, l:5, p:20, k:"slm", y:5};
+  return `<div class="tool stack"><span class="label">Try it · Topic 1.9</span><h3>Depreciation calculator</h3>
+    <p class="small muted">See how SLM and WDV charge depreciation year by year. Change the figures and compare.</p>
+    <div class="row">
+      <label class="f">Cost (₹)<input type="number" id="depC" min="0" value="${esc(v.c)}"></label>
+      <label class="f">Method<select id="depK"><option value="slm" ${v.k==="slm"?"selected":""}>Straight line (SLM)</option><option value="wdv" ${v.k==="wdv"?"selected":""}>Written down value (WDV)</option></select></label>
+      <label class="f">Residual value (₹, SLM)<input type="number" id="depR" min="0" value="${esc(v.r)}"></label>
+      <label class="f">Useful life (years, SLM)<input type="number" id="depL" min="1" max="50" value="${esc(v.l)}"></label>
+      <label class="f">Rate % (WDV)<input type="number" id="depP" min="0" max="100" step="0.01" value="${esc(v.p)}"></label>
+      <label class="f">Years to show<input type="number" id="depY" min="1" max="15" value="${esc(v.y)}"></label>
+    </div>
+    <div><button class="btn primary" data-act="calcDep">Show schedule</button></div>
+    ${v.out?`<div class="out">${v.out}</div>`:""}
+  </div>`;
+}
+function calcDep(){
+  const c=Math.max(0,numIn("depC",0)), r=Math.max(0,numIn("depR",0)), l=Math.max(1,Math.min(50,Math.round(numIn("depL",1)))), p=Math.max(0,Math.min(100,numIn("depP",0))), y=Math.max(1,Math.min(15,Math.round(numIn("depY",5)))), k=$("#depK").value;
+  sub.dep={c,r,l,p,k,y};
+  if(!c){ sub.dep.out="Please enter the cost of the asset."; return; }
+  if(k==="slm" && r>c){ sub.dep.out="Residual value cannot be more than the cost."; return; }
+  const rows=[]; let bv=c; const slm=(c-r)/l;
+  for(let i=1;i<=y;i++){ let d = k==="slm" ? (i<=l?slm:0) : bv*p/100; d=Math.round(d*100)/100; rows.push([i,bv,d,bv-d]); bv=Math.round((bv-d)*100)/100; }
+  const how = k==="slm" ? `Annual depreciation = (${inr(c)} − ${inr(r)}) ÷ ${l} = <b>${inr(slm)}</b>, the same every year.` : `Each year: ${p}% of the opening book value, so the charge falls every year and the book value never reaches zero.`;
+  sub.dep.out = `<p class="small">${how}</p><div class="tbl"><table><thead><tr><th>Year</th><th>Opening book value</th><th>Depreciation</th><th>Closing book value</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${r[0]}</td><td class="mono">${inr(r[1])}</td><td class="mono">${inr(r[2])}</td><td class="mono">${inr(r[3])}</td></tr>`).join("")}</tbody></table></div>`;
+}
+function maturityTool(){
+  const v = sub.mat || {};
+  return `<div class="tool stack"><span class="label">Try it · Topic 2.3</span><h3>Bill due date calculator</h3>
+    <p class="small muted">Enter the date of the bill (for an after-sight bill, the date of acceptance) and its term. It adds 3 days of grace and checks for holidays.</p>
+    <div class="row">
+      <label class="f">Bill date<input type="date" id="matD" value="${esc(v.d||"")}"></label>
+      <label class="f">Term<select id="matT"><option value="m" ${v.t==="m"?"selected":""}>months after date / sight</option><option value="d" ${v.t==="d"?"selected":""}>days after date / sight</option><option value="dem" ${v.t==="dem"?"selected":""}>on demand / at sight</option></select></label>
+      <label class="f">Number<input type="number" id="matN" min="0" max="999" value="${esc(v.n==null?3:v.n)}"></label>
+      <label class="f">Due date declared an emergency holiday?<select id="matE"><option value="0" ${v.e?"":"selected"}>No</option><option value="1" ${v.e?"selected":""}>Yes</option></select></label>
+    </div>
+    <div><button class="btn primary" data-act="calcMat">Work out due date</button></div>
+    ${v.out?`<div class="out">${v.out}</div>`:""}
+  </div>`;
+}
+function addMonthsClamp(d, n){ const y=d.getFullYear(), m=d.getMonth()+n, day=d.getDate(); const last=new Date(y, m+1, 0).getDate(); return new Date(y, m, Math.min(day,last)); }
+function addDays(d, n){ const x=new Date(d.getFullYear(), d.getMonth(), d.getDate()); x.setDate(x.getDate()+n); return x; }
+function parseD(s){ const m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(s||""); return m?new Date(+m[1],+m[2]-1,+m[3]):null; }
+const NAT = {"0-26":"Republic Day","7-15":"Independence Day","9-2":"Gandhi Jayanti"};
+const holName = d => d.getDay()===0 ? "a Sunday" : (NAT[d.getMonth()+"-"+d.getDate()] ? NAT[d.getMonth()+"-"+d.getDate()]+", a national holiday" : "");
+function calcMaturity(){
+  const ds=$("#matD").value, t=$("#matT").value, n=Math.max(0,Math.min(999,parseInt($("#matN").value||"0",10)||0)), e=$("#matE").value==="1";
+  const d=parseD(ds); sub.mat={d:ds,t,n,e};
+  if(!d){ sub.mat.out="Please pick the bill date."; return; }
+  if(t==="dem"){ sub.mat.out=`A bill payable on demand or at sight is due when it is presented. <b>No days of grace</b> are allowed.`; return; }
+  const steps=[];
+  let base;
+  if(t==="m"){ base=addMonthsClamp(d,n); const plain=new Date(d.getFullYear(), d.getMonth()+n, d.getDate()); steps.push(`${n} month${n===1?"":"s"} after ${DMY(d)} = <b>${DMY(base)}</b>`+(plain.getDate()!==d.getDate()?` (that month has no ${d.getDate()}th, so the last day of the month is used)`:"")); }
+  else { base=addDays(d,n); steps.push(`${n} day${n===1?"":"s"} after ${DMY(d)}, leaving out the date of the bill = <b>${DMY(base)}</b>`); }
+  let due=addDays(base,3); steps.push(`Add 3 days of grace = <b>${DMY(due)}</b>`);
+  if(e){ due=addDays(due,1); steps.push(`It was declared an emergency holiday, so the bill is due on the next day = <b>${DMY(due)}</b>`); }
+  else { let h=holName(due), guard=0; while(h && guard++<7){ const prev=addDays(due,-1); steps.push(`${DMY(due)} is ${h} (a public holiday), so move to the preceding business day = <b>${DMY(prev)}</b>`); due=prev; h=holName(due); } }
+  sub.mat.out = `<b>Due date: ${DMY(due)}</b><ol class="steps small">${steps.map(s=>`<li>${s}</li>`).join("")}</ol><p class="small muted">The tool knows Sundays, 26 January, 15 August and 2 October. If the due date is any other public holiday in your state, the bill is due on the business day before it.</p>`;
+}
+const COSTF = [["oRM","Opening raw materials",50000],["pur","Purchases of raw materials",600000],["cin","Carriage inward",10000],["cRM","Closing raw materials",60000],["dw","Direct wages",240000],["de","Direct expenses",30000],["foh","Factory overheads",150000],["oW","Opening WIP",20000],["cW","Closing WIP",30000],["scr","Sale of scrap",5000],["adm","Administration overheads",75000],["oF","Opening finished goods",40000],["cF","Closing finished goods",70000],["sd","Selling and distribution overheads",50000],["sal","Sales",1320000]];
+function costTool(){
+  const v = sub.cost || {};
+  return `<div class="tool stack"><span class="label">Try it · Topic 4.5</span><h3>Cost sheet builder</h3>
+    <p class="small muted">The figures of the worked example are filled in. Change any of them and build the cost sheet step by step.</p>
+    <div class="row">${COSTF.map(([k,l,d])=>`<label class="f">${l} (₹)<input type="number" id="cs_${k}" min="0" value="${esc(v[k]==null?d:v[k])}"></label>`).join("")}</div>
+    <div><button class="btn primary" data-act="calcCost">Build cost sheet</button></div>
+    ${v.out?`<div class="out">${v.out}</div>`:""}
+  </div>`;
+}
+function calcCost(){
+  const x={}; COSTF.forEach(([k,,d])=>{ x[k]=Math.max(0,numIn("cs_"+k,0)); }); sub.cost=Object.assign({},x);
+  const mat=x.oRM+x.pur+x.cin-x.cRM, prime=mat+x.dw+x.de, works=prime+x.foh+x.oW-x.cW-x.scr, cop=works+x.adm, cogs=cop+x.oF-x.cF, cos=cogs+x.sd, pr=x.sal-cos;
+  const row=(l,v,b)=>`<tr${b?' class="tot"':""}><td>${b?"<b>"+l+"</b>":l}</td><td class="mono">${b?"<b>"+inr(v)+"</b>":inr(v)}</td></tr>`;
+  sub.cost.out = (mat<0?`<p class="small" style="color:var(--bad)">Closing stock is more than what was available, so material consumed is negative. Check the figures.</p>`:"")+`<div class="tbl"><table><tbody>
+    ${row("Material consumed (opening + purchases + carriage − closing)",mat)}${row("+ Direct wages + direct expenses",x.dw+x.de)}${row("Prime cost",prime,1)}
+    ${row("+ Factory overheads + opening WIP − closing WIP − scrap",x.foh+x.oW-x.cW-x.scr)}${row("Works (factory) cost",works,1)}
+    ${row("+ Administration overheads",x.adm)}${row("Cost of production",cop,1)}
+    ${row("+ Opening − closing finished goods",x.oF-x.cF)}${row("Cost of goods sold",cogs,1)}
+    ${row("+ Selling and distribution overheads",x.sd)}${row("Cost of sales",cos,1)}
+    ${row(pr>=0?"Profit (sales − cost of sales)":"Loss (cost of sales − sales)",Math.abs(pr),1)}</tbody></table></div>
+    ${cos>0&&x.sal>0?`<p class="small muted">Profit is ${(pr*100/cos).toFixed(2)}% on cost of sales and ${(pr*100/x.sal).toFixed(2)}% on sales. Conversion cost = ${inr(x.dw+x.de+x.foh)}.</p>`:""}`;
+}
+function mcqBody(m){
+  const ids = byModule[m.n]||[], s=statsFor(ids), fav=ids.filter(id=>Q[id].f).length;
+  return `<div class="grid3">
+      <button class="sheet stack" style="text-align:left" data-act="startModule" data-m="${m.n}"><span class="label">${ids.length} MCQs</span><h3>Whole module</h3><span class="small muted">New questions first, then the ones you got wrong.</span></button>
+      <button class="sheet stack" style="text-align:left" data-act="startModFav" data-m="${m.n}"><span class="label">${fav} MCQs</span><h3>Core concepts</h3><span class="small muted">The central ideas of this module.</span></button>
+      <button class="sheet stack" style="text-align:left" data-act="startModMist" data-m="${m.n}"><span class="label">${mistakesIn(m.n).length} saved</span><h3>My mistakes here</h3><span class="small muted">Wrong answers from this module only.</span></button>
+    </div>
+    <div class="card stack"><div class="row" style="justify-content:space-between"><h3>By topic</h3><span class="small muted">${s.seen}/${s.total} tried${s.att?" · "+s.acc+"% accuracy":""}</span></div>
+    ${m.chapters.map(c=>{ const ids=byChapter[c.id]||[]; const s=statsFor(ids); return `
+      <div class="row"><div class="grow stack" style="gap:3px"><span><b>${c.id}</b> ${esc(c.title)}</span>
+        <div class="bar ${s.acc>=60?"g":""}" style="max-width:280px"><i style="width:${pct(s.seen,s.total)}%"></i></div>
+        <span class="small muted">${s.seen}/${s.total} tried${s.att?" · "+s.acc+"% accuracy":""}</span></div>
+        ${ids.length?`<button class="btn" data-act="startChapter" data-c="${c.id}">Practise</button>`:(FULL?`<button class="btn" disabled>Practise</button>`:`<span class="lock">🔒 Full kit</span>`)}</div>`; }).join("")}
+    </div>
+    <p class="small muted">Every answer shows an explanation straight away. Wrong answers go to the Mistake Book.</p>`;
+}
+function cardsBody(m){
+  const cards = D.cards.filter(c=>modOf(c[0])===m.n);
+  const f = sub.flash;
+  const known = cards.filter(c=>prog.cards[c[1]]).length;
+  if(!f) return `<div class="sheet stack"><div class="row" style="justify-content:space-between"><h2>Flashcards</h2><span class="pill ink">${known}/${cards.length} known</span></div>
+    <p class="muted small">Key sections, cases and terms. Tap a card to flip it, then say whether you knew it.</p>
+    <div class="row"><button class="btn primary" data-act="startFlash" data-m="${m.n}" data-v="all">All ${cards.length} cards</button><button class="btn" data-act="startFlash" data-m="${m.n}" data-v="due" ${known===cards.length?"disabled":""}>Only ones I don't know (${cards.length-known})</button></div></div>`;
+  const c = f.list[f.i];
+  if(!c) return `<div class="sheet stack"><h2>Deck finished</h2><p class="muted">${f.got} of ${f.list.length} marked as known.</p><div class="row"><button class="btn primary" data-act="chTab" data-m="${m.n}" data-t="cards">Back to flashcards</button><button class="btn" data-act="chTab" data-m="${m.n}" data-t="match">Play Match Sprint</button></div></div>`;
+  return `<div class="row" style="justify-content:space-between"><span class="mono small muted">Card ${f.i+1} of ${f.list.length} · ${c[0]} ${esc(chTitle[c[0]]||"")}</span><button class="btn ghost" data-act="chTab" data-m="${m.n}" data-t="cards">End</button></div>
+    <div class="flash" data-act="flip" role="button" tabindex="0" aria-label="Flip card">${f.flip?`<p class="def">${esc(c[2])}</p>`:`<div class="stack" style="gap:8px"><span class="term">${esc(c[1])}</span><span class="small muted">Tap to see the answer</span></div>`}</div>
+    ${f.flip?`<div class="row"><button class="btn primary" data-act="cardKnow" data-v="1">I knew it</button><button class="btn" data-act="cardKnow" data-v="0">Review again</button></div>`:`<div class="row"><button class="btn primary" data-act="flip">Show answer</button></div>`}`;
+}
+function matchBody(m){
+  const g = sub.game;
+  const rec = prog.match[m.n];
+  if(!g) return `<div class="sheet stack"><span class="label">Game</span><h2>Match Sprint</h2>
+    <p class="muted">Match 5 terms with their meanings as fast as you can. Tap a term, then tap its meaning. Wrong taps add a 5-second penalty.</p>
+    ${rec?`<p class="small">Best time: <b class="mono">${fmtTime(rec.best)}</b> · Games played: ${rec.plays}</p>`:`<p class="small muted">No games yet.</p>`}
+    <div><button class="btn primary" data-act="startMatch" data-m="${m.n}">Start a round</button></div></div>`;
+  if(g.end){
+    return `<div class="sheet stack"><h2>Round complete</h2><p>Time <b class="mono">${fmtTime(g.end)}</b> including ${g.miss} wrong tap${g.miss===1?"":"s"} (+${g.miss*5}s).${g.best?" <span class='pill good'>New best</span>":""}</p>
+      <div class="stack small">${g.items.map(c=>`<div>• <b>${esc(c[1])}</b>: ${esc(c[2])}</div>`).join("")}</div>
+      <div class="row"><button class="btn primary" data-act="startMatch" data-m="${m.n}">Play again</button><button class="btn" data-act="chTab" data-m="${m.n}" data-t="cards">Flashcards</button></div></div>`;
+  }
+  return `<div class="row" style="justify-content:space-between"><span class="label">Match Sprint · ${g.done.length}/5 matched</span><span class="timer" id="mtimer">${fmtTime((Date.now()-g.start)/1000+g.miss*5)}</span></div>
+    <div class="match">
+      <div class="mcell">${g.items.map((c,i)=>`<button class="mbtn ${g.done.includes(i)?"done":""} ${g.sel===i?"on":""}" data-act="mTerm" data-i="${i}" ${g.done.includes(i)?"disabled":""}><b>${esc(c[1])}</b></button>`).join("")}</div>
+      <div class="mcell">${g.order.map(i=>`<button class="mbtn ${g.done.includes(i)?"done":""} ${g.bad===i?"no":""}" data-act="mDef" data-i="${i}" ${g.done.includes(i)?"disabled":""}>${esc(g.items[i][2])}</button>`).join("")}</div>
+    </div>
+    <div><button class="btn ghost" data-act="chTab" data-m="${m.n}" data-t="match">Quit round</button></div>`;
+}
+function mistakeBody(mn){
+  const ids = mistakesIn(mn);
+  const title = mn ? "Mistake Book for this module" : "Mistake Book";
+  return `<div class="sheet stack">
+    <div class="row" style="justify-content:space-between"><h2>${title}</h2><span class="pill ${ids.length?"bad":"good"}">${ids.length} question${ids.length===1?"":"s"}</span></div>
+    <p class="muted small">Every question you get wrong lands here, from practice or mocks. Get it right twice in a row and it leaves the book.</p>
+    ${ids.length?`<div><button class="btn primary" data-act="${mn?"startModMist":"startMistakes"}" data-m="${mn||""}">Practise these mistakes</button></div>
+    <div class="stack" style="gap:8px">${ids.map(id=>{ const q=Q[id]; return `<details class="card"><summary class="small"><span class="pill ink">${q.c}</span> ${esc(q.q)}</summary>
+      <p class="small" style="margin-top:8px"><b>Answer: ${L[q.a]}. ${esc(q.o[q.a])}</b></p><p class="small muted pre">${esc(q.e)}</p></details>`; }).join("")}</div>`
+    :`<p>Nothing here yet. Keep practising.</p>`}
+  </div>`;
+}
+function hbars(rows){ return `<div class="stack" style="gap:8px">${rows.map(([label,val,sub2])=>`<div class="hbar"><span>${label}</span><div class="bar ${val>=60?"g":""}"><i style="width:${val}%"></i></div><span class="mono small">${sub2}</span></div>`).join("")}</div>`; }
+function perfModule(m){
+  const ids = byModule[m.n]||[], s=statsFor(ids);
+  const mk = prog.mocks.filter(x=>x.bym && x.bym[m.n]).slice(-8);
+  const cards = D.cards.filter(c=>modOf(c[0])===m.n), known=cards.filter(c=>prog.cards[c[1]]).length;
+  const topics = m.chapters.map(c=>{ const t=statsFor(byChapter[c.id]||[]); return [c, t]; });
+  const weak = topics.filter(([c,t])=>t.att>=3).sort((a,b)=>a[1].acc-b[1].acc).slice(0,3);
+  return `<div class="grid3 stats">
+      <div class="card stat"><span class="small muted">Tried</span><b>${s.seen}/${s.total}</b></div>
+      <div class="card stat"><span class="small muted">Accuracy</span><b>${s.att?s.acc+"%":"–"}</b></div>
+      <div class="card stat"><span class="small muted">Cards known</span><b>${known}/${cards.length}</b></div>
+    </div>
+    <div class="card stack"><h3>Accuracy by topic</h3>${hbars(topics.map(([c,t])=>[`${c.id} ${esc(c.title)}`, t.att?t.acc:0, t.att?t.acc+"%":"–"]))}
+      <p class="small muted">Bars turn green at 60% accuracy. Topics marked read: ${m.chapters.filter(c=>prog.read[c.id]).length}/${m.chapters.length}.</p></div>
+    ${weak.length?`<div class="card stack"><h3>Work on these first</h3>${weak.map(([c,t])=>`<div class="row"><span class="grow">${c.id} ${esc(c.title)} · ${t.acc}%</span><button class="btn" data-act="startChapter" data-c="${c.id}">Practise</button></div>`).join("")}</div>`:""}
+    <div class="card stack"><h3>This module in your mocks</h3>${mk.length?hbars(mk.map(x=>{ const [c,n]=x.bym[m.n]; return [esc(x.t)+" · "+new Date(x.at).toLocaleDateString("en-IN"), pct(c,n), c+"/"+n]; })):`<p class="small muted">Take a mock exam to see how you score on this module under time pressure.</p>`}</div>
+    <div class="card small muted">Match Sprint best: ${prog.match[m.n]?fmtTime(prog.match[m.n].best):"not played yet"} · Mistakes waiting: ${mistakesIn(m.n).length}</div>`;
+}
+function perfOverall(){
+  const pool=openPool(), s=statsFor(pool);
+  const days=[]; const set=new Set(prog.days); for(let i=27;i>=0;i--){ const d=new Date(); d.setDate(d.getDate()-i); days.push(set.has(ymd(d))); }
+  const mk = prog.mocks.slice(-10);
+  return `<div class="grid3 stats">
+      <div class="card stat"><span class="small muted">MCQs tried</span><b>${s.seen}/${s.total}</b></div>
+      <div class="card stat"><span class="small muted">Accuracy</span><b>${s.att?s.acc+"%":"–"}</b></div>
+      <div class="card stat"><span class="small muted">Streak</span><b>${streak()}d</b></div>
+    </div>
+    <div class="card stack"><h3>Accuracy by module</h3>${hbars(MODS.filter(m=>!m.locked).map(m=>{ const t=statsFor(byModule[m.n]||[]); return [`${m.n}. ${esc(m.title)}`, t.att?t.acc:0, t.att?t.acc+"%":"–"]; }))}</div>
+    <div class="card stack"><h3>Mock scores</h3>${mk.length?`<div class="spark">${mk.map(x=>`<span style="height:${Math.max(2,x.score)}%" title="${esc(x.t)}: ${x.score}"><em>${x.score}</em></span>`).join("")}</div><p class="small muted">Your last ${mk.length} mock${mk.length===1?"":"s"}, oldest first, out of 100.</p>`:`<p class="small muted">No mocks yet.</p>`}</div>
+    <div class="card stack"><h3>Study days (last 4 weeks)</h3><div class="days">${days.map(x=>`<i class="${x?"on":""}"></i>`).join("")}</div><p class="small muted">A green square is a day you studied in this profile.</p></div>`;
+}
+
+/* ---------- PRACTICE SESSION ---------- */
+function orderForPractice(ids){
+  const unseen=[], wrong=[], right=[];
+  shuffle(ids).forEach(id=>{ const a=prog.answers[id]; if(!a) unseen.push(id); else if(!a.last) wrong.push(id); else right.push(id); });
+  return unseen.concat(wrong, right);
+}
+function startSession(ids, title, back){
+  if(!ids.length){ toast("No questions here yet"); return; }
+  Tools.reset();
+  go("session", {ids, i:0, title, back, picked:null, log:[]});
+}
+function sessionView(){
+  const s = sub;
+  if(s.i >= s.ids.length || s.done) return sessionSummary();
+  const q = Q[s.ids[s.i]];
+  const answered = s.picked!==null, ok = answered && s.picked===q.a;
+  return shell(`<div class="stack" style="gap:14px">
+    <div class="row" style="justify-content:space-between"><div class="stack" style="gap:2px"><span class="label">${esc(s.title)}</span><span class="small muted mono">Question ${s.i+1} of ${s.ids.length}</span></div>
+      <div class="row"><button class="btn" data-act="toolCalc" title="Calculator">🧮<span class="hide-sm"> Calculator</span></button><button class="btn" data-act="toolRough" title="Rough sheet">✏️<span class="hide-sm"> Rough sheet</span></button><button class="btn ghost" data-act="endSession">End session</button></div></div>
+    <div class="bar"><i style="width:${pct(s.i,s.ids.length)}%"></i></div>
+    <div class="sheet">
+      <div class="qhead"><span class="pill ink">${q.c} ${esc(chTitle[q.c])}</span>${q.f?`<span class="pill fav" title="A central idea of this topic.">Core concept</span>`:""}</div>
+      <p class="qtext">${esc(q.q)}</p>
+      <div class="opts" role="group" aria-label="Options">${q.o.map((o,k)=>{ let cls=""; if(answered){ if(k===q.a) cls="right"; else if(k===s.picked) cls="wrong"; }
+        return `<button class="opt ${cls}" data-act="pick" data-k="${k}" ${answered?"disabled":""}><span class="bub">${L[k]}</span><span>${esc(o)}</span></button>`; }).join("")}</div>
+      ${answered?`<div class="explain ${ok?"ok":"no"}"><b>${ok?"Correct.":"Not quite. The answer is "+L[q.a]+"."}</b> ${esc(q.e)}</div>`:""}
+    </div>
+    ${answered?`<div class="row"><button class="btn primary" data-act="nextQ" id="nextBtn">${s.i+1<s.ids.length?"Next question →":"See summary"}</button><button class="btn ghost" data-act="openChapter" data-m="${modOf(q.c)}" data-t="overview" data-c="${q.c}">Read ${q.c} overview</button></div>`:`<p class="small muted">Tap an option. You will see the answer and explanation straight away.</p>`}
+  </div>`);
+}
+function sessionSummary(){
+  const s=sub, r=s.log.filter(x=>x[1]).length, n=s.log.length;
+  const back = s.back ? `data-act="openChapter" data-m="${s.back}" data-t="mcq"` : `data-act="tab" data-v="chapters"`;
+  return shell(`<div class="stack" style="gap:14px">
+    <span class="label">${esc(s.title)}</span>
+    <h1>${n?`You got ${r} of ${n} right`:"Session ended"}</h1>
+    ${n?`<div class="bar g"><i style="width:${pct(r,n)}%"></i></div><p class="muted">${pct(r,n)>=80?"Strong work. Move to the next topic or take a mini mock.":pct(r,n)>=50?"Good progress. Re-read the overview for the questions you missed.":"Read the overview for this topic again, then retry. Your wrong answers are saved in the Mistake Book."}</p>`:""}
+    ${n?`<div class="stack" style="gap:8px">${s.log.map(([id,ok])=>`<div class="card row"><span class="pill ${ok?"good":"bad"}">${ok?"Right":"Wrong"}</span><span class="grow small">${esc(Q[id].q)}</span></div>`).join("")}</div>`:""}
+    <div class="row"><button class="btn primary" ${back}>Back</button>${mistakesIn().length?`<button class="btn" data-act="startMistakes">Practise mistakes</button>`:""}</div>
+  </div>`);
+}
+
+/* ---------- MOCK EXAM ---------- */
+function mockKinds(){
+  if(FULL) return [
+    {k:"m1", t:"Mock Exam 1", d:"50 questions · 1 hour · fixed paper", n:50, min:60},
+    {k:"m2", t:"Mock Exam 2", d:"50 questions · 1 hour · fixed paper", n:50, min:60},
+    {k:"shuffle", t:"Shuffle Mock", d:"50 questions · 1 hour · a new paper every time, in exam weightage", n:50, min:60},
+    {k:"mini", t:"Mini Mock", d:"20 questions · 24 minutes · quick check across all modules", n:20, min:24}
+  ];
+  return [{k:"taster", t:"Taster Mock (Module 1)", d:"10 questions · 12 minutes · Module 1 only", n:10, min:12}];
+}
+function buildMock(k){
+  if(k==="m1"||k==="m2") return D.mocks[k].slice();
+  const pool = openPool();
+  if(k==="taster") return shuffle(pool).slice(0,10);
+  const split = k==="mini" ? SPLIT_20 : SPLIT_50;
+  let out=[];
+  split.forEach((cnt,i)=>{ const ids=(byModule[i+1]||[]).slice(); out=out.concat(shuffle(orderForPractice(ids).slice(0,Math.max(cnt*3,cnt))).slice(0,cnt)); });
+  return shuffle(out);
+}
+function mocksView(){
+  const kinds = mockKinds(), hist = prog.mocks.slice().reverse();
+  return shell(`<div class="stack" style="gap:16px">
+    <div class="stack" style="gap:4px"><span class="label">Mock Exam</span><h1>Practise under exam conditions</h1>
+    <p class="muted">Each mock follows the Paper 2 pattern: 50 MCQs of 2 marks each, 100 marks, 1 hour, in the weightage of the four modules. You get a timer, an answer sheet palette, mark-for-review, a calculator and a rough sheet.</p></div>
+    ${prog.live?(liveOk()?`<div class="banner row"><span class="grow">You have a mock in progress: ${esc(prog.live.t)}.</span><button class="btn primary" data-act="resume">Resume</button></div>`:`<div class="banner">You have a mock in progress in the full kit. Open the full kit to finish it.</div>`):""}
+    <div class="grid2">${kinds.map(m=>{ const h=prog.mocks.filter(x=>x.k===m.k); const best=h.reduce((b,x)=>Math.max(b,x.score),-1);
+      return `<div class="sheet stack"><h3>${m.t}</h3><span class="small muted">${m.d}</span>
+      ${h.length?`<span class="small">Attempts: ${h.length} · Best: <b class="mono">${best}/100</b></span>`:`<span class="small muted">Not attempted yet</span>`}
+      <button class="btn primary" data-act="instr" data-k="${m.k}" ${prog.live?"disabled":""}>Start</button></div>`; }).join("")}
+    ${FULL?"":`<div class="sheet stack locked"><h3>Mock Exams 1 and 2</h3><span class="small muted">50 questions · 1 hour</span><span class="lock">🔒 Full kit</span></div>
+      <div class="sheet stack locked"><h3>Shuffle and Mini Mocks</h3><span class="small muted">A fresh paper every time</span><span class="lock">🔒 Full kit</span></div>`}
+    </div>
+    <div class="card stack"><h3>Weightage used in every mock</h3>
+      <div class="tbl"><table><thead><tr><th>Module</th><th>Weight</th><th>Questions in 50</th></tr></thead><tbody>${MODS.map(m=>`<tr><td>${m.n}. ${esc(m.title)}</td><td>${m.weight}%</td><td class="mono">${m.split}</td></tr>`).join("")}</tbody></table></div></div>
+    ${hist.length?`<h2>Your attempts</h2><div class="stack" style="gap:8px">${hist.map((h,i)=>`<div class="card row"><span class="grow"><b>${esc(h.t)}</b><br><span class="small muted">${new Date(h.at).toLocaleString("en-IN")} · ${fmtTime(h.used)} used</span></span><span class="mono" style="font-size:1.2rem"><b>${h.score}</b>/100</span><button class="btn" data-act="review" data-i="${prog.mocks.length-1-i}">Review</button></div>`).join("")}</div>`:""}
+    ${FULL?"":upsell()}
+    <p class="small muted">The mock papers are original questions written for this kit. They do not repeat any past exam paper. Mock scores show how well you know this kit's questions and do not predict your exam result.</p>
+  </div>`);
+}
+function instrView(){
+  const m = mockKinds().find(x=>x.k===sub.k);
+  return shell(`<div class="stack" style="gap:16px">
+    <button class="btn ghost" style="align-self:flex-start" data-act="tab" data-v="mocks">← Mock Exam</button>
+    <div class="stack" style="gap:4px"><span class="label">Instructions</span><h1>${esc(m.t)}</h1><p class="muted">${esc(m.d)}</p></div>
+    <div class="sheet stack">
+      <h3>Read before you start</h3>
+      <ol class="instr small" style="margin:0;padding-left:1.2em">
+        <li>This paper has <b>${m.n} multiple choice questions</b>. Each carries <b>2 marks</b>${m.n===50?", for a total of 100 marks":""}. Your score is shown out of 100.</li>
+        <li>Time allowed: <b>${m.min} minutes</b>. The timer starts when you press Start and keeps running even if you close the page. When time is up, the paper is submitted automatically.</li>
+        <li><b>Answer all questions.</b> Each question has four options and only one is correct. This mock has no negative marking. Check your admit card and the Institute's notice for the rules of your exam.</li>
+        <li>Tap an option to fill its bubble. You can change or clear an answer at any time before you submit.</li>
+        <li>Use <b>Mark for review</b> for doubtful questions. The palette shows answered, unanswered and marked questions.</li>
+        <li>Open the <b>Calculator</b> and the <b>Rough sheet</b> from the bar at the top. You can draw or type your working there. It is kept with this attempt.</li>
+        <li>In the real exam you shade an OMR sheet with a pen. Practise deciding quickly and shading once.</li>
+        <li>After you submit, you get your score, a module-wise analysis and a full review with explanations.</li>
+      </ol>
+      <label class="row small" style="gap:8px"><input type="checkbox" id="agree"> I have read the instructions.</label>
+      <p class="err" id="agErr" role="alert"></p>
+      <div class="row"><button class="btn primary" data-act="startMock" data-k="${m.k}">Start the ${m.min}-minute timer</button><button class="btn" data-act="tab" data-v="mocks">Not now</button></div>
+    </div>
+  </div>`);
+}
+function startMock(k){
+  const m = mockKinds().find(x=>x.k===k);
+  prog.live = {k, t:m.t, qids:buildMock(k), ans:{}, mark:{}, start:Date.now(), dur:m.min*60, i:0, notes:"", sketch:""};
+  save(); Tools.reset(); go("exam");
+}
+function examView(){
+  const X = prog.live, i = X.i, q = Q[X.qids[i]];
+  const left = X.dur - (Date.now()-X.start)/1000;
+  const answeredN = Object.keys(X.ans).length, sel = X.ans[q.id];
+  return shell(`
+  <div class="stack" style="gap:14px">
+    <div class="sheet" style="padding:10px 14px"><div class="row">
+      <span class="grow"><b>${esc(X.t)}</b><br><span class="small muted">${answeredN}/${X.qids.length} answered</span></span>
+      <span class="timer ${left<300?"low":""}" id="timer" aria-live="off">${fmtTime(left)}</span>
+      <button class="btn primary" data-act="askSubmit">Submit</button>
+    </div>
+    <div class="toolbar" style="margin-top:8px"><button class="btn" data-act="toolCalc">🧮 Calculator</button><button class="btn" data-act="toolRough">✏️ Rough sheet</button></div></div>
+    ${sub.confirm?`<div class="confirm stack"><b>Submit this mock?</b><span>${X.qids.length-answeredN} unanswered${Object.keys(X.mark).length?" · "+Object.keys(X.mark).length+" marked for review":""}. You can't change answers after submitting.</span><div class="row"><button class="btn primary" data-act="submitMock">Yes, submit</button><button class="btn" data-act="cancelSubmit">Keep working</button></div></div>`:""}
+    <div class="sheet">
+      <div class="qhead"><span class="mono small muted">Question ${i+1} of ${X.qids.length} · 2 marks</span>${X.mark[q.id]?`<span class="pill warn">Marked for review</span>`:""}</div>
+      <p class="qtext">${esc(q.q)}</p>
+      <div class="opts">${q.o.map((o,k)=>`<button class="opt ${sel===k?"sel":""}" data-act="examPick" data-k="${k}" aria-pressed="${sel===k}"><span class="bub">${L[k]}</span><span>${esc(o)}</span></button>`).join("")}</div>
+      <div class="row" style="margin-top:14px">
+        <button class="btn" data-act="examNav" data-d="-1" ${i===0?"disabled":""}>← Previous</button>
+        <button class="btn" data-act="toggleMark">${X.mark[q.id]?"Unmark":"Mark for review"}</button>
+        ${sel!==undefined?`<button class="btn ghost" data-act="clearAns">Clear answer</button>`:""}
+        <span class="grow"></span>
+        <button class="btn primary" data-act="examNav" data-d="1" ${i===X.qids.length-1?"disabled":""}>Save &amp; next →</button>
+      </div>
+    </div>
+    <div class="card stack">
+      <div class="legend"><span><i style="background:var(--ink);border-color:var(--ink)"></i>Answered</span><span><i></i>Not answered</span><span><i style="border-color:var(--warn);background:var(--warn-soft)"></i>Marked</span></div>
+      <div class="palette">${X.qids.map((id,k)=>`<button class="pal ${X.ans[id]!==undefined?"ans":""} ${X.mark[id]?"mark":""} ${k===i?"cur":""}" data-act="examJump" data-i="${k}" aria-label="Question ${k+1}">${k+1}</button>`).join("")}</div>
+    </div>
+  </div>`);
+}
+function tick(){
+  if(view==="session"||view==="chapter"){ const g=sub.game, el=$("#mtimer"); if(g && !g.end && el) el.textContent=fmtTime((Date.now()-g.start)/1000+g.miss*5); }
+  if(view!=="exam"||!prog||!prog.live) return;
+  const left = prog.live.dur - (Date.now()-prog.live.start)/1000;
+  const t = $("#timer"); if(t){ t.textContent = fmtTime(left); t.classList.toggle("low", left<300); }
+  if(left<=0){ toast("Time is up. Your mock has been submitted."); submitMock(); }
+}
+function submitMock(){
+  const X = prog.live; if(!X) return;
+  Tools.saveNow();
+  const used = Math.min(X.dur, Math.round((Date.now()-X.start)/1000));
+  let right=0; const bym={};
+  X.qids.forEach(id=>{ const q=Q[id], m=modOf(q.c); bym[m]=bym[m]||[0,0,0]; bym[m][1]++; const a=X.ans[id];
+    if(a===undefined){ bym[m][2]++; prog.mistakes[id]=0; }
+    else { const ok=a===q.a; if(ok){right++; bym[m][0]++;} record(id, ok); } });
+  const score = Math.round(right*100/X.qids.length);
+  prog.mocks.push({k:X.k, t:X.t, at:Date.now(), used, score, right, n:X.qids.length, qids:X.qids, ans:X.ans, bym, notes:(X.notes||"").slice(0,4000)});
+  if(prog.mocks.length>60) prog.mocks=prog.mocks.slice(-60);
+  prog.live=null; touchDay(); save(); Tools.close();
+  go("result", {i:prog.mocks.length-1, filter:"all"});
+}
+function resultView(){
+  const r = prog.mocks[sub.i]; if(!r || !r.qids.every(id=>Q[id])){ toast("This attempt was made in the full kit. Open the full kit to review it."); view="mocks"; return mocksView(); }
+  const wrong = r.qids.filter(id=>r.ans[id]!==undefined && r.ans[id]!==Q[id].a).length;
+  const skip = r.qids.filter(id=>r.ans[id]===undefined).length;
+  const f = sub.filter||"all";
+  const list = r.qids.map((id,k)=>[id,k]).filter(([id])=>{ const a=r.ans[id]; if(f==="wrong") return a!==undefined&&a!==Q[id].a; if(f==="skip") return a===undefined; return true; });
+  const mods = Object.keys(r.bym).sort((a,b)=>a-b);
+  const weakest = mods.slice().sort((a,b)=>pct(r.bym[a][0],r.bym[a][1])-pct(r.bym[b][0],r.bym[b][1]))[0];
+  return shell(`<div class="stack" style="gap:16px">
+    <button class="btn ghost" style="align-self:flex-start" data-act="tab" data-v="mocks">← Mock Exam</button>
+    <div class="row" style="gap:16px">
+      <div class="ring" style="--p:${r.score}"><b>${r.score}</b></div>
+      <div class="grow stack" style="gap:4px"><span class="label">${esc(r.t)} · result</span><h1>${r.score} / 100</h1>
+        <span class="pill ${r.score>=50?"good":r.score>=40?"warn":"bad"}" style="align-self:flex-start">${r.score>=50?"At or above 50%":r.score>=40?"Between 40% and 50%":"Below 40%"}</span>
+        <span class="small muted">${r.right} right · ${wrong} wrong · ${skip} not answered · ${fmtTime(r.used)} used · about ${r.n?Math.round(r.used/r.n):0}s per question</span></div>
+    </div>
+    <div class="card stack"><h3>Module-wise analysis</h3>
+      <div class="tbl"><table><thead><tr><th>Module</th><th>Right</th><th>Marks</th><th>Accuracy</th></tr></thead><tbody>
+      ${mods.map(m=>{ const [c,n]=r.bym[m]; return `<tr><td>${m}. ${esc(MODS[m-1].title)}</td><td class="mono">${c}/${n}</td><td class="mono">${c*2}/${n*2}</td><td><div class="bar ${pct(c,n)>=60?"g":""}" style="min-width:80px"><i style="width:${pct(c,n)}%"></i></div></td></tr>`; }).join("")}
+      </tbody></table></div>
+      ${weakest&&mods.length>1?`<div class="row"><span class="grow small">Weakest in this attempt: <b>${weakest}. ${esc(MODS[weakest-1].title)}</b></span><button class="btn" data-act="openChapter" data-m="${weakest}" data-t="mcq">Practise it</button></div>`:""}
+      <p class="small muted">Wrong and unanswered questions have been added to your Mistake Book. This score is for practice only and does not predict your exam result.</p>
+    </div>
+    <div class="card stack"><h3>Your answer sheet</h3>
+      <div class="omr">${r.qids.map((id,k)=>{ const a=r.ans[id], q=Q[id]; return `<div class="r"><span class="n">${k+1}</span>${L.map((l,j)=>`<i class="${j===q.a?(a===j?"ok":"f"):(a===j?"bad":"")}">${l}</i>`).join("")}</div>`; }).join("")}</div>
+      <p class="small muted">Green: your correct answer. Red: your wrong answer. Blue: the right answer you missed.</p></div>
+    ${r.notes?`<details class="card"><summary><b>Your rough sheet notes</b></summary><pre class="fmt">${esc(r.notes)}</pre></details>`:""}
+    <div class="row"><h2 class="grow">Answer review</h2>
+      <select id="revFilter" style="width:auto"><option value="all" ${f==="all"?"selected":""}>All questions</option><option value="wrong" ${f==="wrong"?"selected":""}>Wrong only (${wrong})</option><option value="skip" ${f==="skip"?"selected":""}>Not answered (${skip})</option></select></div>
+    ${list.length?list.map(([id,k])=>{ const q=Q[id], a=r.ans[id];
+      return `<div class="sheet"><div class="qhead"><span class="mono small muted">Q${k+1} · ${q.c} ${esc(chTitle[q.c])}</span><span class="pill ${a===undefined?"":a===q.a?"good":"bad"}">${a===undefined?"Not answered":a===q.a?"Right":"Wrong"}</span></div>
+      <p class="qtext">${esc(q.q)}</p>
+      <div class="opts">${q.o.map((o,j)=>`<div class="opt ${j===q.a?"right":j===a?"wrong":""}"><span class="bub">${L[j]}</span><span>${esc(o)}</span></div>`).join("")}</div>
+      <div class="explain">${esc(q.e)}</div></div>`; }).join(""):`<p class="muted">Nothing to show for this filter.</p>`}
+  </div>`);
+}
+
+/* ---------- exam tools: calculator and rough sheet (live outside #app so they survive re-renders) ---------- */
+const Tools = (function(){
+  const root = document.getElementById("tools");
+  root.innerHTML = `
+  <div class="panel" id="calc" role="dialog" aria-label="Calculator">
+    <div class="ph" data-drag="calc">🧮 Calculator<span class="small muted" id="cMem"></span><button class="x" data-tk="close-calc" aria-label="Close calculator">×</button></div>
+    <div class="scr"><small id="cExp"></small><b id="cOut">0</b></div>
+    <div class="keys">
+      ${["MC","MR","M+","M−","C","7","8","9","÷","⌫","4","5","6","×","%","1","2","3","−","√","±","0",".","+","="].map(k=>`<button data-ck="${k}" class="${/^M/.test(k)?"m":/[÷×−+%√]/.test(k)?"op":k==="="?"eq":""}">${k}</button>`).join("")}
+    </div>
+  </div>
+  <div class="panel" id="rough" role="dialog" aria-label="Rough sheet">
+    <div class="ph" data-drag="rough">✏️ Rough sheet<button class="x" data-tk="close-rough" aria-label="Close rough sheet">×</button></div>
+    <div class="rb"><button data-tk="pen" class="on">Pen</button><button data-tk="eraser">Eraser</button><button data-tk="clear">Clear page</button><span style="flex:1"></span><button data-tk="draw" class="on">Draw</button><button data-tk="type">Type</button></div>
+    <canvas id="rcv"></canvas><textarea id="rtx" placeholder="Type your working here" style="display:none"></textarea>
+  </div>`;
+  const calc = root.querySelector("#calc"), rough = root.querySelector("#rough");
+  const cv = root.querySelector("#rcv"), tx = root.querySelector("#rtx");
+  let ctx = cv.getContext("2d"), mode = "pen", drawing = false, last = null, saveT = null;
+  /* calculator */
+  let cur = "0", acc = null, op = null, fresh = true, mem = 0, expr = "";
+  const fmt = v => { if(!isFinite(v)) return "Error"; const r = Math.round(v*1e10)/1e10; let s = String(r); if(s.length>14) s = r.toPrecision(10).replace(/\.?0+(e|$)/,"$1"); return s; };
+  const apply = (a,b,o) => o==="+"?a+b:o==="−"?a-b:o==="×"?a*b:o==="÷"?(b===0?NaN:a/b):b;
+  function show(){ root.querySelector("#cOut").textContent = cur; root.querySelector("#cExp").textContent = expr; root.querySelector("#cMem").textContent = mem? " · M="+fmt(mem) : ""; }
+  function key(k){
+    const v = parseFloat(cur);
+    if(/^[0-9]$/.test(k)){ cur = (fresh||cur==="0"||cur==="Error") ? k : (cur.length<15? cur+k : cur); fresh=false; }
+    else if(k==="."){ if(fresh||cur==="Error"){ cur="0."; fresh=false; } else if(!cur.includes(".")) cur+="."; }
+    else if(k==="C"){ cur="0"; acc=null; op=null; fresh=true; expr=""; }
+    else if(k==="⌫"){ if(!fresh && cur.length>1) cur=cur.slice(0,-1); else { cur="0"; fresh=true; } }
+    else if(k==="±"){ if(cur!=="0" && cur!=="Error") cur = cur[0]==="-" ? cur.slice(1) : "-"+cur; }
+    else if(k==="√"){ cur = fmt(Math.sqrt(v)); fresh=true; }
+    else if(k==="%"){
+      if(acc!==null && op==="×"){ expr=fmt(acc)+" × "+fmt(v)+"% ="; cur=fmt(acc*v/100); acc=null; op=null; }
+      else if(acc!==null && op==="÷"){ expr=fmt(acc)+" ÷ "+fmt(v)+"% ="; cur=fmt(acc/(v/100)); acc=null; op=null; }
+      else cur = fmt(acc!==null && (op==="+"||op==="−") ? acc*v/100 : v/100);
+      fresh=true; }
+    else if("+−×÷".includes(k)){ if(op && !fresh){ acc = apply(acc, v, op); cur = fmt(acc); } else if(acc===null || !op) acc = v; op = k; fresh = true; expr = fmt(acc)+" "+k; }
+    else if(k==="="){ if(op){ const r = apply(acc, v, op); expr = fmt(acc)+" "+op+" "+fmt(v)+" ="; cur = fmt(r); acc=null; op=null; fresh=true; } }
+    else if(k==="MC") mem=0;
+    else if(k==="MR"){ cur=fmt(mem); fresh=true; }
+    else if(k==="M+"){ mem+=v||0; fresh=true; }
+    else if(k==="M−"){ mem-=v||0; fresh=true; }
+    if(cur==="NaN") cur="Error";
+    show();
+  }
+  calc.addEventListener("click", e=>{ const b=e.target.closest("[data-ck]"); if(b) key(b.dataset.ck); });
+  document.addEventListener("keydown", e=>{
+    if(!calc.classList.contains("open") || /input|textarea|select/i.test((e.target.tagName||""))) return;
+    const map = {"+":"+","-":"−","*":"×","/":"÷","Enter":"=","=":"=","Backspace":"⌫","Escape":"C",".":".","%":"%"};
+    if(/^[0-9]$/.test(e.key)){ key(e.key); e.preventDefault(); } else if(map[e.key]){ key(map[e.key]); e.preventDefault(); }
+  });
+  /* rough sheet */
+  function fit(){
+    const r = cv.getBoundingClientRect(); if(!r.width) return;
+    const dpr = window.devicePixelRatio||1, w=Math.round(r.width*dpr), h=Math.round(r.height*dpr);
+    if(cv.width===w && cv.height===h) return;
+    cv.width=w; cv.height=h; ctx=cv.getContext("2d"); ctx.setTransform(dpr,0,0,dpr,0,0); restore();
+  }
+  function restore(){ const src = view==="exam" && prog && prog.live && prog.live.sketch; if(!src) return; const img=new Image(); img.onload=()=>{ const r=cv.getBoundingClientRect(); ctx.drawImage(img,0,0,r.width,r.height); }; img.src=src; }
+  function persist(){ clearTimeout(saveT); saveT=setTimeout(saveNow, 400); }
+  function saveNow(){ if(!prog||!prog.live||view!=="exam") return; try{ if(cv.width) prog.live.sketch = cv.toDataURL("image/png"); }catch(e){} prog.live.notes = tx.value; save(); }
+  const pos = e => { const r=cv.getBoundingClientRect(); return [e.clientX-r.left, e.clientY-r.top]; };
+  cv.addEventListener("pointerdown", e=>{ drawing=true; last=pos(e); try{ cv.setPointerCapture(e.pointerId); }catch(x){} e.preventDefault(); });
+  cv.addEventListener("pointermove", e=>{ if(!drawing) return; const p=pos(e);
+    ctx.globalCompositeOperation = mode==="eraser" ? "destination-out" : "source-over";
+    ctx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue("--ink").trim()||"#2340A8";
+    ctx.lineWidth = mode==="eraser" ? 18 : 2.2; ctx.lineCap="round"; ctx.lineJoin="round";
+    ctx.beginPath(); ctx.moveTo(last[0],last[1]); ctx.lineTo(p[0],p[1]); ctx.stroke(); last=p; e.preventDefault(); });
+  const end = ()=>{ if(drawing){ drawing=false; persist(); } };
+  cv.addEventListener("pointerup", end); cv.addEventListener("pointercancel", end); cv.addEventListener("pointerleave", end);
+  tx.addEventListener("input", persist);
+  rough.addEventListener("click", e=>{ const b=e.target.closest("[data-tk]"); if(!b) return; const k=b.dataset.tk;
+    if(k==="pen"||k==="eraser"){ mode=k; rough.querySelectorAll('[data-tk="pen"],[data-tk="eraser"]').forEach(x=>x.classList.toggle("on", x.dataset.tk===k)); }
+    if(k==="clear"){ if(tx.style.display!=="none") tx.value=""; else { const r=cv.getBoundingClientRect(); ctx.clearRect(0,0,r.width,r.height); } persist(); }
+    if(k==="draw"||k==="type"){ const t=k==="type"; tx.style.display=t?"block":"none"; cv.style.display=t?"none":"block"; rough.querySelectorAll('[data-tk="draw"],[data-tk="type"]').forEach(x=>x.classList.toggle("on", x.dataset.tk===k)); rough.querySelectorAll('[data-tk="pen"],[data-tk="eraser"]').forEach(x=>x.disabled=t); if(t) tx.focus(); else fit(); }
+  });
+  root.addEventListener("click", e=>{ const b=e.target.closest("[data-tk]"); if(!b) return; if(b.dataset.tk==="close-calc") calc.classList.remove("open"); if(b.dataset.tk==="close-rough"){ saveNow(); rough.classList.remove("open"); } });
+  /* drag panels by their header (desktop and touch) */
+  root.querySelectorAll("[data-drag]").forEach(h=>{
+    const p = h.parentElement; let sx, sy, ox, oy, on=false;
+    h.addEventListener("pointerdown", e=>{ if(e.target.closest("button")) return; on=true; const r=p.getBoundingClientRect(); sx=e.clientX; sy=e.clientY; ox=r.left; oy=r.top; try{ h.setPointerCapture(e.pointerId); }catch(x){} });
+    h.addEventListener("pointermove", e=>{ if(!on) return; const r=p.getBoundingClientRect(); const x=Math.min(window.innerWidth-r.width, Math.max(0, ox+e.clientX-sx)), y=Math.min(window.innerHeight-40, Math.max(0, oy+e.clientY-sy)); Object.assign(p.style,{left:x+"px",top:y+"px",right:"auto",bottom:"auto"}); });
+    h.addEventListener("pointerup", ()=>{ on=false; });
+  });
+  // on phones the panels sit across the bottom, so leave room to scroll the page clear of them
+  function pad(){ let h=0; if(window.innerWidth<=560) [calc,rough].forEach(x=>{ if(x.classList.contains("open")) h=Math.max(h,x.offsetHeight+16); }); document.body.style.paddingBottom = h? h+"px" : ""; }
+  window.addEventListener("resize", ()=>{ if(rough.classList.contains("open")) fit(); pad(); });
+  return {
+    toggleCalc(){ calc.classList.toggle("open"); show(); pad(); },
+    toggleRough(){ const o=!rough.classList.contains("open"); rough.classList.toggle("open", o); if(o){ if(view==="exam") tx.value = (prog.live&&prog.live.notes)||""; fit(); } else saveNow(); pad(); },
+    reset(){ cur="0"; acc=null; op=null; fresh=true; mem=0; expr=""; show(); tx.value=""; const r=cv.getBoundingClientRect(); if(r.width) ctx.clearRect(0,0,r.width,r.height); cv.width=0; },
+    close(){ calc.classList.remove("open"); rough.classList.remove("open"); pad(); },
+    saveNow
+  };
+})();
+
+/* ---------- SETTINGS ---------- */
+function settingsView(){
+  const code = sub.exportCode || "";
+  return shell(`<div class="stack" style="gap:16px">
+    <div class="stack" style="gap:4px"><span class="label">Settings</span><h1>Profile and app settings</h1><p class="muted">Signed in as <b>${esc(me.name)}</b>${me.pin?" · PIN on":" · no PIN"}.</p></div>
+    <div class="sheet stack">
+      <h2>Edit profile</h2>
+      <label class="f">Name<input type="text" id="rName" maxlength="24" value="${esc(me.name)}"></label>
+      <p class="err" id="rErr" role="alert"></p>
+      <div class="row"><button class="btn primary" data-act="rename">Save name</button></div>
+    </div>
+    <div class="sheet stack">
+      <h2>${me.pin?"Change or remove PIN":"Add a PIN"}</h2>
+      ${me.pin?`<label class="f">Current PIN<input type="password" id="oldPin" class="pin" inputmode="numeric" maxlength="4"></label>`:""}
+      <label class="f">New 4-digit PIN ${me.pin?"(leave empty to remove the PIN)":""}<input type="password" id="newPin" class="pin" inputmode="numeric" maxlength="4"></label>
+      <label class="f">Confirm new PIN<input type="password" id="newPin2" class="pin" inputmode="numeric" maxlength="4"></label>
+      <p class="err" id="pinErr" role="alert"></p>
+      <div class="row"><button class="btn primary" data-act="savePin">${me.pin?"Update PIN":"Save PIN"}</button></div>
+    </div>
+    <div class="sheet stack">
+      <h2>Display</h2>
+      <div class="row">${["system","light","dark"].map(t=>`<button class="btn ${theme===t?"primary":""}" data-act="theme" data-v="${t}">${t[0].toUpperCase()+t.slice(1)}</button>`).join("")}</div>
+    </div>
+    <div class="sheet stack">
+      <h2>Back up and restore</h2>
+      <p class="small">Progress lives only in this browser. Create a backup code and keep it in your notes or email. Paste it here later, on any device, to restore.</p>
+      <div class="row"><button class="btn" data-act="exportCode">Create backup code</button></div>
+      ${code?`<textarea id="codeOut" readonly>${esc(code)}</textarea><div class="row"><button class="btn primary" data-act="copyCode">Copy code</button></div>`:""}
+      <label class="f">Restore from a backup code<textarea id="codeIn" placeholder="Paste a backup code here"></textarea></label>
+      <p class="err" id="codeErr" role="alert"></p>
+      <div class="row"><button class="btn" data-act="askImport">Restore into this profile</button></div>
+      ${sub.confirmImport?`<div class="confirm stack"><b>Replace ${esc(me.name)}'s progress with the backup?</b><span class="small">Current progress in this profile will be overwritten.</span><div class="row"><button class="btn danger" data-act="doImport">Yes, restore</button><button class="btn" data-act="cancelConfirm">Cancel</button></div></div>`:""}
+    </div>
+    <div class="sheet stack">
+      <h2>Reset or delete</h2>
+      <div class="row"><button class="btn" data-act="switch">Switch student</button><button class="btn danger" data-act="askReset">Reset my progress</button><button class="btn danger" data-act="askDelete">Delete this profile</button></div>
+      ${sub.confirmReset?`<div class="confirm stack"><b>Clear all of ${esc(me.name)}'s answers, mocks, Mistake Book and flashcard marks?</b><span class="small">The profile stays. This can't be undone unless you have a backup code.</span><div class="row"><button class="btn danger" data-act="doReset">Yes, reset</button><button class="btn" data-act="cancelConfirm">Cancel</button></div></div>`:""}
+      ${sub.confirmDelete?`<div class="confirm stack"><b>Delete ${esc(me.name)}'s profile and all progress?</b><span class="small">This can't be undone.</span>${me.pin?`<label class="f">Enter PIN to confirm<input type="password" id="delPin" class="pin" inputmode="numeric" maxlength="4"></label>`:""}<p class="err" id="delErr"></p><div class="row"><button class="btn danger" data-act="doDelete">Delete profile</button><button class="btn" data-act="cancelConfirm">Cancel</button></div></div>`:""}
+    </div>
+  </div>`);
+}
+
+/* ---------- README ---------- */
+function readmeView(){
+  const c = D.counts;
+  return shell(`<div class="stack" style="gap:16px">
+    <div class="stack" style="gap:4px"><span class="label">Readme</span><h1>${APP}</h1><p class="muted">CMA Foundation · Paper 2: Fundamentals of Financial and Cost Accounting · ${FULL?"Full kit":"Free sample"} · ${esc(D.version)}</p></div>
+    <div class="grid3">
+      <div class="card stat"><span class="small muted">Practice MCQs</span><b>${FULL?c.practice:c.practice+" of "+c.fullPractice}</b></div>
+      <div class="card stat"><span class="small muted">Mock questions</span><b>${FULL?c.mock+" + shuffle":"Taster only"}</b></div>
+      <div class="card stat"><span class="small muted">Flashcards</span><b>${D.cards.length}${FULL?"":" of "+c.fullCards}</b></div>
+    </div>
+    <div class="sheet stack"><h2>How to use</h2>
+      <ol class="small" style="margin:0;padding-left:1.2em">
+        <li><b>Create your profile</b> with your name. A PIN is optional. Each person sharing the device gets their own profile.</li>
+        <li><b>Chapters → a module → Overview:</b> read one topic (10 to 15 minutes) and tap <i>Mark as read</i>.</li>
+        <li><b>Formats:</b> revise the specimen formats and quick tables. Try the depreciation calculator (Module 1), the bill due date calculator (Module 2) and the cost sheet builder (Module 4).</li>
+        <li><b>MCQs:</b> answer that topic's questions and read every explanation. Numerical questions show the full working. Use the calculator and rough sheet in practice too.</li>
+        <li><b>Flashcards and Match Sprint:</b> lock in rules, formulas and terms.</li>
+        <li><b>Mistake Book:</b> clear your wrong answers. A question leaves after two correct answers in a row.</li>
+        <li><b>Performance:</b> see accuracy by topic and module, mock trends and study days.</li>
+        <li><b>Mock Exam:</b> take a timed 50-question paper with the calculator and rough sheet, then study the review.</li>
+      </ol></div>
+    <div class="sheet stack"><h2>Exam pattern used in this kit</h2>
+      <p class="small">Paper 2 carries 100 marks. Our mocks use <b>50 MCQs × 2 marks in 1 hour</b>, which matches the June 2026 Paper 2 question paper. Module weightage (Syllabus 2022): Accounting Fundamentals 30%, Accounting for Special Transactions 15%, Preparation of Final Accounts 25%, Fundamentals of Cost Accounting 30%. The June 2026 paper did not state negative marking. Exam rules, timings and marking can change, so always confirm them in the Institute's latest notice and your admit card.</p></div>
+    <div class="sheet stack"><h2>Precautions</h2>
+      <ul class="small" style="margin:0;padding-left:1.2em">
+        <li><b>Your progress is saved only in this browser on this device.</b> Clearing browsing data, using a private or incognito window, or opening the file in a different browser starts fresh. Create a backup code in Settings from time to time.</li>
+        <li>On a phone, save the file to your Files or Downloads and open it in Chrome. Opening it inside a chat or email preview may not save progress.</li>
+        <li>Keep the same file name and folder after you start, and keep only one copy open at a time, especially during a mock.</li>
+        <li>The mock timer keeps running if you close the page. Resume from the Mock Exam tab.</li>
+        <li><b>Treatments that depend on the question:</b> some items (entrance fees, donations, life membership fees, del credere commission) can be treated in more than one way. Our notes follow the study material and say "unless stated otherwise". In the exam, always follow what the question says.</li>
+        <li>This kit helps you revise. It does not replace the Institute's study material, which remains the main source for the exam.</li>
+        <li>The PIN only keeps profiles apart on a shared device. Don't use a PIN you use for banking.</li>
+      </ul></div>
+    <div class="sheet stack"><h2>How the content was made</h2>
+      <p class="small">Every note, question, option, explanation and specimen in this kit was written fresh by 99DigiProStore, following the published Paper 2 syllabus and weightage. All figures, names and worked examples are our own. We do not copy the Institute's study material, MCQ bank or past papers, and the mock papers contain no past-exam questions. Standard formats (journal, cost sheet and so on) and the titles of Cost Accounting Standards are common knowledge and are described in our own words. The <span class="pill fav">Core concept</span> tag is our study suggestion, not a claim about what will appear in any exam.</p></div>
+    <div class="sheet stack"><h2>Disclaimer</h2>
+      <p class="small">${APP} is an independent study aid. It is not affiliated with, endorsed by, sponsored by or connected to the Institute of Cost Accountants of India (ICMAI). "CMA Foundation" is used only to describe the exam this kit helps with. We have tried to keep the content accurate, but mistakes are possible and the law, syllabus and exam pattern can change. Using this kit does not guarantee that you will pass, and mock scores do not predict your result. The calculators are learning aids; check your own working in the exam.</p>
+      <p class="small">Found an error? Email digiprostore99@gmail.com with your order ID and a screenshot, and we will fix it.</p></div>
+    <div class="sheet stack"><h2>Privacy</h2>
+      <p class="small">This kit collects no personal data. It has no sign-up with us, no tracking, no ads and no analytics, and it does not connect to the internet. Names, PINs and progress stay in this browser on this device, and only you can see or delete them. A first name or nickname is enough for a profile. If a student is under 18, a parent or guardian should buy the kit and help set it up.</p></div>
+    <div class="sheet stack"><h2>Terms of use</h2>
+      <ul class="small" style="margin:0;padding-left:1.2em">
+        <li>This is a study aid for practice, provided "as is". We do our best to keep it accurate but can't promise it is free of errors or complete for your exam.</li>
+        <li>Your result depends on your own preparation. We make no promise of marks, ranks or passing.</li>
+        <li>Our total liability for any claim about this kit is limited to the price you paid for it.</li>
+        <li><b>All sales are final and non-refundable.</b> If the file does not open or work as described, email digiprostore99@gmail.com with your order ID and a screenshot, and we will fix it or send a working replacement.</li>
+        <li>Minor updates for the same exam term are free and emailed to past buyers. A new edition for a new syllabus or term may be sold separately.</li>
+        <li>These terms are governed by the laws of India.</li>
+      </ul></div>
+    <div class="sheet stack"><h2>Copyright and licence</h2>
+      <p class="small">© 99DigiProStore. All rights reserved. This file is licensed to the buyer for personal study. You may use it on your own devices and share profiles with family members on the same device. Please don't upload, share, sell or copy this file or its contents. Breaking this licence may lead to action under the Copyright Act, 1957.</p></div>
+    <div class="card small muted">Version ${esc(D.version)} · Support: digiprostore99@gmail.com · Shop: 99digiprostore.myinstamojo.com</div>
+  </div>`);
+}
+
+/* ---------- render ---------- */
+function render(){
+  clearInterval(timerH); timerH=null;
+  let html;
+  if(!me) html = loginView();
+  else if(view==="exam" && liveOk()){ html = examView(); }
+  else if(view==="exam"){ view="mocks"; html = mocksView(); }
+  else html = ({chapters:chaptersView, chapter:chapterView, session:sessionView, mocks:mocksView, instr:instrView, result:resultView, settings:settingsView, readme:readmeView}[view]||chaptersView)();
+  document.getElementById("app").innerHTML = html;
+  if(view==="exam" || (view==="chapter" && sub.game && !sub.game.end)) timerH=setInterval(tick,1000);
+  if(view!=="exam" && view!=="session") Tools.close();
+  if(!me){ const f=$("#nName")||$("#pin"); if(f) f.focus(); }
+  if(view==="chapter" && sub.c){ const el=document.getElementById("sec-"+sub.c.replace(".","-")); if(el) setTimeout(()=>el.scrollIntoView(),0); sub.c=null; }
+}
+
+/* ---------- events ---------- */
+document.getElementById("app").addEventListener("click", e=>{
+  const b = e.target.closest("[data-act]"); if(!b || b.disabled) return;
+  const a = b.dataset.act;
+  const H = {
+    newUser(){ go("login",{mode:"new"}); },
+    loginHome(){ go("login",{}); },
+    pickUser(){ const u=users.find(x=>x.id===b.dataset.id); if(!u) return; if(u.pin) go("login",{mode:"pin",uid:u.id}); else enterUser(u); },
+    checkPin(){ const u=users.find(x=>x.id===sub.uid); const v=$("#pin").value.trim(); if(hash(u.id+"|"+v)===u.pin) enterUser(u); else { $("#pErr").textContent="That PIN is not right. Try again."; $("#pin").value=""; $("#pin").focus(); } },
+    createUser(){
+      const name=$("#nName").value.trim(), p1=$("#nPin").value.trim(), p2=$("#nPin2").value.trim(), err=$("#nErr");
+      if(!name){ err.textContent="Please enter your name."; return; }
+      if(users.some(u=>u.name.toLowerCase()===name.toLowerCase())){ err.textContent="A profile with this name already exists. Add your surname or initial."; return; }
+      if(p1 && !/^\d{4}$/.test(p1)){ err.textContent="The PIN must be exactly 4 digits."; return; }
+      if(p1!==p2){ err.textContent="The two PINs do not match."; return; }
+      const id="u"+Date.now().toString(36)+Math.floor(Math.random()*1e4).toString(36);
+      const u={id,name,pin:p1?hash(id+"|"+p1):null,created:Date.now()};
+      users.push(u); saveUsers(); S.put("p."+id, blankProg()); enterUser(u);
+    },
+    switch(){ if(me){ if(prog.live) Tools.saveNow(); save(); } me=null; prog=null; sess.set(null); go("login",{}); },
+    tab(){ go(b.dataset.v); },
+    chapTab(){ go("chapters",{t:b.dataset.t}); },
+    openChapter(){ go("chapter",{m:+b.dataset.m, t:b.dataset.t||"overview", c:b.dataset.c||null}); },
+    chTab(){ go("chapter",{m:+b.dataset.m, t:b.dataset.t}); },
+    jump(){ const el=document.getElementById("sec-"+b.dataset.c.replace(".","-")); if(el) el.scrollIntoView({behavior:"smooth"}); },
+    markRead(){ const c=b.dataset.c; if(prog.read[c]) delete prog.read[c]; else { prog.read[c]=1; touchDay(); } save(); rerender(); },
+    calcMat(){ calcMaturity(); rerender(); },
+    calcDep(){ calcDep(); rerender(); },
+    calcCost(){ calcCost(); rerender(); },
+    startChapter(){ const c=b.dataset.c; startSession(orderForPractice(byChapter[c]||[]), c+" "+chTitle[c], modOf(c)); },
+    startModule(){ const m=+b.dataset.m; startSession(orderForPractice(byModule[m]||[]).slice(0,25), "Module "+m+" · mixed", m); },
+    startModFav(){ const m=+b.dataset.m; startSession(orderForPractice((byModule[m]||[]).filter(id=>Q[id].f)).slice(0,20), "Module "+m+" · core concepts", m); },
+    startModMist(){ const m=+b.dataset.m; const ids=mistakesIn(m); if(!ids.length){ toast("No mistakes saved for this module"); return; } startSession(shuffle(ids).slice(0,20), "Module "+m+" · Mistake Book", m); },
+    startQuick(){ startSession(shuffle(orderForPractice(openPool()).slice(0,40)).slice(0,10), "Quick 10", null); },
+    startFav(){ startSession(orderForPractice(openPool().filter(id=>Q[id].f)).slice(0,15), "Core concepts", null); },
+    startMistakes(){ const ids=mistakesIn(); if(!ids.length){ toast("Your Mistake Book is empty"); return; } startSession(shuffle(ids).slice(0,20), "Mistake Book", null); },
+    pick(){ if(sub.picked!==null) return; const k=+b.dataset.k, id=sub.ids[sub.i]; sub.picked=k; const ok=k===Q[id].a; record(id,ok); sub.log.push([id,ok]); save(); rerender(); const n=$("#nextBtn"); if(n) n.focus({preventScroll:true}); },
+    nextQ(){ sub.i++; sub.picked=null; render(); window.scrollTo(0,0); },
+    endSession(){ sub.done=true; render(); },
+    startFlash(){ const m=+b.dataset.m; let list=D.cards.filter(c=>modOf(c[0])===m); if(b.dataset.v==="due") list=list.filter(c=>!prog.cards[c[1]]); if(!list.length){ toast("You know every card in this set"); return; } go("chapter",{m, t:"cards", flash:{list:shuffle(list),i:0,flip:false,got:0}}); },
+    flip(){ sub.flash.flip=!sub.flash.flip; render(); },
+    cardKnow(){ const f=sub.flash, c=f.list[f.i]; if(b.dataset.v==="1"){ prog.cards[c[1]]=1; f.got++; } else delete prog.cards[c[1]]; touchDay(); save(); f.i++; f.flip=false; render(); },
+    startMatch(){ const m=+b.dataset.m; const pool=D.cards.filter(c=>modOf(c[0])===m); const items=shuffle(pool).slice(0,5); go("chapter",{m, t:"match", game:{items, order:shuffle(items.map((_,i)=>i)), done:[], sel:null, bad:null, miss:0, start:Date.now()}}); },
+    mTerm(){ sub.game.sel=+b.dataset.i; sub.game.bad=null; rerender(); },
+    mDef(){ const g=sub.game, i=+b.dataset.i; if(g.sel===null){ toast("Tap a term first"); return; }
+      if(i===g.sel){ g.done.push(i); g.sel=null; g.bad=null;
+        if(g.done.length===g.items.length){ g.end=Math.round((Date.now()-g.start)/1000)+g.miss*5; const m=sub.m; const r=prog.match[m]||{best:0,plays:0}; r.plays++; if(!r.best||g.end<r.best){ r.best=g.end; g.best=true; } prog.match[m]=r; touchDay(); save(); clearInterval(timerH); }
+      } else { g.miss++; g.bad=i; }
+      rerender(); },
+    instr(){ go("instr",{k:b.dataset.k}); },
+    startMock(){ if(!$("#agree").checked){ $("#agErr").textContent="Please tick the box to confirm you have read the instructions."; return; } startMock(b.dataset.k); },
+    resume(){ go("exam"); },
+    toolCalc(){ Tools.toggleCalc(); },
+    toolRough(){ Tools.toggleRough(); },
+    examPick(){ const id=prog.live.qids[prog.live.i]; prog.live.ans[id]=+b.dataset.k; save(); rerender(); },
+    clearAns(){ delete prog.live.ans[prog.live.qids[prog.live.i]]; save(); rerender(); },
+    toggleMark(){ const id=prog.live.qids[prog.live.i]; if(prog.live.mark[id]) delete prog.live.mark[id]; else prog.live.mark[id]=1; save(); rerender(); },
+    examNav(){ prog.live.i=Math.min(prog.live.qids.length-1,Math.max(0,prog.live.i+ +b.dataset.d)); save(); render(); window.scrollTo(0,0); },
+    examJump(){ prog.live.i=+b.dataset.i; save(); render(); window.scrollTo(0,0); },
+    askSubmit(){ sub.confirm=true; render(); window.scrollTo(0,0); },
+    cancelSubmit(){ sub.confirm=false; render(); },
+    submitMock(){ submitMock(); },
+    review(){ go("result",{i:+b.dataset.i, filter:"all"}); },
+    theme(){ theme=b.dataset.v; S.set("theme",theme); applyTheme(); render(); },
+    rename(){ const v=$("#rName").value.trim(), err=$("#rErr"); if(!v){ err.textContent="Please enter a name."; return; }
+      if(users.some(u=>u.id!==me.id && u.name.toLowerCase()===v.toLowerCase())){ err.textContent="Another profile already uses this name."; return; }
+      const u=users.find(x=>x.id===me.id); u.name=v; me=u; saveUsers(); toast("Name saved"); render(); },
+    savePin(){ const err=$("#pinErr"); const u=users.find(x=>x.id===me.id);
+      if(u.pin){ const o=($("#oldPin").value||"").trim(); if(hash(u.id+"|"+o)!==u.pin){ err.textContent="Your current PIN is not right."; return; } }
+      const v=$("#newPin").value.trim(), v2=$("#newPin2").value.trim();
+      if(v && !/^\d{4}$/.test(v)){ err.textContent="The PIN must be exactly 4 digits."; return; }
+      if(v!==v2){ err.textContent="The two new PINs do not match."; return; }
+      if(!v && !u.pin){ err.textContent="Enter a 4-digit PIN to add one."; return; }
+      u.pin=v?hash(u.id+"|"+v):null; me=u; saveUsers(); toast(v?"PIN saved":"PIN removed"); render(); },
+    exportCode(){ try{ sub.exportCode=btoa(unescape(encodeURIComponent(JSON.stringify({app:"ffca2",v:1,name:me.name,p:Object.assign({},prog,{live:null})})))); }catch(err){ sub.exportCode=""; toast("Could not create a code"); } render(); },
+    copyCode(){ copyText(sub.exportCode, $("#codeOut")); },
+    copyShop(){ copyText(SHOP, $("#shopUrl")); },
+    askImport(){ const t=$("#codeIn").value.trim(); try{ const o=JSON.parse(decodeURIComponent(escape(atob(t)))); if(o.app!=="ffca2"||!o.p) throw 0; sub.pending=o; sub.confirmImport=true; render(); }catch(err){ $("#codeErr").textContent="That code does not look right. Copy the whole code and try again."; } },
+    doImport(){ prog=Object.assign(blankProg(), sub.pending.p); prog.live=null; save(); toast("Progress restored"); go("chapters"); },
+    cancelConfirm(){ sub.confirmImport=false; sub.confirmDelete=false; sub.confirmReset=false; render(); },
+    askReset(){ sub.confirmReset=true; sub.confirmDelete=false; render(); },
+    doReset(){ prog=blankProg(); touchDay(); save(); toast("Progress cleared"); go("chapters"); },
+    askDelete(){ sub.confirmDelete=true; sub.confirmReset=false; render(); },
+    doDelete(){ if(me.pin){ const v=($("#delPin")||{}).value||""; if(hash(me.id+"|"+v.trim())!==me.pin){ $("#delErr").textContent="That PIN is not right."; return; } }
+      users=users.filter(u=>u.id!==me.id); saveUsers(); S.del("p."+me.id); me=null; prog=null; sess.set(null); toast("Profile deleted"); go("login",{}); }
+  };
+  if(H[a]){ e.preventDefault(); H[a](); }
+});
+document.addEventListener("change", e=>{
+  if(e.target.id==="revFilter"){ sub.filter=e.target.value; render(); }
+});
+document.addEventListener("keydown", e=>{
+  if(e.key==="Enter"){
+    const id=e.target.id;
+    if(id==="pin"){ e.preventDefault(); $('[data-act="checkPin"]').click(); }
+    else if(["nName","nPin","nPin2"].includes(id)){ e.preventDefault(); $('[data-act="createUser"]').click(); }
+    else if(id==="rName"){ e.preventDefault(); $('[data-act="rename"]').click(); }
+    else if(e.target.classList && e.target.classList.contains("flash")){ e.preventDefault(); e.target.click(); }
+  }
+  if(e.key===" " && e.target.classList && e.target.classList.contains("flash")){ e.preventDefault(); e.target.click(); }
+});
+document.addEventListener("visibilitychange", ()=>{ if(document.visibilityState==="visible") tick(); else if(prog && prog.live) Tools.saveNow(); });
+
+/* ---------- boot ---------- */
+const sid = sess.get();
+const su = sid && users.find(u=>u.id===sid);
+if(su){ me=su; prog=loadProg(su.id); if(liveOk()) view="exam"; }
+render();
+})();
+
+</script>
+<noscript><p style="padding:16px">Please allow JavaScript to use FFCA Smart Prep. Open this file in Chrome, Edge or Firefox.</p></noscript>
+</body>
+</html>

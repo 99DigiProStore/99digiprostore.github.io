@@ -32,6 +32,7 @@
           a: "It's a new initiative by a qualified CMA, run as a small sole proprietorship from India. Every product is planned, written and checked by the founder." },
         { q: "What do you sell?",
           a: "Right now:<ul>" +
+            "<li><b>CMA Foundation All 4 Papers Bundle</b> (FBLC + FFCA + FBMS + FBEM Smart Prep), ₹29" + PC + ", Dasara Dhamaka till 25 Oct 2026</li>" +
             "<li><a href=\"fblc-smart-prep.html\">FBLC Smart Prep</a> (CMA Foundation Paper 1), " + sale("₹99", "₹9") + "</li>" +
             "<li><a href=\"fbem-smart-prep.html\">FBEM Smart Prep</a> (CMA Foundation Paper 4), " + sale("₹99", "₹9") + "</li>" +
             "<li><a href=\"excel-basics.html\">Excel - Basics for All</a>, ₹99" + PC + "</li>" +
@@ -84,6 +85,8 @@
         { q: "Is there a free sample?",
           a: "Yes, every product has one, with no sign-up:<ul>" +
             "<li><a href=\"samples/fblc-smart-prep-sample.html\">FBLC Smart Prep</a></li>" +
+            "<li><a href=\"samples/ffca-smart-prep-sample.html\">FFCA Smart Prep</a></li>" +
+            "<li><a href=\"samples/fbms-smart-prep-sample.html\">FBMS Smart Prep</a></li>" +
             "<li><a href=\"samples/fbem-smart-prep-sample.html\">FBEM Smart Prep</a></li>" +
             "<li><a href=\"samples/excel-basics-sample.html\">Excel - Basics for All</a></li>" +
             "<li><a href=\"samples/excel-pro-sample.html\">Excel Pro Lab</a></li>" +
@@ -99,14 +102,14 @@
         { q: "Is there an AI module?",
           a: "Yes, in the Excel labs. It shows you how to use AI tools to write Excel formulas and how to catch their mistakes. No AI is built into the file and you don't need an AI account." },
         { q: "Do you have CMA Inter or Final?",
-          a: "Not yet. For CMA students we have FBLC Smart Prep for Foundation Paper 1 and FBEM Smart Prep for Paper 4 right now. More study kits are on the way. Email " + MAIL + " to tell us what you need." }
+          a: "Not yet. For CMA students we have Smart Prep kits for all 4 CMA Foundation papers right now (sold together as a bundle). More study kits are on the way. Email " + MAIL + " to tell us what you need." }
       ]
     },
     {
       title: "Price and payment",
       faqs: [
         { q: "How much do they cost?",
-          a: "Launch offer prices:<ul><li>FBLC Smart Prep: <s>₹99</s> ₹9</li><li>FBEM Smart Prep: <s>₹99</s> ₹9</li><li>Excel for Finance: <s>₹299</s> ₹99</li><li>Excel for Data Analytics: <s>₹299</s> ₹99</li><li>Excel - Basics for All: ₹99</li><li>Excel Pro Lab: ₹99</li></ul>Each price is plus payment charges, added at checkout. You see the full amount before you pay." },
+          a: "Launch offer prices:<ul><li><b>Dasara Dhamaka:</b> all 4 CMA Foundation Smart Prep kits (FBLC, FFCA, FBMS, FBEM) for ₹29, till 25 Oct 2026</li><li>FBLC Smart Prep: <s>₹99</s> ₹9</li><li>FBEM Smart Prep: <s>₹99</s> ₹9</li><li>Excel for Finance: <s>₹299</s> ₹99</li><li>Excel for Data Analytics: <s>₹299</s> ₹99</li><li>Excel - Basics for All: ₹99</li><li>Excel Pro Lab: ₹99</li></ul>Each price is plus payment charges, added at checkout. You see the full amount before you pay." },
         { q: "What are payment charges?",
           a: "They're the fees for processing your payment on Instamojo. They're added on top of the product price at checkout, and the full amount is shown before you pay. There are no other charges." },
         { q: "How do I buy?",
@@ -114,7 +117,7 @@
         { q: "How can I pay?",
           a: "By UPI, card or net banking on our " + STORE_LINK + ". Payment is handled securely by Instamojo." },
         { q: "Are there any discounts?",
-          a: "Yes, a launch offer is on now: FBLC and FBEM Smart Prep at ₹9 (regular ₹99), and Excel for Finance and Excel for Data Analytics at ₹99 (regular ₹299). Excel - Basics for All and Excel Pro Lab stay at ₹99. All plus payment charges." },
+          a: "Yes. <b>Dasara Dhamaka:</b> all 4 CMA Foundation Smart Prep kits (Papers 1 to 4) in one bundle for ₹29 + payment charges, till 25 Oct 2026, 11:59 pm IST. A launch offer is also on: FBLC and FBEM Smart Prep at ₹9 (regular ₹99), and Excel for Finance and Excel for Data Analytics at ₹99 (regular ₹299). Excel - Basics for All and Excel Pro Lab stay at ₹99. All plus payment charges." },
         { q: "Do I need an account to buy?",
           a: "No. You don't sign up anywhere. Instamojo asks for your name, email and phone number at checkout so it can send your file." }
       ]
