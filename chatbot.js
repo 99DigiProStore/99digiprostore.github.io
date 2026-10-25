@@ -40,13 +40,13 @@
             "<li><a href=\"excel-pro.html\">Excel Pro Lab</a>, ₹99" + PC + "</li>" +
             "<li><a href=\"excel-for-finance.html\">Excel for Finance - Basics to Advanced</a>, " + sale("₹299", "₹99") + "</li>" +
             "<li><a href=\"excel-data-analytics.html\">Excel for Data Analytics - Basics to Advanced</a>, " + sale("₹299", "₹99") + "</li></ul>" +
-            "Every product has a free sample on its page." },
+            "Most products have a free sample on their page." },
         { q: "How is this different from free material?",
           a: "Free notes, videos and PDFs are things you read. Our products make you practise: a short lesson, then you try it yourself and your answer is checked straight away, so you know exactly what to fix." },
         { q: "Are there videos?",
           a: "No. Our products are read-and-do: a short lesson, then you practise and get your answer checked straight away." },
         { q: "Is it safe to buy?",
-          a: "Yes. Payment is handled by Instamojo, and you can try every product free before you buy. We never ask for your card or bank details ourselves." },
+          a: "Yes. Payment is handled by Instamojo, and most products have a free sample to try first. We never ask for your card or bank details ourselves." },
         { q: "Are you linked to ICMAI or Microsoft?",
           a: "No. 99DigiProStore is independent. It is not affiliated with, endorsed by or connected to ICMAI, ICAI, ICSI, any exam body or Microsoft. Our notes and questions are our own original work." },
         { q: "Do you guarantee marks or a job?",
@@ -73,7 +73,7 @@
             "<li>CMA Foundation Paper 4: <a href=\"fbem-smart-prep.html\">FBEM Smart Prep</a></li></ul>" +
             "Not sure? Try the free samples first." },
         { q: "What's in the AI Prompt Kit?",
-          a: "The Prompting and Prompt Engineering Handbook (15-page PDF), plus the full Prompt Learn and Practice portal as a free bonus: 30 modules, 160 tasks where you write the prompt and get a score out of 10, 145 ready prompts, a prompt builder and a certificate. Works with any AI chat tool; no AI is built in.<br><br><s>₹299</s> ₹99" + PC + ", launch price till 15 Nov 2026. <a href=\"ai-prompt-kit.html\">Details</a> · <a href=\"samples/prompt-practice-free.html\">Try 50 tasks free</a>" },
+          a: "The Prompting and Prompt Engineering Handbook (15-page PDF), plus the full Prompt Learn and Practice portal as a free bonus: 30 modules, 160 tasks where you write the prompt and get a score out of 10, 145 ready prompts, a prompt builder and a certificate. Works with any AI chat tool; no AI is built in.<br><br><s>₹299</s> ₹99" + PC + ", launch price till 15 Nov 2026. <a href=\"ai-prompt-kit.html\">Details</a>" },
         { q: "What's in the CMA Foundation bundle?",
           a: "All 4 CMA Foundation Smart Prep kits in one download: FBLC (Paper 1), FFCA (Paper 2), FBMS (Paper 3) and FBEM (Paper 4). 1,249 practice MCQs with explanations, 8 full timed mocks (2 per paper), flashcards and a Mistake Book in every kit.<br><br>₹99" + PC + " for all 4." },
         { q: "What's in Excel - Basics for All?",
@@ -89,8 +89,7 @@
         { q: "What's in FBEM Smart Prep?",
           a: "A revision toolkit for CMA Foundation Paper 4, Fundamentals of Business Economics and Management. Plain-language notes for all 5 chapters, 307 practice questions with instant explanations, 2 full timed mock tests (50 questions, 2 hours), 97 flashcards and a Mistake Book.<br><br>" + sale("₹99", "₹9") + ". <a href=\"fbem-smart-prep.html\">Details</a> · <a href=\"samples/fbem-smart-prep-sample.html\">Free sample</a>" },
         { q: "Is there a free sample?",
-          a: "Yes, every product has one, with no sign-up:<ul>" +
-            "<li><a href=\"samples/prompt-practice-free.html\">AI Prompt Kit (50 free tasks)</a></li>" +
+          a: "Yes, for these products, with no sign-up:<ul>" +
             "<li><a href=\"samples/fblc-smart-prep-sample.html\">FBLC Smart Prep</a></li>" +
             "<li><a href=\"samples/ffca-smart-prep-sample.html\">FFCA Smart Prep</a></li>" +
             "<li><a href=\"samples/fbms-smart-prep-sample.html\">FBMS Smart Prep</a></li>" +
@@ -156,7 +155,7 @@
         { q: "How soon will you reply?",
           a: "We reply within 24 hours, Monday to Saturday." },
         { q: "Can I get a refund?",
-          a: "All sales are final. Our products are digital downloads, so they can't be refunded, including if you change your mind. That's why every product has a free sample, so you can try before you buy. See the <a href=\"policies.html#refunds\">refund policy</a>." },
+          a: "All sales are final. Our products are digital downloads, so they can't be refunded, including if you change your mind. That's why most products have a free sample, so you can try before you buy. See the <a href=\"policies.html#refunds\">refund policy</a>." },
         { q: "My file isn't working",
           a: "Sorry about that. First, try opening it in Chrome on a laptop or an Android phone. If it still doesn't work, email " + MAIL + " with your order details and what you see. We'll fix the problem or send a working replacement." },
         { q: "I paid but didn't get the link",
