@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI Prompt Kit</title>
+<meta name="description" content="Get better answers from ChatGPT, Gemini or any AI tool. The Prompt Handbook plus a bonus practice portal with 160 scored tasks. Launch price ₹99 + payment charges till 15 Nov 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<style>
+/* Page-only styles for the AI Prompt Kit landing page. Uses the site tokens from style.css. */
+.kit-hero { display: grid; grid-template-columns: 1.25fr 1fr; gap: 40px; align-items: center; }
+@media (max-width: 860px) { .kit-hero { grid-template-columns: 1fr; } }
+.kit-hero h1 { font-size: clamp(2.2rem, 5.6vw, 3.6rem); }
+.kit-hero h1 em { font-style: normal; background: color-mix(in srgb, var(--accent) 35%, transparent); padding: 0 6px; border-radius: 6px; }
+.pricebox { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; margin-top: 22px; }
+.pricebox .now { font-family: var(--display); font-weight: 800; font-size: 2.6rem; }
+.pricebox s { font-family: var(--display); font-weight: 700; font-size: 1.4rem; color: var(--muted); text-decoration-thickness: 2px; }
+.pricebox small { color: var(--muted); font-weight: 600; }
+.ends { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); margin-top: 6px; }
+.cover-stack { position: relative; display: grid; place-items: center; min-width: 0; }
+.cover-stack img { border-radius: 12px; border: 1.5px solid var(--ink); box-shadow: 6px 6px 0 var(--ink); }
+.cover-stack .c1 { width: min(62%, 300px); transform: rotate(-3deg); }
+.cover-stack .c2 { position: absolute; right: 2%; bottom: -14px; width: min(48%, 230px); transform: rotate(4deg); background: var(--card); }
+.cover-stack .lbl { position: absolute; left: 4%; top: 8px; z-index: 2; }
+
+.chat { display: grid; gap: 12px; max-width: 640px; }
+.bubble { border-radius: 14px; padding: 14px 16px; border: 1px solid var(--rule); background: var(--card); min-width: 0; }
+.bubble .who { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em; color: var(--muted); display: block; margin-bottom: 4px; }
+.bubble.you { font-family: var(--mono); font-size: 0.95rem; }
+.bubble.bad { border-color: var(--rule-red); }
+.bubble.good { border: 1.5px solid var(--ok); }
+.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+@media (max-width: 760px) { .compare { grid-template-columns: 1fr; } }
+.compare > div { display: grid; gap: 12px; align-content: start; min-width: 0; }
+.verdict { font-weight: 700; font-size: 0.92rem; }
+.verdict.bad { color: #b42318; }
+.verdict.good { color: var(--ok); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .verdict.bad { color: #f08a80; } }
+:root[data-theme="dark"] .verdict.bad { color: #f08a80; }
+
+.stack { background: var(--card); border: 1.5px solid var(--ink); border-radius: 14px; box-shadow: 5px 5px 0 var(--ink); max-width: 760px; }
+.stack-row { display: grid; grid-template-columns: 1fr auto; gap: 6px 18px; padding: 18px 22px; border-bottom: 1px dashed var(--rule); align-items: start; }
+.stack-row > div { min-width: 0; display: grid; gap: 4px; }
+.stack-row h3 { font-size: 1.08rem; }
+.stack-row p { color: var(--muted); font-size: 0.93rem; }
+.stack-row .val { font-family: var(--mono); font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.stack-row .badge { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.stack-row .badge.bonus { color: var(--accent-ink); background: var(--accent); padding: 2px 8px; border-radius: 999px; justify-self: start; }
+.stack-total { padding: 18px 22px; display: grid; gap: 8px; background: color-mix(in srgb, var(--accent) 10%, var(--card)); border-radius: 0 0 14px 14px; }
+.stack-total .line { display: flex; justify-content: space-between; gap: 12px; font-variant-numeric: tabular-nums; }
+.stack-total .line.big { font-family: var(--display); font-weight: 800; font-size: 1.5rem; }
+.stack-total .btn { justify-self: start; margin-top: 6px; }
+
+.shots { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; align-items: start; }
+@media (max-width: 860px) { .shots { grid-template-columns: 1fr; } }
+.shots figure { margin: 0; display: grid; gap: 8px; min-width: 0; }
+.shots img { border-radius: 12px; border: 1px solid var(--rule); background: #fff; display: block; }
+.shots figcaption { font-size: 0.9rem; color: var(--muted); }
+.shots .tall { max-height: 520px; object-fit: cover; object-position: top; width: 100%; }
+
+.parts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+@media (max-width: 760px) { .parts { grid-template-columns: 1fr; } }
+.parts > div { border-top: 2px solid var(--ink); padding-top: 14px; display: grid; gap: 8px; align-content: start; }
+.parts ul { margin: 0; padding-left: 18px; color: var(--muted); display: grid; gap: 4px; font-size: 0.95rem; }
+
+.faq { display: grid; gap: 10px; max-width: 760px; }
+.faq details { background: var(--card); border: 1px solid var(--rule); border-radius: 12px; padding: 14px 18px; }
+.faq summary { cursor: pointer; font-weight: 600; }
+.faq details p { margin-top: 8px; color: var(--muted); }
+
+.story { display: grid; gap: 14px; max-width: 68ch; }
+.story p { font-size: 1.05rem; }
+
+
+.band a.btn-primary, .buybar a.btn-primary { color: var(--accent-ink); }
+.buybar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 6; display: none; align-items: center; justify-content: space-between; gap: 12px; background: var(--ink); color: var(--paper); padding: 10px max(16px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
+.buybar b { font-family: var(--display); font-size: 1.2rem; }
+.buybar s { opacity: 0.7; margin-left: 4px; }
+.buybar small { display: block; font-size: 0.75rem; opacity: 0.8; }
+@media (max-width: 720px) { .buybar { display: flex; } body { padding-bottom: 76px; } }
+</style>
+<script>
+  // Meta Pixel. Paste the Pixel ID from Meta Events Manager between the quotes. Empty = pixel off.
+  var META_PIXEL_ID = "1897611331239030";
+  if (META_PIXEL_ID) {
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', META_PIXEL_ID); fbq('track', 'PageView');
+    fbq('track', 'ViewContent', { content_name: 'AI Prompt Kit', value: 99, currency: 'INR' });
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[data-buy]');
+    if (a && window.fbq) fbq('track', 'InitiateCheckout', { content_name: 'AI Prompt Kit', value: 99, currency: 'INR' });
+  });
+</script>
+</head>
+<body>
+<div class="topnote"><a href="#offer">Launch price ₹99 + payment charges till 15 Nov 2026, 11:59 pm IST. From 16 Nov the price is ₹299.</a></div>
+<header class="top">
+  <div class="wrap nav">
+    <a class="logo" href="index.html"><span class="logo-mark">99</span>99DigiProStore</a>
+    <ul>
+      <li><a href="#inside">What you get</a></li>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="index.html#products">All products</a></li>
+    </ul>
+    <a class="btn btn-primary" data-buy href="https://99digiprostore.myinstamojo.com">Buy for ₹99</a>
+  </div>
+</header>
+<main>
+  <section class="hero">
+    <div class="wrap kit-hero">
+      <div>
+        <div class="eyebrow">Skills · AI prompts for everyone</div>
+        <h1>Stop getting <em>generic</em> answers from AI.</h1>
+        <p class="lead">The AI Prompt Kit teaches you to write prompts that get the answer you need, and then makes you practise. Get the Prompt Handbook, plus the full Prompt Learn and Practice portal as a bonus: 160 tasks where you write the prompt and get a score out of 10.</p>
+        <div class="pricebox" aria-label="Price">
+          <s aria-label="Regular price ₹299">₹299</s>
+          <span class="now">₹99</span>
+          <small>+ payment charges</small>
+          <span class="offer">Launch price</span>
+        </div>
+        <p class="ends">Launch price ends 15 Nov 2026, 11:59 pm IST</p>
+        <div class="cta">
+          <a class="btn btn-primary" data-buy href="https://99digiprostore.myinstamojo.com">Get the kit for ₹99</a>
+          <a class="btn btn-ghost" href="samples/prompt-practice-free.html">Try 50 tasks free first</a>
+        </div>
+        <div class="pills">
+          <span class="pill">Works with ChatGPT, Gemini, Claude and others</span>
+          <span class="pill">Works offline</span>
+          <span class="pill">Instant delivery by email</span>
+        </div>
+      </div>
+      <div class="cover-stack" aria-hidden="true">
+        <span class="offer lbl">Handbook + bonus portal</span>
+        <img class="c1" src="img/prompt-kit/handbook-cover.jpg" alt="">
+        <img class="c2" src="img/prompt-kit/good-score.jpg" alt="">
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">The problem</div>
+        <h2>Same AI. Better prompt. Better answer.</h2>
+        <p>Most people type three words into an AI tool and get an answer that could be for anyone. The AI isn't the problem. It only knows what you tell it.</p>
+      </div>
+      <div class="compare">
+        <div>
+          <span class="verdict bad">What most people type</span>
+          <div class="bubble you"><span class="who">YOU</span>diet plan</div>
+          <div class="bubble bad"><span class="who">AI</span>Here is a general healthy diet plan: eat fruits, vegetables, whole grains, lean protein and drink plenty of water…</div>
+        </div>
+        <div>
+          <span class="verdict good">What you'll learn to type</span>
+          <div class="bubble you good"><span class="who">YOU</span>You are a nutrition coach. Make a 7-day vegetarian plan for me: 28, work from home, want to lose 4 kg in 2 months, no onion or garlic. Show a table. Keep meals cheap and Indian.</div>
+          <div class="bubble"><span class="who">AI</span>A day-by-day table made for you, with your limits, your budget and your food.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="offer" class="band">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Everything in the kit</div>
+        <h2>You buy the handbook. The whole practice portal comes free with it.</h2>
+        <p class="muted">Values are what each part costs on its own in our store.</p>
+      </div>
+      <div class="stack" style="color: var(--ink)">
+        <div class="stack-row">
+          <div><span class="badge">The handbook</span><h3>Prompting and Prompt Engineering Handbook</h3><p>15-page PDF. How AI chat tools work, the 6 parts of a prompt and which ones you actually need, core and advanced techniques, safety, and a one-page cheat sheet.</p></div>
+          <span class="val">₹99</span>
+        </div>
+        <div class="stack-row">
+          <div><span class="badge bonus">Bonus</span><h3>Prompt Learn and Practice: Basics to Advanced</h3><p>The full practice portal. 30 modules, 59 short lessons and 160 tasks. You write each prompt yourself, get a score out of 10 with tips, and compare with a model answer.</p></div>
+          <span class="val">₹299</span>
+        </div>
+        <div class="stack-row">
+          <div><span class="badge bonus">Inside the bonus</span><h3>145 ready prompts and a prompt builder</h3><p>Copy-ready prompts for study, jobs, office, Excel, business, money and more. The builder helps you put your own together.</p></div>
+          <span class="val">Included</span>
+        </div>
+        <div class="stack-row">
+          <div><span class="badge bonus">Inside the bonus</span><h3>Certificate of completion</h3><p>Score 80% across the course and print your certificate. It records practice; it is not an accredited qualification.</p></div>
+          <span class="val">Included</span>
+        </div>
+        <div class="stack-total">
+          <div class="line"><span>Total value</span><span>₹398</span></div>
+          <div class="line"><span>Regular price from 16 Nov 2026</span><span><s>₹299</s></span></div>
+          <div class="line big"><span>Launch price till 15 Nov</span><span>₹99</span></div>
+          <p class="muted" style="color: var(--muted)">+ payment charges, added by Instamojo at checkout.</p>
+          <a class="btn btn-primary" data-buy href="https://99digiprostore.myinstamojo.com">Get the kit for ₹99</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">How it works</div>
+        <h2>Read it, write it, get scored.</h2>
+        <p>You learn by doing, the way you learned to ride a cycle. Reading tips is easy. Writing a good prompt yourself is the skill.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><h3>1. Learn one idea</h3><p>A one-minute lesson, such as how to give the AI context, with an everyday Indian example.</p></div>
+        <div class="step"><h3>2. Write the prompt</h3><p>You get a real situation, like an exam, a job email or a shop's Instagram post. You type the prompt yourself.</p></div>
+        <div class="step"><h3>3. See what to fix</h3><p>You get a score out of 10 with tips on exactly what's missing, then a model answer to compare. Retry until you pass at 7.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top: 0">
+    <div class="wrap">
+      <div class="shots">
+        <figure><img src="img/prompt-kit/weak-score.jpg" alt="Portal scoring a vague prompt low, with tips on what to add"><figcaption>First try: "explain depreciation". A low score, and exactly what's missing.</figcaption></figure>
+        <figure><img src="img/prompt-kit/good-score.jpg" alt="Portal scoring an improved prompt 10 out of 10"><figcaption>After the lesson: role, task and context added. 10 out of 10.</figcaption></figure>
+        <figure><img class="tall" src="img/prompt-kit/portal-modules.jpg" alt="The Learn and practise screen listing modules"><figcaption>The portal on a phone: work through the modules in order.</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="inside" style="padding-top: 0">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Inside the portal</div>
+        <h2>From your first prompt to advanced prompting.</h2>
+      </div>
+      <div class="parts">
+        <div><h3>Part 1 · Basics</h3><ul><li>What makes a good prompt</li><li>Role, task, context, format, limits and examples</li><li>Follow-ups, and when a short prompt is enough</li><li>Using AI safely</li></ul></div>
+        <div><h3>Part 2 · Practice by area</h3><ul><li>Study and exams, jobs and interviews</li><li>Office emails, reports, Excel and data</li><li>Small business, money and everyday life</li><li>Social media, creative writing, research, coding</li><li>Prompting with files, photos and screenshots</li></ul></div>
+        <div><h3>Part 3 · Advanced</h3><ul><li>How AI models work</li><li>Few-shot and step-by-step prompting</li><li>Tables, JSON and structured output</li><li>Checking answers and prompt injection</li><li>Prompt chaining, templates and image prompts</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap story">
+      <div class="eyebrow">Who made this</div>
+      <h2>Made by a qualified CMA, for people who use AI every day.</h2>
+      <p>I'm a qualified CMA and I started 99DigiProStore to make tools you use, not PDFs you just read. I kept seeing friends, students and office colleagues give up on AI because the answers felt useless. Every time, the fix was the prompt. So I built a place to practise it, with situations from Indian exams, jobs and small businesses.</p>
+      <p class="muted">99DigiProStore is Udyam registered. Questions? Write to digiprostore99@gmail.com.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Who it's for</div>
+        <h2>Anyone who types into an AI tool.</h2>
+      </div>
+      <div class="pills" style="margin-top: 0">
+        <span class="pill">College and exam students</span><span class="pill">Job seekers</span><span class="pill">Office staff</span><span class="pill">Shop and small business owners</span><span class="pill">Teachers</span><span class="pill">Content creators</span><span class="pill">Complete beginners</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" style="padding-top: 0">
+    <div class="wrap">
+      <div class="sec-head"><div class="eyebrow">Questions</div><h2>Before you buy</h2></div>
+      <div class="faq">
+        <details><summary>Which AI tool do I need?</summary><p>Any AI chat tool you already use: ChatGPT, Gemini, Claude, Copilot or others. The kit has no AI built in. You practise here, then use your prompts in your own tool.</p></details>
+        <details><summary>How is my prompt scored?</summary><p>Simple offline rules check whether your prompt has the parts the task needs, such as role, context or format. Not every prompt needs every part, so each task scores only what it needs. Every task also shows a model answer.</p></details>
+        <details><summary>What do I receive?</summary><p>A PDF (the handbook) and one .html file (the portal), by email right after payment. Open the portal in your browser. No internet is needed after download, and your text never leaves your device.</p></details>
+        <details><summary>Does it work on my phone?</summary><p>Yes on an Android phone in Chrome, and on any laptop or desktop browser. On iPhone, progress may not save, so use a laptop there.</p></details>
+        <details><summary>Can I try before I buy?</summary><p>Yes. The free Prompt Practice lab has the basics and 50 scored tasks. Your progress carries over to the full portal on the same device.</p></details>
+        <details><summary>Will the price really go up?</summary><p>Yes. The launch price of ₹99 ends on 15 Nov 2026 at 11:59 pm IST. From 16 Nov the kit costs ₹299.</p></details>
+        <details><summary>What if the file doesn't work?</summary><p>All sales are final, but if a file is faulty we fix it, replace it or refund you. See the <a href="policies.html#refunds">refund policy</a>.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap" style="display: grid; gap: 16px; justify-items: start">
+      <h2>Write one better prompt today.</h2>
+      <p class="muted">Handbook + full practice portal. <s>₹299</s> ₹99 + payment charges till 15 Nov 2026.</p>
+      <div class="cta" style="margin-top: 0">
+        <a class="btn btn-primary" data-buy href="https://99digiprostore.myinstamojo.com">Get the kit for ₹99</a>
+        <a class="btn btn-ghost" style="color: var(--paper); border-color: var(--paper)" href="samples/prompt-practice-free.html">Try 50 tasks free</a>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top: 40px">
+    <div class="wrap prose">
+      <h2 style="font-size: 1.3rem">Good to know</h2>
+      <ul class="muted" style="font-size: 0.92rem">
+        <li><strong>No promises about results.</strong> The kit does not promise a job, income, marks or that you will become an expert. Skill comes from regular practice, and this gives you a structured place to do it.</li>
+        <li><strong>Scoring is a guide.</strong> It checks the parts of your prompt with simple rules. It cannot judge every good prompt perfectly, so compare with the model answer too.</li>
+        <li><strong>Personal use.</strong> One buyer, personal use. Please don't share or resell the files.</li>
+        <li><strong>Independent product.</strong> ChatGPT, Gemini, Claude and Copilot are trademarks of their owners and are named only as examples. 99DigiProStore is not affiliated with any AI company.</li>
+      </ul>
+    </div>
+  </section>
+</main>
+<div class="buybar" aria-label="Buy the AI Prompt Kit">
+  <div><b>₹99</b><s>₹299</s><small>+ payment charges · till 15 Nov</small></div>
+  <a class="btn btn-primary" data-buy href="https://99digiprostore.myinstamojo.com">Get the kit</a>
+</div>
+<footer>
+  <div class="wrap">
+    <div class="foot-row">
+      <a class="logo" href="index.html"><span class="logo-mark">99</span>99DigiProStore</a>
+      <nav class="foot-links" aria-label="Footer">
+        <a href="about.html">About</a><a href="policies.html#terms">Terms</a><a href="policies.html#privacy">Privacy</a><a href="policies.html#refunds">Refunds</a><a href="policies.html#disclaimer">Disclaimer</a><a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+    <p class="disclaimer">99DigiProStore is an independent seller of learning aids and digital tools. Our products are aids, not professional advice, and no result is guaranteed. ChatGPT, Gemini, Claude and Copilot are trademarks of their owners; our products are not affiliated with or endorsed by any AI company.</p>
+  </div>
+</footer>
+</body>
+</html>
