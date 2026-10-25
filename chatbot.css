@@ -1,13 +1,15 @@
 /* FAQ helper: the chat bubble and window. Uses the site's colours from style.css. */
 .dps-chat { position: fixed; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 50; font-family: var(--body); }
-.dps-open-btn { display: inline-flex; align-items: center; gap: 8px; border: 1.5px solid var(--ink); cursor: pointer; font: 600 0.95rem var(--body); padding: 11px 16px; border-radius: 999px; background: var(--accent); color: var(--accent-ink); box-shadow: 3px 3px 0 var(--ink); }
+.dps-open-btn { display: inline-flex; align-items: center; gap: 8px; border: 0; cursor: pointer; font: 700 0.95rem var(--body); padding: 12px 18px; border-radius: 999px; background: var(--accent); color: var(--accent-ink); box-shadow: 0 8px 24px rgba(22, 19, 58, 0.25); }
 .dps-open-btn:hover { filter: brightness(1.05); }
 .dps-open .dps-open-btn { display: none; }
 
-.dps-panel { display: none; flex-direction: column; width: min(370px, calc(100vw - 32px)); height: min(560px, calc(100vh - 32px)); height: min(560px, calc(100dvh - 32px)); background: var(--card); color: var(--ink); border: 1.5px solid var(--ink); border-radius: 14px; box-shadow: 5px 5px 0 var(--ink); overflow: hidden; }
+.dps-panel { display: none; flex-direction: column; width: min(370px, calc(100vw - 32px)); height: min(560px, calc(100vh - 32px)); height: min(560px, calc(100dvh - 32px)); background: var(--card); color: var(--ink); border: 1px solid var(--rule); border-radius: 18px; box-shadow: var(--shadow-lg); overflow: hidden; }
 .dps-open .dps-panel { display: flex; }
 
-.dps-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 12px 14px; border-bottom: 1px solid var(--rule); background: var(--paper); }
+.dps-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 12px 14px; color: #fff; background: linear-gradient(135deg, #1d1868, #6b4cff); }
+.dps-head small { color: rgba(255, 255, 255, 0.8) !important; }
+.dps-head .dps-close { color: #fff; }
 .dps-head strong { display: block; font-family: var(--display); font-size: 1.05rem; }
 .dps-head small { color: var(--muted); font-size: 0.78rem; }
 .dps-close { border: 0; background: transparent; color: var(--ink); font-size: 1.6rem; line-height: 1; cursor: pointer; padding: 2px 8px; border-radius: 8px; }
@@ -17,13 +19,13 @@
 .dps-msg ul { margin: 6px 0; padding-left: 18px; }
 .dps-msg a { color: inherit; font-weight: 600; }
 .dps-bot { align-self: flex-start; background: var(--paper); border: 1px solid var(--rule); border-bottom-left-radius: 4px; }
-.dps-user { align-self: flex-end; background: var(--ink); color: var(--paper); border-bottom-right-radius: 4px; }
+.dps-user { align-self: flex-end; background: var(--brand); color: #fff; border-bottom-right-radius: 4px; }
 
 .dps-menu { display: flex; flex-direction: column; gap: 6px; padding: 10px 14px; border-top: 1px dashed var(--rule); max-height: 46%; overflow-y: auto; }
-.dps-label { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
+.dps-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--brand); margin-bottom: 2px; }
 .dps-chip { text-align: left; border: 1px solid var(--rule); background: var(--paper); color: var(--ink); font: 500 0.88rem var(--body); padding: 8px 12px; border-radius: 10px; cursor: pointer; }
-.dps-chip:hover { border-color: var(--ink); background: color-mix(in srgb, var(--accent) 18%, var(--paper)); }
-.dps-section { font-weight: 600; border-color: var(--ink); }
+.dps-chip:hover { border-color: var(--brand); background: var(--brand-soft); }
+.dps-section { font-weight: 700; border-color: color-mix(in srgb, var(--brand) 45%, var(--rule)); }
 .dps-back { border-style: dashed; color: var(--muted); }
 
 .dps-foot { padding: 9px 14px; border-top: 1px solid var(--rule); font-size: 0.82rem; color: var(--muted); }

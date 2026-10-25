@@ -32,7 +32,8 @@
           a: "It's a new initiative by a qualified CMA, run as a small sole proprietorship from India. Every product is planned, written and checked by the founder." },
         { q: "What do you sell?",
           a: "Right now:<ul>" +
-            "<li><b>CMA Foundation All 4 Papers Bundle</b> (FBLC + FFCA + FBMS + FBEM Smart Prep), ₹29" + PC + ", Dasara Dhamaka till 25 Oct 2026</li>" +
+            "<li><a href=\"ai-prompt-kit.html\">AI Prompt Kit</a> (Prompt Handbook + Prompt Learn and Practice portal), <s>₹299</s> ₹99" + PC + ", launch price till 15 Nov 2026</li>" +
+            "<li><a href=\"index.html#products\">CMA Foundation All 4 Papers Bundle</a> (FBLC + FFCA + FBMS + FBEM Smart Prep), ₹99" + PC + "</li>" +
             "<li><a href=\"fblc-smart-prep.html\">FBLC Smart Prep</a> (CMA Foundation Paper 1), " + sale("₹99", "₹9") + "</li>" +
             "<li><a href=\"fbem-smart-prep.html\">FBEM Smart Prep</a> (CMA Foundation Paper 4), " + sale("₹99", "₹9") + "</li>" +
             "<li><a href=\"excel-basics.html\">Excel - Basics for All</a>, ₹99" + PC + "</li>" +
@@ -53,7 +54,7 @@
         { q: "Can I share it with a friend?",
           a: "Each purchase is a personal licence for one buyer. Please don't copy, share, upload or resell the file. Your friends can try the free samples on this site." },
         { q: "What data do you collect?",
-          a: "This website doesn't ask for your personal details and doesn't use advertising trackers. Our product files don't collect or send any data. When you buy, Instamojo collects what it needs to process your order. See our <a href=\"policies.html#privacy\">privacy policy</a>." },
+          a: "This website doesn't ask for your personal details. It uses the Meta Pixel to count page visits and Buy clicks, so we can see which of our ads work. Our product files don't collect or send any data. When you buy, Instamojo collects what it needs to process your order. See our <a href=\"policies.html#privacy\">privacy policy</a>." },
         { q: "Are new products coming?",
           a: "Yes. We add new study kits, productivity tools and finance tools regularly. Have an idea for one? Email " + MAIL + "." }
       ]
@@ -63,6 +64,7 @@
       faqs: [
         { q: "Which course is right for me?",
           a: "A quick guide:<ul>" +
+            "<li>Want better answers from ChatGPT, Gemini or other AI tools: <a href=\"ai-prompt-kit.html\">AI Prompt Kit</a></li>" +
             "<li>New to Excel: <a href=\"excel-basics.html\">Excel - Basics for All</a></li>" +
             "<li>Accounts, finance, CA, CMA or CS students: <a href=\"excel-for-finance.html\">Excel for Finance</a></li>" +
             "<li>MIS, analyst or operations work: <a href=\"excel-data-analytics.html\">Excel for Data Analytics</a></li>" +
@@ -70,6 +72,10 @@
             "<li>CMA Foundation Paper 1: <a href=\"fblc-smart-prep.html\">FBLC Smart Prep</a></li>" +
             "<li>CMA Foundation Paper 4: <a href=\"fbem-smart-prep.html\">FBEM Smart Prep</a></li></ul>" +
             "Not sure? Try the free samples first." },
+        { q: "What's in the AI Prompt Kit?",
+          a: "The Prompting and Prompt Engineering Handbook (15-page PDF), plus the full Prompt Learn and Practice portal as a free bonus: 30 modules, 160 tasks where you write the prompt and get a score out of 10, 145 ready prompts, a prompt builder and a certificate. Works with any AI chat tool; no AI is built in.<br><br><s>₹299</s> ₹99" + PC + ", launch price till 15 Nov 2026. <a href=\"ai-prompt-kit.html\">Details</a> · <a href=\"samples/prompt-practice-free.html\">Try 50 tasks free</a>" },
+        { q: "What's in the CMA Foundation bundle?",
+          a: "All 4 CMA Foundation Smart Prep kits in one download: FBLC (Paper 1), FFCA (Paper 2), FBMS (Paper 3) and FBEM (Paper 4). 1,249 practice MCQs with explanations, 8 full timed mocks (2 per paper), flashcards and a Mistake Book in every kit.<br><br>₹99" + PC + " for all 4." },
         { q: "What's in Excel - Basics for All?",
           a: "Excel from zero with everyday examples like a family budget and a marks sheet. 10 modules, 44 hands-on exercises with instant checking, 13 short quizzes, 4 final projects and a certificate of completion. It works on a phone keyboard too.<br><br>₹99" + PC + ". <a href=\"excel-basics.html\">Details</a> · <a href=\"samples/excel-basics-sample.html\">Free sample</a>" },
         { q: "What's in Excel for Finance?",
@@ -84,6 +90,7 @@
           a: "A revision toolkit for CMA Foundation Paper 4, Fundamentals of Business Economics and Management. Plain-language notes for all 5 chapters, 307 practice questions with instant explanations, 2 full timed mock tests (50 questions, 2 hours), 97 flashcards and a Mistake Book.<br><br>" + sale("₹99", "₹9") + ". <a href=\"fbem-smart-prep.html\">Details</a> · <a href=\"samples/fbem-smart-prep-sample.html\">Free sample</a>" },
         { q: "Is there a free sample?",
           a: "Yes, every product has one, with no sign-up:<ul>" +
+            "<li><a href=\"samples/prompt-practice-free.html\">AI Prompt Kit (50 free tasks)</a></li>" +
             "<li><a href=\"samples/fblc-smart-prep-sample.html\">FBLC Smart Prep</a></li>" +
             "<li><a href=\"samples/ffca-smart-prep-sample.html\">FFCA Smart Prep</a></li>" +
             "<li><a href=\"samples/fbms-smart-prep-sample.html\">FBMS Smart Prep</a></li>" +
@@ -109,7 +116,7 @@
       title: "Price and payment",
       faqs: [
         { q: "How much do they cost?",
-          a: "Launch offer prices:<ul><li><b>Dasara Dhamaka:</b> all 4 CMA Foundation Smart Prep kits (FBLC, FFCA, FBMS, FBEM) for ₹29, till 25 Oct 2026</li><li>FBLC Smart Prep: <s>₹99</s> ₹9</li><li>FBEM Smart Prep: <s>₹99</s> ₹9</li><li>Excel for Finance: <s>₹299</s> ₹99</li><li>Excel for Data Analytics: <s>₹299</s> ₹99</li><li>Excel - Basics for All: ₹99</li><li>Excel Pro Lab: ₹99</li></ul>Each price is plus payment charges, added at checkout. You see the full amount before you pay." },
+          a: "Current prices:<ul><li>AI Prompt Kit: <s>₹299</s> ₹99, launch price till 15 Nov 2026</li><li>CMA Foundation All 4 Papers Bundle: ₹99</li><li>FBLC Smart Prep: <s>₹99</s> ₹9</li><li>FBEM Smart Prep: <s>₹99</s> ₹9</li><li>Excel for Finance: <s>₹299</s> ₹99</li><li>Excel for Data Analytics: <s>₹299</s> ₹99</li><li>Excel - Basics for All: ₹99</li><li>Excel Pro Lab: ₹99</li></ul>Each price is plus payment charges, added at checkout. You see the full amount before you pay." },
         { q: "What are payment charges?",
           a: "They're the fees for processing your payment on Instamojo. They're added on top of the product price at checkout, and the full amount is shown before you pay. There are no other charges." },
         { q: "How do I buy?",
@@ -117,7 +124,7 @@
         { q: "How can I pay?",
           a: "By UPI, card or net banking on our " + STORE_LINK + ". Payment is handled securely by Instamojo." },
         { q: "Are there any discounts?",
-          a: "Yes. <b>Dasara Dhamaka:</b> all 4 CMA Foundation Smart Prep kits (Papers 1 to 4) in one bundle for ₹29 + payment charges, till 25 Oct 2026, 11:59 pm IST. A launch offer is also on: FBLC and FBEM Smart Prep at ₹9 (regular ₹99), and Excel for Finance and Excel for Data Analytics at ₹99 (regular ₹299). Excel - Basics for All and Excel Pro Lab stay at ₹99. All plus payment charges." },
+          a: "Yes, launch prices are on: the AI Prompt Kit is ₹99 till 15 Nov 2026 (₹299 after that), FBLC and FBEM Smart Prep are ₹9 (regular ₹99), and Excel for Finance and Excel for Data Analytics are ₹99 (regular ₹299). The CMA Foundation All 4 Papers Bundle is ₹99. Excel - Basics for All and Excel Pro Lab are ₹99. All plus payment charges." },
         { q: "Do I need an account to buy?",
           a: "No. You don't sign up anywhere. Instamojo asks for your name, email and phone number at checkout so it can send your file." }
       ]
