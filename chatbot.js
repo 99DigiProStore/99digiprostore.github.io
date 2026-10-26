@@ -14,7 +14,7 @@
 
   var EMAIL = "digiprostore99@gmail.com";
   var STORE = "https://99digiprostore.myinstamojo.com";
-  var PC = " + payment charges";
+  var PC = "";
   var MAIL = "<a href=\"mailto:" + EMAIL + "\">" + EMAIL + "</a>";
   function sale(was, now) { return "<s>" + was + "</s> " + now + " (launch offer)" + PC; }
   var STORE_LINK = "<a href=\"" + STORE + "\" target=\"_blank\" rel=\"noopener\">Instamojo store</a>";
@@ -115,15 +115,15 @@
       title: "Price and payment",
       faqs: [
         { q: "How much do they cost?",
-          a: "Current prices:<ul><li>AI Prompt Kit: <s>₹299</s> ₹99, launch price till 15 Nov 2026</li><li>CMA Foundation All 4 Papers Bundle: ₹99 (₹396 if bought separately)</li><li>FBLC Smart Prep: ₹99</li><li>FBEM Smart Prep: ₹99</li><li>Excel for Finance: <s>₹299</s> ₹99</li><li>Excel for Data Analytics: <s>₹299</s> ₹99</li><li>Excel - Basics for All: ₹99</li><li>Excel Pro Lab: ₹99</li></ul>Each price is plus payment charges, added at checkout. You see the full amount before you pay." },
-        { q: "What are payment charges?",
-          a: "They're the fees for processing your payment on Instamojo. They're added on top of the product price at checkout, and the full amount is shown before you pay. There are no other charges." },
+          a: "Current prices:<ul><li>AI Prompt Kit: <s>₹299</s> ₹99, launch price till 15 Nov 2026</li><li>CMA Foundation All 4 Papers Bundle: ₹99 (₹396 if bought separately)</li><li>FBLC Smart Prep: ₹99</li><li>FBEM Smart Prep: ₹99</li><li>Excel for Finance: <s>₹299</s> ₹99</li><li>Excel for Data Analytics: <s>₹299</s> ₹99</li><li>Excel - Basics for All: ₹99</li><li>Excel Pro Lab: ₹99</li></ul>The price shown is the full price, with no extra charges at checkout." },
+        { q: "Are there any extra charges?",
+          a: "No. The price you see is the price you pay. There are no payment charges or hidden fees at checkout." },
         { q: "How do I buy?",
           a: "Tap <b>Buy</b> on any product. It takes you to our " + STORE_LINK + ". Pay there, and your download link appears straight away." },
         { q: "How can I pay?",
           a: "By UPI, card or net banking on our " + STORE_LINK + ". Payment is handled securely by Instamojo." },
         { q: "Are there any discounts?",
-          a: "Yes, launch prices are on: the AI Prompt Kit is ₹99 till 15 Nov 2026 (₹299 after that), and Excel for Finance and Excel for Data Analytics are ₹99 (regular ₹299). The CMA Foundation All 4 Papers Bundle is ₹99. Excel - Basics for All and Excel Pro Lab are ₹99. All plus payment charges." },
+          a: "Yes, launch prices are on: the AI Prompt Kit is ₹99 till 15 Nov 2026 (₹299 after that), and Excel for Finance and Excel for Data Analytics are ₹99 (regular ₹299). The CMA Foundation All 4 Papers Bundle is ₹99. Excel - Basics for All and Excel Pro Lab are ₹99." },
         { q: "Do I need an account to buy?",
           a: "No. You don't sign up anywhere. Instamojo asks for your name, email and phone number at checkout so it can send your file." }
       ]
