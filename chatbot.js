@@ -32,7 +32,7 @@
           a: "It's a new initiative by a qualified CMA, run as a small sole proprietorship from India. Every product is planned, written and checked by the founder." },
         { q: "What do you sell?",
           a: "Right now:<ul>" +
-            "<li><a href=\"ai-prompt-kit.html\">AI Prompt Kit</a> (Prompt Handbook + Prompt Learn and Practice portal), <s>₹299</s> ₹99" + PC + ", launch price till 15 Nov 2026</li>" +
+            "<li><a href=\"ai-prompt-kit.html\">AI Prompt Kit</a> (Prompt Handbook + Prompt Learn and Practice portal), <s>₹299</s> ₹99, launch price till 15 Nov 2026, no extra charges</li>" +
             "<li><a href=\"index.html#products\">CMA Foundation All 4 Papers Bundle</a> (FBLC + FFCA + FBMS + FBEM Smart Prep), ₹99" + PC + "</li>" +
             "<li><a href=\"fblc-smart-prep.html\">FBLC Smart Prep</a> (CMA Foundation Paper 1), " + "₹99" + PC + "</li>" +
             "<li><a href=\"fbem-smart-prep.html\">FBEM Smart Prep</a> (CMA Foundation Paper 4), " + "₹99" + PC + "</li>" +
