@@ -115,7 +115,7 @@
       title: "Price and payment",
       faqs: [
         { q: "How much do they cost?",
-          a: "Current prices:<ul><li>AI Prompt Kit: <s>₹299</s> ₹99, launch price till 15 Nov 2026</li><li>CMA Foundation All 4 Papers Bundle: ₹99</li><li>FBLC Smart Prep: ₹99</li><li>FBEM Smart Prep: ₹99</li><li>Excel for Finance: <s>₹299</s> ₹99</li><li>Excel for Data Analytics: <s>₹299</s> ₹99</li><li>Excel - Basics for All: ₹99</li><li>Excel Pro Lab: ₹99</li></ul>Each price is plus payment charges, added at checkout. You see the full amount before you pay." },
+          a: "Current prices:<ul><li>AI Prompt Kit: <s>₹299</s> ₹99, launch price till 15 Nov 2026</li><li>CMA Foundation All 4 Papers Bundle: ₹99 (₹396 if bought separately)</li><li>FBLC Smart Prep: ₹99</li><li>FBEM Smart Prep: ₹99</li><li>Excel for Finance: <s>₹299</s> ₹99</li><li>Excel for Data Analytics: <s>₹299</s> ₹99</li><li>Excel - Basics for All: ₹99</li><li>Excel Pro Lab: ₹99</li></ul>Each price is plus payment charges, added at checkout. You see the full amount before you pay." },
         { q: "What are payment charges?",
           a: "They're the fees for processing your payment on Instamojo. They're added on top of the product price at checkout, and the full amount is shown before you pay. There are no other charges." },
         { q: "How do I buy?",
