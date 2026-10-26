@@ -23,6 +23,24 @@
 .pricecard .side b { color: #fff; font-size: 0.92rem; }
 .off { font-weight: 800; font-size: 0.8rem; padding: 5px 10px; border-radius: 8px; background: #ff3d6e; color: #fff; }
 
+.timer { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-top: 14px; font-size: 0.9rem; color: var(--night-muted); }
+.timer .units { display: flex; gap: 6px; }
+.timer .u { display: grid; justify-items: center; min-width: 50px; padding: 6px 8px; border-radius: 10px; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.14); }
+.timer .u b { font-family: var(--display); font-size: 1.25rem; line-height: 1.1; color: #fff; font-variant-numeric: tabular-nums; }
+.timer .u small { font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.howbuy { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; font-size: 0.86rem; color: var(--night-muted); }
+.howbuy b { color: #fff; font-weight: 600; }
+.howbuy i { font-style: normal; opacity: 0.5; }
+
+.checkout { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+@media (max-width: 860px) { .checkout { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .checkout { grid-template-columns: 1fr; } }
+.checkout > div { background: var(--card); border: 1px solid var(--rule); border-radius: var(--radius); padding: 20px; display: grid; gap: 6px; align-content: start; box-shadow: var(--shadow); }
+.checkout .n { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--brand-soft); color: var(--brand); font-family: var(--display); font-weight: 800; }
+.checkout p { color: var(--muted); font-size: 0.93rem; }
+.safe { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 10px 18px; justify-content: center; color: var(--muted); font-size: 0.92rem; }
+.safe span::before { content: "✓ "; color: var(--ok); font-weight: 800; }
+
 .kit-visual { position: relative; min-height: 420px; }
 .kit-visual .book { position: absolute; left: 0; top: 4%; width: 44%; border-radius: 10px; transform: rotate(-5deg); box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1); }
 .screenwrap { position: absolute; right: 0; bottom: 6%; width: 74%; }
@@ -114,7 +132,7 @@
 <script src="chatbot.js" defer></script>
 </head>
 <body>
-<div class="topnote"><a href="#offer"><b>Launch price ₹99</b> till 15 Nov 2026. From 16 Nov it's ₹299.</a></div>
+<div class="topnote"><a href="#offer"><b>Launch price ₹99</b> ends 15 Nov 2026, 11:59 pm<span data-cd-short></span>. Then ₹299.</a></div>
 <header class="top">
   <div class="wrap nav">
     <a class="logo" href="index.html"><span class="logo-mark">99</span>99DigiProStore</a>
@@ -140,9 +158,14 @@
           <span class="off">67% OFF</span>
           <span class="side"><b>No extra charges</b>Launch price till 15 Nov 2026</span>
         </div>
+        <div class="timer" data-cd hidden>
+          <span>Price goes up to ₹299 in</span>
+          <span class="units"><span class="u"><b data-d>--</b><small>days</small></span><span class="u"><b data-h>--</b><small>hrs</small></span><span class="u"><b data-m>--</b><small>min</small></span><span class="u"><b data-s>--</b><small>sec</small></span></span>
+        </div>
         <div class="cta">
           <a class="btn btn-primary btn-lg" data-buy="AI Prompt Kit" data-value="99" href="https://99digiprostore.myinstamojo.com/product/prompt-learn-and-practice-basics-to-advanced">Get the Handbook + free portal <span class="arr">→</span></a>
         </div>
+        <div class="howbuy" aria-label="How buying works"><b>Takes 1 minute:</b> Tap the button <i>→</i> Tap Buy Now on Instamojo <i>→</i> Pay ₹99 by UPI or card <i>→</i> Download link on screen and by email</div>
         <div class="trust">
           <span>Instant download by email</span>
           <span>Works offline</span>
@@ -208,14 +231,38 @@
           <div class="line"><span>Total value</span><span>₹398</span></div>
           <div class="line"><span>Regular price from 16 Nov 2026</span><span><s>₹299</s></span></div>
           <div class="line big"><span>Launch price till 15 Nov</span><span>₹99</span></div>
-          <p class="muted" style="font-size: 0.9rem">This is the full price. No extra charges at checkout.</p>
+          <p class="muted" style="font-size: 0.9rem">This is the full price, with no extra charges at checkout. That's about 62 paise for each of the 160 practice tasks.</p>
           <a class="btn btn-primary btn-lg" data-buy="AI Prompt Kit" data-value="99" href="https://99digiprostore.myinstamojo.com/product/prompt-learn-and-practice-basics-to-advanced">Get the kit for ₹99 <span class="arr">→</span></a>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="how">
+  <section id="buying">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <div class="eyebrow">What happens when you tap Buy</div>
+        <h2>Four quick steps. Your kit in about a minute.</h2>
+        <p>You buy on Instamojo, our secure payment partner. You don't need to make an account.</p>
+      </div>
+      <div class="checkout reveal">
+        <div><span class="n">1</span><h3>Tap Get the kit</h3><p>You go to the AI Prompt Kit page on our Instamojo store.</p></div>
+        <div><span class="n">2</span><h3>Tap Buy Now</h3><p>Enter your name, email and phone number so we know where to send the files.</p></div>
+        <div><span class="n">3</span><h3>Pay ₹99</h3><p>Pay by UPI (GPay, PhonePe, Paytm), card or net banking. ₹99 is the full amount.</p></div>
+        <div><span class="n">4</span><h3>Download</h3><p>Your download link appears straight away and is also sent to your email.</p></div>
+      </div>
+      <div class="safe">
+        <span>We never see your card or UPI details</span>
+        <span>Faulty file? We fix, replace or refund</span>
+        <span>Help by email within 24 hours</span>
+      </div>
+      <div style="display: flex; justify-content: center; margin-top: 26px">
+        <a class="btn btn-primary btn-lg" data-buy="AI Prompt Kit" data-value="99" href="https://99digiprostore.myinstamojo.com/product/prompt-learn-and-practice-basics-to-advanced">Get the kit for ₹99 <span class="arr">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" class="alt">
     <div class="wrap">
       <div class="sec-head center reveal">
         <div class="eyebrow">How it works</div>
@@ -235,7 +282,7 @@
     </div>
   </section>
 
-  <section id="inside" class="alt">
+  <section id="inside">
     <div class="wrap">
       <div class="sec-head center reveal">
         <div class="eyebrow">Inside the portal</div>
@@ -249,7 +296,7 @@
     </div>
   </section>
 
-  <section>
+  <section class="alt">
     <div class="wrap">
       <div class="sec-head center reveal">
         <div class="eyebrow">Who it's for</div>
@@ -296,7 +343,7 @@
     <div class="wrap final reveal">
       <div class="eyebrow">Handbook + full practice portal</div>
       <h2>Write one better prompt today.</h2>
-      <p class="muted"><s>₹299</s> <b style="color: var(--accent); font-size: 1.3rem">₹99</b>, till 15 Nov 2026.</p>
+      <p class="muted"><s>₹299</s> <b style="color: var(--accent); font-size: 1.3rem">₹99</b>, till 15 Nov 2026<span data-cd-short></span>.</p>
       <div class="cta" style="margin-top: 4px; justify-content: center">
         <a class="btn btn-primary btn-lg" data-buy="AI Prompt Kit" data-value="99" href="https://99digiprostore.myinstamojo.com/product/prompt-learn-and-practice-basics-to-advanced">Get the kit for ₹99 <span class="arr">→</span></a>
       </div>
@@ -316,7 +363,7 @@
   </section>
 </main>
 <div class="buybar" aria-label="Buy the AI Prompt Kit">
-  <div><b>₹99</b><s>₹299</s><small>Launch price · till 15 Nov</small></div>
+  <div><b>₹99</b><s>₹299</s><small>Launch price · <span data-cd-bar>till 15 Nov</span></small></div>
   <a class="btn btn-primary" data-buy="AI Prompt Kit" data-value="99" href="https://99digiprostore.myinstamojo.com/product/prompt-learn-and-practice-basics-to-advanced">Get the kit</a>
 </div>
 <footer>
@@ -330,5 +377,35 @@
     <p class="disclaimer">99DigiProStore is an independent seller of learning aids and digital tools. Our products are aids, not professional advice, and no result is guaranteed. ChatGPT, Gemini, Claude and Copilot are trademarks of their owners; our products are not affiliated with or endorsed by any AI company.</p>
   </div>
 </footer>
+<script>
+  // Launch price countdown. The deadline is fixed (15 Nov 2026, 11:59:59 pm IST) and is the same for every visitor.
+  (function () {
+    var end = Date.parse("2026-11-15T23:59:59+05:30");
+    var box = document.querySelector("[data-cd]");
+    function pad(n) { return (n < 10 ? "0" : "") + n; }
+    function tick() {
+      var left = end - Date.now();
+      if (left <= 0) {
+        if (box) box.hidden = true;
+        document.querySelectorAll("[data-cd-short]").forEach(function (el) { el.textContent = ""; });
+        return;
+      }
+      var t = Math.floor(left / 1000), d = Math.floor(t / 86400), h = Math.floor(t % 86400 / 3600), m = Math.floor(t % 3600 / 60), sec = t % 60;
+      if (box) {
+        box.hidden = false;
+        box.querySelector("[data-d]").textContent = d;
+        box.querySelector("[data-h]").textContent = pad(h);
+        box.querySelector("[data-m]").textContent = pad(m);
+        box.querySelector("[data-s]").textContent = pad(sec);
+      }
+      var short = " (" + d + "d " + h + "h left)";
+      document.querySelectorAll("[data-cd-short]").forEach(function (el) { el.textContent = short; });
+      var bar = document.querySelector("[data-cd-bar]");
+      if (bar) bar.textContent = d + "d " + h + "h " + pad(m) + "m left";
+      setTimeout(tick, 1000);
+    }
+    tick();
+  })();
+</script>
 </body>
 </html>
