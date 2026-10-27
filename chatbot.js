@@ -32,6 +32,7 @@
           a: "It's a new initiative by a qualified CMA, run as a small sole proprietorship from India. Every product is planned, written and checked by the founder." },
         { q: "What do you sell?",
           a: "Right now:<ul>" +
+            "<li><a href=\"wedding-planner.html\">Wedding Planner and Shagun Book</a> (budget, guest list by function, shagun book, checklist), ₹99, no extra charges</li>" +
             "<li><a href=\"ai-prompt-kit.html\">AI Prompt Kit</a> (Prompt Handbook + Prompt Learn and Practice portal), <s>₹299</s> ₹99, launch price till 15 Nov 2026, no extra charges</li>" +
             "<li><a href=\"index.html#products\">CMA Foundation All 4 Papers Bundle</a> (FBLC + FFCA + FBMS + FBEM Smart Prep), ₹99" + PC + "</li>" +
             "<li><a href=\"fblc-smart-prep.html\">FBLC Smart Prep</a> (CMA Foundation Paper 1), " + "₹99" + PC + "</li>" +
@@ -64,6 +65,7 @@
       faqs: [
         { q: "Which course is right for me?",
           a: "A quick guide:<ul>" +
+            "<li>Planning a wedding in the family: <a href=\"wedding-planner.html\">Wedding Planner and Shagun Book</a></li>" +
             "<li>Want better answers from ChatGPT, Gemini or other AI tools: <a href=\"ai-prompt-kit.html\">AI Prompt Kit</a></li>" +
             "<li>New to Excel: <a href=\"excel-basics.html\">Excel - Basics for All</a></li>" +
             "<li>Accounts, finance, CA, CMA or CS students: <a href=\"excel-for-finance.html\">Excel for Finance</a></li>" +
@@ -72,6 +74,8 @@
             "<li>CMA Foundation Paper 1: <a href=\"fblc-smart-prep.html\">FBLC Smart Prep</a></li>" +
             "<li>CMA Foundation Paper 4: <a href=\"fbem-smart-prep.html\">FBEM Smart Prep</a></li></ul>" +
             "Not sure? Try the free samples first." },
+        { q: "What's in the Wedding Planner?",
+          a: "One offline file for planning an Indian wedding: budget and vendor payments (advances, balances, due dates), a guest list with headcount for every function, a shagun book of cash and gifts received and given, a 33-task checklist, a catering calculator, print and spreadsheet download, and a backup file you can share with family. Your data stays on your device.<br><br>₹99, no extra charges. <a href=\"wedding-planner.html\">Details</a> · <a href=\"samples/wedding-planner-demo.html\">Live demo</a>" },
         { q: "What's in the AI Prompt Kit?",
           a: "The Prompting and Prompt Engineering Handbook (15-page PDF), plus the full Prompt Learn and Practice portal as a free bonus: 30 modules, 160 tasks where you write the prompt and get a score out of 10, 145 ready prompts, a prompt builder and a certificate. Works with any AI chat tool; no AI is built in.<br><br><s>₹299</s> ₹99" + PC + ", launch price till 15 Nov 2026. <a href=\"ai-prompt-kit.html\">Details</a>" },
         { q: "What's in the CMA Foundation bundle?",
@@ -115,7 +119,7 @@
       title: "Price and payment",
       faqs: [
         { q: "How much do they cost?",
-          a: "Current prices:<ul><li>AI Prompt Kit: <s>₹299</s> ₹99, launch price till 15 Nov 2026</li><li>CMA Foundation All 4 Papers Bundle: ₹99 (₹396 if bought separately)</li><li>FBLC Smart Prep: ₹99</li><li>FBEM Smart Prep: ₹99</li><li>Excel for Finance: <s>₹299</s> ₹99</li><li>Excel for Data Analytics: <s>₹299</s> ₹99</li><li>Excel - Basics for All: ₹99</li><li>Excel Pro Lab: ₹99</li></ul>The price shown is the full price, with no extra charges at checkout." },
+          a: "Current prices:<ul><li>Wedding Planner and Shagun Book: ₹99</li><li>AI Prompt Kit: <s>₹299</s> ₹99, launch price till 15 Nov 2026</li><li>CMA Foundation All 4 Papers Bundle: ₹99 (₹396 if bought separately)</li><li>FBLC Smart Prep: ₹99</li><li>FBEM Smart Prep: ₹99</li><li>Excel for Finance: <s>₹299</s> ₹99</li><li>Excel for Data Analytics: <s>₹299</s> ₹99</li><li>Excel - Basics for All: ₹99</li><li>Excel Pro Lab: ₹99</li></ul>The price shown is the full price, with no extra charges at checkout." },
         { q: "Are there any extra charges?",
           a: "No. The price you see is the price you pay. There are no payment charges or hidden fees at checkout." },
         { q: "How do I buy?",

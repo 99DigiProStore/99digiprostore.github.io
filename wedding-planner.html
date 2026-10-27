@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="favicon.png">
+<title>Wedding Planner and Shagun Book</title>
+<meta name="description" content="Plan your family's wedding on your phone. Budget and vendor advances, guest count for every function, a shagun book and a checklist. One offline file, ₹99.">
+<meta property="og:title" content="Wedding Planner and Shagun Book, ₹99">
+<meta property="og:description" content="Every rupee, every guest, every gift. One offline planner for Indian weddings.">
+<meta property="og:image" content="https://99digiprostore.github.io/img/wedding-planner/cover.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<style>
+/* Page-only styles for the Wedding Planner landing page. Wedding maroon and marigold on top of the site tokens. */
+:root { --brand: #a3214a; --brand-2: #c98a12; --brand-soft: #f9e3ea; --accent: #f2c25b; --accent-ink: #3a0a18; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --brand: #f08aa4; --brand-soft: #43222c; } }
+:root[data-theme="dark"] { --brand: #f08aa4; --brand-soft: #43222c; }
+.topnote { background: linear-gradient(90deg, #5e0f27, #8e1b3a 50%, #5e0f27); }
+.hero, .band { background:
+  radial-gradient(55% 70% at 88% 10%, rgba(233, 180, 76, 0.32), transparent 70%),
+  radial-gradient(50% 60% at 0% 100%, rgba(179, 38, 77, 0.45), transparent 70%),
+  linear-gradient(165deg, #4e0c21 0%, #7a1535 55%, #8e1b3a 100%); }
+.hero .eyebrow, .band .eyebrow { color: #f2c25b; }
+.hero .lead, .hero .muted, .band .muted { color: #f1d9d9; }
+.trust { color: #f1d9d9; }
+.grad { background: linear-gradient(92deg, #f7d27a, #f2c25b 50%, #e9a93c); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.btn-primary { box-shadow: 0 6px 20px rgba(233, 170, 60, 0.35); }
+
+.wp-hero { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 40px; align-items: center; }
+@media (max-width: 900px) { .wp-hero { grid-template-columns: 1fr; gap: 36px; } }
+.wp-hero h1 { font-size: clamp(2.5rem, 6.6vw, 4.5rem); margin-top: 14px; }
+.pricecard { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin-top: 26px; padding: 14px 20px; border-radius: 18px; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.18); }
+.pricecard .now { font-family: var(--display); font-weight: 800; font-size: 2.8rem; line-height: 1; color: var(--accent); letter-spacing: -0.03em; }
+.pricecard .side { display: grid; gap: 2px; font-size: 0.86rem; color: #f1d9d9; }
+.pricecard .side b { color: #fff; font-size: 0.95rem; }
+.howbuy { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; font-size: 0.86rem; color: #f1d9d9; }
+.howbuy b { color: #fff; font-weight: 600; }
+.howbuy i { font-style: normal; opacity: 0.5; }
+
+.phones { position: relative; min-height: 560px; }
+.phone { position: absolute; width: 56%; background: #140a0d; border-radius: 36px; padding: 9px; box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1); }
+.phone img { display: block; width: 100%; border-radius: 28px; }
+.phone.a { left: 2%; top: 4%; transform: rotate(-5deg); }
+.phone.b { right: 0; top: 14%; transform: rotate(5deg); z-index: 1; }
+.chip { position: absolute; z-index: 2; background: #fff; color: #2b1a1a; border-radius: 14px; padding: 10px 14px; box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35); font-weight: 700; font-size: 0.9rem; line-height: 1.25; }
+.chip small { display: block; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: #6e5a55; }
+.chip b { font-family: var(--display); font-size: 1.25rem; color: #8e1b3a; }
+.chip.c1 { left: 0; bottom: 8%; transform: rotate(-3deg); }
+.chip.c2 { right: 2%; top: 0; transform: rotate(3deg); }
+@media (max-width: 900px) { .phones { min-height: 0; aspect-ratio: 1 / 1.05; max-width: 520px; margin-inline: auto; width: 100%; } }
+
+.pains { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+@media (max-width: 860px) { .pains { grid-template-columns: 1fr; } }
+.pain { background: var(--card); border: 1px solid var(--rule); border-radius: var(--radius); padding: 24px; display: grid; gap: 10px; align-content: start; box-shadow: var(--shadow); }
+.pain .q { font-family: var(--display); font-weight: 800; font-size: 1.3rem; line-height: 1.2; }
+.pain .a { color: var(--muted); }
+.pain .a b { color: var(--ok); }
+
+.feats { display: grid; gap: 56px; }
+.feat { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: center; }
+.feat:nth-child(even) .ftext { order: 2; }
+@media (max-width: 800px) { .feat { grid-template-columns: 1fr; gap: 22px; } .feat:nth-child(even) .ftext { order: 0; } }
+.ftext { display: grid; gap: 12px; }
+.ftext ul { margin: 0; padding-left: 20px; color: var(--muted); display: grid; gap: 6px; }
+.ftext li::marker { color: var(--brand); }
+.fshot { justify-self: center; width: min(320px, 82%); background: #140a0d; border-radius: 34px; padding: 9px; box-shadow: var(--shadow-lg); }
+.fshot img { display: block; width: 100%; border-radius: 26px; max-height: 560px; object-fit: cover; object-position: top; }
+
+.calc { max-width: 720px; margin-inline: auto; background: var(--card); border: 1px solid var(--rule); border-radius: 22px; box-shadow: var(--shadow-lg); padding: 26px; display: grid; gap: 18px; }
+.calc .row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+@media (max-width: 560px) { .calc .row { grid-template-columns: 1fr; } }
+.calc label { display: grid; gap: 6px; font-weight: 600; font-size: 0.92rem; }
+.calc input { font: inherit; font-size: 1.1rem; padding: 12px 14px; border-radius: 12px; border: 1.5px solid var(--rule); background: var(--paper); color: var(--ink); width: 100%; }
+.calc input:focus { outline: 2px solid var(--brand-2); outline-offset: 1px; }
+.calc .out { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 10px; padding: 16px 18px; border-radius: 14px; background: var(--brand-soft); }
+.calc .out b { font-family: var(--display); font-size: 2rem; color: var(--brand); }
+.calc .note { color: var(--muted); font-size: 0.92rem; }
+
+.stack { background: var(--card); border: 1px solid var(--rule); border-radius: 22px; box-shadow: var(--shadow-lg); max-width: 760px; margin-inline: auto; overflow: hidden; }
+.stack ul { list-style: none; margin: 0; padding: 8px 24px; }
+.stack li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 10px; padding: 14px 0; border-bottom: 1px solid var(--rule); }
+.stack li:last-child { border-bottom: 0; }
+.stack li::before { content: "✓"; font-weight: 800; color: var(--ok); font-size: 1.1rem; }
+.stack li span { color: var(--muted); display: block; font-size: 0.93rem; }
+.stack-total { padding: 22px 24px; display: grid; gap: 10px; background: color-mix(in srgb, var(--brand) 7%, var(--card)); }
+.stack-total .big { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-family: var(--display); font-weight: 800; font-size: 1.5rem; }
+.stack-total .big span:last-child { color: var(--brand); font-size: 2.3rem; }
+
+.checkout { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+@media (max-width: 860px) { .checkout { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .checkout { grid-template-columns: 1fr; } }
+.checkout > div { background: var(--card); border: 1px solid var(--rule); border-radius: var(--radius); padding: 20px; display: grid; gap: 6px; align-content: start; box-shadow: var(--shadow); }
+.checkout .n { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--brand-soft); color: var(--brand); font-family: var(--display); font-weight: 800; }
+.checkout p { color: var(--muted); font-size: 0.93rem; }
+.safe { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 10px 18px; justify-content: center; color: var(--muted); font-size: 0.92rem; }
+.safe span::before { content: "✓ "; color: var(--ok); font-weight: 800; }
+
+.final { text-align: center; display: grid; gap: 16px; justify-items: center; }
+.final h2 { font-size: clamp(2rem, 5vw, 3rem); }
+
+.buybar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; display: none; align-items: center; justify-content: space-between; gap: 12px; background: rgba(58, 10, 24, 0.97); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); color: #fff; padding: 10px max(16px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); border-top: 1px solid rgba(255, 255, 255, 0.14); }
+.buybar b { font-family: var(--display); font-size: 1.35rem; color: var(--accent); }
+.buybar small { display: block; font-size: 0.75rem; opacity: 0.85; }
+.buybar .btn { padding: 11px 18px; }
+@media (max-width: 720px) {
+  .buybar { display: flex; }
+  body { padding-bottom: 78px; }
+  body .dps-chat { bottom: calc(86px + env(safe-area-inset-bottom, 0px)); }
+}
+</style>
+<script>
+  // Meta Pixel. Buy clicks (links with data-buy) send InitiateCheckout from site.js.
+  var META_PIXEL_ID = "1897611331239030";
+  if (META_PIXEL_ID) {
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', META_PIXEL_ID); fbq('track', 'PageView');
+    fbq('track', 'ViewContent', { content_name: 'Wedding Planner and Shagun Book', value: 99, currency: 'INR' });
+  }
+</script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1897611331239030&amp;ev=PageView&amp;noscript=1"></noscript>
+<script src="site.js" defer></script>
+<link rel="stylesheet" href="chatbot.css">
+<script src="chatbot.js" defer></script>
+</head>
+<body>
+<div class="topnote"><a href="#price"><b>Wedding season is here.</b> Most 2026 muhurat dates fall between 21 Nov and 12 Dec. Start planning today.</a></div>
+<header class="top">
+  <div class="wrap nav">
+    <a class="logo" href="index.html"><span class="logo-mark">99</span>99DigiProStore</a>
+    <ul>
+      <li><a href="#features">What it does</a></li>
+      <li><a href="samples/wedding-planner-demo.html">Live demo</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="index.html#products">All products</a></li>
+    </ul>
+    <a class="btn btn-primary" data-buy="Wedding Planner and Shagun Book" data-value="99" href="https://99digiprostore.myinstamojo.com">Get it for ₹99</a>
+  </div>
+</header>
+<main>
+  <section class="hero">
+    <div class="wrap wp-hero">
+      <div>
+        <div class="eyebrow">Wedding Planner &amp; Shagun Book</div>
+        <h1>Every rupee. Every guest. <span class="grad">Every gift.</span></h1>
+        <p class="lead">Plan your family's wedding on your phone. Track the budget and every vendor advance, see how many people are coming to each function, and note every shagun envelope.</p>
+        <div class="pricecard" aria-label="Price">
+          <span class="now">₹99</span>
+          <span class="side"><b>One-time, no extra charges</b>Less than one plate at the wedding</span>
+        </div>
+        <div class="cta">
+          <a class="btn btn-primary btn-lg" data-buy="Wedding Planner and Shagun Book" data-value="99" href="https://99digiprostore.myinstamojo.com">Get the planner for ₹99 <span class="arr">→</span></a>
+          <a class="btn btn-ghost btn-lg" href="samples/wedding-planner-demo.html">Try the live demo</a>
+        </div>
+        <div class="howbuy" aria-label="How buying works"><b>Takes 1 minute:</b> Tap the button <i>→</i> Pay ₹99 by UPI or card <i>→</i> Download link on screen and by email</div>
+        <div class="trust">
+          <span>Works offline, no app or login</span>
+          <span>Your data stays on your phone</span>
+          <span>Made by a qualified CMA</span>
+        </div>
+      </div>
+      <div class="phones" aria-hidden="true">
+        <div class="phone a"><img src="img/wedding-planner/guests.jpg" alt="" width="780" height="1560"></div>
+        <div class="phone b"><img src="img/wedding-planner/home.jpg" alt="" width="780" height="1560"></div>
+        <div class="chip c2"><small>Wedding headcount</small><b>22 confirmed</b></div>
+        <div class="chip c1"><small>Shagun · Meena Bua</small><b>₹11,000</b> + gold earrings</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <div class="eyebrow">Sound familiar?</div>
+        <h2>A wedding has a hundred moving parts.</h2>
+        <p>Notebooks, WhatsApp chats and loose envelopes get lost. One planner keeps the whole family on the same page.</p>
+      </div>
+      <div class="pains reveal">
+        <div class="pain"><div class="q">"How much do we still owe the caterer?"</div><p class="a"><b>Answered:</b> every booking shows the advance paid, the balance and the date it's due. The home screen lists the next payments.</p></div>
+        <div class="pain"><div class="q">"How many people are coming to the sangeet?"</div><p class="a"><b>Answered:</b> invite each guest to the functions they're coming to. You see invited and confirmed headcount for every function.</p></div>
+        <div class="pain"><div class="q">"What did the Sharmas give us?"</div><p class="a"><b>Answered:</b> the shagun book records cash and gifts by name. Next time you go to their family's function, look it up in a second.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="alt">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <div class="eyebrow">What it does</div>
+        <h2>Everything for the wedding, in one file.</h2>
+      </div>
+      <div class="feats">
+        <div class="feat reveal">
+          <div class="ftext"><div class="eyebrow">Budget &amp; payments</div><h3 style="font-size: 1.6rem">Know where every rupee goes.</h3>
+            <ul><li>Set a total budget and add each booking: venue, catering, decor, photos, clothes, jewellery and more</li><li>Estimate, final amount, advances paid and the balance due date</li><li>See spend by category, and what's still owed to vendors</li><li>Catering calculator: plates × rate + extra for walk-ins</li></ul></div>
+          <div class="fshot"><img src="img/wedding-planner/budget.jpg" alt="Budget screen showing planned spend, paid amount and balance" width="780" height="1560" loading="lazy"></div>
+        </div>
+        <div class="feat reveal">
+          <div class="ftext"><div class="eyebrow">Guest list</div><h3 style="font-size: 1.6rem">Headcount for every function.</h3>
+            <ul><li>Roka, Haldi, Mehendi, Sangeet, Wedding and Reception, or rename them to suit your family</li><li>Paste a whole list of names at once, with the number of people in each family</li><li>Bride side, groom side, invite sent, reply and who needs a room</li><li>Give the caterer an accurate confirmed count</li></ul></div>
+          <div class="fshot"><img src="img/wedding-planner/guests.jpg" alt="Guest list with headcount for each function" width="780" height="1560" loading="lazy"></div>
+        </div>
+        <div class="feat reveal">
+          <div class="ftext"><div class="eyebrow">Shagun book</div><h3 style="font-size: 1.6rem">Who gave what, forever.</h3>
+            <ul><li>Note every envelope and gift by name and function</li><li>Tick off thank-you messages as you send them</li><li>"We gave" list for shagun your family gives at other weddings</li><li>Type a name to see everything given and received</li></ul></div>
+          <div class="fshot"><img src="img/wedding-planner/shagun.jpg" alt="Shagun book listing cash and gifts received" width="780" height="1560" loading="lazy"></div>
+        </div>
+        <div class="feat reveal">
+          <div class="ftext"><div class="eyebrow">Checklist &amp; sharing</div><h3 style="font-size: 1.6rem">Nothing forgotten.</h3>
+            <ul><li>33 ready tasks from 6 months before to after the wedding, plus your own</li><li>Print the guest list or shagun book, or download it as a spreadsheet</li><li>Save a backup file and send it to family on WhatsApp</li></ul></div>
+          <div class="fshot"><img src="img/wedding-planner/checklist.jpg" alt="Wedding checklist grouped by time before the wedding" width="780" height="1560" loading="lazy"></div>
+        </div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 48px">
+        <a class="btn btn-primary btn-lg" data-buy="Wedding Planner and Shagun Book" data-value="99" href="https://99digiprostore.myinstamojo.com">Get the planner for ₹99 <span class="arr">→</span></a>
+        <a class="btn btn-ghost btn-lg" href="samples/wedding-planner-demo.html">Try the live demo</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <div class="eyebrow">Try it now</div>
+        <h2>How many plates should you order?</h2>
+        <p>This is the catering calculator from the planner. Inside the planner, the total goes straight into your budget.</p>
+      </div>
+      <div class="calc reveal" id="calc">
+        <div class="row">
+          <label>Confirmed guests<input type="number" inputmode="numeric" min="0" id="cg" value="300"></label>
+          <label>Rate per plate (₹)<input type="number" inputmode="numeric" min="0" id="cr" value="900"></label>
+          <label>Extra for walk-ins (%)<input type="number" inputmode="numeric" min="0" id="cb" value="10"></label>
+        </div>
+        <div class="out"><span>Order <b id="cp">330</b> plates</span><span>Food cost about <b id="ct">₹2,97,000</b></span></div>
+        <p class="note">Ask your caterer whether GST and service charges are included in the rate. The planner tracks all of it in one place for ₹99.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="price" class="alt">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <div class="eyebrow">What you get</div>
+        <h2>One planner for the whole wedding.</h2>
+      </div>
+      <div class="stack reveal">
+        <ul>
+          <li><div><b>Budget and vendor payments</b><span>Estimates, final amounts, advances, balances and due dates</span></div></li>
+          <li><div><b>Guest list with headcount per function</b><span>Paste names in bulk; replies, sides and rooms</span></div></li>
+          <li><div><b>Shagun book</b><span>Cash and gifts received and given, with name lookup</span></div></li>
+          <li><div><b>Checklist with 33 ready tasks</b><span>From 6 months before to after the wedding</span></div></li>
+          <li><div><b>Catering calculator, print and spreadsheet download</b><span>Share lists with family and vendors</span></div></li>
+          <li><div><b>Backup file to share with family</b><span>Send it on WhatsApp; open it on another phone or laptop</span></div></li>
+        </ul>
+        <div class="stack-total">
+          <div class="big"><span>Your price</span><span>₹99</span></div>
+          <p class="muted" style="font-size: 0.92rem">One-time payment. No subscription and no extra charges at checkout. That's less than one plate at the wedding.</p>
+          <a class="btn btn-primary btn-lg" style="justify-content: center" data-buy="Wedding Planner and Shagun Book" data-value="99" href="https://99digiprostore.myinstamojo.com">Get the planner for ₹99 <span class="arr">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="buying">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <div class="eyebrow">What happens when you tap Buy</div>
+        <h2>Your planner in about a minute.</h2>
+        <p>You pay on Instamojo, our secure payment partner. No account needed.</p>
+      </div>
+      <div class="checkout reveal">
+        <div><span class="n">1</span><h3>Tap Get the planner</h3><p>You go to the planner's page on our Instamojo store.</p></div>
+        <div><span class="n">2</span><h3>Tap Buy Now</h3><p>Enter your name, email and phone so we know where to send the file.</p></div>
+        <div><span class="n">3</span><h3>Pay ₹99</h3><p>UPI (GPay, PhonePe, Paytm), card or net banking. ₹99 is the full amount.</p></div>
+        <div><span class="n">4</span><h3>Open and start</h3><p>The download link appears straight away and comes by email. Open the file in Chrome.</p></div>
+      </div>
+      <div class="safe">
+        <span>We never see your card or UPI details</span>
+        <span>Faulty file? We fix it or replace it</span>
+        <span>Email reply within 24 hours (Mon–Sat)</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="alt">
+    <div class="wrap">
+      <div class="sec-head center reveal"><div class="eyebrow">Questions</div><h2>Before you buy</h2></div>
+      <div class="faq center">
+        <details><summary>Does it work on my phone?</summary><p>Yes on an Android phone: open the file from Files or Downloads and choose Chrome. It works on any laptop too. On iPhone the Files preview can't save your work, so use a laptop or Android phone, or save and open a backup file each time.</p></details>
+        <details><summary>Can the whole family use it?</summary><p>Yes. One person keeps the main planner and saves a backup file. Send that file on WhatsApp, and anyone can open it in the same planner on their phone or laptop.</p></details>
+        <details><summary>Is my data private?</summary><p>Yes. Everything stays inside the browser on your device. Nothing is sent to us or anyone else. There is no login and no internet needed.</p></details>
+        <details><summary>Does it fit our customs?</summary><p>Yes. Rename, add or delete functions: Roka, Tilak, Haldi, Mehendi, Sangeet, Nikah, Walima, Anand Karaj, church wedding, reception or anything else. Budget categories and checklist tasks can be changed too.</p></details>
+        <details><summary>Can I try it before buying?</summary><p>Yes. The <a href="samples/wedding-planner-demo.html">live demo</a> has an example wedding you can click through. The demo doesn't save. The full planner does.</p></details>
+        <details><summary>What if the file doesn't work?</summary><p>All sales are final, which is why there's a free demo. If a file is faulty, we fix it or send a working replacement. See the <a href="policies.html#refunds">refund policy</a>.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap final reveal">
+      <div class="eyebrow">Wedding Planner &amp; Shagun Book</div>
+      <h2>Plan the wedding. Keep the peace.</h2>
+      <p class="muted"><b style="color: var(--accent); font-size: 1.3rem">₹99</b>, one-time. Less than one plate at the wedding.</p>
+      <div class="cta" style="margin-top: 4px; justify-content: center">
+        <a class="btn btn-primary btn-lg" data-buy="Wedding Planner and Shagun Book" data-value="99" href="https://99digiprostore.myinstamojo.com">Get the planner for ₹99 <span class="arr">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-block: 48px">
+    <div class="wrap prose">
+      <h2 style="font-size: 1.25rem; margin-top: 0">Good to know</h2>
+      <ul class="muted" style="font-size: 0.92rem">
+        <li><strong>A personal organiser.</strong> It keeps track of what you enter. It does not give legal, tax or financial advice.</li>
+        <li><strong>Example data.</strong> Names and amounts in the pictures and demo are an example wedding, not real people.</li>
+        <li><strong>Personal use.</strong> For the buyer's family. Please don't share the file publicly or resell it.</li>
+        <li><strong>Language.</strong> The planner is in simple English.</li>
+      </ul>
+    </div>
+  </section>
+</main>
+<div class="buybar" aria-label="Buy the Wedding Planner">
+  <div><b>₹99</b><small>Wedding Planner &amp; Shagun Book</small></div>
+  <a class="btn btn-primary" data-buy="Wedding Planner and Shagun Book" data-value="99" href="https://99digiprostore.myinstamojo.com">Get the planner</a>
+</div>
+<footer>
+  <div class="wrap">
+    <div class="foot-row">
+      <a class="logo" href="index.html"><span class="logo-mark">99</span>99DigiProStore</a>
+      <nav class="foot-links" aria-label="Footer">
+        <a href="about.html">About</a><a href="policies.html#terms">Terms</a><a href="policies.html#privacy">Privacy</a><a href="policies.html#refunds">Refunds</a><a href="policies.html#disclaimer">Disclaimer</a><a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+    <p class="disclaimer">99DigiProStore is an independent seller of digital tools for learning, work and everyday life. Our products are aids, not professional advice, and no result is guaranteed.</p>
+  </div>
+</footer>
+<script>
+  // Catering calculator demo: plates = guests plus a walk-in buffer, rounded up.
+  (function () {
+    var g = document.getElementById("cg"), r = document.getElementById("cr"), b = document.getElementById("cb");
+    var p = document.getElementById("cp"), t = document.getElementById("ct");
+    var nf = new Intl.NumberFormat("en-IN", { maximumFractionDigits: 0 });
+    function n(el) { var v = parseFloat(el.value); return isFinite(v) && v > 0 ? v : 0; }
+    function calc() {
+      var plates = Math.ceil(n(g) * (1 + n(b) / 100) - 1e-9);
+      p.textContent = nf.format(plates);
+      t.textContent = "₹" + nf.format(Math.round(plates * n(r)));
+    }
+    [g, r, b].forEach(function (el) { el.addEventListener("input", calc); });
+    calc();
+  })();
+</script>
+</body>
+</html>

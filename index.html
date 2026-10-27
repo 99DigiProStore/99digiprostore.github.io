@@ -55,11 +55,12 @@ fbq('init','1897611331239030');fbq('track','PageView');
 .vs .them li { color: var(--muted); }
 .vs .them li::before { content: "✕"; color: var(--bad); }
 .vs .us li::before { content: "✓"; color: var(--ok); }
+.thumb.life, .tile.life { background: linear-gradient(135deg, #5e0f27, #a3214a 60%, #d9893a); }
 .contact-box { display: grid; gap: 12px; justify-items: center; text-align: center; }
 </style>
 </head>
 <body>
-<div class="topnote"><a href="ai-prompt-kit.html"><b>New: AI Prompt Kit</b> at the launch price of ₹99, till 15 Nov 2026 →</a></div>
+<div class="topnote"><a href="wedding-planner.html"><b>New: Wedding Planner &amp; Shagun Book</b> for this wedding season, ₹99 →</a></div>
 <header class="top">
   <div class="wrap nav">
     <a class="logo" href="index.html"><span class="logo-mark">99</span>99DigiProStore</a>
@@ -95,7 +96,7 @@ fbq('init','1897611331239030');fbq('track','PageView');
         <a class="tile ai" href="ai-prompt-kit.html"><span class="k">AI</span><span><b>AI Prompt Kit</b><br><small>Write better prompts, get scored</small></span></a>
         <a class="tile excel" href="excel-for-finance.html"><span class="k">fx</span><span><b>Excel labs</b><br><small>Type real formulas, checked instantly</small></span></a>
         <a class="tile study" href="#products" data-jump="study"><span class="k">MCQ</span><span><b>Exam practice</b><br><small>Mocks, explanations, Mistake Book</small></span></a>
-        <a class="tile bundle" href="about.html"><span class="k">+</span><span><b>More on the way</b><br><small>Work, money and everyday tools</small></span></a>
+        <a class="tile life" href="wedding-planner.html"><span class="k">₹♥</span><span><b>Wedding Planner</b><br><small>Budget, guests and shagun book</small></span></a>
       </div>
     </div>
   </section>
@@ -143,8 +144,22 @@ fbq('init','1897611331239030');fbq('track','PageView');
         <button type="button" data-filter="ai" aria-pressed="false">AI skills</button>
         <button type="button" data-filter="excel" aria-pressed="false">Excel</button>
         <button type="button" data-filter="study" aria-pressed="false">Exam practice</button>
+        <button type="button" data-filter="life" aria-pressed="false">Family &amp; life</button>
       </div>
       <div class="products">
+        <article class="product" data-line="life">
+          <div class="thumb life"><b>₹♥</b><small>Weddings</small></div>
+          <div class="body">
+            <div class="meta"><span class="tag">Family · Weddings</span><span class="status sale">New</span></div>
+            <h3>Wedding Planner &amp; Shagun Book</h3>
+            <p class="muted">Plan your family's wedding on your phone. Every rupee, every guest, every gift in one offline file.</p>
+            <ul><li>Budget, vendor advances and balances due</li><li>Guest headcount for every function</li><li>Shagun book: who gave what</li><li>33-task checklist and family backup file</li></ul>
+          </div>
+          <div class="foot">
+            <span class="price">₹99 <small>One-time, no extra charges</small></span>
+            <div class="actions"><a class="btn btn-ghost" href="wedding-planner.html">Details</a><a class="btn btn-ghost" href="samples/wedding-planner-demo.html">Live demo</a><a class="btn btn-primary" data-buy="Wedding Planner and Shagun Book" data-value="99" href="https://99digiprostore.myinstamojo.com">Buy now</a></div>
+          </div>
+        </article>
         <article class="product" data-line="ai">
           <div class="thumb ai"><b>AI</b><small>Skills</small></div>
           <div class="body">
