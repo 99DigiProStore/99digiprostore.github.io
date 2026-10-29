@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="favicon.png">
+<title>Complete Fresher Interview Kit</title>
+<meta name="description" content="Practise every round of a fresher hiring drive on your phone: the spoken-English round, aptitude mocks, HR interview, GD, emails and resume. ₹99, instant download.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<style>
+/* Page-only styles for the Fresher Interview Kit landing page. Uses the site tokens from style.css. */
+.kit-hero { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 48px; align-items: center; }
+@media (max-width: 900px) { .kit-hero { grid-template-columns: 1fr; gap: 40px; } }
+.kit-hero h1 { font-size: clamp(2.4rem, 6vw, 4.2rem); }
+
+.pricecard { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin-top: 26px; padding: 14px 20px; border-radius: 18px; background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(255, 255, 255, 0.16); }
+.pricecard .now { font-family: var(--display); font-weight: 800; font-size: 2.8rem; line-height: 1; color: var(--accent); letter-spacing: -0.03em; }
+.pricecard .side { display: grid; gap: 2px; font-size: 0.85rem; color: var(--night-muted); }
+.pricecard .side b { color: #fff; font-size: 0.92rem; }
+.howbuy { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; font-size: 0.86rem; color: var(--night-muted); }
+.howbuy b { color: #fff; font-weight: 600; }
+.howbuy i { font-style: normal; opacity: 0.5; }
+
+.phone { position: relative; max-width: 330px; margin-inline: auto; border-radius: 38px; border: 10px solid #0b0a1f; background: #fff; overflow: hidden; box-shadow: 0 30px 70px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.12); }
+.phone img { display: block; width: 100%; }
+.hero-visual { position: relative; }
+.chipx { position: absolute; z-index: 2; display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 14px; background: #fff; color: #16133a; font-weight: 700; font-size: 0.9rem; box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35); }
+.chipx span { display: grid; place-items: center; min-width: 38px; height: 34px; padding: 0 6px; border-radius: 10px; background: #e3f6ec; color: #138a5b; font-family: var(--display); font-weight: 800; }
+.chipx.a { left: 0; top: 18%; }
+.chipx.b { right: 0; bottom: 14%; }
+.chipx.b span { background: #fff3cf; color: #8a5a00; }
+@media (max-width: 480px) { .chipx { font-size: 0.78rem; } .chipx.a { left: -4px; } .chipx.b { right: -4px; } }
+
+.rounds { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 860px) { .rounds { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .rounds { grid-template-columns: 1fr; } }
+.rounds > div { background: var(--card); border: 1px solid var(--rule); border-radius: var(--radius); padding: 20px; display: grid; gap: 6px; align-content: start; box-shadow: var(--shadow); }
+.rounds .n { font-family: var(--display); font-weight: 800; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.rounds p { color: var(--muted); font-size: 0.93rem; }
+.rounds .hot { border: 2px solid color-mix(in srgb, var(--bad) 55%, transparent); }
+.rounds .hot .n { color: var(--bad); }
+
+.stack { background: var(--card); border: 1px solid var(--rule); border-radius: 22px; box-shadow: var(--shadow-lg); max-width: 820px; margin-inline: auto; overflow: hidden; }
+.stack-row { display: grid; grid-template-columns: 1fr auto; gap: 6px 18px; padding: 18px 24px; border-bottom: 1px solid var(--rule); align-items: start; }
+.stack-row > div { min-width: 0; display: grid; gap: 4px; }
+.stack-row h3 { font-size: 1.08rem; }
+.stack-row p { color: var(--muted); font-size: 0.93rem; }
+.stack-row .val { font-family: var(--display); font-weight: 800; font-size: 1.1rem; white-space: nowrap; text-align: right; }
+.stack-row .val small { display: block; font-family: var(--body, inherit); font-weight: 500; font-size: 0.72rem; color: var(--muted); max-width: 150px; white-space: normal; }
+.stack-total { padding: 22px 24px; display: grid; gap: 8px; background: color-mix(in srgb, var(--brand) 7%, var(--card)); }
+.stack-total .line { display: flex; justify-content: space-between; gap: 12px; color: var(--muted); }
+.stack-total .line.big { font-family: var(--display); font-weight: 800; font-size: 1.6rem; color: var(--ink); align-items: baseline; }
+.stack-total .line.big span:last-child { color: var(--brand); font-size: 2.2rem; }
+.stack-total .btn { margin-top: 10px; }
+
+.parts6 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+@media (max-width: 860px) { .parts6 { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .parts6 { grid-template-columns: 1fr; } }
+.parts6 > div { background: var(--card); border: 1px solid var(--rule); border-radius: var(--radius); padding: 20px; display: grid; gap: 6px; align-content: start; box-shadow: var(--shadow); }
+.parts6 .ico { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: var(--brand-soft); color: var(--brand); font-weight: 800; font-family: var(--display); }
+.parts6 p { color: var(--muted); font-size: 0.93rem; }
+
+.shots { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; align-items: start; margin-top: 36px; }
+@media (max-width: 960px) { .shots { grid-template-columns: 1fr 1fr; } }
+.shots figure { margin: 0; display: grid; gap: 10px; min-width: 0; }
+.shots img { border-radius: 18px; border: 1px solid var(--rule); background: #fff; display: block; box-shadow: var(--shadow); width: 100%; max-height: 520px; object-fit: cover; object-position: top; }
+.shots figcaption { font-size: 0.9rem; color: var(--muted); }
+
+.checkout { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+@media (max-width: 860px) { .checkout { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .checkout { grid-template-columns: 1fr; } }
+.checkout > div { background: var(--card); border: 1px solid var(--rule); border-radius: var(--radius); padding: 20px; display: grid; gap: 6px; align-content: start; box-shadow: var(--shadow); }
+.checkout .n { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--brand-soft); color: var(--brand); font-family: var(--display); font-weight: 800; }
+.checkout p { color: var(--muted); font-size: 0.93rem; }
+.safe { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 10px 18px; justify-content: center; color: var(--muted); font-size: 0.92rem; }
+.safe span::before { content: "✓ "; color: var(--ok); font-weight: 800; }
+
+.uses { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); gap: 14px; }
+.use { background: var(--card); border: 1px solid var(--rule); border-radius: 16px; padding: 18px; display: grid; gap: 4px; }
+.use b { font-family: var(--display); font-size: 1.05rem; }
+.use span { color: var(--muted); font-size: 0.9rem; }
+
+.final { text-align: center; display: grid; gap: 16px; justify-items: center; }
+.final h2 { font-size: clamp(2rem, 5vw, 3rem); }
+
+.buybar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; display: none; align-items: center; justify-content: space-between; gap: 12px; background: rgba(14, 11, 43, 0.96); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); color: #fff; padding: 10px max(16px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); border-top: 1px solid rgba(255, 255, 255, 0.12); }
+.buybar b { font-family: var(--display); font-size: 1.35rem; color: var(--accent); }
+.buybar small { display: block; font-size: 0.75rem; opacity: 0.8; }
+.buybar .btn { padding: 11px 18px; }
+@media (max-width: 720px) {
+  .buybar { display: flex; }
+  body { padding-bottom: 78px; }
+  body .dps-chat { bottom: calc(86px + env(safe-area-inset-bottom, 0px)); }
+}
+</style>
+<script>
+  // Meta Pixel. Buy clicks (links with data-buy) send InitiateCheckout from site.js.
+  var META_PIXEL_ID = "1897611331239030";
+  if (META_PIXEL_ID) {
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', META_PIXEL_ID); fbq('track', 'PageView');
+    fbq('track', 'ViewContent', { content_name: 'Complete Fresher Interview Kit', value: 99, currency: 'INR' });
+  }
+</script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1897611331239030&amp;ev=PageView&amp;noscript=1"></noscript>
+<script src="site.js" defer></script>
+<link rel="stylesheet" href="chatbot.css">
+<script src="chatbot.js" defer></script>
+</head>
+<body>
+<div class="topnote"><a href="#offer"><b>Placement season:</b> every round of a fresher drive in one kit, ₹99 →</a></div>
+<header class="top">
+  <div class="wrap nav">
+    <a class="logo" href="index.html"><span class="logo-mark">99</span>99DigiProStore</a>
+    <ul>
+      <li><a href="#offer">What you get</a></li>
+      <li><a href="#english">English round</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="index.html#products">All products</a></li>
+    </ul>
+    <a class="btn btn-primary" data-buy="Complete Fresher Interview Kit" data-value="99" href="https://99digiprostore.myinstamojo.com">Get it for ₹99</a>
+  </div>
+</header>
+<main>
+  <section class="hero">
+    <div class="wrap kit-hero">
+      <div>
+        <div class="eyebrow">Complete Fresher Interview Kit · for placement season</div>
+        <h1 style="margin-top: 14px">Cleared aptitude? Now clear the <span class="grad">English round.</span></h1>
+        <p class="lead">Many IT and BPO companies now add an automated spoken-English test after aptitude, and it's where lots of freshers drop out. Practise it on your phone, plus aptitude, HR, GD, emails and your resume.</p>
+        <div class="pricecard" aria-label="Price">
+          <span class="now">₹99</span>
+          <span class="side"><b>Everything below, one price</b>₹3,116 if you bought similar items separately</span>
+        </div>
+        <div class="cta">
+          <a class="btn btn-primary btn-lg" data-buy="Complete Fresher Interview Kit" data-value="99" href="https://99digiprostore.myinstamojo.com">Get the kit for ₹99 <span class="arr">→</span></a>
+        </div>
+        <div class="howbuy" aria-label="How buying works"><b>Takes 1 minute:</b> Tap the button <i>→</i> Tap Buy Now on Instamojo <i>→</i> Pay ₹99 by UPI or card <i>→</i> Download link on screen and by email</div>
+        <div class="trust">
+          <span>Instant download</span>
+          <span>Works on your phone</span>
+          <span>No extra charges</span>
+          <span>Secure payment by Instamojo</span>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="phone"><img src="img/fresher-kit/read-aloud.jpg" alt="" width="780" height="1560"></div>
+        <div class="chipx a"><span>93%</span>Words you said clearly</div>
+        <div class="chipx b"><span>red</span>Words to practise</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <div class="eyebrow">The problem</div>
+        <h2>A fresher drive has four rounds. Most people practise one.</h2>
+        <p>Free aptitude questions are everywhere. Speaking practice, HR answers and GD prep are not, and those rounds decide a lot of offers.</p>
+      </div>
+      <div class="rounds reveal">
+        <div><span class="n">Round 1</span><h3>Aptitude test</h3><p>Quant, reasoning and verbal, against the clock.</p></div>
+        <div class="hot"><span class="n">Round 2 · where many fail</span><h3>Spoken-English test</h3><p>A computer listens while you read, repeat, answer and speak. No second chance to "explain".</p></div>
+        <div><span class="n">Round 3</span><h3>GD or technical</h3><p>Speak up clearly with a point, a fact and a link to others.</p></div>
+        <div><span class="n">Round 4</span><h3>HR interview</h3><p>"Tell me about yourself", "Why should we hire you?" and 28 more.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="offer" class="alt">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <div class="eyebrow">Everything in the kit</div>
+        <h2>₹3,116 of prep, bought separately. Here, ₹99.</h2>
+        <p>Each value is a real price we found for a similar product in October 2026, named under it.</p>
+      </div>
+      <div class="stack reveal">
+        <div class="stack-row">
+          <div><h3>English round practice</h3><p>6 parts in the style of automated spoken-English tests: read aloud, repeat, short answers, sentence builds, story retell, open questions. 215 items, 10 full rounds. Speak, and see the words you missed.</p></div>
+          <span class="val">₹1,100<small>Pearson Versant practice test</small></span>
+        </div>
+        <div class="stack-row">
+          <div><h3>Aptitude mock tests</h3><p>10 timed mocks of 30 questions (quant, reasoning, verbal), unlimited topic practice, step-by-step solutions and a weak-topic report.</p></div>
+          <span class="val">₹699<small>PrepInsta mock subscription</small></span>
+        </div>
+        <div class="stack-row">
+          <div><h3>HR interview answers</h3><p>30 common questions: why they ask, how to answer, a sample fresher answer and what to avoid. Timed speaking practice and a "Tell me about yourself" builder.</p></div>
+          <span class="val">₹499<small>Popular interview kit on Topmate</small></span>
+        </div>
+        <div class="stack-row">
+          <div><h3>Group discussion prep</h3><p>8 rules for a good GD and 10 current topics with points for and against. Speak for a minute and see how much you said.</p></div>
+          <span class="val">₹449<small>Lowest Udemy course price</small></span>
+        </div>
+        <div class="stack-row">
+          <div><h3>Resume checklist</h3><p>25 points for a one-page fresher resume that ATS software can read.</p></div>
+          <span class="val">₹199<small>ATS resume template on Topmate</small></span>
+        </div>
+        <div class="stack-row">
+          <div><h3>Email templates</h3><p>8 ready emails: applying, thank-you after the interview, follow-up, rescheduling, accepting or declining an offer, and more.</p></div>
+          <span class="val">₹170<small>Email template pack on Gumroad ($2)</small></span>
+        </div>
+        <div class="stack-row">
+          <div><h3>7-day plan before your drive</h3><p>What to practise each day, with ticks to track it.</p></div>
+          <span class="val">Included</span>
+        </div>
+        <div class="stack-total">
+          <div class="line"><span>Similar items bought separately</span><span><s>₹3,116</s></span></div>
+          <div class="line big"><span>This kit</span><span>₹99</span></div>
+          <p class="muted" style="font-size: 0.9rem">The full price, with no extra charges at checkout. Less than one mock test elsewhere.</p>
+          <a class="btn btn-primary btn-lg" data-buy="Complete Fresher Interview Kit" data-value="99" href="https://99digiprostore.myinstamojo.com">Get the kit for ₹99 <span class="arr">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="english">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <div class="eyebrow">The English round, part by part</div>
+        <h2>Practise out loud. See exactly what to fix.</h2>
+        <p>Tap the mic and speak. Your phone writes down what it heard and marks the words that didn't come through.</p>
+      </div>
+      <div class="parts6 reveal">
+        <div><span class="ico">1</span><h3>Read aloud</h3><p>Read a sentence clearly. Words that weren't clear show in red.</p></div>
+        <div><span class="ico">2</span><h3>Repeat</h3><p>Hear a sentence once, then say it back. Trains your listening and memory.</p></div>
+        <div><span class="ico">3</span><h3>Short answers</h3><p>"Which month comes after March?" Answer fast in a word or two.</p></div>
+        <div><span class="ico">4</span><h3>Sentence builds</h3><p>Put jumbled word groups in order, then say the sentence.</p></div>
+        <div><span class="ico">5</span><h3>Story retell</h3><p>Hear a short story and retell it in 30 seconds. Tick the key points you covered.</p></div>
+        <div><span class="ico">6</span><h3>Open questions</h3><p>Speak for 40 seconds with a point, a reason and an example. Compare with a sample answer.</p></div>
+      </div>
+      <div class="shots reveal">
+        <figure><img src="img/fresher-kit/read-aloud.jpg" alt="Read aloud practice showing a 93% match with the missed word in red" width="780" height="1560" loading="lazy"><figcaption>Read aloud: 93% match, one word to practise.</figcaption></figure>
+        <figure><img src="img/fresher-kit/sentence-build.jpg" alt="Sentence build practice with jumbled word groups" width="780" height="1560" loading="lazy"><figcaption>Sentence builds: tap the groups in order.</figcaption></figure>
+        <figure><img src="img/fresher-kit/aptitude.jpg" alt="Aptitude question with a step-by-step solution" width="780" height="1560" loading="lazy"><figcaption>Aptitude: every answer explained step by step.</figcaption></figure>
+        <figure><img src="img/fresher-kit/hr-answer.jpg" alt="HR question with why they ask, how to answer and a sample answer" width="780" height="1560" loading="lazy"><figcaption>HR: why they ask, how to answer, a sample.</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="buying" class="alt">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <div class="eyebrow">What happens when you tap Buy</div>
+        <h2>Four quick steps. Your kit in about a minute.</h2>
+        <p>You buy on Instamojo, our secure payment partner. You don't need to make an account.</p>
+      </div>
+      <div class="checkout reveal">
+        <div><span class="n">1</span><h3>Tap Get the kit</h3><p>You go to the kit's page on our Instamojo store.</p></div>
+        <div><span class="n">2</span><h3>Tap Buy Now</h3><p>Enter your name, email and phone number so we know where to send the file.</p></div>
+        <div><span class="n">3</span><h3>Pay ₹99</h3><p>Pay by UPI (GPay, PhonePe, Paytm), card or net banking. ₹99 is the full amount.</p></div>
+        <div><span class="n">4</span><h3>Open it in Chrome</h3><p>Your download link appears straight away and is also sent to your email.</p></div>
+      </div>
+      <div class="safe">
+        <span>We never see your card or UPI details</span>
+        <span>Faulty file? We fix it or replace it</span>
+        <span>Email reply within 24 hours (Mon–Sat)</span>
+      </div>
+      <div style="display: flex; justify-content: center; margin-top: 26px">
+        <a class="btn btn-primary btn-lg" data-buy="Complete Fresher Interview Kit" data-value="99" href="https://99digiprostore.myinstamojo.com">Get the kit for ₹99 <span class="arr">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <div class="eyebrow">Who it's for</div>
+        <h2>Anyone with a fresher drive coming up.</h2>
+      </div>
+      <div class="uses reveal">
+        <div class="use"><b>Final-year students</b><span>BTech, BCom, BSc, BCA, BBA: campus drives from now to March</span></div>
+        <div class="use"><b>2025–26 graduates</b><span>Off-campus drives and walk-ins</span></div>
+        <div class="use"><b>BPO and support roles</b><span>Voice and chat jobs with an English test</span></div>
+        <div class="use"><b>Hindi or regional medium</b><span>Build speaking confidence one sentence at a time</span></div>
+        <div class="use"><b>Anyone who froze last time</b><span>Practise the round that stopped you</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="alt">
+    <div class="wrap">
+      <div class="sec-head center reveal"><div class="eyebrow">Questions</div><h2>Before you buy</h2></div>
+      <div class="faq center">
+        <details><summary>What do I receive?</summary><p>One .html file, by email right after payment. Open it in Google Chrome on your phone or laptop. Your progress is saved on your device.</p></details>
+        <details><summary>How does the speaking check work?</summary><p>It uses Chrome's built-in speech-to-text. Tap the mic, allow it once, and speak. It needs internet for this part. Everything else works offline. It can mishear names or strong accents, so treat it as a guide.</p></details>
+        <details><summary>Is this the official Versant or SVAR test?</summary><p>No. It is our own practice in the same style, with our own sentences and questions. It does not give an official score. We are not linked to Pearson, SHL or any company.</p></details>
+        <details><summary>Does it work on my phone?</summary><p>Yes, on Android phones in Chrome and on any laptop. On iPhone, open it in Chrome; speech check support can vary.</p></details>
+        <details><summary>Will this get me a job?</summary><p>No kit can promise a job or a score. This gives you a structured way to practise every round so you walk in prepared.</p></details>
+        <details><summary>Why is it only ₹99?</summary><p>It's one file with no videos or live classes, so we can keep the price low. The values above show what similar items cost elsewhere.</p></details>
+        <details><summary>What if the file doesn't work?</summary><p>All sales are final, but if a file is faulty we fix it or send a working replacement. See the <a href="policies.html#refunds">refund policy</a>.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap final reveal">
+      <div class="eyebrow">English round · Aptitude · HR · GD · Emails · Resume</div>
+      <h2>Walk into your next drive prepared.</h2>
+      <p class="muted"><s>₹3,116</s> <b style="color: var(--accent); font-size: 1.3rem">₹99</b>, one-time, no extra charges.</p>
+      <div class="cta" style="margin-top: 4px; justify-content: center">
+        <a class="btn btn-primary btn-lg" data-buy="Complete Fresher Interview Kit" data-value="99" href="https://99digiprostore.myinstamojo.com">Get the kit for ₹99 <span class="arr">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-block: 48px">
+    <div class="wrap prose">
+      <h2 style="font-size: 1.25rem; margin-top: 0">Good to know</h2>
+      <ul class="muted" style="font-size: 0.92rem">
+        <li><strong>No promises about results.</strong> The kit does not promise a job, an offer, a test score or that you will pass any round. Practice scores are feedback only.</li>
+        <li><strong>About the values.</strong> "Bought separately" adds up real prices of similar products we found in October 2026 (Pearson Versant practice test, PrepInsta mock subscription, a Topmate interview kit and ATS resume template, the lowest Udemy course price, a $2 Gumroad email pack). Our kit is not the same as those products.</li>
+        <li><strong>Our own material.</strong> All sentences, questions and answers are written by 99DigiProStore. Company and test names are used only to describe the type of round.</li>
+        <li><strong>Personal use.</strong> One buyer, personal use. Please don't share or resell the file.</li>
+      </ul>
+    </div>
+  </section>
+</main>
+<div class="buybar" aria-label="Buy the Complete Fresher Interview Kit">
+  <div><b>₹99</b><small>Every round of a fresher drive</small></div>
+  <a class="btn btn-primary" data-buy="Complete Fresher Interview Kit" data-value="99" href="https://99digiprostore.myinstamojo.com">Get the kit</a>
+</div>
+<footer>
+  <div class="wrap">
+    <div class="foot-row">
+      <a class="logo" href="index.html"><span class="logo-mark">99</span>99DigiProStore</a>
+      <nav class="foot-links" aria-label="Footer">
+        <a href="about.html">About</a><a href="policies.html#terms">Terms</a><a href="policies.html#privacy">Privacy</a><a href="policies.html#refunds">Refunds</a><a href="policies.html#disclaimer">Disclaimer</a><a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+    <p class="disclaimer">99DigiProStore is an independent seller of learning aids and digital tools. Our products are aids, not professional advice, and no result is guaranteed. Versant is a trademark of Pearson and SVAR of SHL; they are named only to describe the type of test. We are not affiliated with or endorsed by them or by any employer.</p>
+  </div>
+</footer>
+</body>
+</html>

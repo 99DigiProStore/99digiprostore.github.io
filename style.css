@@ -132,6 +132,7 @@ section { padding-block: 80px; }
 .thumb.ai, .tile.ai { background: linear-gradient(135deg, #2a1f8f, #6b4cff 60%, #8f7bff); }
 .thumb.excel, .tile.excel { background: linear-gradient(135deg, #0b5d3b, #14935d 60%, #33b97c); }
 .thumb.study, .tile.study { background: linear-gradient(135deg, #1b2f8f, #3d63ff 60%, #6f8bff); }
+.thumb.career, .tile.career { background: linear-gradient(135deg, #0b4f6c, #0e8c7a 60%, #2fc4a8); }
 .thumb.bundle, .tile.bundle { background: linear-gradient(135deg, #7a2e0b, #d9641a 55%, #f29a3a); }
 .tag { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
 .status { font-size: 0.72rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: color-mix(in srgb, var(--ok) 14%, transparent); color: var(--ok); white-space: nowrap; flex-shrink: 0; }
